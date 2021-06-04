@@ -1,6 +1,6 @@
 <template>
   <!--出金 開始-->
-  <div class="outline" style="display:none;" id="take-cash">
+  <div class="outline" id="take-cash">
     <div class="refund-detail-filter-block">
       <div class="refund-detail-filter-main">
         <a href="" class="icon">
@@ -53,122 +53,124 @@
       </div>
     </div>
 
-    <table class="refund-detail-info-block" cellpadding="0" Border="0">
-      <thead class="refund-detail-info-title">
-        <tr>
-          <th>申請狀態</th>
-          <th>申請單號</th>
-          <th>申請出金時間</th>
-          <th>申請幣別</th>
-          <th>申請數量</th>
-          <th>完成出金日期</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status already"></div>
-            已完成
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>2021-02-02 14:00</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            申請中
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>-</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status progress"></div>
-            出金中
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>-</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status already"></div>
-            已完成
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>2021-02-02 14:00</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            申請中
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>-</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status progress"></div>
-            出金中
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>-</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status already"></div>
-            已完成
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>2021-02-02 14:00</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            申請中
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>-</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status progress"></div>
-            出金中
-          </td>
-          <td>abcd456789</td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>-</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="refund-detail-web">
+      <table class="refund-detail-info-block" cellpadding="0" Border="0">
+        <thead class="refund-detail-info-title">
+          <tr>
+            <th>申請狀態</th>
+            <th>申請單號</th>
+            <th>申請出金時間</th>
+            <th>申請幣別</th>
+            <th>申請數量</th>
+            <th>完成出金日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status already"></div>
+              已完成
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>2021-02-02 14:00</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              申請中
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>-</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status progress"></div>
+              出金中
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>-</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status already"></div>
+              已完成
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>2021-02-02 14:00</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              申請中
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>-</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status progress"></div>
+              出金中
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>-</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status already"></div>
+              已完成
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>2021-02-02 14:00</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              申請中
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>-</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status progress"></div>
+              出金中
+            </td>
+            <td>abcd456789</td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!--出金 手機版開始-->
-    <div class="outline">
+    <div class="outline" id="refund-detail-mobile">
       <div class="outblock">
         <div class="mobile-refund-detail-info-block">
           <div class="outline">

@@ -1,6 +1,6 @@
 <template>
   <!--推薦人反佣 開始-->
-  <div class="outline" style="display:none;" id="recommender-refund">
+  <div class="outline" id="recommender-refund">
     <div class="refund-detail-filter-block">
       <div class="refund-detail-filter-main">
         <a href="" class="icon">
@@ -52,117 +52,118 @@
         <input type="date" class="date" />
       </div>
     </div>
-
-    <table class="refund-detail-info-block" cellpadding="0" Border="0">
-      <thead class="refund-detail-info-title">
-        <tr>
-          <th><input type="checkbox" /></th>
-          <th>返佣狀態</th>
-          <th>交易日期</th>
-          <th>交易幣別</th>
-          <th>會員名稱</th>
-          <th>推薦人分組</th>
-          <th>可返佣交易量</th>
-          <th>可返佣數量</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group green">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group bluegreen">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group fair">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group orange">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group lightpurple">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group purple">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td><input type="checkbox" /></td>
-          <td>
-            <div class="status already"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>Rusalba Ruiz</td>
-          <td><div class="group redpurple">高中同學</div></td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="refund-detail-web">
+      <table class="refund-detail-info-block" cellpadding="0" Border="0">
+        <thead class="refund-detail-info-title">
+          <tr>
+            <th><input type="checkbox" /></th>
+            <th>返佣狀態</th>
+            <th>交易日期</th>
+            <th>交易幣別</th>
+            <th>會員名稱</th>
+            <th>推薦人分組</th>
+            <th>可返佣交易量</th>
+            <th>可返佣數量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group green">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group bluegreen">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group fair">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group orange">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group lightpurple">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group purple">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="status already"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>Rusalba Ruiz</td>
+            <td><div class="group redpurple">高中同學</div></td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!--推薦人 手機版開始-->
-    <div class="outline">
+    <div class="outline" id="refund-detail-mobile">
       <div class="outblock">
         <div class="mobile-refund-detail-info-block">
           <div class="outline">

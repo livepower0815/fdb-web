@@ -16,28 +16,28 @@
 
             <div class="refund-detail-menu-out">
               <div class="refund-detail-menu-block">
-                <a href="javascript:void(0)" class="menu active" id="fund-exchange-btn">您的佣金異動紀錄</a>
-                <a href="javascript:void(0)" class="menu" id="personal-refund-btn">個人返佣資訊</a>
-                <a href="javascript:void(0)" class="menu" id="recommender-refund-btn">推薦人返佣資訊</a>
-                <a href="javascript:void(0)" class="menu" id="take-cash-btn">出金申請紀錄</a>
+                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'CommissionTransaction' }" @click="refundShow = 'CommissionTransaction'">您的佣金異動紀錄</a>
+                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'PersonalFeedback' }" @click="refundShow = 'PersonalFeedback'">個人返佣資訊</a>
+                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'Withdrawal' }" @click="refundShow = 'Withdrawal'">推薦人返佣資訊</a>
+                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'Recommender' }" @click="refundShow = 'Recommender'">出金申請紀錄</a>
               </div>
             </div>
 
             <div class="dashboard-chart-color">
               <!--佣金異動紀錄 開始-->
-              <CommissionTransaction />
+              <CommissionTransaction v-if="refundShow === 'CommissionTransaction'" />
               <!--佣金異動紀錄 結束-->
 
               <!--個人反佣 開始-->
-              <PersonalFeedback />
+              <PersonalFeedback v-if="refundShow === 'PersonalFeedback'" />
               <!--個人反佣 結束-->
 
               <!--出金 開始-->
-              <Withdrawal />
+              <Withdrawal v-if="refundShow === 'Withdrawal'" />
               <!--出金 結束-->
 
               <!--推薦人反佣 開始-->
-              <Recommender />
+              <Recommender v-if="refundShow === 'Recommender'" />
               <!--推薦人反佣 結束-->
             </div>
           </div>
@@ -65,7 +65,9 @@ export default {
     Recommender
   },
   data() {
-    return {}
+    return {
+      refundShow: 'CommissionTransaction'
+    }
   }
 }
 </script>

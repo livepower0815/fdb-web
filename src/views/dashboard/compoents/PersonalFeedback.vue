@@ -1,6 +1,6 @@
 <template>
   <!--個人反佣 開始-->
-  <div class="outline" style="display:none;" id="personal-refund">
+  <div class="outline" id="personal-refund">
     <div class="refund-detail-filter-block">
       <div class="refund-detail-filter-main">
         <a href="" class="icon">
@@ -53,112 +53,114 @@
       </div>
     </div>
 
-    <table class="refund-detail-info-block" cellpadding="0" Border="0">
-      <thead class="refund-detail-info-title">
-        <tr>
-          <th>返佣狀態</th>
-          <th>交易日期</th>
-          <th>交易幣別</th>
-          <th>可返佣交易量</th>
-          <th>可返佣數量</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status already"></div>
-            已返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-        <tr class="refund-detail-info-main">
-          <td>
-            <div class="status yet"></div>
-            未返佣
-          </td>
-          <td>2021-02-02 14:00</td>
-          <td>BTC</td>
-          <td>10.000078494</td>
-          <td>10.000078494</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="refund-detail-web">
+      <table class="refund-detail-info-block" cellpadding="0" Border="0">
+        <thead class="refund-detail-info-title">
+          <tr>
+            <th>返佣狀態</th>
+            <th>交易日期</th>
+            <th>交易幣別</th>
+            <th>可返佣交易量</th>
+            <th>可返佣數量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status already"></div>
+              已返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+          <tr class="refund-detail-info-main">
+            <td>
+              <div class="status yet"></div>
+              未返佣
+            </td>
+            <td>2021-02-02 14:00</td>
+            <td>BTC</td>
+            <td>10.000078494</td>
+            <td>10.000078494</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!--個人反擁 手機版開始-->
-    <div class="outline">
+    <div class="outline" id="refund-detail-mobile">
       <div class="outblock">
         <div class="mobile-refund-detail-info-block">
           <div class="outline">
