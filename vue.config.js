@@ -7,7 +7,7 @@ function resolve(dir) {
 const isDev = process.env.NODE_ENV !== 'development'
 
 module.exports = {
-  publicPath: isDev ? '/' : '/fdb-web/dist/',
+  publicPath: '/fdb-web/dist/',
   outputDir: 'dist',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
