@@ -4,8 +4,10 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
+const isDev = process.env.NODE_ENV !== 'development'
+
 module.exports = {
-  publicPath: '/',
+  publicPath: isDev ? '/' : '/fdb-web/dist/',
   outputDir: 'dist',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
@@ -52,7 +54,7 @@ module.exports = {
         .end()
     })
 
-    config.when(process.env.NODE_ENV !== 'development', config => {
+    config.when(isDev, config => {
       config
         .plugin('ScriptExtHtmlWebpackPlugin')
         .after('html')
