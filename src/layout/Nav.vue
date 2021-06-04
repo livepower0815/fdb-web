@@ -28,7 +28,7 @@
     </div>
 
     <!--手機版 menu icon 開始-->
-    <div class="mobile-ham">
+    <div class="mobile-ham" @click="toggleMobileMenu">
       <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.3999 2.00078C17.3999 1.68252 17.2735 1.3773 17.0484 1.15225C16.8234 0.92721 16.5182 0.800781 16.1999 0.800781H1.7999C1.48164 0.800781 1.17642 0.92721 0.951372 1.15225C0.72633 1.3773 0.599901 1.68252 0.599901 2.00078C0.599901 2.31904 0.72633 2.62427 0.951372 2.84931C1.17642 3.07435 1.48164 3.20078 1.7999 3.20078H16.1999C16.5182 3.20078 16.8234 3.07435 17.0484 2.84931C17.2735 2.62427 17.3999 2.31904 17.3999 2.00078Z" fill="white" />
         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.3999 8.00078C17.3999 7.68252 17.2735 7.3773 17.0484 7.15225C16.8234 6.92721 16.5182 6.80078 16.1999 6.80078H8.9999C8.68164 6.80078 8.37642 6.92721 8.15137 7.15225C7.92633 7.3773 7.7999 7.68252 7.7999 8.00078C7.7999 8.31904 7.92633 8.62427 8.15137 8.84931C8.37642 9.07435 8.68164 9.20078 8.9999 9.20078H16.1999C16.5182 9.20078 16.8234 9.07435 17.0484 8.84931C17.2735 8.62427 17.3999 8.31904 17.3999 8.00078Z" fill="white" />
@@ -38,7 +38,7 @@
     <!--手機版menu icon 結束-->
 
     <!--手機版drop開始-->
-    <div class="mobile-drop">
+    <div class="mobile-drop" @click="toggleMobileMenu">
       <div>
         <router-link to="/">FDB首頁</router-link>
         <router-link to="/dashboard">關於FDB</router-link>
@@ -52,7 +52,20 @@
 
 <script>
 export default {
-  name: 'Nav'
+  name: 'Nav',
+  data() {
+    return {
+      mobileDrop: null
+    }
+  },
+  mounted() {
+    // this.mobileDrop
+  },
+  methods: {
+    toggleMobileMenu() {
+      window.$('.mobile-drop').slideToggle()
+    }
+  }
 }
 </script>
 
