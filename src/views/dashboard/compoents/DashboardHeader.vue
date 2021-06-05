@@ -54,10 +54,10 @@
 
       <div class="dashboard-chart-filiter-block">
         <div class="menu">
-          <a href="javascript:void(0)" class="active">全部</a>
-          <a href="javascript:void(0)">個人返佣數量</a>
-          <a href="javascript:void(0)">推薦人返佣數量</a>
-          <a href="javascript:void(0)">出金數量</a>
+          <a :class="{ active: chartSelect === 'all' }" style="cursor: pointer;" @click.prevent="chartSelect = 'all'">全部</a>
+          <a :class="{ active: chartSelect === 'person' }" style="cursor: pointer;" @click.prevent="chartSelect = 'person'">個人返佣數量</a>
+          <a :class="{ active: chartSelect === 'recommender' }" style="cursor: pointer;" @click.prevent="chartSelect = 'recommender'">推薦人返佣數量</a>
+          <a :class="{ active: chartSelect === 'withdraw' }" style="cursor: pointer;" @click.prevent="chartSelect = 'withdraw'">出金數量</a>
         </div>
         <div class="btn">
           <select name="" id="">
@@ -77,7 +77,9 @@
 
       <!--Chart-->
       <div class="dashboard-chart-main">
-        <div id="container"></div>
+        <div id="container">
+          <LineChart ref="linechart" :options="lineChartOptions" :chart-style="{ width: '100%', height: '100%' }" />
+        </div>
       </div>
     </div>
     <!--線條圖 結束-->
@@ -225,8 +227,128 @@
 </template>
 
 <script>
+import LineChart from '@/components/charts/LineChart'
+const series = [
+  {
+    name: '個人返佣數量',
+    type: 'line',
+    stack: '总量',
+    smooth: true,
+    color: '#05d394',
+    data: [120, 132, 101, 134, 90, 230, 210]
+  },
+  {
+    name: '推薦人返佣數量',
+    type: 'line',
+    stack: '总量',
+    smooth: true,
+    color: '#e78f0a',
+    data: [220, 182, 191, 234, 290, 330, 310]
+  },
+  {
+    name: '出金數量',
+    type: 'line',
+    stack: '总量',
+    smooth: true,
+    color: '#eb4664',
+    data: [820, 932, 901, 934, 1290, 1330, 1320]
+  }
+]
+
 export default {
-  name: 'DashboardHeader'
+  name: 'DashboardHeader',
+  components: {
+    LineChart
+  },
+  data() {
+    return {
+      chartSelect: 'all',
+      lineChartOptions: {
+        tooltip: {
+          trigger: 'axis'
+        },
+        grid: {
+          left: '0%',
+          right: '4%',
+          bottom: '0%',
+          top: '4%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'],
+          axisLabel: {
+            color: '#888888'
+          }
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            color: '#888888'
+          }
+        },
+        series: [
+          // 個人返佣數量
+          // 推薦人返佣數量
+          // 出金數量
+          {
+            name: '個人返佣數量',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            color: '#05d394',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '推薦人返佣數量',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            color: '#e78f0a',
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '出金數量',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            color: '#eb4664',
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      }
+    }
+  },
+  watch: {
+    chartSelect(value) {
+      switch (value) {
+        case 'all':
+          this.lineChartOptions.series = series.filter(item => true)
+          break
+        case 'person':
+          this.lineChartOptions.series = series.filter(item => {
+            return item.name === '個人返佣數量'
+          })
+          break
+        case 'recommender':
+          this.lineChartOptions.series = series.filter(item => {
+            return item.name === '推薦人返佣數量'
+          })
+          break
+        case 'withdraw':
+          this.lineChartOptions.series = series.filter(item => {
+            return item.name === '出金數量'
+          })
+          break
+        default:
+          this.lineChartOptions.series = series.filter(item => true)
+          break
+      }
+      // console.log()
+      this.$refs.linechart.$refs.LineChart.refresh()
+    }
+  }
 }
 </script>
 
