@@ -204,25 +204,7 @@
 import LineChart from '@/components/charts/LineChart'
 import moment from 'moment'
 import { formatMoneyInt } from '@/utils/number.js'
-
-// 生產隨機數字
-const randomNumber = (int = 1, dec = 0) => {
-  const numAry = []
-  for (let step = 0; step < int; step++) {
-    if (int > 1 && step === int - 1) {
-      numAry.push(Math.floor(Math.random() * 9) + 1 + '')
-    } else {
-      numAry.push(Math.floor(Math.random() * 10) + '')
-    }
-  }
-  if (dec > 0) {
-    numAry.push('.')
-    for (let step = 0; step < dec; step++) {
-      numAry.push(Math.floor(Math.random() * 10) + '')
-    }
-  }
-  return numAry.join('')
-}
+import { randomNumber } from '@/utils/mock.js'
 
 // 產生天數
 const getDatePeriodRange = (days = 1) => {

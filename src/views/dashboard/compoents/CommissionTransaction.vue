@@ -100,75 +100,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>推薦人</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
+          <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
+            <td>{{ row.txTime }}</td>
+            <td>{{ row.currency }}</td>
+            <td>{{ row.changeType }}</td>
+            <td>{{ row.changeNum }}</td>
+            <td>{{ row.restNum }}</td>
           </tr>
         </tbody>
       </table>
@@ -184,95 +121,26 @@
           </div>
 
           <div class="outline">
-            <div class="mobile-refund-main-block">
+            <div v-for="(row, index) in tableData" :key="index" class="mobile-refund-main-block">
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
+                <span class="right">{{ row.txTime }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
+                <span class="right">{{ row.currency }}</span>
               </div>
               <div class="block">
                 <span class="left">異動類別</span>
-                <span class="right">推薦人</span>
+                <span class="right">{{ row.changeType }}</span>
               </div>
               <div class="block">
                 <span class="left">異動數量</span>
-                <span class="right red">-10.000078494</span>
+                <span class="right red">{{ row.changeNum }}</span>
               </div>
               <div class="block">
                 <span class="left">剩餘數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">異動類別</span>
-                <span class="right">推薦人</span>
-              </div>
-              <div class="block">
-                <span class="left">異動數量</span>
-                <span class="right red">-10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">剩餘數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">異動類別</span>
-                <span class="right">推薦人</span>
-              </div>
-              <div class="block">
-                <span class="left">異動數量</span>
-                <span class="right red">-10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">剩餘數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">異動類別</span>
-                <span class="right">推薦人</span>
-              </div>
-              <div class="block">
-                <span class="left">異動數量</span>
-                <span class="right red">-10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">剩餘數量</span>
-                <span class="right">10.000078494</span>
+                <span class="right">{{ row.restNum }}</span>
               </div>
             </div>
           </div>
@@ -313,6 +181,27 @@
 </template>
 
 <script>
+import { randomNumber, randomDate, randomCurrency } from '@/utils/mock.js'
+
+const getCommissionTransaction = async ({ currencyType, startDate, endDate, pageIndex = 1, pageSize = 10 }) => {
+  const returnData = []
+  for (let i = 0; i < 10; i++) {
+    returnData.push({
+      txTime: randomDate(60), // 交易日期
+      currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
+      changeType: '推薦人', // 異動類別
+      changeNum: Number(randomNumber(2, 8)), // 異動數量
+      restNum: Number(randomNumber(2, 8)) // 剩餘數量
+    })
+  }
+  return {
+    data: returnData.sort((a, b) => (a.txTime < b.txTime ? 1 : -1)),
+    pageIndex: 1,
+    pageSize: 10,
+    pageTotal: 5
+  }
+}
+
 export default {
   name: 'CommissionTransaction',
   props: {
@@ -326,7 +215,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      tableData: []
+    }
   },
   computed: {
     dateRange: {
@@ -343,6 +234,34 @@ export default {
       },
       set(val) {
         this.$emit('update:filterCurrencyType', val)
+      }
+    }
+  },
+  watch: {
+    dateRange() {
+      this.getCommissionTransaction()
+    },
+    currencyType() {
+      this.getCommissionTransaction()
+    }
+  },
+  mounted() {
+    this.getCommissionTransaction()
+  },
+  methods: {
+    async getCommissionTransaction() {
+      try {
+        const queryData = {
+          currencyType: this.currencyType,
+          startDate: this.dateRange[0],
+          endDate: this.dateRange[1],
+          pageIndex: 1,
+          pageSize: 10
+        }
+        const res = await getCommissionTransaction(queryData)
+        this.tableData = res.data
+      } catch (error) {
+        console.error(error)
       }
     }
   }
