@@ -16,10 +16,34 @@
 
             <div class="refund-detail-menu-out">
               <div class="refund-detail-menu-block">
-                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'CommissionTransaction' }" @click="refundShow = 'CommissionTransaction'">您的佣金異動紀錄</a>
-                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'PersonalFeedback' }" @click="refundShow = 'PersonalFeedback'">個人返佣資訊</a>
-                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'Withdrawal' }" @click="refundShow = 'Withdrawal'">推薦人返佣資訊</a>
-                <a href="javascript:void(0)" class="menu" :class="{ active: refundShow === 'Recommender' }" @click="refundShow = 'Recommender'">出金申請紀錄</a>
+                <a
+                  href="javascript:void(0)"
+                  class="menu"
+                  :class="{ active: refundShow === 'CommissionTransaction' }"
+                  @click="refundShow = 'CommissionTransaction'"
+                  >您的佣金異動紀錄</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  class="menu"
+                  :class="{ active: refundShow === 'PersonalFeedback' }"
+                  @click="refundShow = 'PersonalFeedback'"
+                  >個人返佣資訊</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  class="menu"
+                  :class="{ active: refundShow === 'Withdrawal' }"
+                  @click="refundShow = 'Withdrawal'"
+                  >推薦人返佣資訊</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  class="menu"
+                  :class="{ active: refundShow === 'Recommender' }"
+                  @click="refundShow = 'Recommender'"
+                  >出金申請紀錄</a
+                >
               </div>
             </div>
 
