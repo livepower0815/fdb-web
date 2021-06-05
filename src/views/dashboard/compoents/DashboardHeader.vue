@@ -20,7 +20,7 @@
             </div>
             <div class="word">個人返佣數量</div>
           </div>
-          <div class="sub green">7.245</div>
+          <div class="sub green">{{ dashboardChart.personValue }}</div>
         </div>
 
         <div class="block">
@@ -35,7 +35,7 @@
             </div>
             <div class="word">推薦人返佣數量</div>
           </div>
-          <div class="sub orange">7.245</div>
+          <div class="sub orange">{{ dashboardChart.recommenderValue }}</div>
         </div>
 
         <div class="block">
@@ -54,7 +54,7 @@
             </div>
             <div class="word">出金數量</div>
           </div>
-          <div class="sub red">7.245</div>
+          <div class="sub red">{{ dashboardChart.withdrawValue }}</div>
         </div>
       </div>
 
@@ -287,32 +287,67 @@
 
 <script>
 import LineChart from '@/components/charts/LineChart'
-const series = [
-  {
-    name: '個人返佣數量',
-    type: 'line',
-    stack: '总量',
-    smooth: true,
-    color: '#05d394',
-    data: [120, 132, 101, 134, 90, 230, 210]
-  },
-  {
-    name: '推薦人返佣數量',
-    type: 'line',
-    stack: '总量',
-    smooth: true,
-    color: '#e78f0a',
-    data: [220, 182, 191, 234, 290, 330, 310]
-  },
-  {
-    name: '出金數量',
-    type: 'line',
-    stack: '总量',
-    smooth: true,
-    color: '#eb4664',
-    data: [820, 932, 901, 934, 1290, 1330, 1320]
+import moment from 'moment'
+import { formatMoneyInt } from '@/utils/number.js'
+
+// 生產隨機數字
+const randomNumber = (int = 1, dec = 0) => {
+  const numAry = []
+  for (let step = 0; step < int; step++) {
+    if (int > 1 && step === int - 1) {
+      numAry.push(Math.floor(Math.random() * 9) + 1 + '')
+    } else {
+      numAry.push(Math.floor(Math.random() * 10) + '')
+    }
   }
-]
+  if (dec > 0) {
+    numAry.push('.')
+    for (let step = 0; step < dec; step++) {
+      numAry.push(Math.floor(Math.random() * 10) + '')
+    }
+  }
+  return numAry.join('')
+}
+
+// 產生天數
+const getDatePeriodRange = (days = 1) => {
+  const dayList = []
+  for (let i = 0; i < days; i++) {
+    dayList.push(
+      moment()
+        .subtract(days - i, 'days')
+        .format('M/D')
+    )
+  }
+  return dayList
+}
+
+const getDashboardChart = async ({ dateRange, currencyType }) => {
+  let days = 7
+  if (dateRange === 'week') {
+    days = 7
+  }
+  if (dateRange === 'mouth') {
+    days = 30
+  }
+  if (dateRange === 'quarter') {
+    days = 90
+  }
+
+  return {
+    personValue: randomNumber(4),
+    recommenderValue: randomNumber(4),
+    withdrawValue: randomNumber(4),
+    dates: getDatePeriodRange(days).map(item => {
+      return {
+        date: item,
+        personValue: randomNumber(3),
+        recommenderValue: randomNumber(3),
+        withdrawValue: randomNumber(3)
+      }
+    })
+  }
+}
 
 export default {
   name: 'DashboardHeader',
@@ -322,6 +357,9 @@ export default {
   data() {
     return {
       dashboardChart: {
+        personValue: '0',
+        recommenderValue: '0',
+        withdrawValue: '0',
         chartSelect: 'all',
         dateRange: 'week',
         currencyType: 'BTC'
@@ -340,7 +378,7 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'],
+          data: [],
           axisLabel: {
             color: '#888888'
           }
@@ -351,64 +389,94 @@ export default {
             color: '#888888'
           }
         },
-        series: [
-          // 個人返佣數量
-          // 推薦人返佣數量
-          // 出金數量
-          {
-            name: '個人返佣數量',
-            type: 'line',
-            stack: '总量',
-            smooth: true,
-            color: '#05d394',
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: '推薦人返佣數量',
-            type: 'line',
-            stack: '总量',
-            smooth: true,
-            color: '#e78f0a',
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: '出金數量',
-            type: 'line',
-            stack: '总量',
-            smooth: true,
-            color: '#eb4664',
-            data: [820, 932, 901, 934, 1290, 1330, 1320]
-          }
-        ]
-      }
+        series: []
+      },
+      seriesData: [
+        {
+          name: '個人返佣數量',
+          type: 'line',
+          stack: '总量',
+          smooth: true,
+          color: '#05d394',
+          data: []
+        },
+        {
+          name: '推薦人返佣數量',
+          type: 'line',
+          stack: '总量',
+          smooth: true,
+          color: '#e78f0a',
+          data: []
+        },
+        {
+          name: '出金數量',
+          type: 'line',
+          stack: '总量',
+          smooth: true,
+          color: '#eb4664',
+          data: []
+        }
+      ]
     }
   },
   watch: {
     'dashboardChart.chartSelect'(value) {
-      switch (value) {
+      this.setChartData(value)
+    },
+    'dashboardChart.dateRange'() {
+      this.getDashboardChart()
+    },
+    'dashboardChart.currencyType'() {
+      this.getDashboardChart()
+    }
+  },
+  mounted() {
+    this.getDashboardChart()
+  },
+  methods: {
+    async getDashboardChart() {
+      try {
+        const queryData = {
+          dateRange: this.dashboardChart.dateRange,
+          currencyType: this.dashboardChart.currencyType
+        }
+        const res = await getDashboardChart(queryData)
+        this.dashboardChart.personValue = formatMoneyInt(res.personValue)
+        this.dashboardChart.recommenderValue = formatMoneyInt(res.recommenderValue)
+        this.dashboardChart.withdrawValue = formatMoneyInt(res.withdrawValue)
+        this.lineChartOptions.xAxis.data = res.dates.map(item => item.date)
+        this.seriesData[0].data = res.dates.map(item => item.personValue)
+        this.seriesData[1].data = res.dates.map(item => item.recommenderValue)
+        this.seriesData[2].data = res.dates.map(item => item.withdrawValue)
+        this.setChartData(this.dashboardChart.chartSelect)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    setChartData(mode) {
+      switch (mode) {
         case 'all':
-          this.lineChartOptions.series = series.filter(item => true)
+          this.lineChartOptions.series = this.seriesData.filter(item => true)
           break
         case 'person':
-          this.lineChartOptions.series = series.filter(item => {
+          this.lineChartOptions.series = this.seriesData.filter(item => {
             return item.name === '個人返佣數量'
           })
           break
         case 'recommender':
-          this.lineChartOptions.series = series.filter(item => {
+          this.lineChartOptions.series = this.seriesData.filter(item => {
             return item.name === '推薦人返佣數量'
           })
           break
         case 'withdraw':
-          this.lineChartOptions.series = series.filter(item => {
+          this.lineChartOptions.series = this.seriesData.filter(item => {
             return item.name === '出金數量'
           })
           break
         default:
-          this.lineChartOptions.series = series.filter(item => true)
+          this.lineChartOptions.series = this.seriesData.filter(item => true)
           break
       }
-      // console.log()
       this.$refs.linechart.$refs.LineChart.refresh()
     }
   }
