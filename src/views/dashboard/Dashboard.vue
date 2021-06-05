@@ -96,13 +96,6 @@ import Withdrawal from './compoents/Withdrawal'
 import Recommender from './compoents/Recommender'
 import moment from 'moment'
 
-console.log([
-  moment()
-    .subtract(7, 'days')
-    .format('yyyy-MM-DD'),
-  moment().format('yyyy-MM-DD')
-])
-
 export default {
   name: 'Dashboard',
   components: {
