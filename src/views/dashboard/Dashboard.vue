@@ -49,19 +49,35 @@
 
             <div class="dashboard-chart-color">
               <!--佣金異動紀錄 開始-->
-              <CommissionTransaction v-if="refundShow === 'CommissionTransaction'" />
+              <CommissionTransaction
+                v-if="refundShow === 'CommissionTransaction'"
+                :filterCurrencyType.sync="refundFilter.currencyType"
+                :filterDateRange.sync="refundFilter.dateRange"
+              />
               <!--佣金異動紀錄 結束-->
 
               <!--個人反佣 開始-->
-              <PersonalFeedback v-if="refundShow === 'PersonalFeedback'" />
+              <PersonalFeedback
+                v-if="refundShow === 'PersonalFeedback'"
+                :filterCurrencyType.sync="refundFilter.currencyType"
+                :filterDateRange.sync="refundFilter.dateRange"
+              />
               <!--個人反佣 結束-->
 
               <!--出金 開始-->
-              <Withdrawal v-if="refundShow === 'Withdrawal'" />
+              <Withdrawal
+                v-if="refundShow === 'Withdrawal'"
+                :filterCurrencyType.sync="refundFilter.currencyType"
+                :filterDateRange.sync="refundFilter.dateRange"
+              />
               <!--出金 結束-->
 
               <!--推薦人反佣 開始-->
-              <Recommender v-if="refundShow === 'Recommender'" />
+              <Recommender
+                v-if="refundShow === 'Recommender'"
+                :filterCurrencyType.sync="refundFilter.currencyType"
+                :filterDateRange.sync="refundFilter.dateRange"
+              />
               <!--推薦人反佣 結束-->
             </div>
           </div>
@@ -78,6 +94,14 @@ import CommissionTransaction from './compoents/CommissionTransaction'
 import PersonalFeedback from './compoents/PersonalFeedback'
 import Withdrawal from './compoents/Withdrawal'
 import Recommender from './compoents/Recommender'
+import moment from 'moment'
+
+console.log([
+  moment()
+    .subtract(7, 'days')
+    .format('yyyy-MM-DD'),
+  moment().format('yyyy-MM-DD')
+])
 
 export default {
   name: 'Dashboard',
@@ -90,7 +114,16 @@ export default {
   },
   data() {
     return {
-      refundShow: 'CommissionTransaction'
+      refundShow: 'CommissionTransaction',
+      refundFilter: {
+        currencyType: 'all',
+        dateRange: [
+          moment()
+            .subtract(7, 'days')
+            .format('yyyy-MM-DD'),
+          moment().format('yyyy-MM-DD')
+        ]
+      }
     }
   }
 }
