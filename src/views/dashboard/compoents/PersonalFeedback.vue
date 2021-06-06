@@ -99,95 +99,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
+          <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
+            <td v-if="row.rebateStatus === 0">
               <div class="status yet"></div>
               未返佣
             </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
+            <td v-if="row.rebateStatus === 1">
               <div class="status already"></div>
               已返佣
             </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
+            <td>{{ row.txDate }}</td>
+            <td>{{ row.currency }}</td>
+            <td>{{ row.canRebatePoint }}</td>
+            <td>{{ row.canRebatValue }}</td>
           </tr>
         </tbody>
       </table>
@@ -203,159 +127,33 @@
           </div>
 
           <div class="outline">
-            <div class="mobile-refund-main-block">
+            <div v-for="(row, index) in tableData" :key="index" class="mobile-refund-main-block">
               <div class="block">
                 <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  未返佣</span
-                >
+                <span v-if="row.rebateStatus === 0" class="right">
+                  <div class="status yet"></div>
+                  未返佣
+                </span>
+                <span v-if="row.rebateStatus === 1" class="right">
+                  <div class="status already"></div>
+                  已返佣
+                </span>
               </div>
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
+                <span class="right">{{ row.txDate }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
+                <span class="right">{{ row.currency }}</span>
               </div>
               <div class="block">
                 <span class="left">可返佣交易量</span>
-                <span class="right red">10.000078494</span>
+                <span class="right red">{{ row.canRebatePoint }}</span>
               </div>
               <div class="block">
                 <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  未返佣</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right red">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  未返佣</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right red">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  未返佣</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right red">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  未返佣</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right red">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  未返佣</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right red">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
+                <span class="right">{{ row.canRebatValue }}</span>
               </div>
             </div>
           </div>
@@ -397,6 +195,27 @@
 </template>
 
 <script>
+import { randomNumber, randomDate, randomCurrency } from '@/utils/mock.js'
+
+const getPersonalFeedback = async ({ currencyType, startDate, endDate, pageIndex = 1, pageSize = 10 }) => {
+  const returnData = []
+  for (let i = 0; i < 10; i++) {
+    returnData.push({
+      rebateStatus: Math.floor(Math.random() * 2), // 0 未反佣, 1 已反佣
+      txDate: randomDate(60), // 交易日期
+      currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
+      canRebatePoint: Number(randomNumber(2, 8)), // 可返佣交易量
+      canRebatValue: Number(randomNumber(2, 8)) // 可返佣數量
+    })
+  }
+  return {
+    data: returnData.sort((a, b) => (a.txDate < b.txDate ? 1 : -1)),
+    pageIndex: 1,
+    pageSize: 10,
+    pageTotal: 5
+  }
+}
+
 export default {
   name: 'PersonalFeedback',
   props: {
@@ -410,7 +229,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      tableData: []
+    }
   },
   computed: {
     dateRange: {
@@ -427,6 +248,34 @@ export default {
       },
       set(val) {
         this.$emit('update:filterCurrencyType', val)
+      }
+    }
+  },
+  watch: {
+    dateRange() {
+      this.getPersonalFeedback()
+    },
+    currencyType() {
+      this.getPersonalFeedback()
+    }
+  },
+  mounted() {
+    this.getPersonalFeedback()
+  },
+  methods: {
+    async getPersonalFeedback() {
+      try {
+        const queryData = {
+          currencyType: this.currencyType,
+          startDate: this.dateRange[0],
+          endDate: this.dateRange[1],
+          pageIndex: 1,
+          pageSize: 10
+        }
+        const res = await getPersonalFeedback(queryData)
+        this.tableData = res.data
+      } catch (error) {
+        console.error(error)
       }
     }
   }

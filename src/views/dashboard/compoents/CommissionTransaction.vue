@@ -101,7 +101,7 @@
         </thead>
         <tbody>
           <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
-            <td>{{ row.txTime }}</td>
+            <td>{{ row.txDate }}</td>
             <td>{{ row.currency }}</td>
             <td>{{ row.changeType }}</td>
             <td>{{ row.changeNum }}</td>
@@ -124,7 +124,7 @@
             <div v-for="(row, index) in tableData" :key="index" class="mobile-refund-main-block">
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">{{ row.txTime }}</span>
+                <span class="right">{{ row.txDate }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
@@ -187,7 +187,7 @@ const getCommissionTransaction = async ({ currencyType, startDate, endDate, page
   const returnData = []
   for (let i = 0; i < 10; i++) {
     returnData.push({
-      txTime: randomDate(60), // 交易日期
+      txDate: randomDate(60), // 交易日期
       currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
       changeType: '推薦人', // 異動類別
       changeNum: Number(randomNumber(2, 8)), // 異動數量
@@ -195,7 +195,7 @@ const getCommissionTransaction = async ({ currencyType, startDate, endDate, page
     })
   }
   return {
-    data: returnData.sort((a, b) => (a.txTime < b.txTime ? 1 : -1)),
+    data: returnData.sort((a, b) => (a.txDate < b.txDate ? 1 : -1)),
     pageIndex: 1,
     pageSize: 10,
     pageTotal: 5
