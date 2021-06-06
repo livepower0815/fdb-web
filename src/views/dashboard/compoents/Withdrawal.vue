@@ -100,104 +100,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="refund-detail-info-main">
+          <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
             <td>
-              <div class="status already"></div>
-              已完成
+              <template v-if="row.rebatStatus === 0">
+                <div class="status yet"></div>
+                申請中
+              </template>
+              <template v-if="row.rebatStatus === 1">
+                <div class="status progress"></div>
+                出金中
+              </template>
+              <template v-if="row.rebatStatus === 2">
+                <div class="status already"></div>
+                已完成
+              </template>
             </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>2021-02-02 14:00</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              申請中
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>-</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status progress"></div>
-              出金中
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>-</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status already"></div>
-              已完成
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>2021-02-02 14:00</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              申請中
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>-</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status progress"></div>
-              出金中
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>-</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status already"></div>
-              已完成
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>2021-02-02 14:00</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status yet"></div>
-              申請中
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>-</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td>
-              <div class="status progress"></div>
-              出金中
-            </td>
-            <td>abcd456789</td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>10.000078494</td>
-            <td>-</td>
+            <td>{{ row.orderNum }}</td>
+            <td>{{ row.orderDate }}</td>
+            <td>{{ row.currency }}</td>
+            <td>{{ row.orderValue }}</td>
+            <td>{{ row.finishDate }}</td>
           </tr>
         </tbody>
       </table>
@@ -213,93 +135,41 @@
           </div>
 
           <div class="outline">
-            <div class="mobile-refund-main-block">
+            <div v-for="(row, index) in tableData" :key="index" class="mobile-refund-main-block">
               <div class="block">
                 <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  申請中</span
-                >
+                <span v-if="row.rebatStatus === 0" class="right">
+                  <div class="status yet"></div>
+                  申請中
+                </span>
+                <span v-if="row.rebatStatus === 1" class="right">
+                  <div class="status progress"></div>
+                  出金中
+                </span>
+                <span v-if="row.rebatStatus === 2" class="right">
+                  <div class="status already"></div>
+                  已完成
+                </span>
               </div>
               <div class="block">
                 <span class="left">申請單號</span>
-                <span class="right">abcd456789</span>
+                <span class="right">{{ row.orderNum }}</span>
               </div>
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
+                <span class="right">{{ row.orderDate }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
-                <span class="right red">BTC</span>
+                <span class="right red">{{ row.currency }}</span>
               </div>
               <div class="block">
                 <span class="left">申請數量</span>
-                <span class="right">10.000078494</span>
+                <span class="right">{{ row.orderValue }}</span>
               </div>
               <div class="block">
                 <span class="left">完成出金日期</span>
-                <span class="right">-</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status progress"></div>
-                  出金中</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">申請單號</span>
-                <span class="right">abcd456789</span>
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right red">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">申請數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">完成出金日期</span>
-                <span class="right">-</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status already"></div>
-                  已完成</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">申請單號</span>
-                <span class="right">abcd456789</span>
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right red">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">申請數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-              <div class="block">
-                <span class="left">完成出金日期</span>
-                <span class="right">2021-02-02 14:00</span>
+                <span class="right">{{ row.finishDate }}</span>
               </div>
             </div>
           </div>
@@ -341,6 +211,28 @@
 </template>
 
 <script>
+import { randomNumber, randomDate, randomCurrency } from '@/utils/mock.js'
+
+const getWithdrawal = async ({ currencyType, startDate, endDate, pageIndex = 1, pageSize = 10 }) => {
+  const returnData = []
+  for (let i = 0; i < 10; i++) {
+    returnData.push({
+      rebatStatus: Math.floor(Math.random() * 3), // 0 申請中, 1 出金中 2 已完成  申請狀態
+      orderNum: 'abcd456789', // 申請單號
+      orderDate: randomDate(60), // 申請出金時間
+      currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
+      orderValue: Number(randomNumber(2, 8)), // 申請數量
+      finishDate: randomDate(60, 60) // 	完成出金日期
+    })
+  }
+  return {
+    data: returnData.sort((a, b) => (a.orderDate < b.orderDate ? 1 : -1)),
+    pageIndex: 1,
+    pageSize: 10,
+    pageTotal: 5
+  }
+}
+
 export default {
   name: 'Withdrawal',
   props: {
@@ -354,7 +246,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      tableData: []
+    }
   },
   computed: {
     dateRange: {
@@ -371,6 +265,34 @@ export default {
       },
       set(val) {
         this.$emit('update:filterCurrencyType', val)
+      }
+    }
+  },
+  watch: {
+    dateRange() {
+      this.getWithdrawal()
+    },
+    currencyType() {
+      this.getWithdrawal()
+    }
+  },
+  mounted() {
+    this.getWithdrawal()
+  },
+  methods: {
+    async getWithdrawal() {
+      try {
+        const queryData = {
+          currencyType: this.currencyType,
+          startDate: this.dateRange[0],
+          endDate: this.dateRange[1],
+          pageIndex: 1,
+          pageSize: 10
+        }
+        const res = await getWithdrawal(queryData)
+        this.tableData = res.data
+      } catch (error) {
+        console.error(error)
       }
     }
   }

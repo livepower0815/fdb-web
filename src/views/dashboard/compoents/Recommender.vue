@@ -86,6 +86,7 @@
         ></el-date-picker>
       </div>
     </div>
+
     <div id="refund-detail-web">
       <table class="refund-detail-info-block" cellpadding="0" Border="0">
         <thead class="refund-detail-info-title">
@@ -357,6 +358,27 @@
 </template>
 
 <script>
+// import { randomNumber, randomDate, randomCurrency } from '@/utils/mock.js'
+
+// const getRecommender = async ({ currencyType, startDate, endDate, pageIndex = 1, pageSize = 10 }) => {
+//   const returnData = []
+//   for (let i = 0; i < 10; i++) {
+//     returnData.push({
+//       txDate: randomDate(60), // 交易日期
+//       currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
+//       changeType: '推薦人', // 異動類別
+//       changeNum: Number(randomNumber(2, 8)), // 異動數量
+//       restNum: Number(randomNumber(2, 8)) // 剩餘數量
+//     })
+//   }
+//   return {
+//     data: returnData.sort((a, b) => (a.txDate < b.txDate ? 1 : -1)),
+//     pageIndex: 1,
+//     pageSize: 10,
+//     pageTotal: 5
+//   }
+// }
+
 export default {
   name: 'Recommender',
   props: {
@@ -370,7 +392,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      tableData: []
+    }
   },
   computed: {
     dateRange: {
@@ -390,6 +414,34 @@ export default {
       }
     }
   }
+  // watch: {
+  //   dateRange() {
+  //     this.getCommissionTransaction()
+  //   },
+  //   currencyType() {
+  //     this.getCommissionTransaction()
+  //   }
+  // },
+  // mounted() {
+  //   this.getCommissionTransaction()
+  // },
+  // methods: {
+  //   async getCommissionTransaction() {
+  //     try {
+  //       const queryData = {
+  //         currencyType: this.currencyType,
+  //         startDate: this.dateRange[0],
+  //         endDate: this.dateRange[1],
+  //         pageIndex: 1,
+  //         pageSize: 10
+  //       }
+  //       const res = await getCommissionTransaction(queryData)
+  //       this.tableData = res.data
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  // }
 }
 </script>
 

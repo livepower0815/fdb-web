@@ -20,7 +20,11 @@ export const randomNumber = (int = 1, dec = 0) => {
 }
 
 // 產生隨機日期 預設隨機七天相對於今日前
-export const randomDate = (rangeDaysByNow = 7, format = 'yyyy-MM-DD HH:mm') => {
+export const randomDate = (rangeDaysByNow = 7, blank = 0, format = 'yyyy-MM-DD HH:mm') => {
+  if (blank > 0) {
+    const isBlank = Math.floor(Math.random() * 100) < blank
+    if (isBlank) return '-'
+  }
   const randomDay = Math.floor(Math.random() * rangeDaysByNow) + 1
   return moment()
     .subtract(randomDay, 'days')

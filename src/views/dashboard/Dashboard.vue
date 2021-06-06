@@ -33,15 +33,15 @@
                 <a
                   href="javascript:void(0)"
                   class="menu"
-                  :class="{ active: refundShow === 'Withdrawal' }"
-                  @click="refundShow = 'Withdrawal'"
+                  :class="{ active: refundShow === 'Recommender' }"
+                  @click="refundShow = 'Recommender'"
                   >推薦人返佣資訊</a
                 >
                 <a
                   href="javascript:void(0)"
                   class="menu"
-                  :class="{ active: refundShow === 'Recommender' }"
-                  @click="refundShow = 'Recommender'"
+                  :class="{ active: refundShow === 'Withdrawal' }"
+                  @click="refundShow = 'Withdrawal'"
                   >出金申請紀錄</a
                 >
               </div>
@@ -64,14 +64,6 @@
               />
               <!--個人反佣 結束-->
 
-              <!--出金 開始-->
-              <Withdrawal
-                v-if="refundShow === 'Withdrawal'"
-                :filterCurrencyType.sync="refundFilter.currencyType"
-                :filterDateRange.sync="refundFilter.dateRange"
-              />
-              <!--出金 結束-->
-
               <!--推薦人反佣 開始-->
               <Recommender
                 v-if="refundShow === 'Recommender'"
@@ -79,6 +71,14 @@
                 :filterDateRange.sync="refundFilter.dateRange"
               />
               <!--推薦人反佣 結束-->
+
+              <!--出金 開始-->
+              <Withdrawal
+                v-if="refundShow === 'Withdrawal'"
+                :filterCurrencyType.sync="refundFilter.currencyType"
+                :filterDateRange.sync="refundFilter.dateRange"
+              />
+              <!--出金 結束-->
             </div>
           </div>
         </div>
