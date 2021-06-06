@@ -134,8 +134,14 @@
 .dashboard-coin-block{width:100%;max-width:522px;height:auto;float:left;}
 .dashboard-coin-block>div.exchange{width:calc(100% - 56px);height:33px;float:left;box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);margin-bottom:11px;border-radius:6px;padding:23px 28px;background-color: #151923;}
 .dashboard-coin-block>div.exchange>div.title{width:auto;height:auto;line-height:37px;font-size:24px;font-weight:700;float: left;}
-.dashboard-coin-block>div.exchange>a.drop{width:auto;height:auto;float:right;}
+.dashboard-coin-block>div.exchange>a.drop{width:auto;max-width:141px;height:auto;float:right;}
+.dashboard-coin-block>div.exchange>a.drop>img{width:auto;height:auto;float:left;}
 .dashboard-coin-block>div.exchange>a.drop>div.drop-icon{width:0;height:0;float: right;border-style: solid;border-width: 9.5px 7.475px 0 7.475px;border-color: #fff transparent transparent transparent;margin:12px 0 12px 29px;}
+.drop-block{width:100%;height:auto;float: left;background-color:white;position: relative;z-index: 1;margin-top:20px;border-radius:0 0 5px 5px;overflow:hidden;display:none;}
+.drop-block>div{width:calc(100% - 16px);height:auto;float: left;padding:7px 0px 7px 16px;}
+.drop-block>div:hover{background:#EFF2F7;}
+.drop-block>div>img{width:auto;display:block;}
+
 
 
 .dashboard-coin-block>div.earn{width:calc(100% - 54px);height:318px;float:left;box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);margin-bottom:11px;border-radius:6px;padding:26px 27px;background-color: #151923;}
