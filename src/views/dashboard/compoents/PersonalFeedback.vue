@@ -109,7 +109,7 @@
               <div class="status already"></div>
               已返佣
             </td>
-            <td>{{ row.txDate }}</td>
+            <td>{{ formatDate(row.txDate) }}</td>
             <td>{{ currencyMap[row.currency] }}</td>
             <td>{{ row.canRebatePoint }}</td>
             <td>{{ row.canRebatValue }}</td>
@@ -142,7 +142,7 @@
               </div>
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">{{ row.txDate }}</span>
+                <span class="right">{{ formatDate(row.txDate) }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
@@ -198,6 +198,7 @@
 <script>
 import { getPersonalFeedback } from '@/apis/dashboard.js'
 import { currencyMap } from '@/utils/map.js'
+import moment from 'moment'
 
 export default {
   name: 'PersonalFeedback',
@@ -264,6 +265,9 @@ export default {
         console.error(error)
       }
       this.isLoading = false
+    },
+    formatDate(date) {
+      return moment(date).format('YYYY-MM-DD HH:mm')
     }
   }
 }

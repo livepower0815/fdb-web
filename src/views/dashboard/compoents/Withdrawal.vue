@@ -117,10 +117,10 @@
               </template>
             </td>
             <td>{{ row.orderNum }}</td>
-            <td>{{ row.orderDate }}</td>
-            <td>{{ row.currency }}</td>
+            <td>{{ formatDate(row.orderDate) }}</td>
+            <td>{{ currencyMap[row.currency] }}</td>
             <td>{{ row.orderValue }}</td>
-            <td>{{ row.finishDate }}</td>
+            <td>{{ formatDate(row.finishDate) }}</td>
           </tr>
         </tbody>
       </table>
@@ -158,11 +158,11 @@
               </div>
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">{{ row.orderDate }}</span>
+                <span class="right">{{ formatDate(row.orderDate) }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
-                <span class="right red">{{ row.currency }}</span>
+                <span class="right red">{{ currencyMap[row.currency] }}</span>
               </div>
               <div class="block">
                 <span class="left">申請數量</span>
@@ -170,7 +170,7 @@
               </div>
               <div class="block">
                 <span class="left">完成出金日期</span>
-                <span class="right">{{ row.finishDate }}</span>
+                <span class="right">{{ formatDate(row.finishDate) }}</span>
               </div>
             </div>
           </div>
@@ -213,27 +213,8 @@
 
 <script>
 import { currencyMap } from '@/utils/map.js'
-import { randomNumber, randomDate, randomCurrency } from '@/utils/mock.js'
-
-const getWithdrawal = async ({ currencyType, startDate, endDate, pageIndex = 1, pageSize = 10 }) => {
-  const returnData = []
-  for (let i = 0; i < 10; i++) {
-    returnData.push({
-      rebatStatus: Math.floor(Math.random() * 3), // 0 申請中, 1 出金中 2 已完成  申請狀態
-      orderNum: 'abcd456789', // 申請單號
-      orderDate: randomDate(60), // 申請出金時間
-      currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
-      orderValue: Number(randomNumber(2, 8)), // 申請數量
-      finishDate: randomDate(60, 60) // 	完成出金日期
-    })
-  }
-  return {
-    data: returnData.sort((a, b) => (a.orderDate < b.orderDate ? 1 : -1)),
-    pageIndex: 1,
-    pageSize: 10,
-    pageTotal: 5
-  }
-}
+import { getWithdrawal } from '@/apis/dashboard.js'
+import moment from 'moment'
 
 export default {
   name: 'Withdrawal',
@@ -285,6 +266,7 @@ export default {
   },
   methods: {
     async getWithdrawal() {
+      this.isLoading = true
       try {
         const queryData = {
           currencyType: this.currencyType,
@@ -298,6 +280,10 @@ export default {
       } catch (error) {
         console.error(error)
       }
+      this.isLoading = false
+    },
+    formatDate(date) {
+      return moment(date).format('YYYY-MM-DD HH:mm')
     }
   }
 }

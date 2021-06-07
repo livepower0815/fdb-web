@@ -103,97 +103,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="refund-detail-info-main">
+          <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
             <td><input type="checkbox" /></td>
             <td>
-              <div class="status yet"></div>
-              未返佣
+              <template v-if="row.rebateStatus === 0">
+                <div class="status yet"></div>
+                未返佣
+              </template>
+              <template v-if="row.rebateStatus === 1">
+                <div class="status already"></div>
+                已返佣
+              </template>
             </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group green">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td><input type="checkbox" /></td>
+            <td>{{ formatDate(row.txDate) }}</td>
+            <td>{{ currencyMap[row.currency] }}</td>
+            <td>{{ row.name }}</td>
             <td>
-              <div class="status yet"></div>
-              未返佣
+              <div class="group green">{{ row.rgName }}</div>
             </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group bluegreen">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
+            <td>{{ row.canRebatePoint }}</td>
+            <td>{{ row.canRebatValue }}</td>
           </tr>
-          <tr class="refund-detail-info-main">
-            <td><input type="checkbox" /></td>
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group fair">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td><input type="checkbox" /></td>
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group orange">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td><input type="checkbox" /></td>
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group lightpurple">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td><input type="checkbox" /></td>
-            <td>
-              <div class="status yet"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group purple">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
-          <tr class="refund-detail-info-main">
-            <td><input type="checkbox" /></td>
-            <td>
-              <div class="status already"></div>
-              未返佣
-            </td>
-            <td>2021-02-02 14:00</td>
-            <td>BTC</td>
-            <td>Rusalba Ruiz</td>
-            <td><div class="group redpurple">高中同學</div></td>
-            <td>10.000078494</td>
-            <td>10.000078494</td>
-          </tr>
+          <!-- <td><div class="group green">高中同學</div></td>
+          <td><div class="group bluegreen">高中同學</div></td>
+          <td><div class="group fair">高中同學</div></td>
+          <td><div class="group orange">高中同學</div></td>
+          <td><div class="group lightpurple">高中同學</div></td>
+          <td><div class="group purple">高中同學</div></td>
+          <td><div class="group redpurple">高中同學</div></td> -->
         </tbody>
       </table>
     </div>
@@ -210,114 +147,46 @@
           </div>
 
           <div class="outline">
-            <div class="mobile-refund-main-block">
+            <div v-for="(row, index) in tableData" :key="index" class="mobile-refund-main-block">
               <div class="block">
                 <input type="checkbox" />
               </div>
               <div class="block">
                 <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  申請中</span
-                >
+                <span v-if="row.rebateStatus === 0" class="right">
+                  <div class="status yet"></div>
+                  未返佣
+                </span>
+                <span v-if="row.rebateStatus === 1" class="right">
+                  <div class="status already"></div>
+                  已返佣
+                </span>
               </div>
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
+                <span class="right">{{ formatDate(row.txDate) }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
-                <span class="right red">BTC</span>
+                <span class="right red">{{ currencyMap[row.currency] }}</span>
               </div>
               <div class="block">
                 <span class="left">會員名稱</span>
-                <span class="right">Rusalba Ruiz</span>
+                <span class="right">{{ row.name }}</span>
               </div>
               <div class="block">
                 <span class="left">推薦人組別</span>
-                <span class="right"><div class="mobile-recomand-group">高中同學</div></span>
+                <span class="right">
+                  <div class="mobile-recomand-group">{{ row.rgName }}</div>
+                </span>
               </div>
               <div class="block">
                 <span class="left">可返佣交易量</span>
-                <span class="right">2,007.83965473</span>
+                <span class="right">{{ row.canRebatePoint }}</span>
               </div>
               <div class="block">
                 <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <input type="checkbox" />
-              </div>
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  申請中</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right red">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">會員名稱</span>
-                <span class="right">Rusalba Ruiz</span>
-              </div>
-              <div class="block">
-                <span class="left">推薦人組別</span>
-                <span class="right"><div class="mobile-recomand-group">高中同學</div></span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right">2,007.83965473</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
-              </div>
-            </div>
-
-            <div class="mobile-refund-main-block">
-              <div class="block">
-                <input type="checkbox" />
-              </div>
-              <div class="block">
-                <span class="left">返佣狀態</span>
-                <span class="right"
-                  ><div class="status yet"></div>
-                  申請中</span
-                >
-              </div>
-              <div class="block">
-                <span class="left">交易日期</span>
-                <span class="right">2021-02-02 14:00</span>
-              </div>
-              <div class="block">
-                <span class="left">交易幣別</span>
-                <span class="right red">BTC</span>
-              </div>
-              <div class="block">
-                <span class="left">會員名稱</span>
-                <span class="right">Rusalba Ruiz</span>
-              </div>
-              <div class="block">
-                <span class="left">推薦人組別</span>
-                <span class="right"><div class="mobile-recomand-group">高中同學</div></span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣交易量</span>
-                <span class="right">2,007.83965473</span>
-              </div>
-              <div class="block">
-                <span class="left">可返佣數量</span>
-                <span class="right">10.000078494</span>
+                <span class="right">{{ row.canRebatValue }}</span>
               </div>
             </div>
           </div>
@@ -360,26 +229,8 @@
 
 <script>
 import { currencyMap } from '@/utils/map.js'
-// import { randomNumber, randomDate, randomCurrency } from '@/utils/mock.js'
-
-// const getRecommender = async ({ currencyType, startDate, endDate, pageIndex = 1, pageSize = 10 }) => {
-//   const returnData = []
-//   for (let i = 0; i < 10; i++) {
-//     returnData.push({
-//       txDate: randomDate(60), // 交易日期
-//       currency: currencyType === 'all' ? randomCurrency() : currencyType, // 交易幣別
-//       changeType: '推薦人', // 異動類別
-//       changeNum: Number(randomNumber(2, 8)), // 異動數量
-//       restNum: Number(randomNumber(2, 8)) // 剩餘數量
-//     })
-//   }
-//   return {
-//     data: returnData.sort((a, b) => (a.txDate < b.txDate ? 1 : -1)),
-//     pageIndex: 1,
-//     pageSize: 10,
-//     pageTotal: 5
-//   }
-// }
+import { getRecommender } from '@/apis/dashboard.js'
+import moment from 'moment'
 
 export default {
   name: 'Recommender',
@@ -417,35 +268,40 @@ export default {
         this.$emit('update:filterCurrencyType', val)
       }
     }
+  },
+  watch: {
+    dateRange() {
+      this.getRecommender()
+    },
+    currencyType() {
+      this.getRecommender()
+    }
+  },
+  mounted() {
+    this.getRecommender()
+  },
+  methods: {
+    async getRecommender() {
+      this.isLoading = true
+      try {
+        const queryData = {
+          currencyType: this.currencyType,
+          startDate: this.dateRange[0],
+          endDate: this.dateRange[1],
+          pageIndex: 1,
+          pageSize: 10
+        }
+        const res = await getRecommender(queryData)
+        this.tableData = res.data
+      } catch (error) {
+        console.error(error)
+      }
+      this.isLoading = false
+    },
+    formatDate(date) {
+      return moment(date).format('YYYY-MM-DD HH:mm')
+    }
   }
-  // watch: {
-  //   dateRange() {
-  //     this.getCommissionTransaction()
-  //   },
-  //   currencyType() {
-  //     this.getCommissionTransaction()
-  //   }
-  // },
-  // mounted() {
-  //   this.getCommissionTransaction()
-  // },
-  // methods: {
-  //   async getCommissionTransaction() {
-  //     try {
-  //       const queryData = {
-  //         currencyType: this.currencyType,
-  //         startDate: this.dateRange[0],
-  //         endDate: this.dateRange[1],
-  //         pageIndex: 1,
-  //         pageSize: 10
-  //       }
-  //       const res = await getCommissionTransaction(queryData)
-  //       this.tableData = res.data
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  // }
 }
 </script>
 

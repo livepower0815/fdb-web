@@ -101,7 +101,7 @@
         </thead>
         <tbody>
           <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
-            <td>{{ row.txDate }}</td>
+            <td>{{ formatDate(row.txDate) }}</td>
             <td>{{ currencyMap[row.currency] }}</td>
             <td>{{ row.changeType }}</td>
             <td>{{ row.changeNum }}</td>
@@ -124,7 +124,7 @@
             <div v-for="(row, index) in tableData" :key="index" class="mobile-refund-main-block">
               <div class="block">
                 <span class="left">交易日期</span>
-                <span class="right">{{ row.txDate }}</span>
+                <span class="right">{{ formatDate(row.txDate) }}</span>
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
@@ -183,6 +183,7 @@
 <script>
 import { getCommissionTransaction } from '@/apis/dashboard.js'
 import { currencyMap } from '@/utils/map.js'
+import moment from 'moment'
 
 export default {
   name: 'CommissionTransaction',
@@ -249,6 +250,9 @@ export default {
         console.error(error)
       }
       this.isLoading = false
+    },
+    formatDate(date) {
+      return moment(date).format('YYYY-MM-DD HH:mm')
     }
   }
 }
