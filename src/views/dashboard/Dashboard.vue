@@ -109,7 +109,7 @@ export default {
     return {
       refundShow: 'CommissionTransaction',
       refundFilter: {
-        currencyType: 'all',
+        currencyType: 0,
         dateRange: [
           moment()
             .subtract(7, 'days')

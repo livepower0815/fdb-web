@@ -15,3 +15,11 @@ export const getExchangeInfo = data =>
     method: 'POST',
     data
   })
+
+// 您的佣金異動紀錄
+export const getCommissionTransaction = data =>
+  request({
+    url: '/api/DashBoard/GetYourPointChangeLog',
+    method: 'POST',
+    data
+  })
