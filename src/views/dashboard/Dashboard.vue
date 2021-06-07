@@ -47,12 +47,13 @@
               </div>
             </div>
 
-            <div class="dashboard-chart-color">
+            <div v-loading="tableLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="dashboard-chart-color">
               <!--佣金異動紀錄 開始-->
               <CommissionTransaction
                 v-if="refundShow === 'CommissionTransaction'"
                 :filterCurrencyType.sync="refundFilter.currencyType"
                 :filterDateRange.sync="refundFilter.dateRange"
+                :loading.sync="tableLoading"
               />
               <!--佣金異動紀錄 結束-->
 
@@ -61,6 +62,7 @@
                 v-if="refundShow === 'PersonalFeedback'"
                 :filterCurrencyType.sync="refundFilter.currencyType"
                 :filterDateRange.sync="refundFilter.dateRange"
+                :loading.sync="tableLoading"
               />
               <!--個人反佣 結束-->
 
@@ -69,6 +71,7 @@
                 v-if="refundShow === 'Recommender'"
                 :filterCurrencyType.sync="refundFilter.currencyType"
                 :filterDateRange.sync="refundFilter.dateRange"
+                :loading.sync="tableLoading"
               />
               <!--推薦人反佣 結束-->
 
@@ -77,6 +80,7 @@
                 v-if="refundShow === 'Withdrawal'"
                 :filterCurrencyType.sync="refundFilter.currencyType"
                 :filterDateRange.sync="refundFilter.dateRange"
+                :loading.sync="tableLoading"
               />
               <!--出金 結束-->
             </div>
@@ -108,6 +112,7 @@ export default {
   data() {
     return {
       refundShow: 'CommissionTransaction',
+      tableLoading: false,
       refundFilter: {
         currencyType: 0,
         dateRange: [

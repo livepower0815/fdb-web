@@ -1,6 +1,6 @@
 <template>
   <!--佣金異動紀錄 開始-->
-  <div class="outline" v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
+  <div class="outline">
     <div class="refund-detail-filter-block">
       <!-- 幣別過濾icons -->
       <div class="refund-detail-filter-main">
@@ -195,11 +195,14 @@ export default {
     filterCurrencyType: {
       type: Number,
       default: 0
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
-      isLoading: false,
       currencyMap: { ...currencyMap },
       tableData: []
     }
@@ -219,6 +222,14 @@ export default {
       },
       set(val) {
         this.$emit('update:filterCurrencyType', val)
+      }
+    },
+    isLoading: {
+      get() {
+        return this.loading
+      },
+      set(val) {
+        this.$emit('update:loading', val)
       }
     }
   },

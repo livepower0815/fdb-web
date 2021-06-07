@@ -1,5 +1,5 @@
 import axios from 'axios'
-console.log(process.env.NODE_ENV)
+
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? '' : 'https://fdb-web-api.azurewebsites.net', // url = base url + request url
