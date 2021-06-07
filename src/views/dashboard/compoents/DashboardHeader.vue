@@ -92,11 +92,11 @@
             <option value="quarter">一季</option>
           </select>
           <select v-model="dashboardChart.currencyType">
-            <option value="BTC">BTC</option>
-            <option value="USID">USID</option>
-            <option value="ETH">ETH</option>
-            <option value="XRP">XRP</option>
-            <option value="EOS">EOS</option>
+            <option :value="1">BTC</option>
+            <option :value="2">ETH</option>
+            <option :value="3">XRP</option>
+            <option :value="4">EOS</option>
+            <option :value="5">USID</option>
           </select>
         </div>
       </div>
@@ -155,9 +155,13 @@
         </div>
         <div v-for="currency in exchangeList" :key="currency.currencyType" class="main">
           <div class="icon">
-            <img :src="require(`@/img/svg/${currency.currencyType}.svg`)" alt="" style="width: 70%; height: 70%; margin: 15%;" />
+            <img
+              :src="require(`@/img/svg/${currencyMap[currency.currencyType]}.svg`)"
+              alt=""
+              style="width: 70%; height: 70%; margin: 15%;"
+            />
           </div>
-          <div class="title">{{ currency.currencyType }}</div>
+          <div class="title">{{ currencyMap[currency.currencyType] }}</div>
           <div class="main">{{ currency.coinCount }}</div>
           <div v-if="currency.bindStatus === 0" class="status">
             <span>未綁定</span>
@@ -193,25 +197,13 @@
 
 <script>
 import LineChart from '@/components/charts/LineChart'
-import moment from 'moment'
+import { getDashboardChart, getExchangeInfo } from '@/apis/dashboard.js'
+import { currencyMap } from '@/utils/map.js'
 import { formatMoneyInt } from '@/utils/number.js'
-import { randomNumber } from '@/utils/mock.js'
+import moment from 'moment'
 
 // 產生天數
-const getDatePeriodRange = (days = 1) => {
-  const dayList = []
-  for (let i = 0; i < days; i++) {
-    dayList.push(
-      moment()
-        .subtract(days - i, 'days')
-        .format('M/D')
-    )
-  }
-  return dayList
-}
-
-// 儀錶板圖表ＡＰＩ
-const getDashboardChart = async ({ dateRange, currencyType }) => {
+const getDatePeriodRange = dateRange => {
   let days = 7
   if (dateRange === 'week') {
     days = 7
@@ -222,53 +214,9 @@ const getDashboardChart = async ({ dateRange, currencyType }) => {
   if (dateRange === 'quarter') {
     days = 90
   }
-
-  return {
-    personValue: randomNumber(4),
-    recommenderValue: randomNumber(4),
-    withdrawValue: randomNumber(4),
-    dates: getDatePeriodRange(days).map(item => {
-      return {
-        date: item,
-        personValue: randomNumber(3),
-        recommenderValue: randomNumber(3),
-        withdrawValue: randomNumber(3)
-      }
-    })
-  }
-}
-
-// 交易所
-const getExchangeInfo = ({ exchangeId }) => {
-  return {
-    data: [
-      {
-        currencyType: 'BTC',
-        coinCount: randomNumber(1, 8),
-        bindStatus: Math.floor(Math.random() * 2) // 0 未綁定 1 綁定
-      },
-      {
-        currencyType: 'USDT',
-        coinCount: randomNumber(1, 4),
-        bindStatus: Math.floor(Math.random() * 2) // 0 未綁定 1 綁定
-      },
-      {
-        currencyType: 'ETH',
-        coinCount: randomNumber(1, 8),
-        bindStatus: Math.floor(Math.random() * 2) // 0 未綁定 1 綁定
-      },
-      {
-        currencyType: 'XRP',
-        coinCount: randomNumber(1, 8),
-        bindStatus: Math.floor(Math.random() * 2) // 0 未綁定 1 綁定
-      },
-      {
-        currencyType: 'EOS',
-        coinCount: randomNumber(1, 8),
-        bindStatus: Math.floor(Math.random() * 2) // 0 未綁定 1 綁定
-      }
-    ]
-  }
+  return moment()
+    .subtract(days - 1, 'days')
+    .format('YYYY-MM-DD')
 }
 
 export default {
@@ -278,13 +226,14 @@ export default {
   },
   data() {
     return {
+      currencyMap: { ...currencyMap },
       dashboardChart: {
         personValue: '0',
         recommenderValue: '0',
         withdrawValue: '0',
         chartSelect: 'all',
         dateRange: 'week',
-        currencyType: 'BTC'
+        currencyType: 1
       },
       chartLoading: false,
       exchangeLoading: false,
@@ -356,17 +305,21 @@ export default {
       this.getDashboardChart()
     }
   },
-  mounted() {
+  async mounted() {
     this.getDashboardChart()
     this.getExchangeInfo()
   },
   methods: {
+    // 儀錶板圖表ＡＰＩ
     async getDashboardChart() {
       this.chartLoading = true
       try {
         const queryData = {
-          dateRange: this.dashboardChart.dateRange,
-          currencyType: this.dashboardChart.currencyType
+          currencyType: this.dashboardChart.currencyType,
+          startDate: getDatePeriodRange(this.dashboardChart.dateRange),
+          endDate: moment().format('YYYY-MM-DD'),
+          pageIndex: 0,
+          pageSize: 0
         }
         const res = await getDashboardChart(queryData)
         this.dashboardChart.personValue = formatMoneyInt(res.personValue)
@@ -380,24 +333,26 @@ export default {
       } catch (error) {
         console.error(error)
       }
-      setTimeout(() => {
-        this.chartLoading = false
-      }, 1500)
+      this.chartLoading = false
     },
+    // 交易所
     async getExchangeInfo() {
       this.exchangeLoading = true
       try {
         const queryData = {
-          exchangeId: this.exchangeSelected
+          exchangeId: '',
+          currencyType: 0,
+          startDate: '',
+          endDate: '',
+          pageIndex: 0,
+          pageSize: 0
         }
         const res = await getExchangeInfo(queryData)
-        this.exchangeList = res.data
+        this.exchangeList = res
       } catch (error) {
         console.error(error)
       }
-      setTimeout(() => {
-        this.exchangeLoading = false
-      }, 1500)
+      this.exchangeLoading = false
     },
     setChartData(mode) {
       switch (mode) {

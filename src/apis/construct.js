@@ -4,7 +4,7 @@
 
 // 儀錶板圖表ＡＰＩ
 query = {
-  currencyType: 0, // BTC = 0 ETH= 1 XPR= 2 EOS = 3 USDT=4
+  currencyType: 0, // all = 0  BTC = 1 ETH= 2 XPR= 3 EOS = 4 USDT=5
   startDate: this.dateRange[0],
   endDate: this.dateRange[1],
   pageIndex: 1,
