@@ -23,3 +23,27 @@ export const getCommissionTransaction = data =>
     method: 'POST',
     data
   })
+
+// 個人反佣
+export const getPersonalFeedback = data =>
+  request({
+    url: '/api/DashBoard/GetPersonRebatLog',
+    method: 'POST',
+    data
+  })
+
+// 推薦人反佣
+export const getRecommender = data =>
+  request({
+    url: '/api/DashBoard/GetReferrerRebatLog',
+    method: 'POST',
+    data
+  })
+
+// 出金
+export const getWithdrawal = data =>
+  request({
+    url: '/api/DashBoard/GetWithdrawal',
+    method: 'POST',
+    data
+  })

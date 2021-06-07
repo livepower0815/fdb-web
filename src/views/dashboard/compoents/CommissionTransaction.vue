@@ -1,6 +1,6 @@
 <template>
   <!--佣金異動紀錄 開始-->
-  <div class="outline" id="fund-exchange">
+  <div class="outline" v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
     <div class="refund-detail-filter-block">
       <!-- 幣別過濾icons -->
       <div class="refund-detail-filter-main">
@@ -192,8 +192,8 @@ export default {
       default: () => []
     },
     filterCurrencyType: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   data() {
