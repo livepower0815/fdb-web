@@ -47,12 +47,12 @@ module.exports = {
         .loader('sass-resources-loader')
         .end()
     })
-    config.module
-      .rule('font')
-      .test(/\.(woff|woff2|eot|ttf|otf)$/)
-      .use('url-loader')
-      .loader('url-loader')
-      .end()
+    // config.module
+    //   .rule('font')
+    //   .test(/\.(woff|woff2|eot|ttf|otf)$/)
+    //   .use('url-loader')
+    //   .loader('url-loader')
+    //   .end()
 
     config.module.rule('scss').oneOfs.store.forEach(item => {
       item
