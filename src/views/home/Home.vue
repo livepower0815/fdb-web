@@ -1,20 +1,12 @@
 <template>
   <div class="outline">
     <!--Banner開始-->
-    <div class="carousel" data-flickity='{ "autoPlay": true }'>
+    <div class="carousel">
       <div class="carousel-cell banner-block">
         <div class="outblock">
           <div class="title">返多寶-虛擬貨幣返佣先驅</div>
           <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
-          <div class="outline"><a href="" class="more">了解更多</a></div>
-        </div>
-      </div>
-
-      <!-- <div class="carousel-cell banner-block">
-        <div class="outblock">
-          <div class="title">返多寶-虛擬貨幣返佣先驅</div>
-          <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
-          <div class="outline"><a href="" class="more">了解更多</a></div>
+          <div class="outline"><a href="javascript:void(0)" class="more">了解更多</a></div>
         </div>
       </div>
 
@@ -22,7 +14,7 @@
         <div class="outblock">
           <div class="title">返多寶-虛擬貨幣返佣先驅</div>
           <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
-          <div class="outline"><a href="" class="more">了解更多</a></div>
+          <div class="outline"><a href="javascript:void(0)" class="more">了解更多</a></div>
         </div>
       </div>
 
@@ -30,9 +22,17 @@
         <div class="outblock">
           <div class="title">返多寶-虛擬貨幣返佣先驅</div>
           <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
-          <div class="outline"><a href="" class="more">了解更多</a></div>
+          <div class="outline"><a href="javascript:void(0)" class="more">了解更多</a></div>
         </div>
-      </div> -->
+      </div>
+
+      <div class="carousel-cell banner-block">
+        <div class="outblock">
+          <div class="title">返多寶-虛擬貨幣返佣先驅</div>
+          <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
+          <div class="outline"><a href="javascript:void(0)" class="more">了解更多</a></div>
+        </div>
+      </div>
     </div>
     <!--Banner結束-->
 
@@ -111,7 +111,7 @@
                 <div class="sub">專業提供24小時客服服務<br />隨時隨地回應您的建議與疑問</div>
               </div>
             </div>
-            <a href="" class="info-btn">
+            <a href="javascript:void(0)" class="info-btn">
               開始使用
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -132,7 +132,7 @@
         <div class="news-title">最新活動與消息</div>
         <div class="outline scroll">
           <div class="outblock full-news">
-            <a href="news-info.html" class="news-main">
+            <a href="javascript:void(0)" class="news-main">
               <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>活動</div>
@@ -140,7 +140,7 @@
               <div class="main">How to make a website<br />look more attractive with illustrations.</div>
               <div class="date">2020.03.01</div>
             </a>
-            <a href="news-info.html" class="news-main">
+            <a href="javascript:void(0)" class="news-main">
               <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>活動</div>
@@ -148,7 +148,7 @@
               <div class="main">How to make a website<br />look more attractive with illustrations.</div>
               <div class="date">2020.03.01</div>
             </a>
-            <a href="news-info.html" class="news-main">
+            <a href="javascript:void(0)" class="news-main">
               <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>活動</div>
@@ -167,6 +167,55 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  mounted() {
+    const $ = window.$
+    $('.carousel').flickity({
+      // options
+      autoPlay: true,
+      cellAlign: 'left',
+      contain: true
+    })
+    $('#unqi-account-btn,#unqi-account-slide').click(function() {
+      $('#unqi-account-btn,#unqi-account-slide').addClass('active')
+      $(
+        '#bonues-visual-btn,#perfect-control-btn,#servicr-team-btn,#bonues-visual-slide,#perfect-control-slide,#servicr-team-slide'
+      ).removeClass('active')
+      $('#bonues-visual').hide()
+      $('#perfect-control').hide()
+      $('#servicr-team').hide()
+      $('#unqi-account').fadeIn()
+    })
+    $('#bonues-visual-btn,#bonues-visual-slide').click(function() {
+      $('#bonues-visual-btn,#bonues-visual-slide').addClass('active')
+      $(
+        '#unqi-account-btn,#perfect-control-btn,#servicr-team-btn,#unqi-account-slide,#perfect-control-slide,#servicr-team-slide'
+      ).removeClass('active')
+      $('#unqi-account').hide()
+      $('#perfect-control').hide()
+      $('#servicr-team').hide()
+      $('#bonues-visual').fadeIn()
+    })
+    $('#perfect-control-btn,#perfect-control-slide').click(function() {
+      $('#perfect-control-btn,#perfect-control-slide').addClass('active')
+      $('#unqi-account-btn,#bonues-visual-btn,#servicr-team-btn,#unqi-account-slide,#bonues-visual-slide,#servicr-team-slide').removeClass(
+        'active'
+      )
+      $('#bonues-visual').hide()
+      $('#unqi-account').hide()
+      $('#servicr-team').hide()
+      $('#perfect-control').fadeIn()
+    })
+    $('#servicr-team-btn,#servicr-team-slide').click(function() {
+      $('#servicr-team-btn,#servicr-team-slide').addClass('active')
+      $(
+        '#unqi-account-btn,#unqi-account-slide,#bonues-visual-btn,#bonues-visual-slide,#perfect-control-btn,#perfect-control-slide'
+      ).removeClass('active')
+      $('#bonues-visual').hide()
+      $('#perfect-control').hide()
+      $('#unqi-account').hide()
+      $('#servicr-team').fadeIn()
+    })
+  }
 }
 </script>
