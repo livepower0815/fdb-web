@@ -28,10 +28,10 @@
         </svg>
       </div>
       <div class="menu-block foot">
-        <a href="index.html">FDB首頁</a>
-        <a href="about.html">關於FDB</a>
-        <a href="news.html">合作夥伴</a>
-        <a href="">最新消息</a>
+        <router-link to="/">FDB首頁</router-link>
+        <router-link to="/about">關於FDB</router-link>
+        <router-link to="/dashboard">合作夥伴</router-link>
+        <router-link to="/dashboard">最新消息</router-link>
       </div>
     </div>
     <div>

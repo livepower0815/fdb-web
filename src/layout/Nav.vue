@@ -28,7 +28,7 @@
     </a>
     <div class="menu-block head">
       <router-link to="/">FDB首頁</router-link>
-      <router-link to="/dashboard">關於FDB</router-link>
+      <router-link to="/about">關於FDB</router-link>
       <router-link to="/dashboard">合作夥伴</router-link>
       <router-link to="/dashboard">最新消息</router-link>
     </div>
@@ -69,7 +69,7 @@
     <div class="mobile-drop" @click="toggleMobileMenu">
       <div>
         <router-link to="/">FDB首頁</router-link>
-        <router-link to="/dashboard">關於FDB</router-link>
+        <router-link to="/about">關於FDB</router-link>
         <router-link to="/dashboard">合作夥伴</router-link>
         <router-link to="/dashboard">最新消息</router-link>
       </div>
