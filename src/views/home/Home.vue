@@ -1,0 +1,172 @@
+<template>
+  <div class="outline">
+    <!--Banner開始-->
+    <div class="carousel" data-flickity='{ "autoPlay": true }'>
+      <div class="carousel-cell banner-block">
+        <div class="outblock">
+          <div class="title">返多寶-虛擬貨幣返佣先驅</div>
+          <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
+          <div class="outline"><a href="" class="more">了解更多</a></div>
+        </div>
+      </div>
+
+      <!-- <div class="carousel-cell banner-block">
+        <div class="outblock">
+          <div class="title">返多寶-虛擬貨幣返佣先驅</div>
+          <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
+          <div class="outline"><a href="" class="more">了解更多</a></div>
+        </div>
+      </div>
+
+      <div class="carousel-cell banner-block">
+        <div class="outblock">
+          <div class="title">返多寶-虛擬貨幣返佣先驅</div>
+          <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
+          <div class="outline"><a href="" class="more">了解更多</a></div>
+        </div>
+      </div>
+
+      <div class="carousel-cell banner-block">
+        <div class="outblock">
+          <div class="title">返多寶-虛擬貨幣返佣先驅</div>
+          <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
+          <div class="outline"><a href="" class="more">了解更多</a></div>
+        </div>
+      </div> -->
+    </div>
+    <!--Banner結束-->
+
+    <!--底版 開始-->
+    <div class="outline line-bg">
+      <!--加入我們 開始-->
+      <div class="outline">
+        <div class="join-step-block">
+          <div class="join-step-title">開始返佣旅程<br />只需要三個步驟</div>
+          <div class="join-step-main-block">
+            <div>
+              <div class="join-step-number">01</div>
+              <div class="join-step-main">
+                <div class="title">加入返多寶</div>
+                <div class="info">快速註冊會員</div>
+              </div>
+            </div>
+            <div>
+              <div class="join-step-number">02</div>
+              <div class="join-step-main">
+                <div class="title">綁定交易所</div>
+                <div class="info">輸入交易所註冊資訊</div>
+              </div>
+            </div>
+            <div>
+              <div class="join-step-number">03</div>
+              <div class="join-step-main">
+                <div class="title">開始返佣</div>
+                <div class="info">你交易，我返佣</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--加入我們 結束-->
+
+      <!--介紹 開始-->
+      <div class="outline info-outline">
+        <div class="outblock">
+          <div class="info-main-title">
+            <div>
+              <div class="title">返多寶可以幫你</div>
+              <div class="sub">返多寶會員特色資訊，可以達到有效管理與圖表統計</div>
+            </div>
+          </div>
+
+          <div class="info-main-pic">
+            <img id="unqi-account" :src="require('@/img/index-intro-00.jpg')" alt="" />
+            <img id="bonues-visual" :src="require('@/img/index-intro-01.jpg')" alt="" style="display: none" />
+            <img id="perfect-control" :src="require('@/img/index-intro-02.jpg')" alt="" style="display: none" />
+            <img id="servicr-team" :src="require('@/img/index-intro-03.jpg')" alt="" style="display: none" />
+            <div class="info-slider">
+              <div id="unqi-account-slide" class="active"></div>
+              <div id="bonues-visual-slide"></div>
+              <div id="perfect-control-slide"></div>
+              <div id="servicr-team-slide"></div>
+            </div>
+          </div>
+
+          <div class="info-main">
+            <div class="main">
+              <div id="unqi-account-btn" class="active">
+                <div class="title">一對多帳號視覺化管理</div>
+                <div class="sub">返多寶帳號整合多間交易所<br />輕鬆管理所有返佣資訊</div>
+              </div>
+              <div id="bonues-visual-btn">
+                <div class="title">保證多幣種返佣</div>
+                <div class="sub">不限合約類型<br />提供多種貨幣返佣</div>
+              </div>
+              <div id="perfect-control-btn">
+                <div class="title">高安全性返佣</div>
+                <div class="sub">返多寶獨立冷錢包<br />人工返佣保障會員安全性</div>
+              </div>
+              <div id="servicr-team-btn">
+                <div class="title">在線客服團隊</div>
+                <div class="sub">專業提供24小時客服服務<br />隨時隨地回應您的建議與疑問</div>
+              </div>
+            </div>
+            <a href="" class="info-btn">
+              開始使用
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11 0.333328L9.12004 2.21333L16.56 9.66666H0.333374V12.3333H16.56L9.12004 19.7867L11 21.6667L21.6667 11L11 0.333328Z"
+                  fill="#62FFFF"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--介紹 結束-->
+
+      <!--最新消息 開始-->
+      <div class="outline news-outline">
+        <div class="news-title">最新活動與消息</div>
+        <div class="outline scroll">
+          <div class="outblock full-news">
+            <a href="news-info.html" class="news-main">
+              <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
+              <div class="sign-block">
+                <div>活動</div>
+              </div>
+              <div class="main">How to make a website<br />look more attractive with illustrations.</div>
+              <div class="date">2020.03.01</div>
+            </a>
+            <a href="news-info.html" class="news-main">
+              <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
+              <div class="sign-block">
+                <div>活動</div>
+              </div>
+              <div class="main">How to make a website<br />look more attractive with illustrations.</div>
+              <div class="date">2020.03.01</div>
+            </a>
+            <a href="news-info.html" class="news-main">
+              <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
+              <div class="sign-block">
+                <div>活動</div>
+              </div>
+              <div class="main">How to make a website<br />look more attractive with illustrations.</div>
+              <div class="date">2020.03.01</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--最新消息 結束-->
+    </div>
+    <!--底版 結束-->
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Home'
+}
+</script>
