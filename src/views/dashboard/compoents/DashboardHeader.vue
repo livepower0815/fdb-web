@@ -199,7 +199,7 @@
 import LineChart from '@/components/charts/LineChart'
 import { getDashboardChart, getExchangeInfo } from '@/apis/dashboard.js'
 import { currencyMap } from '@/utils/map.js'
-import { formatMoneyInt } from '@/utils/number.js'
+import { formatNumberWithFixed } from '@/utils/number.js'
 import moment from 'moment'
 
 // 產生天數
@@ -322,9 +322,9 @@ export default {
           pageSize: 0
         }
         const res = await getDashboardChart(queryData)
-        this.dashboardChart.personValue = formatMoneyInt(res.personValue)
-        this.dashboardChart.recommenderValue = formatMoneyInt(res.recommenderValue)
-        this.dashboardChart.withdrawValue = formatMoneyInt(res.withdrawValue)
+        this.dashboardChart.personValue = formatNumberWithFixed(res.personValue, 8)
+        this.dashboardChart.recommenderValue = formatNumberWithFixed(res.recommenderValue, 8)
+        this.dashboardChart.withdrawValue = formatNumberWithFixed(res.withdrawValue, 8)
         this.lineChartOptions.xAxis.data = res.dates.map(item => item.date)
         this.seriesData[0].data = res.dates.map(item => item.personValue)
         this.seriesData[1].data = res.dates.map(item => item.recommenderValue)
