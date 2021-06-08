@@ -92,11 +92,11 @@
       <table class="refund-detail-info-block" cellpadding="0" Border="0" id="refund-detail-info-1">
         <thead class="refund-detail-info-title">
           <tr>
-            <th>交易日期</th>
-            <th>交易幣別</th>
-            <th>異動類別</th>
-            <th>異動數量</th>
-            <th>剩餘數量</th>
+            <th @click="sortData('txDate')">交易日期</th>
+            <th @click="sortData('currency')">交易幣別</th>
+            <th @click="sortData('changeType')">異動類別</th>
+            <th @click="sortData('changeNum')">異動數量</th>
+            <th @click="sortData('restNum')">剩餘數量</th>
           </tr>
         </thead>
         <tbody>
@@ -187,7 +187,9 @@ export default {
       pager: {
         pageIndex: 1,
         pageSize: 10,
-        totalCount: 0
+        totalCount: 0,
+        sortKey: 'txDate',
+        order: 'asc'
       }
     }
   },
@@ -240,7 +242,9 @@ export default {
           startDate: this.dateRange[0],
           endDate: this.dateRange[1],
           pageIndex: this.pager.pageIndex,
-          pageSize: this.pager.pageSize
+          pageSize: this.pager.pageSize,
+          sortKey: this.pager.sortKey,
+          order: this.pager.order
         }
         const res = await getCommissionTransaction(queryData)
         this.tableData = res.data
@@ -252,6 +256,25 @@ export default {
     },
     formatDate(date) {
       return moment(date).format('YYYY-MM-DD HH:mm')
+    },
+    sortData(sortKey) {
+      if (this.pager.sortKey === sortKey) {
+        switch (this.pager.order) {
+          case 'asc':
+            this.pager.order = 'desc'
+            break
+          case 'desc':
+            this.pager.order = 'asc'
+            break
+          default:
+            this.pager.order = 'asc'
+            break
+        }
+      } else {
+        this.pager.sortKey = sortKey
+        this.pager.order = 'asc'
+      }
+      this.getCommissionTransaction(true)
     }
   }
 }

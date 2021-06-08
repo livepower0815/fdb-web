@@ -2,6 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
+// sort
+// sortKey: 'txDate',
+// order: 'asc' or 'desc'
+
 // 儀錶板圖表ＡＰＩ
 query = {
   currencyType: 0, // all = 0  BTC = 1 ETH= 2 XPR= 3 EOS = 4 USDT=5
