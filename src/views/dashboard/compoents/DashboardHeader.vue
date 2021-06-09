@@ -340,12 +340,14 @@ export default {
       this.exchangeLoading = true
       try {
         const queryData = {
-          exchangeId: '',
+          // exchangeId: '', // 目前寫死不傳
           currencyType: 0,
           startDate: '',
           endDate: '',
           pageIndex: 0,
-          pageSize: 0
+          pageSize: 0,
+          sortKey: '',
+          order: ''
         }
         const res = await getExchangeInfo(queryData)
         this.exchangeList = res
