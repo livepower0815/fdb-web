@@ -1,8 +1,8 @@
 /*共用*/
-@font-face {
+/* @font-face {
   font-family:'Noto Sans CJK TC';
   src: url("../font/NotoSansCJKtc-Regular.otf") format("opentype");
-}
+} */
 
 html,body{margin:0 0;padding:0 0;font-family:'Noto Sans CJK TC';-ms-overflow-style: none;font-size:15px;color:#fff;background-color:#050608;}
 body::-webkit-scrollbar {display: none;}
