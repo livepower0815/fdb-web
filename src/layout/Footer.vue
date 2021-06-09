@@ -31,7 +31,7 @@
         <router-link to="/">FDB首頁</router-link>
         <router-link to="/about">關於FDB</router-link>
         <router-link to="/partner">合作夥伴</router-link>
-        <router-link to="/dashboard">最新消息</router-link>
+        <router-link to="/news">最新消息</router-link>
       </div>
     </div>
     <div>
