@@ -11,7 +11,7 @@
           <div class="refund-detail-block">
             <div class="title">
               <span>佣金明細</span>
-              <a href="">出金申請</a>
+              <router-link to="/take-cash">出金申請</router-link>
             </div>
 
             <div class="refund-detail-menu-out">
