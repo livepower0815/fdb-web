@@ -103,7 +103,7 @@
           <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
             <td>{{ formatDate(row.txDate) }}</td>
             <td>{{ currencyMap[row.currency] }}</td>
-            <td>{{ row.changeType }}</td>
+            <td>{{ formatChangeType(row.changeType) }}</td>
             <td>{{ row.changeNum }}</td>
             <td>{{ row.restNum }}</td>
           </tr>
@@ -132,7 +132,7 @@
               </div>
               <div class="block">
                 <span class="left">異動類別</span>
-                <span class="right">{{ row.changeType }}</span>
+                <span class="right">{{ formatChangeType(row.changeType) }}</span>
               </div>
               <div class="block">
                 <span class="left">異動數量</span>
@@ -160,6 +160,8 @@ import { getCommissionTransaction } from '@/apis/dashboard.js'
 import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import moment from 'moment'
+
+const changeTypeMap = ['個人', '推薦人', '出金']
 
 export default {
   name: 'CommissionTransaction',
@@ -275,6 +277,9 @@ export default {
         this.pager.order = 'asc'
       }
       this.getCommissionTransaction(true)
+    },
+    formatChangeType(changeCode) {
+      return changeTypeMap[changeCode]
     }
   }
 }
