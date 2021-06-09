@@ -34,7 +34,7 @@
     </div>
 
     <div class="header-sub-block">
-      <router-link to="/dashboard">登入</router-link>
+      <router-link to="/personal">登入</router-link>
       <router-link to="/dashboard" class="register">註冊</router-link>
       <div></div>
       <a href="">ZH</a>
