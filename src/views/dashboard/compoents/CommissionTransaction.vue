@@ -102,7 +102,7 @@
         <tbody>
           <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
             <td>{{ formatDate(row.txDate) }}</td>
-            <td>{{ currencyMap[row.currency] }}</td>
+            <td>{{ row.currency }}</td>
             <td>{{ formatChangeType(row.changeType) }}</td>
             <td>{{ row.changeNum }}</td>
             <td>{{ row.restNum }}</td>
@@ -128,7 +128,7 @@
               </div>
               <div class="block">
                 <span class="left">交易幣別</span>
-                <span class="right">{{ currencyMap[row.currency] }}</span>
+                <span class="right">{{ row.currency }}</span>
               </div>
               <div class="block">
                 <span class="left">異動類別</span>
