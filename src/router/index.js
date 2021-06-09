@@ -36,6 +36,14 @@ const routes = [
     component: () => import('@/views/personal/Personal.vue')
   },
   {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/register/Register.vue'),
+    meta: {
+      hideNavFooter: true
+    }
+  },
+  {
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('@/views/dashboard/Dashboard.vue')

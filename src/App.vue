@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="outline">
-    <Nav />
+    <Nav v-if="!hideNavFooter" />
     <router-view />
-    <Footer />
+    <Footer v-if="!hideNavFooter" />
   </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
   components: {
     Nav,
     Footer
+  },
+  computed: {
+    hideNavFooter() {
+      return this.$route.meta.hideNavFooter
+    }
   }
 }
 </script>
