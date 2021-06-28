@@ -27,7 +27,7 @@
       <!--內容 結束-->
       <div class="outline">
         <div class="outblock">
-          <img style="display:block;margin:0 auto;margin-bottom:100px;" src="@/img/about-bitcoin-kv.jpg" alt="" />
+          <img style="display:block;margin:0 auto;margin-bottom:100px;" src="@/assets/img/about-bitcoin-kv.jpg" alt="" />
         </div>
       </div>
     </div>

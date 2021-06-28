@@ -80,10 +80,10 @@
           </div>
 
           <div class="info-main-pic">
-            <img id="unqi-account" :src="require('@/img/index-intro-00.jpg')" alt="" />
-            <img id="bonues-visual" :src="require('@/img/index-intro-01.jpg')" alt="" style="display: none" />
-            <img id="perfect-control" :src="require('@/img/index-intro-02.jpg')" alt="" style="display: none" />
-            <img id="servicr-team" :src="require('@/img/index-intro-03.jpg')" alt="" style="display: none" />
+            <img id="unqi-account" src="@/assets/img/index-intro-00.jpg" alt="" />
+            <img id="bonues-visual" src="@/assets/img/index-intro-01.jpg" alt="" style="display: none" />
+            <img id="perfect-control" src="@/assets/img/index-intro-02.jpg" alt="" style="display: none" />
+            <img id="servicr-team" src="@/assets/img/index-intro-03.jpg" alt="" style="display: none" />
             <div class="info-slider">
               <div id="unqi-account-slide" class="active"></div>
               <div id="bonues-visual-slide"></div>
@@ -133,7 +133,7 @@
         <div class="outline scroll">
           <div class="outblock full-news">
             <a href="javascript:void(0)" class="news-main">
-              <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
+              <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>活動</div>
               </div>
@@ -141,7 +141,7 @@
               <div class="date">2020.03.01</div>
             </a>
             <a href="javascript:void(0)" class="news-main">
-              <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
+              <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>活動</div>
               </div>
@@ -149,7 +149,7 @@
               <div class="date">2020.03.01</div>
             </a>
             <a href="javascript:void(0)" class="news-main">
-              <div class="pic"><img src="@/img/news-pic.jpg" alt="" /></div>
+              <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>活動</div>
               </div>
