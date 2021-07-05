@@ -8,14 +8,16 @@ import '@/plugins/echarts'
 
 // css
 import '@/assets/css/common.css'
-import '@//assets/css/flickity.css'
-import '@//assets/css/others.css'
-import '@//assets/css/rwd-set.css'
+import '@/assets/css/flickity.css'
+import '@/assets/css/others.css'
+import '@/assets/css/rwd-set.css'
 
 // Element UI
 import ElementUI from 'element-ui'
 import '@/style/element-variables.scss'
 import locale from 'element-ui/lib/locale/lang/zh-TW' // lang i18n
+
+import '@/style/common.scss'
 
 Vue.use(ElementUI, { locale })
 

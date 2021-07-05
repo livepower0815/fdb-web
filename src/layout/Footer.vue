@@ -5,7 +5,7 @@
       <div class="footer-img">
         <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
       </div>
-      <div class="footer-menu">
+      <div v-if="deviceWidth >= 1024" class="footer-menu">
         <router-link to="/">FDB首頁</router-link>
         <router-link to="/about">關於FDB</router-link>
         <router-link to="/partner">合作夥伴</router-link>
@@ -37,7 +37,12 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  }
 }
 </script>
 
