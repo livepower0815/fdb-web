@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="outline">
+  <div id="app">
     <Nav v-if="!hideNavFooter" />
     <router-view />
     <Footer v-if="!hideNavFooter" />
@@ -20,6 +20,13 @@ export default {
     hideNavFooter() {
       return this.$route.meta.hideNavFooter
     }
+  },
+  mounted() {
+    // 監聽裝置寬度
+    this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)
+    window.addEventListener('resize', () => {
+      this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)
+    })
   }
 }
 </script>

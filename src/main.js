@@ -7,10 +7,10 @@ import store from './store'
 import '@/plugins/echarts'
 
 // css
-import '@/style/common.css'
-import '@/style/flickity.css'
-import '@/style/others.css'
-import '@/style/rwd-set.css'
+import '@/assets/css/common.css'
+import '@//assets/css/flickity.css'
+import '@//assets/css/others.css'
+import '@//assets/css/rwd-set.css'
 
 // Element UI
 import ElementUI from 'element-ui'

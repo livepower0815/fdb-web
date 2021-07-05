@@ -1,7 +1,19 @@
 <template>
   <div class="outline">
     <!--Banner開始-->
-    <div class="carousel">
+    <!-- <el-carousel>
+      <el-carousel-item v-for="item in 4" :key="item">
+        <div class="carousel-cell banner-block">
+          <div class="outblock">
+            <div class="title">返多寶-虛擬貨幣返佣先驅</div>
+            <div class="sub">致力打造全球最大虛擬貨幣返佣平台，讓交易變得更優惠、更便利。</div>
+            <div><a href="javascript:void(0)" class="more">了解更多</a></div>
+          </div>
+        </div>
+      </el-carousel-item>
+    </el-carousel> -->
+
+    <!-- <div class="carousel">
       <div class="carousel-cell banner-block">
         <div class="outblock">
           <div class="title">返多寶-虛擬貨幣返佣先驅</div>
@@ -33,11 +45,11 @@
           <div class="outline"><a href="javascript:void(0)" class="more">了解更多</a></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--Banner結束-->
 
     <!--底版 開始-->
-    <div class="outline line-bg">
+    <div v-if="false" class="outline line-bg">
       <!--加入我們 開始-->
       <div class="outline">
         <div class="join-step-block">
@@ -170,12 +182,12 @@ export default {
   name: 'Home',
   mounted() {
     const $ = window.$
-    $('.carousel').flickity({
-      // options
-      autoPlay: true,
-      cellAlign: 'left',
-      contain: true
-    })
+    // $('.carousel').flickity({
+    //   // options
+    //   autoPlay: true,
+    //   cellAlign: 'left',
+    //   contain: true
+    // })
     $('#unqi-account-btn,#unqi-account-slide').click(function() {
       $('#unqi-account-btn,#unqi-account-slide').addClass('active')
       $(
