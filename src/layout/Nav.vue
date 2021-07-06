@@ -117,11 +117,10 @@ export default {
         line-height: 30px;
         margin-right: 25px;
         border: 1px solid;
-        border-image: linear-gradient(180deg, #62ffff 0%, #3ea9cc 100%) 1;
+        border-color: #62ffff;
         padding: 0px 22px;
         border-radius: 6px;
         background-color: black;
-        clip-path: inset(0 round 7px);
       }
       &:hover {
         color: #fff;

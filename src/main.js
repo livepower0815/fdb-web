@@ -8,7 +8,6 @@ import '@/plugins/echarts'
 
 // css
 import '@/assets/css/common.css'
-import '@/assets/css/flickity.css'
 import '@/assets/css/others.css'
 import '@/assets/css/rwd-set.css'
 

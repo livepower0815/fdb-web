@@ -21,43 +21,39 @@
     <Info />
     <!--介紹 結束-->
 
-    <!--底版 開始-->
-    <div v-if="false" class="outline line-bg">
-      <!--最新消息 開始-->
-      <div class="outline news-outline">
-        <div class="news-title">最新活動與消息</div>
-        <div class="outline scroll">
-          <div class="outblock full-news">
-            <a href="javascript:void(0)" class="news-main">
-              <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
-              <div class="sign-block">
-                <div>活動</div>
-              </div>
-              <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-              <div class="date">2020.03.01</div>
-            </a>
-            <a href="javascript:void(0)" class="news-main">
-              <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
-              <div class="sign-block">
-                <div>活動</div>
-              </div>
-              <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-              <div class="date">2020.03.01</div>
-            </a>
-            <a href="javascript:void(0)" class="news-main">
-              <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
-              <div class="sign-block">
-                <div>活動</div>
-              </div>
-              <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-              <div class="date">2020.03.01</div>
-            </a>
+    <!--最新消息 開始-->
+    <div class="outline news-outline">
+      <div class="news-title">最新活動與消息</div>
+      <div class="outline scroll">
+        <div class="outblock full-news">
+          <div href="javascript:void(0)" class="news-main">
+            <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+            <div class="sign-block">
+              <div>活動</div>
+            </div>
+            <div class="main">How to make a website<br />look more attractive with illustrations.</div>
+            <div class="date">2020.03.01</div>
+          </div>
+          <div href="javascript:void(0)" class="news-main">
+            <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+            <div class="sign-block">
+              <div>活動</div>
+            </div>
+            <div class="main">How to make a website<br />look more attractive with illustrations.</div>
+            <div class="date">2020.03.01</div>
+          </div>
+          <div href="javascript:void(0)" class="news-main">
+            <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+            <div class="sign-block">
+              <div>活動</div>
+            </div>
+            <div class="main">How to make a website<br />look more attractive with illustrations.</div>
+            <div class="date">2020.03.01</div>
           </div>
         </div>
       </div>
-      <!--最新消息 結束-->
     </div>
-    <!--底版 結束-->
+    <!--最新消息 結束-->
   </div>
 </template>
 
@@ -76,13 +72,13 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  height: 280vh;
+  // height: 280vh;
   background-image: url('../../assets/img/common/globe.png');
   background-position: top;
   background-size: contain;
   background-repeat: no-repeat;
   .banner {
-    margin-bottom: 180px;
+    margin-bottom: 14vw;
     &-title {
       margin-top: 5vh;
       margin-bottom: 16px;
@@ -109,7 +105,7 @@ export default {
       }
     }
     &-currencies {
-      margin-top: 100px;
+      margin-top: 6vw;
       display: flex;
       justify-content: center;
       align-items: center;

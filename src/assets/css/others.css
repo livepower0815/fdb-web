@@ -1,5 +1,5 @@
 /*About*/
-.banner-block.about{height:100vh;margin-bottom:126px;background-image:url(../img/about-banner.jpg);background-repeat: no-repeat;background-position: center;background-size: 100%;}
+.banner-block.about{height:100vh;margin-bottom:126px;}
 .banner-block.about>div.outblock{margin-top: 50px;}
 .about-banner-title-block{margin-top:170px!important;}
 .about-pagging-main-block{width:100%;height:auto;float:left;text-align:center;font-size: 20px;line-height:140%;}
@@ -201,12 +201,6 @@
 .refund-detail-info-main>td>div.group.lightpurple{background: #cda7ef;}
 .refund-detail-info-main>td>div.group.blue{background: #46a0e3;}
 .refund-detail-info-main>td>div.group.lightblue{background: #90c6ee;}
-
-
-
-
-
-
 
 .refund-detail-page-block{width:auto;min-width:100px;max-width:240px;height:32px;display:block;margin:0 auto;}
 .refund-detail-page-block>a.left{width:20px;height:20px;float: left;margin-right:7px;}

@@ -1,5 +1,5 @@
 <template>
-  <div class="outline">
+  <div class="outline line-bg">
     <!--Banner開始-->
     <div class="banner-block about">
       <div class="outblock">
@@ -14,7 +14,7 @@
     <!--Banner結束-->
 
     <!--底版 開始-->
-    <div class="outline line-bg">
+    <div class="outline">
       <!--內容 開始-->
       <div class="outline news-outline">
         <div></div>
