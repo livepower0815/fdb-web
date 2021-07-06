@@ -14,33 +14,7 @@
     <!--Banner結束-->
 
     <!--加入我們 開始-->
-    <!-- TODO: 切到這邊 -->
-    <div class="join-step-block">
-      <div class="join-step-title">開始返佣旅程<br />只需要三個步驟</div>
-      <div class="join-step-main-block">
-        <div>
-          <div class="join-step-number">01</div>
-          <div class="join-step-main">
-            <div class="title">加入返多寶</div>
-            <div class="info">快速註冊會員</div>
-          </div>
-        </div>
-        <div>
-          <div class="join-step-number">02</div>
-          <div class="join-step-main">
-            <div class="title">綁定交易所</div>
-            <div class="info">輸入交易所註冊資訊</div>
-          </div>
-        </div>
-        <div>
-          <div class="join-step-number">03</div>
-          <div class="join-step-main">
-            <div class="title">開始返佣</div>
-            <div class="info">你交易，我返佣</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <JoinUs />
     <!--加入我們 結束-->
 
     <!--介紹 開始-->
@@ -103,37 +77,6 @@
 
     <!--底版 開始-->
     <div v-if="false" class="outline line-bg">
-      <!--加入我們 開始-->
-      <div class="outline">
-        <div class="join-step-block">
-          <div class="join-step-title">開始返佣旅程<br />只需要三個步驟</div>
-          <div class="join-step-main-block">
-            <div>
-              <div class="join-step-number">01</div>
-              <div class="join-step-main">
-                <div class="title">加入返多寶</div>
-                <div class="info">快速註冊會員</div>
-              </div>
-            </div>
-            <div>
-              <div class="join-step-number">02</div>
-              <div class="join-step-main">
-                <div class="title">綁定交易所</div>
-                <div class="info">輸入交易所註冊資訊</div>
-              </div>
-            </div>
-            <div>
-              <div class="join-step-number">03</div>
-              <div class="join-step-main">
-                <div class="title">開始返佣</div>
-                <div class="info">你交易，我返佣</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--加入我們 結束-->
-
       <!--介紹 開始-->
       <div class="outline info-outline">
         <div class="outblock">
@@ -231,8 +174,13 @@
 </template>
 
 <script>
+import JoinUs from './components/JoinUs.vue'
+
 export default {
   name: 'Home',
+  components: {
+    JoinUs
+  },
   mounted() {
     const $ = window.$
     // $('.carousel').flickity({
@@ -287,13 +235,13 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  height: 200vh;
+  height: 280vh;
   background-image: url('../../assets/img/common/globe.png');
   background-position: top;
   background-size: contain;
   background-repeat: no-repeat;
   .banner {
-    margin-bottom: 300px;
+    margin-bottom: 180px;
     &-title {
       margin-top: 5vh;
       margin-bottom: 16px;
