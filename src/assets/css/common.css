@@ -41,7 +41,7 @@ padding:16px;margin-bottom:20px;}
 
 /*Register*/
 .register-bg{width:100%;height:100vh;float:left;}
-.register-kv-block{width:60%;height:100vh;float: left;background:url(../img/register-bg.png) no-repeat;background-position:center 50px;background-size: cover;}
+.register-kv-block{width:60%;height:100vh;float: left;background:url(../img/register/register-bg.png) no-repeat;background-position:center 50px;background-size: cover;}
 .register-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
 .register-main-block{width:40%;height:100vh;float: right;}
 .register-main-block>div.main{width:75%;height:auto;display:block;margin:0 auto;position: relative;top:7%;}

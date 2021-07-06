@@ -2,10 +2,15 @@
   <div class="info">
     <div class="info-pic">
       <transition name="fade-transform" mode="out-in">
-        <img v-if="infoSelected === 'unqi-account'" src="@/assets/img/index-intro-00.jpg" alt="unqi-account" key="unqi-account" />
-        <img v-if="infoSelected === 'bonues-visual'" src="@/assets/img/index-intro-02.jpg" alt="bonues-visual" key="bonues-visual" />
-        <img v-if="infoSelected === 'perfect-control'" src="@/assets/img/index-intro-03.jpg" alt="perfect-control" key="perfect-control" />
-        <img v-if="infoSelected === 'servicr-team'" src="@/assets/img/index-intro-01.jpg" alt="servicr-team" key="servicr-team" />
+        <img v-if="infoSelected === 'unqi-account'" src="@/assets/img/home/index-intro-00.jpg" alt="unqi-account" key="unqi-account" />
+        <img v-if="infoSelected === 'bonues-visual'" src="@/assets/img/home/index-intro-02.jpg" alt="bonues-visual" key="bonues-visual" />
+        <img
+          v-if="infoSelected === 'perfect-control'"
+          src="@/assets/img/home/index-intro-03.jpg"
+          alt="perfect-control"
+          key="perfect-control"
+        />
+        <img v-if="infoSelected === 'servicr-team'" src="@/assets/img/home/index-intro-01.jpg" alt="servicr-team" key="servicr-team" />
       </transition>
       <div class="info-pic-slider">
         <div @click="infoSelected = 'unqi-account'" :class="{ actived: infoSelected === 'unqi-account' }"></div>

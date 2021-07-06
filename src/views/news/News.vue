@@ -26,7 +26,7 @@
           <!--總攬 開始-->
           <div class="news-all-sum-block">
             <router-link to="/news-info" class="news-all-sum-main-block">
-              <div class="pic"><img src="@/assets/img/news-announced-pic.jpg" alt="" /></div>
+              <div class="pic"><img src="@/assets/img/news/news-announced-pic.jpg" alt="" /></div>
               <div class="sign-block">
                 <div>公告</div>
               </div>
@@ -43,7 +43,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-pic.jpg" alt="" /></div>
               </router-link>
               <router-link to="/news-info" class="news-all-sum-sub-main">
                 <div class="main">
@@ -53,7 +53,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-pic.jpg" alt="" /></div>
               </router-link>
               <router-link to="/news-info" class="news-all-sum-sub-main">
                 <div class="main">
@@ -63,7 +63,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-pic.jpg" alt="" /></div>
               </router-link>
             </div>
           </div>
@@ -74,7 +74,7 @@
             <div class="outline">
               <div class="outblock">
                 <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                   <div class="sign-block">
                     <div>活動</div>
                   </div>
@@ -82,7 +82,7 @@
                   <div class="date">2020.03.01</div>
                 </router-link>
                 <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                   <div class="sign-block">
                     <div>活動</div>
                   </div>
@@ -90,7 +90,7 @@
                   <div class="date">2020.03.01</div>
                 </router-link>
                 <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                   <div class="sign-block">
                     <div>活動</div>
                   </div>
@@ -99,7 +99,7 @@
                 </router-link>
 
                 <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                   <div class="sign-block">
                     <div>活動</div>
                   </div>
@@ -118,7 +118,7 @@
           <div class="outline">
             <div class="outblock">
               <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                 <div class="sign-block">
                   <div>活動</div>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="date">2020.03.01</div>
               </router-link>
               <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                 <div class="sign-block">
                   <div>活動</div>
                 </div>
@@ -134,7 +134,7 @@
                 <div class="date">2020.03.01</div>
               </router-link>
               <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                 <div class="sign-block">
                   <div>活動</div>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="date">2020.03.01</div>
               </router-link>
               <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
                 <div class="sign-block">
                   <div>活動</div>
                 </div>

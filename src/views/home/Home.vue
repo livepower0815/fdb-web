@@ -27,7 +27,7 @@
       <div class="outline scroll">
         <div class="outblock full-news">
           <div href="javascript:void(0)" class="news-main">
-            <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+            <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
             <div class="sign-block">
               <div>活動</div>
             </div>
@@ -35,7 +35,7 @@
             <div class="date">2020.03.01</div>
           </div>
           <div href="javascript:void(0)" class="news-main">
-            <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+            <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
             <div class="sign-block">
               <div>活動</div>
             </div>
@@ -43,7 +43,7 @@
             <div class="date">2020.03.01</div>
           </div>
           <div href="javascript:void(0)" class="news-main">
-            <div class="pic"><img src="@/assets/img/news-pic.jpg" alt="" /></div>
+            <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
             <div class="sign-block">
               <div>活動</div>
             </div>

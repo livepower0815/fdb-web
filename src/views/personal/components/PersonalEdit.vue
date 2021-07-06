@@ -6,7 +6,7 @@
 
       <div class="personal-edit-info-block">
         <div class="pic-block">
-          <img src="@/assets/img/personal-pic.png" alt="" />
+          <img src="@/assets/img/personal/personal-pic.png" alt="" />
           <a href="javascript:void(0)" class="btn">更改個人圖像</a>
         </div>
         <div class="info-input-block">

@@ -27,7 +27,7 @@
             <div class="news-all-sum-main-block chat">
               <div class="title">推薦計畫</div>
               <div class="date">2020.03.01 by FDB official</div>
-              <div class="pic"><img src="@/assets/img/news-chat-main-pic.jpg" alt="" /></div>
+              <div class="pic"><img src="@/assets/img/news/news-chat-main-pic.jpg" alt="" /></div>
               <div class="main">
                 从今天起至2021年3月31日，您和每位足推荐条件的好友将分别得10美元等的BTC体金。<br />新用戶使用您的推荐注册，成功充且交易至少一次BTCUSD反向永合，即“推荐成功”。
               </div>
@@ -63,7 +63,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -74,7 +74,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -85,7 +85,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -96,7 +96,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -107,7 +107,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -118,7 +118,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -129,7 +129,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -140,7 +140,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -151,7 +151,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -162,7 +162,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -173,7 +173,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -184,7 +184,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
 
               <div class="news-all-sum-sub-main chat">
@@ -195,7 +195,7 @@
                   <div class="title">How to make a website look more attractive with illustrations.</div>
                   <div class="date">2020.03.01</div>
                 </div>
-                <div class="pic"><img src="@/assets/img/news-chat-scroll-pic.jpg" alt="" /></div>
+                <div class="pic"><img src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="" /></div>
               </div>
             </div>
           </div>
