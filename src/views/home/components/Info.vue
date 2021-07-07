@@ -67,7 +67,7 @@ export default {
 .info {
   display: flex;
   padding: 0 5%;
-  margin-bottom: 14vw;
+  margin-bottom: 8vw;
   &-pic {
     padding: 0 3%;
     flex: 1;

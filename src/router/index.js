@@ -60,6 +60,26 @@ const routes = [
       hideNavFooter: true
     }
   },
+  // 重置密碼
+  {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component: () => import('@/views/reset-password/ResetPassword.vue'),
+    meta: {
+      // 隱藏導航欄及頁尾
+      hideNavFooter: true
+    }
+  },
+  // 建立新密碼
+  {
+    path: '/new-password',
+    name: 'NewPassword',
+    component: () => import('@/views/new-password/NewPassword.vue'),
+    meta: {
+      // 隱藏導航欄及頁尾
+      hideNavFooter: true
+    }
+  },
   // 後台儀錶板
   {
     path: '/dashboard',

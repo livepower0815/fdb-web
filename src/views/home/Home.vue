@@ -78,7 +78,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   .banner {
-    margin-bottom: 14vw;
+    margin-bottom: 8vw;
     &-title {
       margin-top: 5vh;
       margin-bottom: 16px;

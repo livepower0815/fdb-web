@@ -17,7 +17,7 @@
         </div>
 
         <div class="login-main flex-center">
-          <span class="text-link">忘記密碼，請重設密碼</span>
+          <span class="text-link" @click="$router.push('/reset-password')">忘記密碼，請重設密碼</span>
         </div>
 
         <a href="javascript:void(0)" class="login-main-btn">登入</a>
