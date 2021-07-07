@@ -224,7 +224,7 @@
 
 /*register*/
 .register-main-block{width:100%;height:auto;padding:50px 0 10px 0;}
-.register-kv-block{width:100%;height:400px;background-position:center -100px;}
+.register-kv-block{width:100%;height:400px;background-position:center -100px;background-size: cover;}
 .register-kv-block>a.logo{display:none!important;}
 /*register*/
 
@@ -374,7 +374,7 @@
 
 /*register*/
 .register-main-block{width:100%;height:auto;padding:50px 0 0 0;}
-.register-kv-block{width:100%;height:300px;background-position:center -70px;}
+.register-kv-block{width:100%;height:300px;background-position:center -70px;background-size: cover;}
 .register-kv-block>a.logo{display:none!important;}
 /*register*/
 
@@ -382,7 +382,7 @@
 /*540*/
 
 /*320*/
-@media screen and (min-width: 320px) and (max-width: 539px) {
+@media screen and (min-width: 300px) and (max-width: 539px) {
     .outblock{width:95%;max-width:530px;height:auto;display:block;margin:0 auto;}
     /*首頁*/
         /*Header*/
@@ -442,7 +442,7 @@
 .partner-detail-block>div>span{margin-left:0px;display:inline-block;margin-left:15px;}
 .partner-detail-outline{width:calc(100% - 40px);padding:15px 20px;margin-bottom:50px;}
 .partner-info-main{width:100%;margin-right:0px;}
-.partner-info-main-block{height:auto;}
+.partner-info-main-block{height:110px;}
 .partner-info-word>div.title{font-size:20px;}
 .partner-info-word>div.main{font-size:14px;}
 .partner-rules-block{width:100%;margin-right:0px;}
@@ -551,7 +551,7 @@
 
 /*register*/
 .register-main-block{width:100%;height:auto;padding:50px 0 0 0;}
-.register-kv-block{width:100%;height:200px;background-position:center -50px;}
+.register-kv-block{width:100%;height:200px;background-position:center -50px;background-size: cover;}
 .register-kv-block>a.logo{display:none!important;}
 /*register*/
 

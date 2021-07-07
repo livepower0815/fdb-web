@@ -11,7 +11,7 @@
         <router-link to="/partner">合作夥伴</router-link>
         <router-link to="/news">最新消息</router-link>
       </div>
-      <div class="footer-connect">
+      <div v-if="deviceWidth >= 768" class="footer-connect">
         <div>聯絡我們</div>
         <img src="@/assets/img/footer/telegram.png" alt="connect-icon" class="connect-icon" />
         <img src="@/assets/img/footer/wechat.png" alt="connect-icon" class="connect-icon" />
@@ -21,7 +21,7 @@
     <div class="footer-bottom">
       <div class="bottom-left">
         <div class="footer-copy-right">Copyright © 2020 FDB.</div>
-        <div class="links">
+        <div v-if="deviceWidth >= 768" class="links">
           <router-link to="/">免責聲明</router-link>
           <div style="width: 0.5px;height: 20px;background-color: #ccc;margin-right: 20px;"></div>
           <router-link to="/">隱私條款</router-link>
