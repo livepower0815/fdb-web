@@ -44,7 +44,6 @@ padding:16px;margin-bottom:20px;}
 .register-kv-block{width:60%;height:100vh;float: left;background:url(../img/register/register-bg.png) no-repeat;background-position:center 50px;background-size: contain;}
 .register-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
 .register-main-block{width:40%;height:100vh;float: right;}
-/* .register-main-block>div.main{width:75%;height:auto;display:block;margin:0 auto;position: relative;} */
 .register-main-block>div.main{width:75%;height:100%;display:block;margin:0 auto;position: relative;display: flex;flex-direction: column;justify-content: center;}
 .register-main-block>div.main>div.title{width:100%;height:auto;float: left;font-size:30px;font-weight:700;margin-bottom:19px;}
 .register-main{width:100%;height:66px;float: left;margin-bottom:12px;}
@@ -54,8 +53,18 @@ padding:16px;margin-bottom:20px;}
 .register-main>div.check-title{width:auto;height:auto;float: left;font-size:16px;font-weight:normal;margin-bottom:32px;}
 .register-main-btn{width:100%;height:44px;float: left; background-image: linear-gradient(to top, #62ffff, #3ea9cc);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
 .register-main-tips{width:100%;height:auto;float: left;margin-top:20px;font-size:16px;text-align: center;}
-.register-main-tips>span{color:lightblue;}
 /*Register*/
 
-/* footer{margin-top:100px;} */
-/* footer>div>div.logo{margin-top:35px;} */
+/*login*/
+.login-bg{width:100%;height:100vh;float:left;}
+.login-kv-block{width:60%;height:100vh;float: left;background:url(../img/register/register-bg.png) no-repeat;background-position:center 50px;background-size: contain;}
+.login-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
+.login-main-block{width:40%;height:100vh;float: right;}
+.login-main-block>div.main{width:75%;height:100%;display:block;margin:0 auto;position: relative;display: flex;flex-direction: column;justify-content: center;}
+.login-main-block>div.main>div.title{width:100%;height:auto;float: left;font-size:30px;font-weight:700;margin-bottom:19px;}
+.login-main{width:100%;height:66px;float: left;margin-bottom:12px;}
+.login-main>div.title{width:100%;height:auto;float: left;font-size:16px;color:#fff;margin-bottom:5px;}
+.login-main>input.input{width:100%;height:42px;float: left;font-size:16px;color:#c4c4c4;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;padding-left:10px;}
+.login-main-btn{width:100%;height:44px;float: left; background-image: linear-gradient(to top, #62ffff, #3ea9cc);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
+.login-main-tips{width:100%;height:auto;float: left;margin-top:20px;font-size:16px;text-align: center;}
+/*login*/

@@ -17,7 +17,7 @@
         <img src="@/assets/img/nav/mdi_web.png" alt="globel" />
       </template>
       <!-- <el-avatar size="small" :src="require('@/assets/img/nav/user_proflie.png')"></el-avatar> -->
-      <router-link v-if="deviceWidth >= 768" to="/personal" style="margin-left: 20px">登入</router-link>
+      <router-link v-if="deviceWidth >= 768" to="/login" style="margin-left: 20px">登入</router-link>
       <router-link to="/register" class="register" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '0' }">註冊</router-link>
       <template v-if="deviceWidth >= 768">
         <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>

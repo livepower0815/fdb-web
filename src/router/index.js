@@ -50,6 +50,16 @@ const routes = [
       hideNavFooter: true
     }
   },
+  // 登入
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/Login.vue'),
+    meta: {
+      // 隱藏導航欄及頁尾
+      hideNavFooter: true
+    }
+  },
   // 後台儀錶板
   {
     path: '/dashboard',
