@@ -75,7 +75,7 @@ export default {
   // height: 280vh;
   background-image: url('../../assets/img/common/globe.png');
   background-position: top;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   .banner {
     margin-bottom: 14vw;
@@ -121,11 +121,20 @@ export default {
 }
 /*768*/
 @media screen and (min-width: 750px) and (max-width: 999px) {
+  .home {
+    background-size: contain;
+  }
 }
 /*540*/
 @media screen and (min-width: 540px) and (max-width: 749px) {
+  .home {
+    background-size: contain;
+  }
 }
 /*320*/
-@media screen and (min-width: 320px) and (max-width: 539px) {
+@media screen and (min-width: 300px) and (max-width: 539px) {
+  .home {
+    background-size: contain;
+  }
 }
 </style>
