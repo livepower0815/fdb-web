@@ -93,8 +93,10 @@ export default {
         }
         const res = await register(postData)
         console.log(res)
+        this.$message.success('成功請信箱收信')
       } catch (error) {
         console.error(error)
+        this.$message.error('註冊失敗')
       }
       this.isLoading = false
     }

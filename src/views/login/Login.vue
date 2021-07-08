@@ -69,8 +69,11 @@ export default {
         }
         const res = await login(postData)
         console.log(res)
+        this.$message.success('登入成功')
+        this.$router.push('/')
       } catch (error) {
         console.error(error)
+        this.$message.error('登入失敗')
       }
       this.isLoading = false
     }

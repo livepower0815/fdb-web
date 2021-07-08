@@ -22,10 +22,10 @@ const mutations = {
 
 const actions = {
   // user login
-  async login({ commit }, userInfo) {
-    const { account, password } = userInfo
+  async login({ commit }, loginData) {
+    const { account, password, captchaCode } = loginData
     try {
-      const res = await login({ account, password })
+      const res = await login({ account, password, captchaCode })
       const token = `${res.data.access_token}`
       commit('SET_TOKEN', token)
       return 'done'
