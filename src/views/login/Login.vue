@@ -1,26 +1,31 @@
 <template>
   <div class="login-bg">
-    <div class="login-main-block">
+    <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="login-main-block">
       <div class="main">
         <input v-show="false" type="text" name="username" />
         <input v-show="false" type="password" name="password" />
         <div class="title">會員登入</div>
         <div class="login-main">
           <div class="title">電子郵箱</div>
-          <input type="text" class="input" placeholder="example@mail.com" autocomplete="off" />
+          <input v-model="formData.account" type="text" class="input" placeholder="example@mail.com" autocomplete="off" />
         </div>
 
         <div class="login-main">
           <div class="title">密碼</div>
-          <input :type="passwordType" class="input" placeholder="數入6位數以上，含英數字" autocomplete="off" />
+          <input v-model="formData.password" :type="passwordType" class="input" placeholder="數入6位數以上，含英數字" autocomplete="off" />
           <PasswordIcon :pwd-type.sync="passwordType" />
+        </div>
+
+        <div class="login-main">
+          <div class="title">圖形驗證碼</div>
+          <input v-model="formData.captchaCode" type="text" class="input" />
         </div>
 
         <div class="login-main flex-center">
           <span class="text-link" @click="$router.push('/reset-password')">忘記密碼，請重設密碼</span>
         </div>
 
-        <a href="javascript:void(0)" class="login-main-btn">登入</a>
+        <a href="javascript:void(0)" class="login-main-btn" @click="doLogin">登入</a>
         <div class="login-main-tips">還沒創建過帳戶？請 <span class="text-link" @click="$router.push('/register')">註冊</span></div>
       </div>
     </div>
@@ -34,6 +39,7 @@
 </template>
 
 <script>
+import { login } from '@/apis/user.js'
 import PasswordIcon from '@/components/common/PasswordIcon'
 
 export default {
@@ -43,7 +49,30 @@ export default {
   },
   data() {
     return {
-      passwordType: 'password'
+      isLoading: false,
+      passwordType: 'password',
+      formData: {
+        account: '',
+        password: '',
+        captchaCode: ''
+      }
+    }
+  },
+  methods: {
+    async doLogin() {
+      this.isLoading = true
+      try {
+        const postData = {
+          account: this.formData.account,
+          password: this.formData.password,
+          captchaCode: this.formData.captchaCode
+        }
+        const res = await login(postData)
+        console.log(res)
+      } catch (error) {
+        console.error(error)
+      }
+      this.isLoading = false
     }
   }
 }

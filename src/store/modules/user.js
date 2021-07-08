@@ -1,75 +1,66 @@
-// import { login, logout, getInfo } from '@/api/user'
-// import { getToken, setToken, removeToken } from '@/utils/auth'
+import { login, getUserInfo } from '@/apis/user'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const state = {
-  // token: getToken() || '',
+  token: getToken() || '',
   userInfo: {}
 }
 
 const mutations = {
   SET_USER_INFO(state, data) {
     state.userInfo = data
+  },
+  SET_TOKEN(state, token) {
+    state.token = token
+    setToken(token)
+  },
+  REMOVE_TOKEN(state) {
+    state.token = ''
+    removeToken()
   }
 }
 
 const actions = {
   // user login
-  // login({ commit, dispatch }, userInfo) {
-  //   const { username, password } = userInfo
-  //   return new Promise((resolve, reject) => {
-  //     login({ username: username.trim(), password })
-  //       .then(response => {
-  //         const token = `${response.data.access_token}`
-  //         commit('SET_TOKEN', token)
-  //         setToken(token)
-  //         resolve()
-  //       })
-  //       .catch(error => {
-  //         reject(error)
-  //       })
-  //   })
-  // },
-  // get user info
-  // getInfo({ commit, state }, token) {
-  //   return new Promise((resolve, reject) => {
-  //     getInfo({ access_token: token })
-  //       .then(response => {
-  //         commit('SET_USER_INFO', response.data)
-  //         resolve()
-  //       })
-  //       .catch(error => {
-  //         reject(error)
-  //       })
-  //   })
-  // },
-  // user logout
-  // logout({ commit, state, dispatch }) {
-  //   return new Promise((resolve, reject) => {
-  //     logout(state.token)
-  //       .then(() => {
-  //         commit('SET_TOKEN', '')
-  //         dispatch('chat/resetChat')
-  //         removeToken()
-  //         resetRouter()
-  //         commit('permission/RESET_ROUTERS', {}, { root: true })
-  //         resolve()
-  //       })
-  //       .catch(error => {
-  //         reject(error)
-  //       })
-  //   })
-  // },
+  async login({ commit }, userInfo) {
+    const { account, password } = userInfo
+    try {
+      const res = await login({ account, password })
+      const token = `${res.data.access_token}`
+      commit('SET_TOKEN', token)
+      return 'done'
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  },
   // remove token
-  // resetToken({ commit, dispatch }) {
-  //   return new Promise(resolve => {
-  //     commit('SET_TOKEN', '')
-  //     commit('SET_USER_INFO', {})
-  //     removeToken()
-  //     resetRouter()
-  //     commit('permission/RESET_ROUTERS', {}, { root: true })
-  //     resolve()
-  //   })
-  // }
+  async resetToken({ commit }) {
+    try {
+      commit('REMOVE_TOKEN')
+      commit('SET_USER_INFO', {})
+      return 'done'
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  },
+  // get user info
+  async getUserInfo({ commit }) {
+    try {
+      const res = await getUserInfo()
+      commit('SET_USER_INFO', res)
+      return 'done'
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  },
+  // user logout
+  async logout({ dispatch }) {
+    try {
+      dispatch('resetToken')
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
 }
 
 export default {
