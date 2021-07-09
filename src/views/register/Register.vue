@@ -39,10 +39,17 @@
         </div>
 
         <div class="register-main">
-          <input type="checkbox" class="check" />
+          <input v-model="formData.checkContract" type="checkbox" class="check" />
           <div class="check-title">我已閱讀並同意FDB的服務與隱私條款</div>
         </div>
 
+        <!-- 註冊按鈕
+        預設為disable狀態，填選完也勾選隱私條款後，
+        才會顯示可點擊狀態
+
+        點擊註冊後，（同時寄出信箱驗證連結）顯示彈跳式窗，請使用者立即驗證信箱，若尚未驗證完成這個帳號就不算註冊成功
+
+        點擊信箱url請導入登入畫面 -->
         <a href="javascript:void(0)" class="register-main-btn" @click="doRegister">註冊</a>
         <div class="register-main-tips">已經有帳號？請 <span class="text-link" @click="$router.push('/login')">登入</span></div>
       </div>
@@ -75,7 +82,8 @@ export default {
         areaCore: '886',
         phone: '',
         password: '',
-        invitCode: ''
+        invitCode: '',
+        checkContract: false
       }
     }
   },
@@ -83,6 +91,8 @@ export default {
     async doRegister() {
       this.isLoading = true
       try {
+        // 驗證相關
+        await this.validate()
         const postData = {
           name: this.formData.name,
           email: this.formData.email,
@@ -91,14 +101,41 @@ export default {
           password: this.formData.password,
           invitCode: this.formData.invitCode
         }
-        const res = await register(postData)
-        console.log(res)
+        await register(postData)
         this.$message.success('成功請信箱收信')
       } catch (error) {
-        console.error(error)
-        this.$message.error('註冊失敗')
+        console.error(error.message)
+        this.$message.error(error.message)
       }
       this.isLoading = false
+    },
+    // 驗證相關
+    async validate() {
+      // 使用者名稱：僅限英文15字串以內，名稱不可重複（需檢查）
+      if (!/^[a-zA-Z]{1,15}$/.test(this.formData.name)) {
+        return Promise.reject(new Error('使用者名稱：僅限英文15字串以內'))
+      }
+      // 電子郵件：與範例一致 example@mail.com
+      if (!/\S+@\S+.\S+/.test(this.formData.email)) {
+        return Promise.reject(new Error('電子郵件：格式錯誤'))
+      }
+      // 行動電話 ：僅能9開頭，九位數不含特殊符號
+      if (!/^9\d{8}$/.test(this.formData.phone)) {
+        return Promise.reject(new Error('行動電話：僅能9開頭，九位數不含特殊符號'))
+      }
+      // 密碼：6位數以上，含英數字，不含特殊符號
+      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
+        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+      }
+      // 邀請碼：8位數，含英數字，不含特殊符號
+      if (this.formData.invitCode && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8}$/.test(this.formData.invitCode)) {
+        return Promise.reject(new Error('邀請碼：8位數，含英數字，不含特殊符號'))
+      }
+      // 隱私條件需勾選，才可以點擊註冊
+      if (!this.formData.checkContract) {
+        return Promise.reject(new Error('隱私條件需勾選，才可以點擊註冊'))
+      }
+      return 'done'
     }
   }
 }
