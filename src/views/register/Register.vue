@@ -20,8 +20,8 @@
           <div class="split-input">
             <select v-model="formData.areaCore" class="input" style="width: 80px; margin-right: 8px;">
               <option value="886">+886</option>
-              <option value="886">+885</option>
-              <option value="886">+884</option>
+              <option value="885">+885</option>
+              <option value="884">+884</option>
             </select>
             <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="912345678" autocomplete="off" />
           </div>
@@ -86,7 +86,7 @@ export default {
         const postData = {
           name: this.formData.name,
           email: this.formData.email,
-          areaCore: '+886',
+          areaCore: this.formData.areaCore,
           phone: this.formData.phone,
           password: this.formData.password,
           invitCode: this.formData.invitCode
