@@ -16,9 +16,26 @@
         <img src="@/assets/img/nav/menu.png" alt="menu" />
         <img src="@/assets/img/nav/mdi_web.png" alt="globel" />
       </template>
-      <!-- <el-avatar size="small" :src="require('@/assets/img/nav/user_proflie.png')"></el-avatar> -->
-      <router-link v-if="deviceWidth >= 768" to="/login" style="margin-left: 20px">登入</router-link>
-      <router-link to="/register" class="register" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '0' }">註冊</router-link>
+
+      <!-- 個人大頭貼工作區 -->
+      <el-dropdown v-if="hasInfo" trigger="click" @command="handleCommand">
+        <el-avatar
+          size="small"
+          :icon="userInfo.imageUrl ? '' : 'el-icon-user-solid'"
+          :src="userInfo.imageUrl || ''"
+          style="margin-right: 20px; cursor: pointer;"
+        ></el-avatar>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item command="personal">個人資訊管理</el-dropdown-item>
+          <el-dropdown-item command="dashboard">返佣交易總覽</el-dropdown-item>
+          <el-dropdown-item command="logout">登出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+
+      <template v-if="!hasInfo">
+        <router-link v-if="deviceWidth >= 768" to="/login" style="margin-left: 20px">登入</router-link>
+        <router-link to="/register" class="register" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '0' }">註冊</router-link>
+      </template>
       <template v-if="deviceWidth >= 768">
         <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>
         <router-link to="/dashboard" style="margin: 0;">ZH</router-link>
@@ -56,13 +73,29 @@ export default {
   computed: {
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    },
+    hasInfo() {
+      return this.$store.getters.hasInfo
+    },
+    userInfo() {
+      return this.$store.state.user.userInfo
     }
   },
-  mounted() {},
   methods: {
-    // toggleMobileMenu() {
-    //   window.$('.mobile-drop').slideToggle()
-    // }
+    handleCommand(command) {
+      switch (command) {
+        case 'personal':
+          this.$router.push({ name: 'Personal' })
+          break
+        case 'dashboard':
+          this.$router.push({ name: 'Dashboard' })
+          break
+        case 'logout':
+          this.$store.dispatch('user/logout')
+          this.$router.push({ name: 'Home' })
+          break
+      }
+    }
   }
 }
 </script>

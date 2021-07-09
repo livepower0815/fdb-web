@@ -18,6 +18,9 @@ import locale from 'element-ui/lib/locale/lang/zh-TW' // lang i18n
 
 import '@/style/common.scss'
 
+// route gateway
+import '@/permission'
+
 Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false

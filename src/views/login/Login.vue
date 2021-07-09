@@ -17,7 +17,7 @@
         </div>
 
         <div class="login-main">
-          <div class="title">圖形驗證碼</div>
+          <div class="title">圖形驗證碼：{{ captchaCode }}</div>
           <input v-model="formData.captchaCode" type="text" class="input" />
         </div>
 
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { login } from '@/apis/user.js'
+import { getCaptchaImage } from '@/apis/user.js'
 import PasswordIcon from '@/components/common/PasswordIcon'
 
 export default {
@@ -55,10 +55,22 @@ export default {
         account: '',
         password: '',
         captchaCode: ''
-      }
+      },
+      captchaCode: ''
     }
   },
+  mounted() {
+    this.init()
+  },
   methods: {
+    async init() {
+      try {
+        const res = await getCaptchaImage()
+        this.captchaCode = res.code
+      } catch (error) {
+        console.error(error)
+      }
+    },
     async doLogin() {
       this.isLoading = true
       try {
@@ -67,8 +79,7 @@ export default {
           password: this.formData.password,
           captchaCode: this.formData.captchaCode
         }
-        const res = await login(postData)
-        console.log(res)
+        await this.$store.dispatch('user/login', postData)
         this.$message.success('登入成功')
         this.$router.push('/')
       } catch (error) {

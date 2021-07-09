@@ -22,3 +22,10 @@ export const getUserInfo = () =>
     url: '/api/User/GetUsers',
     method: 'GET'
   })
+
+// 取得圖形驗證碼
+export const getCaptchaImage = () =>
+  request({
+    url: '/api/User/GetCaptchaImage',
+    method: 'GET'
+  })

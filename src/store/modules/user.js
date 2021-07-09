@@ -26,7 +26,7 @@ const actions = {
     const { account, password, captchaCode } = loginData
     try {
       const res = await login({ account, password, captchaCode })
-      const token = `${res.data.access_token}`
+      const token = res.data
       commit('SET_TOKEN', token)
       return 'done'
     } catch (error) {
