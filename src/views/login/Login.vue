@@ -74,6 +74,8 @@ export default {
     async doLogin() {
       this.isLoading = true
       try {
+        // 驗證相關
+        await this.validate()
         const postData = {
           account: this.formData.account,
           password: this.formData.password,
@@ -83,10 +85,22 @@ export default {
         this.$message.success('登入成功')
         this.$router.push('/')
       } catch (error) {
-        console.error(error)
-        this.$message.error('登入失敗')
+        console.error(error.message)
+        this.$message.error(error.message)
       }
       this.isLoading = false
+    },
+    // 驗證相關
+    async validate() {
+      // 電子郵件：與範例一致 example@mail.com
+      if (!/\S+@\S+.\S+/.test(this.formData.account)) {
+        return Promise.reject(new Error('電子郵件：格式錯誤'))
+      }
+      // 密碼：6位數以上，含英數字，不含特殊符號
+      // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
+      //   return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+      // }
+      return 'done'
     }
   }
 }
