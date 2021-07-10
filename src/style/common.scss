@@ -38,3 +38,46 @@ button {
   opacity: 0;
   // transform: translateX(30px);
 }
+
+// fdb-dialog
+.fbd-dialog.el-dialog {
+  background: #181d28;
+  color: #ffffff;
+  border-radius: 6px;
+  .el-dialog__header {
+    text-align: center;
+    .el-dialog__title {
+      color: #ffffff;
+    }
+  }
+  .el-dialog__body {
+    color: #ffffff;
+  }
+  .el-dialog__footer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+// button
+.fdb-btn-default {
+  color: #fff;
+  display: inline-block;
+  line-height: 30px;
+  border: 1px solid;
+  border-color: #62ffff;
+  padding: 0px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fdb-btn-primary {
+  color: #fff;
+  display: inline-block;
+  line-height: 30px;
+  background: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
+  padding: 0px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}

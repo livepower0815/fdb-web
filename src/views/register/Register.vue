@@ -60,6 +60,14 @@
         <img src="@/assets/img/nav/logo.png" alt="logo" />
       </router-link>
     </div>
+    <el-dialog title="信箱驗證通知" :visible.sync="dialogVisible" width="300px" :show-close="false" custom-class="fbd-dialog">
+      <div style="text-align: center;">
+        <span>註冊成功，請去電子郵箱收取信件。</span>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <div class="fdb-btn-primary" @click="dialogVisible = false">關閉</div>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -76,6 +84,7 @@ export default {
     return {
       passwordType: 'password',
       isLoading: false,
+      dialogVisible: false,
       formData: {
         name: '',
         email: '',
@@ -102,7 +111,7 @@ export default {
           invitCode: this.formData.invitCode
         }
         await register(postData)
-        this.$message.success('成功請信箱收信')
+        this.dialogVisible = true
       } catch (error) {
         console.error(error.message)
         this.$message.error(error.message)
