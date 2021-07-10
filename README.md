@@ -9,8 +9,8 @@
 密碼：123456
 
 ## TODO List
-- dialog 元件客製化
-- 串接 logout
+- 編輯個人檔案
+- 綁定交易所g
 - 找回密碼
 ### 後端及業主回報區
 已回報
@@ -18,6 +18,8 @@
 - 登入圖形驗證碼 無UI
 - 手機版請同步個人資訊的察看及編輯模式
 - 登出登入手機版
+- 編輯使用著資料ＡＰＩ少兩個 key newPassword: '',doubleCheck: ''
+- API 註冊那邊區碼叫 areaCore 編輯叫 areaCode 看要不要統一
 
 待回報
-- 
+- 建議登入後到首頁不要到 dashboard

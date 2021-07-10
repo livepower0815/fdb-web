@@ -280,7 +280,7 @@
 .take-cash-step-info-block.input>div.title{width:110px;height:42px;float: left;text-align:right;margin-right:18px;font-size:18px;line-height:42px;}
 .take-cash-step-btn-block{width:265px;height:35px;display:block;margin:0 auto;}
 
-.take-cash-step-btn-block>a.cancel{width:130px;height:35px;border: 1px solid;border-image: linear-gradient(180deg, #62FFFF 0%, #3EA9CC 100%) 1;box-sizing: border-box;border-radius: 7px;float: left;color:#fff;margin-right:5px;text-align:center;line-height:35px;clip-path: inset(0 round 7px);}
+.take-cash-step-btn-block>a.cancel{width:130px;height:35px;border: 1px #62FFFF solid;border-radius: 7px;float: left;color:#fff;margin-right:5px;text-align:center;line-height:35px;}
 .take-cash-step-btn-block>a.next{width:130px;height:35px;background-image: linear-gradient(to top, #62ffff, #3ea9cc);border-radius: 0px;float:left;color:#fff;text-align:center;line-height:35px;clip-path: inset(0 round 7px);}
 .take-cash-step-tips{width:calc(100% - 50px);height:auto;text-align:center;font-size:18px;color:#EB5757;padding:0 0 40px 0;border-bottom:1px solid #C4C4C4;margin:0 auto;display:block;margin-bottom:30px;}
 
@@ -305,9 +305,8 @@
 .personal-main-pic{width:100px;height:100px;display:block;margin:0 auto;}
 .personal-sign{position:absolute;margin-left: 75px;margin-top: -25px;}
 .personal-main-name{width:100%;height:auto;display:block;text-align:center;font-size:26px;margin-top:25px;margin-bottom:5px;font-weight:700;}
-.personal-main-sub{width:100%;height:auto;display:block;text-align:center;font-size:16px;margin-bottom:5px;color:#878787;}
-.personal-main-email{width:100%;height:auto;display:block;text-align:center;font-size:16px;margin-bottom:32px;color:#878787;}
-.personal-main-email>span{width:auto;height:auto;display:inline;margin-left:10px;color:red;}
+.personal-main-sub{width:100%;height:auto;display:block;text-align:center;font-size:16px;margin-bottom:5px;color:#ffffff;}
+.personal-main-email{width:100%;height:auto;display:block;text-align:center;font-size:16px;margin-bottom:32px;color:#ffffff;}
 .personal-main-btn{width:286px;height:41px;display:block;text-align:center;margin:0 auto;font-size:18px;background-image: linear-gradient(to top, #3ea9cc, #62ffff);line-height:41px;color:#fff;border-radius:7px;}
 
 
@@ -322,7 +321,7 @@
 
 .personal-function-main{width:calc(100% - 56px);height:auto;background:#151923;box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);border-radius: 6px;padding:20px 28px;float:left;}
 .personal-function-main>div.title{width:100%;height:auto;float:left;font-weight: bold;font-size: 18px;margin-bottom:10px;}
-.personal-function-main>div.sub{width:100%;height:auto;float:left;font-size: 12px;margin-bottom:23px;color:#878787;}
+.personal-function-main>div.sub{width:100%;height:auto;float:left;font-size: 12px;margin-bottom:23px;color:#ffffff;}
 .personal-function-main>div.exchange-block{width:100%;height:auto;float: left;margin-bottom:30px;}
 .personal-function-main>div.exchange-block>div.main{width:403px;height:auto;float: left;margin-right:50px;}
 .personal-function-main>div.exchange-block>div.main:nth-last-child(1){margin-right:0px;}
@@ -351,17 +350,16 @@
 .personal-take-cash-adress-main>a.edit>svg{position: relative;transform:translateY(130%);top:50%;display:block;margin: 0 auto;}
 
 .personal-edit-info-block{width:100%;height:auto;float: left;}
-.personal-edit-info-block>div.pic-block{width:229px;height:405px;float: left;border-right: 1px solid #ffffff;}
+.personal-edit-info-block>div.pic-block{width:229px;float: left;}
 .personal-edit-info-block>div.pic-block>img{width:100px;height:100px;float: left;margin-bottom:24px;}
 .personal-edit-info-block>div.pic-block>a.btn{width:143px;height:30px;float: left;background-image: linear-gradient(to top, #3ea9cc, #62ffff);border-radius:500px;line-height:30px;text-align:center;font-size:14px;color:#fff;padding:2px 10px;}
 
 
-.personal-edit-info-block>div.info-input-block{width:calc(100% - 262px);height:auto;float: left;margin-left:32px;}
+.personal-edit-info-block>div.info-input-block{width:calc(100% - 262px);height:auto;float: left;padding-left:32px;border-left: 1px #ffffff solid;}
 .personal-edit-info-block>div.info-input-block>div.main{width:100%;height:42px;float: left;margin-bottom:27px;}
 .personal-edit-info-block>div.info-input-block>div.main>div.title{width:100px;height:auto;float: left;line-height:42px;margin-right:5px;font-size:18px;}
-.personal-edit-info-block>div.info-input-block>div.main>input.input{width: 300px;height: 42px;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;line-height:42px;padding-left: 10px;font-size:18px;color:#fff;}
+.personal-edit-info-block>div.info-input-block>div.main>input.input{width: 300px;height: 42px;float: left;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;line-height:42px;padding-left: 10px;font-size:18px;color:#fff;}
 .personal-edit-info-block>div.info-input-block>div.main>div.info{width:auto;height:auto;float: left;font-size:18px;line-height:42px;}
-.personal-edit-info-block>div.info-input-block>div.main>div.info>span{margin-left:15px;color:red;}
 
 
 /*Personal*/

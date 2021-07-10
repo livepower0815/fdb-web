@@ -18,7 +18,7 @@
         <div class="register-main">
           <div class="title">行動電話</div>
           <div class="split-input">
-            <select v-model="formData.areaCore" class="input" style="width: 80px; margin-right: 8px;">
+            <select v-model="formData.areaCode" class="input" style="width: 80px; margin-right: 8px;">
               <option value="886">+886</option>
               <option value="885">+885</option>
               <option value="884">+884</option>
@@ -88,7 +88,7 @@ export default {
       formData: {
         name: '',
         email: '',
-        areaCore: '886',
+        areaCode: '886',
         phone: '',
         password: '',
         invitCode: '',
@@ -105,7 +105,7 @@ export default {
         const postData = {
           name: this.formData.name,
           email: this.formData.email,
-          areaCore: this.formData.areaCore,
+          areaCode: this.formData.areaCode,
           phone: this.formData.phone,
           password: this.formData.password,
           invitCode: this.formData.invitCode

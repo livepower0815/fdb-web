@@ -38,7 +38,7 @@
       </template>
       <template v-if="deviceWidth >= 768">
         <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>
-        <router-link to="/dashboard" style="margin: 0;">ZH</router-link>
+        <router-link to="/personal" style="margin: 0;">ZH</router-link>
       </template>
     </div>
 
