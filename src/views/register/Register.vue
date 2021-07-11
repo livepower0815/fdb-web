@@ -114,7 +114,7 @@ export default {
         this.dialogVisible = true
       } catch (error) {
         if (error.isHttpError) {
-          this.$message.error(error.response.data.message)
+          this.$message.error(error.response.data.resultMsg)
         } else {
           this.$message.error(error.message)
         }
