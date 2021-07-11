@@ -86,7 +86,7 @@ export default {
         this.$router.push({ name: 'Home' })
       } catch (error) {
         if (error.isHttpError) {
-          this.$message.error(error.response.data.resultMsg)
+          this.$message.error(error.response?.data?.resultMsg)
         } else {
           this.$message.error(error.message)
         }
