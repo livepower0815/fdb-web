@@ -38,6 +38,7 @@ service.interceptors.response.use(
     }
   },
   error => {
+    error.isHttpError = true
     const { response } = error
 
     switch (response.status) {

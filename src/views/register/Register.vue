@@ -113,8 +113,12 @@ export default {
         await register(postData)
         this.dialogVisible = true
       } catch (error) {
+        if (error.isHttpError) {
+          this.$message.error(error.response.data.message)
+        } else {
+          this.$message.error(error.message)
+        }
         console.error(error.message)
-        this.$message.error(error.message)
       }
       this.isLoading = false
     },

@@ -85,8 +85,12 @@ export default {
         this.$message.success('登入成功')
         this.$router.push({ name: 'Home' })
       } catch (error) {
-        console.error(error.message)
-        this.$message.error(error.message)
+        if (error.isHttpError) {
+          this.$message.error(error.response.data.message)
+        } else {
+          this.$message.error(error.message)
+        }
+        console.error(error)
       }
       this.isLoading = false
     },
