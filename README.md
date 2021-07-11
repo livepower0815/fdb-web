@@ -34,5 +34,6 @@ CSS sample
 - API 註冊那邊區碼叫 areaCore 編輯叫 areaCode 看要不要統一
 
 待回報
-- 建議登入後到首頁不要到 dashboard
-- 如果沒有好友邀請碼 直接不顯示嗎？
+- 流程: 建議登入後到首頁不要到 dashboard
+- UI: 如果沒有好友邀請碼 直接不顯示嗎？
+- 交易所清單用哪一隻 API

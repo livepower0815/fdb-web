@@ -60,6 +60,12 @@
 .personal-main-email{font-size:14px;}
 .personal-main-btn{width:150px;height:auto;padding:15px 50px;line-height:14px;font-size:14px;}
 .personal-function-block{max-width:calc(70% - 8.5px);}
+.personal-function-main>div.exchange-block>div.main{width:46%;margin-right:40px;}
+.personal-function-main>div.exchange-block>div.main:nth-last-child(1){margin-right:0px;}
+.personal-function-main>div.exchange-block>div.main>div{height:76px;}
+.personal-function-main>div.exchange-block>div.main>div>div.title{width:100%;margin-bottom:5px;margin-right:0px;}
+.personal-function-main>div.exchange-block>div.main>div>.input{width:calc(100% - 10px);}
+
 .personal-take-cash-adress-main>input.main{width:calc(100% - 270px);}
 .personal-take-cash-adress-main>div.main{width:calc(100% - 270px);font-size:14px;}
 
@@ -175,6 +181,10 @@
 .personal-main-email{font-size:14px;}
 .personal-main-btn{width:120px;height:auto;padding:13px 30px;line-height:14px;font-size:14px;}
 .personal-function-block{max-width:calc(70% - 8.5px);}
+.personal-function-main>div.exchange-block>div.main{width:100%;margin-right:0px;}
+.personal-function-main>div.exchange-block>div.main>div{height:auto;}
+.personal-function-main>div.exchange-block>div.main>div>div.title{width:100%;margin-bottom:5px;margin-right:0px;}
+.personal-function-main>div.exchange-block>div.main>div>.input{width:calc(100% - 10px);}
 
 .personal-take-cash-adress-main{height:auto;}
 .personal-take-cash-adress-main>input.main{width:calc(100% - 90px);margin-left:35px;}
@@ -341,7 +351,6 @@
 .personal-main-email{font-size:14px;}
 .personal-main-btn{width:250px;height:auto;padding:15px 30px;line-height:14px;font-size:14px;}
 .personal-function-block{max-width:100%;margin-bottom:15px;}
-.personal-function-main>div.exchange-block>div.main{width:100%;margin-right:0px;}
 .banner-block.personal>.outblock{width:250px;margin-right:30px;transform:none;left:0%;position: inherit;margin-top:25px;}
 .banner-block.personal{background-position:center;height:280px;}
 .banner-block.personal>.outblock>div.title{margin-bottom:15px;font-size:30px;}
@@ -537,10 +546,6 @@
 .banner-block.personal{height:350px;background-position:-750px;}
 .banner-block.personal>.outblock{width:250px;margin-right:30px;transform:none;left:0%;position: inherit;margin-top:25px;}
 .banner-block.personal>.outblock>div.title{margin-bottom:15px;font-size:30px;}
-.personal-function-main>div.exchange-block>div.main{width:100%;margin-right:0px;}
-.personal-function-main>div.exchange-block>div.main>div{height:auto;}
-.personal-function-main>div.exchange-block>div.main>div>div.title{width:100%;margin-bottom:5px;margin-right:0px;}
-.personal-function-main>div.exchange-block>div.main>div>.input{width:calc(100% - 10px);}
 
 .personal-take-cash-adress-main{height:auto;}
 .personal-take-cash-adress-main>input.main{width:calc(100% - 90px);margin-left:35px;}
