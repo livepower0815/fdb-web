@@ -187,9 +187,8 @@
 .personal-take-cash-adress-main>input.main{width:calc(100% - 90px);margin-left:35px;}
 .personal-take-cash-adress-main>div.main{width:calc(100% - 95px);margin-left:40px;font-size:14px;line-height:40px;}
 .personal-take-cash-adress-main>div.icon{width:24px;height:24px;border-radius:2px;margin-right:15px;}
-.personal-take-cash-adress-main>div.icon>svg{width:95%;height:95%;margin:0 auto;}
+.personal-take-cash-adress-main>div.icon>img{width:95%;height:95%;margin:0 auto;}
 .personal-take-cash-adress-main>div.title{font-size:14px;margin:0px;line-height:24px;}
-.personal-take-cash-adress-main>a.edit>svg{transform:translateY(50%);}
 
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
 .personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
@@ -359,9 +358,8 @@
 .personal-take-cash-adress-main>input.main{width:calc(100% - 90px);margin-left:35px;}
 .personal-take-cash-adress-main>div.main{width:calc(100% - 95px);margin-left:40px;font-size:14px;line-height:40px;overflow-x:scroll;}
 .personal-take-cash-adress-main>div.icon{width:24px;height:24px;border-radius:2px;margin-right:15px;}
-.personal-take-cash-adress-main>div.icon>svg{width:95%;height:95%;margin:0 auto;}
+.personal-take-cash-adress-main>div.icon>img{width:95%;height:95%;margin:0 auto;}
 .personal-take-cash-adress-main>div.title{font-size:14px;margin:0px;line-height:24px;}
-.personal-take-cash-adress-main>a.edit>svg{transform:translateY(50%);}
 
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
 .personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
@@ -396,8 +394,8 @@
 /*DashBoard*/
 
 /*TakeCash*/
-.take-cash-step-btn-block>a.cancel{width:90px;}
-.take-cash-step-btn-block>a.next{width:90px;}
+.take-cash-step-btn-block>a.cancel{width:100px;}
+.take-cash-step-btn-block>a.next{width:100px;}
 /*TakeCash*/
 
 /*register*/
@@ -547,9 +545,8 @@
 .personal-take-cash-adress-main>input.main{width:calc(100% - 90px);margin-left:35px;}
 .personal-take-cash-adress-main>div.main{width:calc(100% - 95px);margin-left:40px;font-size:14px;line-height:40px;overflow-x:scroll;}
 .personal-take-cash-adress-main>div.icon{width:24px;height:24px;border-radius:2px;margin-right:15px;}
-.personal-take-cash-adress-main>div.icon>svg{width:95%;height:95%;margin:0 auto;}
+.personal-take-cash-adress-main>div.icon>img{width:95%;height:95%;margin:0 auto;}
 .personal-take-cash-adress-main>div.title{font-size:14px;margin:0px;line-height:24px;}
-.personal-take-cash-adress-main>a.edit>svg{transform:translateY(50%);}
 
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
 .personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
@@ -592,8 +589,8 @@
 /*DashBoard*/
 
 /*TakeCash*/
-.take-cash-step-btn-block>a.cancel{width:90px;}
-.take-cash-step-btn-block>a.next{width:90px;}
+.take-cash-step-btn-block>a.cancel{width:100px;}
+.take-cash-step-btn-block>a.next{width:100px;}
 /*TakeCash*/
 
 /*register*/

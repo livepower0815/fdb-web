@@ -15,7 +15,7 @@ CSS sample
 
 ### 測試帳號
 帳號：markweiwebdesign@gmail.com
-密碼：123456
+密碼：a135246
 
 ## TODO List
 - 等 mark 提供測試帳號

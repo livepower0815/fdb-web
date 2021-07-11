@@ -97,9 +97,9 @@ export default {
         return Promise.reject(new Error('電子郵件：格式錯誤'))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
-      // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-      //   return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
-      // }
+      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
+        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+      }
       return 'done'
     }
   }
