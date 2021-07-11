@@ -100,7 +100,7 @@ export default {
 .split-input {
   float: left;
   display: flex;
-  width: 100%;
+  width: 300px;
   .input {
     height: 42px;
     float: left;
@@ -111,6 +111,31 @@ export default {
     box-sizing: border-box;
     border-radius: 8px;
     padding-left: 10px;
+  }
+}
+
+/*1024*/
+@media screen and (min-width: 1000px) and (max-width: 1346px) {
+  .split-input {
+    width: 100%;
+  }
+}
+/*768*/
+@media screen and (min-width: 750px) and (max-width: 999px) {
+  .split-input {
+    width: 100%;
+  }
+}
+/*540*/
+@media screen and (min-width: 540px) and (max-width: 749px) {
+  .split-input {
+    width: 100%;
+  }
+}
+/*320*/
+@media screen and (min-width: 300px) and (max-width: 539px) {
+  .split-input {
+    width: 100%;
   }
 }
 </style>

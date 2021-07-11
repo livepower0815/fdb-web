@@ -3,13 +3,13 @@
     <!--Banner開始-->
     <div class="outline banner-block personal">
       <div class="outblock">
-        <div class="title">您的好友邀請碼：jgjik98k</div>
+        <div class="title">您的好友邀請碼：<span ref="copy">jgjik98k</span></div>
 
         <a href="javascript:void(0)">
           <img src="@/assets/img/personal/bx_bx-link.png" alt="bx_bx-link" />
         </a>
 
-        <a href="javascript:void(0)">
+        <a href="javascript:void(0)" @click.prevent="copyInviteCode">
           <img src="@/assets/img/personal/mi_copy.png" alt="mi_copy" />
         </a>
       </div>
@@ -23,6 +23,7 @@
           <div class="block">
             <div class="personal-main-pic">
               <img src="@/assets/img/personal/personal-pic.png" alt="" />
+              <!-- TODO: 勾勾是有好友邀請碼的會員 -->
               <div class="personal-sign">
                 <img src="@/assets/img/personal/binding.png" alt="binding" style="width: 24px;" />
               </div>
@@ -30,7 +31,7 @@
             <div class="personal-main-name">Rusalba Ruiz</div>
             <div class="personal-main-sub">具有邀請碼認證會員</div>
             <div class="personal-main-email">Rusalba542002@gmail.com</div>
-            <a href="javascript:void(0)" class="personal-main-btn">返回返佣數量總覽</a>
+            <a href="javascript:void(0)" class="personal-main-btn" @click.prevent="$router.push({ name: 'Dashboard' })">返回返佣數量總覽</a>
           </div>
         </div>
 
@@ -80,12 +81,19 @@ export default {
       activedTag: 'exchange-control'
     }
   },
-  mounted() {
-    // const $ = window.$
-  },
   methods: {
     switchTag(tagKey) {
       this.activedTag = tagKey
+    },
+    copyInviteCode() {
+      const sel = window.getSelection()
+      const range = document.createRange()
+      range.selectNodeContents(this.$refs.copy)
+      sel.removeAllRanges()
+      sel.addRange(range)
+      document.execCommand('copy')
+      sel.removeAllRanges()
+      this.$message.success('複製成功')
     }
   }
 }
