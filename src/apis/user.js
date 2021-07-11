@@ -37,3 +37,11 @@ export const updateUserData = data =>
     method: 'POST',
     data
   })
+
+// 重置密碼
+export const resetPassword = data =>
+  request({
+    url: '/api/User/ForgetPassword',
+    method: 'POST',
+    data
+  })

@@ -147,7 +147,7 @@ export default {
         this.isEdit = false
       } catch (error) {
         if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg)
+          this.$message.error(error.response?.data?.resultMsg || '更新失敗')
         } else {
           this.$message.error(error.message)
         }
