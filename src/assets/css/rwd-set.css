@@ -69,11 +69,8 @@
 .personal-take-cash-adress-main>input.main{width:calc(100% - 270px);}
 .personal-take-cash-adress-main>div.main{width:calc(100% - 270px);font-size:14px;}
 
-/* .personal-edit-info-block>div.pic-block{height:752px;} */
-.personal-edit-info-block>div.info-input-block>div.main{height:auto;}
-.personal-edit-info-block>div.info-input-block>div.main>div.title{width:100%;margin-bottom:7px;margin-right:0px;}
-.personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;font-size:14px;}
-.personal-edit-info-block>div.info-input-block>div.main>div.info{font-size:14px;}
+.personal-edit-info-block>div.info-input-block>div.main>div.title{margin-bottom:7px;margin-right:0px;}
+.personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;}
 /*personal*/
 
 /*DashBoard*/
@@ -197,10 +194,9 @@
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
 .personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
 .personal-edit-info-block>div.info-input-block{width:100%;padding-left:0px;border-left: unset;}
-.personal-edit-info-block>div.info-input-block>div.main{height:auto;margin-bottom:15px;}
-.personal-edit-info-block>div.info-input-block>div.main>div.title{width:100%;margin-bottom:0px;margin-right:0px;}
-.personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;font-size:14px;}
-.personal-edit-info-block>div.info-input-block>div.main>div.info{font-size:14px;}
+.personal-edit-info-block>div.info-input-block>div.main{margin-bottom:15px;}
+.personal-edit-info-block>div.info-input-block>div.main>div.title{margin-bottom:0px;margin-right:0px;}
+.personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;}
 /*personal*/
 
 /*DashBoard*/
@@ -370,8 +366,8 @@
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
 .personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
 .personal-edit-info-block>div.info-input-block{width:100%;margin-left:0px;padding-left:0px;border-left: unset;}
-.personal-edit-info-block>div.info-input-block>div.main{height:auto;margin-bottom:15px;}
-.personal-edit-info-block>div.info-input-block>div.main>div.title{width:100%;margin-bottom:0px;margin-right:0px;}
+.personal-edit-info-block>div.info-input-block>div.main{margin-bottom:15px;}
+.personal-edit-info-block>div.info-input-block>div.main>div.title{margin-bottom:0px;margin-right:0px;}
 .personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;font-size:14px;}
 .personal-edit-info-block>div.info-input-block>div.main>div.info{font-size:14px;}
 /*personal*/
@@ -558,8 +554,8 @@
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
 .personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
 .personal-edit-info-block>div.info-input-block{width:100%;margin-left:0px;padding-left:0px;border-left: unset;}
-.personal-edit-info-block>div.info-input-block>div.main{height:auto;margin-bottom:15px;}
-.personal-edit-info-block>div.info-input-block>div.main>div.title{width:100%;margin-bottom:0px;margin-right:0px;}
+.personal-edit-info-block>div.info-input-block>div.main{margin-bottom:15px;}
+.personal-edit-info-block>div.info-input-block>div.main>div.title{margin-bottom:0px;margin-right:0px;}
 .personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;font-size:14px;}
 .personal-edit-info-block>div.info-input-block>div.main>div.info{font-size:14px;}
 /*personal*/

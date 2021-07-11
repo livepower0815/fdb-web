@@ -100,7 +100,7 @@ export default {
 .split-input {
   float: left;
   display: flex;
-  width: 300px;
+  width: 430px;
   .input {
     height: 42px;
     float: left;
