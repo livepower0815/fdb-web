@@ -29,3 +29,11 @@ export const getCaptchaImage = () =>
     url: '/api/User/GetCaptchaImage',
     method: 'GET'
   })
+
+// 編輯基本個人資料
+export const updateUserData = data =>
+  request({
+    url: '/api/User/UpdateUserData',
+    method: 'POST',
+    data
+  })

@@ -17,6 +17,7 @@
         </div>
 
         <div class="login-main">
+          <!-- TODO: 補上圖形部分 -->
           <div class="title">圖形驗證碼：{{ captchaCode }}</div>
           <input v-model="formData.captchaCode" type="text" class="input" />
         </div>

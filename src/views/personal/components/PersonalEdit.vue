@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" style="float: left;">
     <div class="personal-function-main">
       <div class="title">基本個人資料</div>
       <div class="sub">為保障各位資訊安全，僅限欄位可以修改</div>
 
       <div class="personal-edit-info-block">
         <div class="pic-block">
-          <img src="@/assets/img/personal/personal-pic.png" alt="" />
-          <!-- TODO: 上傳未做 -->
-          <a v-if="isEdit" href="javascript:void(0)" class="btn">更改個人圖像</a>
+          <img :src="formData.imageUrl" alt="personal-pic" style="border-radius: 50%;" />
+          <a v-if="isEdit" href="javascript:void(0)" class="btn" @click="changeImage">更改個人圖像</a>
+          <input v-show="false" ref="upload" type="file" />
         </div>
         <div class="info-input-block">
           <div class="main">
@@ -18,7 +18,7 @@
           </div>
           <div class="main">
             <div class="title">使用者信箱</div>
-            <div class="info">{{ formData.mail }}</div>
+            <div class="info">{{ formData.email }}</div>
           </div>
           <div class="main">
             <div class="title">行動電話</div>
@@ -38,7 +38,7 @@
               <input v-model="formData.password" :type="passwordType" class="input" autocomplete="off" />
               <PasswordIcon :pwd-type.sync="passwordType" />
             </template>
-            <div v-else class="info">{{ formData.password }}</div>
+            <div v-else class="info">{{ formatPassword(formData.password) }}</div>
           </div>
           <div v-if="isEdit" class="main">
             <div class="title">新密碼</div>
@@ -56,7 +56,7 @@
 
     <div class="take-cash-step-btn-block personal-info">
       <a v-if="!isEdit" href="javascript:void(0)" class="next" @click="isEdit = true">編輯內容</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="cancel" @click="isEdit = false">取消</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="cancel" @click="cancelEdit">取消</a>
       <a v-if="isEdit" href="javascript:void(0)" class="next" @click="saveUserData">儲存</a>
     </div>
   </div>
@@ -64,6 +64,8 @@
 
 <script>
 import PasswordIcon from '@/components/common/PasswordIcon'
+import { uploadFile } from '@/apis/common.js'
+import { updateUserData } from '@/apis/user.js'
 
 export default {
   name: 'PersonalEdit',
@@ -72,14 +74,15 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       isEdit: false,
       formData: {
-        name: 'Rusalba Ruiz',
-        mail: 'Rusalba542002@gmail.com',
+        name: '',
+        email: '',
         imageUrl: '',
-        areaCode: '886',
-        phone: '912345678',
-        password: '123456ABC',
+        areaCode: '',
+        phone: '',
+        password: '',
         newPassword: '',
         doubleCheck: ''
       },
@@ -88,8 +91,98 @@ export default {
       doubleCheckType: 'password'
     }
   },
+  computed: {
+    userInfo() {
+      return this.$store.state.user.userInfo
+    }
+  },
+  mounted() {
+    this.init()
+    this.$refs.upload.addEventListener('change', this.handleFiles, false)
+  },
+  beforeDestroy() {
+    this.$refs.upload.removeEventListener('change', this.handleFiles)
+  },
   methods: {
-    saveUserData() {
+    init() {
+      this.formData.name = this.userInfo.name
+      this.formData.email = this.userInfo.email
+      this.formData.imageUrl = this.userInfo.imageUrl
+      this.formData.areaCode = this.userInfo.areaCode
+      this.formData.phone = this.userInfo.phone
+      this.formData.password = this.userInfo.password
+      this.formData.newPassword = ''
+      this.formData.doubleCheck = ''
+    },
+    changeImage() {
+      this.$refs.upload.click()
+    },
+    async handleFiles() {
+      this.isLoading = true
+      try {
+        const query = new FormData()
+        query.append('file', this.$refs.upload.files[0])
+        const res = await uploadFile(query)
+        this.formData.imageUrl = res.data
+        this.$refs.upload.value = null
+      } catch (error) {
+        this.$message.error('圖片上傳失敗')
+        console.error(error)
+      }
+      this.isLoading = false
+    },
+    async saveUserData() {
+      this.isLoading = true
+      try {
+        await this.validate()
+        const reqData = {
+          name: this.formData.name,
+          areaCode: this.formData.areaCode,
+          phone: this.formData.phone,
+          password: this.formData.password,
+          newPassword: this.formData.newPassword,
+          imageUrl: this.formData.imageUrl
+        }
+        await updateUserData(reqData)
+        this.isEdit = false
+      } catch (error) {
+        if (error.isHttpError) {
+          this.$message.error(error.response?.data?.resultMsg)
+        } else {
+          this.$message.error(error.message)
+        }
+        console.error(error)
+      }
+      this.isLoading = false
+    },
+    async validate() {
+      // 使用者名稱：僅限英文字母
+      if (!/^[a-zA-Z]{1,}$/.test(this.formData.name)) {
+        return Promise.reject(new Error('使用者名稱：僅限英文字母'))
+      }
+      // 行動電話 ：僅能9開頭，九位數不含特殊符號
+      if (!/^9\d{8}$/.test(this.formData.phone)) {
+        return Promise.reject(new Error('行動電話：僅能9開頭，九位數不含特殊符號'))
+      }
+      // 密碼：6位數以上，含英數字，不含特殊符號
+      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
+        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+      }
+      // 新密碼：6位數以上，含英數字，不含特殊符號
+      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
+        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+      }
+      // 確認密碼：密碼要與新密碼一致
+      if (this.formData.newPassword !== this.formData.doubleCheck) {
+        return Promise.reject(new Error('確認密碼：密碼要與新密碼一致'))
+      }
+      return 'done'
+    },
+    formatPassword(password) {
+      return password.replace(/./g, '*')
+    },
+    cancelEdit() {
+      this.init()
       this.isEdit = false
     }
   }

@@ -2,8 +2,10 @@
   <div class="outline">
     <!--Banner開始-->
     <div class="outline banner-block personal">
-      <div class="outblock">
-        <div class="title">您的好友邀請碼：<span ref="copy">jgjik98k</span></div>
+      <div v-if="userInfo.inviteCore" class="outblock">
+        <div class="title">
+          您的好友邀請碼：<span ref="copy">{{ userInfo.inviteCore }}</span>
+        </div>
 
         <a href="javascript:void(0)">
           <img src="@/assets/img/personal/bx_bx-link.png" alt="bx_bx-link" />
@@ -22,15 +24,15 @@
         <div class="personal-main-block">
           <div class="block">
             <div class="personal-main-pic">
-              <img src="@/assets/img/personal/personal-pic.png" alt="" />
-              <!-- TODO: 勾勾是有好友邀請碼的會員 -->
-              <div class="personal-sign">
+              <img :src="userInfo.imageUrl" alt="personal-pic" style="border-radius: 50%;" />
+              <!-- 勾勾是有好友邀請碼的會員 -->
+              <div v-if="userInfo.inviteCore" class="personal-sign">
                 <img src="@/assets/img/personal/binding.png" alt="binding" style="width: 24px;" />
               </div>
             </div>
-            <div class="personal-main-name">Rusalba Ruiz</div>
+            <div class="personal-main-name">{{ userInfo.name }}</div>
             <div class="personal-main-sub">具有邀請碼認證會員</div>
-            <div class="personal-main-email">Rusalba542002@gmail.com</div>
+            <div class="personal-main-email">{{ userInfo.email }}</div>
             <a href="javascript:void(0)" class="personal-main-btn" @click.prevent="$router.push({ name: 'Dashboard' })">返回返佣數量總覽</a>
           </div>
         </div>
@@ -79,6 +81,11 @@ export default {
   data() {
     return {
       activedTag: 'exchange-control'
+    }
+  },
+  computed: {
+    userInfo() {
+      return this.$store.state.user.userInfo
     }
   },
   methods: {
