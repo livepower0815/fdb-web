@@ -21,6 +21,10 @@ export default {
       return this.$route.meta.hideNavFooter
     }
   },
+  created() {
+    // 取得交易所清單
+    this.$store.dispatch('app/getCoinStoreGroup')
+  },
   mounted() {
     // 監聽裝置寬度
     this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)

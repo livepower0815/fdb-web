@@ -6,11 +6,9 @@
       <div class="main">
         <div>
           <div class="title">*選擇交易所</div>
-          <select v-model="formData.wasid" class="input">
+          <select v-model="formData.csgid" class="input">
             <option value="">請選擇交易所</option>
-            <option value="was01">交易所1</option>
-            <option value="was02">交易所2</option>
-            <option value="was03">交易所3</option>
+            <option v-for="(csg, index) in csgList" :key="index" :value="csg.csgid">{{ csg.csgName }}</option>
           </select>
         </div>
         <div>
@@ -63,36 +61,39 @@
       <div class="check-content">
         <div class="check-content-item">
           <div class="title">綁定交易所</div>
-          <div class="value">Bybit</div>
+          <div class="value">{{ csgMap[formData.csgid] && csgMap[formData.csgid].csgName }}</div>
         </div>
         <div class="check-content-item">
           <div class="title">交易所UID</div>
-          <div class="value">jgjik98k</div>
+          <div class="value">{{ formData.fdB_UID }}</div>
         </div>
         <div class="check-content-item">
           <div class="title">行動電話</div>
-          <div class="value">+886 923-123-123</div>
+          <div class="value">{{ formData.areaCode }} {{ formData.phone }}</div>
         </div>
         <div class="check-content-item">
           <div class="title">電子郵件</div>
-          <div class="value">Rusalba542002@gmail.com</div>
+          <div class="value">{{ formData.email }}</div>
         </div>
       </div>
-      <span slot="footer">
+      <span v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px;" @click="checkDialog.show = false">返回</div>
-        <div class="fdb-btn-primary" @click="checkDialog.show = false">綁定</div>
+        <div class="fdb-btn-primary" @click="bindCSG">綁定</div>
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
+import { bindCoinStoreData } from '@/apis/user.js'
+
 export default {
   name: 'ExchangeControl',
   data() {
     return {
+      isLoading: false,
       formData: {
-        wasid: '',
+        csgid: '',
         areaCode: '886',
         phone: '',
         fdB_UID: '',
@@ -103,32 +104,69 @@ export default {
       }
     }
   },
+  computed: {
+    csgList() {
+      return this.$store.state.app.csgList
+    },
+    csgMap() {
+      return this.$store.state.app.csgMap
+    }
+  },
   methods: {
     resetForm() {
       this.formData = {
-        wasid: '',
+        csgid: '',
         areaCode: '886',
         phone: '',
         fdB_UID: '',
         email: ''
       }
     },
-    // 欄位內的規則
-    // 選擇交易所：只顯示與fdb合作的交易所，文字即可
-    // 交易所 ID ：英文＋數字十位數以內(bybit) ，不含特酥符號
-    // 行動電話 ：僅能9開頭，十位數不含特酥符號
-    // 電子郵件：與範例一致 example@mail.com
-    // 驗證狀態：驗證中、已驗證
-
     // 綁定規則
     // 一個交易所僅限綁定三次，若三次驗證皆失敗，將鎖定綁定該交易所權限，並通知由客服進行解鎖
     // 左側會呈現該交易所是否驗證成功，無論成功或失敗，後台都會寄出一份驗證通知書
     validate() {
-      // TODO: 做驗證
-
+      // 欄位內的規則
+      // 選擇交易所：只顯示與fdb合作的交易所，文字即可
+      if (!this.formData.csgid) {
+        return this.$message.error('請選擇交易所')
+      }
+      // 交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號
+      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,10}$/.test(this.formData.fdB_UID)) {
+        return this.$message.error('交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號')
+      }
+      // 行動電話 ：僅能9開頭，十位數不含特殊符號
+      if (this.formData.phone && !/^9\d{8}$/.test(this.formData.phone)) {
+        return this.$message.error('行動電話：僅能9開頭，九位數不含特殊符號')
+      }
+      // 電子郵件：與範例一致 example@mail.com
+      if (this.formData.email && !/\S+@\S+.\S+/.test(this.formData.email)) {
+        return this.$message.error('電子郵件：格式錯誤')
+      }
       // 再次確認
       // 為了提升資訊填寫的正確性，點擊綁定後，在呈現一次自己所寫的資訊，做再次確認
       this.checkDialog.show = true
+    },
+    async bindCSG() {
+      this.isLoading = true
+      try {
+        const postData = {
+          csgid: this.formData.csgid,
+          areaCode: this.formData.areaCode,
+          phone: this.formData.phone,
+          fdB_UID: this.formData.fdB_UID,
+          email: this.formData.email
+        }
+        await bindCoinStoreData(postData)
+        this.checkDialog.show = false
+        this.resetForm()
+      } catch (error) {
+        if (error.isHttpError) {
+          this.$message.error(error.response?.data?.resultMsg || '綁定失敗')
+        }
+        console.error(error)
+      }
+      this.isLoading = false
     }
   }
 }
@@ -170,7 +208,7 @@ export default {
     margin-bottom: 20px;
   }
   .check-content {
-    padding: 30px;
+    padding: 20px;
     background: #050608;
     &-item {
       color: #e5e5e5;
@@ -184,7 +222,7 @@ export default {
         line-height: 36px;
       }
       .value {
-        margin-left: 12px;
+        margin-left: 20px;
         flex: 1;
         line-height: 36px;
       }
