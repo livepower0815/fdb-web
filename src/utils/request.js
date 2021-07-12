@@ -4,7 +4,7 @@ import store from '@/store'
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? '' : 'https://fdb-web-api.azurewebsites.net', // url = base url + request url
-  withCredentials: true, // send cookies when cross-domain requests
+  // withCredentials: true, // send cookies when cross-domain requests
   timeout: 60 * 1000 // request timeout
 })
 
