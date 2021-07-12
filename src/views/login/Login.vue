@@ -18,8 +18,12 @@
 
         <div class="login-main">
           <!-- TODO: 補上圖形部分 -->
-          <div class="title">圖形驗證碼：{{ captchaCode }}</div>
-          <input v-model="formData.captchaCode" type="text" class="input" />
+          <div class="title flex-center" style="justify-content: flex-start;">
+            圖形驗證碼：
+            <img v-if="captchaImg" :src="`data:image\/(png|jpg);base64,${captchaImg}`" alt="captchaImg" style="width: 80px;" />
+            <i class="el-icon-refresh-right captcha-refresh" @click="init"></i>
+          </div>
+          <input v-model="formData.captchaCode" type="text" class="input" placeholder="請輸入圖形驗證碼" />
         </div>
 
         <div class="login-main flex-center">
@@ -57,7 +61,7 @@ export default {
         password: '',
         captchaCode: ''
       },
-      captchaCode: ''
+      captchaImg: ''
     }
   },
   mounted() {
@@ -67,7 +71,7 @@ export default {
     async init() {
       try {
         const res = await getCaptchaImage()
-        this.captchaCode = res.code
+        this.captchaImg = res.img
       } catch (error) {
         console.error(error)
       }
@@ -105,6 +109,10 @@ export default {
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
         return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
       }
+      // 圖形驗證碼必填
+      if (!this.formData.captchaCode) {
+        return Promise.reject(new Error('請輸入圖形驗證碼'))
+      }
       return 'done'
     }
   }
@@ -116,6 +124,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.captcha-refresh {
+  font-size: 24px;
+  margin-left: 8px;
+  cursor: pointer;
 }
 .text-link {
   color: #62ffff;
