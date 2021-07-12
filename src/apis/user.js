@@ -45,3 +45,11 @@ export const resetPassword = data =>
     method: 'POST',
     data
   })
+
+// 設定新密碼
+export const setNewPassword = data =>
+  request({
+    url: '/api/User/SetNewPassword',
+    method: 'POST',
+    data
+  })
