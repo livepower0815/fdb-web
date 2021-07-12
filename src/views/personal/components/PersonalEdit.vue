@@ -32,13 +32,10 @@
             </div>
             <div v-else class="info">{{ formData.areaCode }} {{ formData.phone }}</div>
           </div>
-          <div class="main">
+          <div v-if="isEdit" class="main">
             <div class="title">原密碼</div>
-            <template v-if="isEdit">
-              <input v-model="formData.password" :type="passwordType" class="input" autocomplete="off" />
-              <PasswordIcon :pwd-type.sync="passwordType" />
-            </template>
-            <div v-else class="info">{{ formatPassword(formData.password) }}</div>
+            <input v-model="formData.password" :type="passwordType" class="input" autocomplete="off" />
+            <PasswordIcon :pwd-type.sync="passwordType" />
           </div>
           <div v-if="isEdit" class="main">
             <div class="title">新密碼</div>
@@ -110,7 +107,7 @@ export default {
       this.formData.imageUrl = this.userInfo.imageUrl
       this.formData.areaCode = this.userInfo.areaCode
       this.formData.phone = this.userInfo.phone
-      this.formData.password = this.userInfo.password
+      this.formData.password = ''
       this.formData.newPassword = ''
       this.formData.doubleCheck = ''
     },
@@ -144,6 +141,8 @@ export default {
           imageUrl: this.formData.imageUrl
         }
         await updateUserData(reqData)
+        this.$message.success('個人資料更新成功')
+        this.$store.dispatch('user/getUserInfo')
         this.isEdit = false
       } catch (error) {
         if (error.isHttpError) {
