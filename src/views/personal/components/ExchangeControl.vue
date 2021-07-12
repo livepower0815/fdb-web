@@ -78,7 +78,7 @@
           <div class="value">Rusalba542002@gmail.com</div>
         </div>
       </div>
-      <span slot="footer" class="dialog-footer">
+      <span slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px;" @click="checkDialog.show = false">返回</div>
         <div class="fdb-btn-primary" @click="checkDialog.show = false">綁定</div>
       </span>

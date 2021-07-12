@@ -29,7 +29,7 @@
 
         <div class="register-main">
           <div class="title">*密碼</div>
-          <input v-model="formData.password" :type="passwordType" class="input" placeholder="數入6位數以上，含英數字" autocomplete="off" />
+          <input v-model="formData.password" :type="passwordType" class="input" placeholder="輸入6位數以上，含英數字" autocomplete="off" />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
 
@@ -64,7 +64,7 @@
       <div style="text-align: center;">
         <span>註冊成功，請去電子郵箱收取信件。</span>
       </div>
-      <span slot="footer" class="dialog-footer">
+      <span slot="footer">
         <div class="fdb-btn-primary" @click="dialogVisible = false">關閉</div>
       </span>
     </el-dialog>

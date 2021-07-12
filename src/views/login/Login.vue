@@ -12,12 +12,11 @@
 
         <div class="login-main">
           <div class="title">密碼</div>
-          <input v-model="formData.password" :type="passwordType" class="input" placeholder="數入6位數以上，含英數字" autocomplete="off" />
+          <input v-model="formData.password" :type="passwordType" class="input" placeholder="輸入6位數以上，含英數字" autocomplete="off" />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
 
         <div class="login-main">
-          <!-- TODO: 補上圖形部分 -->
           <div class="title flex-center" style="justify-content: flex-start;">
             圖形驗證碼：
             <img v-if="captchaImg" :src="`data:image\/(png|jpg);base64,${captchaImg}`" alt="captchaImg" style="width: 80px;" />

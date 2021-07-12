@@ -27,7 +27,7 @@
       <div style="text-align: center;">
         <span>請去電子郵箱收取連結信件。</span>
       </div>
-      <span slot="footer" class="dialog-footer">
+      <span slot="footer">
         <div class="fdb-btn-primary" @click="dialogVisible = false">關閉</div>
       </span>
     </el-dialog>

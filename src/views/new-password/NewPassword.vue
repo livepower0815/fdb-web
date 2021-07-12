@@ -13,7 +13,7 @@
             v-model="formData.newPassword"
             :type="passwordType"
             class="input"
-            placeholder="數入6位數以上，含英數字"
+            placeholder="輸入6位數以上，含英數字"
             autocomplete="off"
           />
           <PasswordIcon :pwd-type.sync="passwordType" />
@@ -25,7 +25,7 @@
             v-model="formData.doubleCheck"
             :type="checkPasswordType"
             class="input"
-            placeholder="數入6位數以上，含英數字"
+            placeholder="輸入6位數以上，含英數字"
             autocomplete="off"
           />
           <PasswordIcon :pwd-type.sync="checkPasswordType" />
