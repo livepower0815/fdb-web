@@ -72,7 +72,6 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  // height: 280vh;
   background-image: url('../../assets/img/common/globe.png');
   background-position: top;
   background-size: cover;

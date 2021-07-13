@@ -1,5 +1,12 @@
 <template>
   <div class="info">
+    <!-- 手機版標題 -->
+    <div class="info-m-title">
+      <div class="title">返多寶可以幫你</div>
+      <div class="sub">返多寶會員特色資訊，可以達到有效管理與圖表統計</div>
+    </div>
+    <!-- 手機版標題 -->
+
     <div class="info-pic">
       <transition name="fade-transform" mode="out-in">
         <img v-if="infoSelected === 'unqi-account'" src="@/assets/img/home/index-intro-00.jpg" alt="unqi-account" key="unqi-account" />
@@ -50,6 +57,28 @@
         </a>
       </div>
     </div>
+
+    <!-- 手機版敘述 -->
+    <div class="info-m-body">
+      <transition name="fade-transform" mode="out-in">
+        <div class="list-item" v-if="infoSelected === 'unqi-account'" key="unqi-account">
+          <div class="title">獨立的帳號綁定</div>
+          <div class="sub">平台之間獨立帳號驗證，確保資料的安全信任度</div>
+        </div>
+        <div class="list-item" v-if="infoSelected === 'bonues-visual'" key="bonues-visual">
+          <div class="title">佣金收入視覺化</div>
+          <div class="sub">清楚分類返佣種類與金額，幫助會員快速檢視返佣狀態</div>
+        </div>
+        <div class="list-item" v-if="infoSelected === 'perfect-control'" key="perfect-control">
+          <div class="title">完善資訊管理</div>
+          <div class="sub">多個交易所與貨幣地址統一管理，便於會員控管資料</div>
+        </div>
+        <div class="list-item" v-if="infoSelected === 'servicr-team'" key="servicr-team">
+          <div class="title">在線客服團隊</div>
+          <div class="sub">為您提供24小時溝通服務，無時不刻回應您的建議及疑問</div>
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -68,6 +97,9 @@ export default {
   display: flex;
   padding: 0 5%;
   margin-bottom: 8vw;
+  &-m-title {
+    display: none;
+  }
   &-pic {
     padding: 0 3%;
     flex: 1;
@@ -169,6 +201,284 @@ export default {
         font-weight: bold;
         font-size: 24px;
         color: #62ffff;
+      }
+    }
+  }
+  &-m-body {
+    display: none;
+  }
+}
+
+/*1024*/
+@media screen and (min-width: 1000px) and (max-width: 1346px) {
+  .info {
+    padding: 0 3%;
+    &-pic {
+      width: 100%;
+      height: 400px;
+      padding: 0px;
+      img {
+        width: 90%;
+      }
+      &-slider {
+        bottom: 20px;
+        right: 0;
+        left: 0;
+        > div {
+          width: 34px;
+          margin: 0 4px;
+          height: 9px;
+          border-radius: 100px;
+        }
+      }
+    }
+    &-mainer {
+      padding: 0 3%;
+      &-title {
+        margin-bottom: 14px;
+        .title {
+          font-size: 36px;
+          line-height: 36px;
+          margin-bottom: 12px;
+        }
+        .sub {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+      &-body {
+        &__list {
+          margin-bottom: 10px;
+          .list-item {
+            border-radius: 8px;
+            width: calc(50% - 38px);
+            margin: 6px;
+            height: 124px;
+            padding: 0 12px 0 12px;
+            .title {
+              font-size: 20px;
+              line-height: 32px;
+              margin-bottom: 6px;
+            }
+            .sub {
+              font-size: 14px;
+              line-height: 150%;
+            }
+          }
+        }
+        .info-btn {
+          font-size: 17px;
+          img {
+            width: 18px;
+            margin-left: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+/*768*/
+@media screen and (min-width: 750px) and (max-width: 999px) {
+  .info {
+    padding: 0 3%;
+    &-pic {
+      width: 100%;
+      height: 320px;
+      padding: 0px;
+      img {
+        width: 90%;
+      }
+      &-slider {
+        bottom: 20px;
+        right: 0;
+        left: 0;
+        > div {
+          width: 34px;
+          margin: 0 4px;
+          height: 9px;
+          border-radius: 100px;
+        }
+      }
+    }
+    &-mainer {
+      padding: 0;
+      &-title {
+        margin-bottom: 8px;
+        .title {
+          font-size: 28px;
+          line-height: 24px;
+          margin-bottom: 12px;
+        }
+        .sub {
+          font-size: 14px;
+          line-height: 24px;
+        }
+      }
+      &-body {
+        &__list {
+          margin-bottom: 2px;
+          .list-item {
+            border-radius: 8px;
+            width: calc(50% - 38px);
+            margin: 6px;
+            height: 124px;
+            padding: 0 12px 0 12px;
+            .title {
+              font-size: 16px;
+              line-height: 32px;
+              margin-bottom: 6px;
+            }
+            .sub {
+              font-size: 14px;
+              line-height: 150%;
+            }
+          }
+        }
+        .info-btn {
+          font-size: 17px;
+          img {
+            width: 18px;
+            margin-left: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+/*540*/
+@media screen and (min-width: 500px) and (max-width: 749px) {
+  .info {
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    &-m-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .title {
+        font-size: 32px;
+        line-height: 24px;
+        margin-bottom: 16px;
+      }
+      .sub {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+    &-pic {
+      width: 100%;
+      height: 460px;
+      padding: 0px;
+      flex: unset;
+      img {
+        width: 90%;
+      }
+      &-slider {
+        bottom: 12px;
+        background-color: #1b212e;
+        margin: 0 120px;
+        padding: 8px;
+        border-radius: 20px;
+        > div {
+          width: 26px;
+          height: 26px;
+          margin: 0 14px;
+          border-radius: 50%;
+        }
+      }
+    }
+    &-mainer {
+      display: none;
+    }
+    &-m-body {
+      display: block;
+      .list-item {
+        background-image: linear-gradient(to left top, #5ad5d5, #3ea9cc);
+        border-radius: 8px;
+        margin: 16px;
+        height: 124px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .title {
+          font-size: 28px;
+          line-height: 32px;
+          margin-bottom: 22px;
+        }
+        .sub {
+          font-size: 20px;
+          line-height: 150%;
+        }
+      }
+    }
+  }
+}
+/*320*/
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .info {
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    &-m-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .title {
+        font-size: 22px;
+        line-height: 24px;
+        margin-bottom: 16px;
+      }
+      .sub {
+        font-size: 12px;
+        line-height: 24px;
+      }
+    }
+    &-pic {
+      width: 100%;
+      height: 320px;
+      padding: 0px;
+      flex: unset;
+      img {
+        width: 90%;
+      }
+      &-slider {
+        bottom: 12px;
+        background-color: #1b212e;
+        margin: 0 60px;
+        padding: 8px;
+        border-radius: 20px;
+        > div {
+          width: 15px;
+          height: 15px;
+          margin: 0 14px;
+          border-radius: 50%;
+        }
+      }
+    }
+    &-mainer {
+      display: none;
+    }
+    &-m-body {
+      display: block;
+      .list-item {
+        background-image: linear-gradient(to left top, #5ad5d5, #3ea9cc);
+        border-radius: 8px;
+        margin: 10px;
+        height: 90px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .title {
+          font-size: 16px;
+          line-height: 32px;
+          margin-bottom: 6px;
+        }
+        .sub {
+          font-size: 14px;
+          line-height: 150%;
+        }
       }
     }
   }
