@@ -1,5 +1,5 @@
 <template>
-  <div class="personal-function-main exchange-site">
+  <div v-loading="isBindLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="personal-function-main exchange-site">
     <div class="title">綁定交易所</div>
     <div class="sub">為保障各位的交易安全，交易所若綁定之後，無法進行編輯與刪除</div>
     <div class="exchange-block">
@@ -41,12 +41,14 @@
 
     <div class="personal-function-line"></div>
     <div class="personal-function-tips">交易所驗證時間需1-3日工作天，無論驗證成功與否都將由系統寄出“驗證通知書”郵件通知會員</div>
-    <div class="personal-function-exchange-block">
-      <div class="title">1</div>
+    <div v-for="(bind, index) in bindList" :key="index" class="personal-function-exchange-block">
+      <div class="title">{{ index + 1 }}</div>
       <div>
-        <img src="@/assets/img/footer/bybit.png" alt="bybit" style="width: 60px;" />
+        <img v-if="csgMap[bind.csgid]" :src="csgMap[bind.csgid].imageUrl" alt="bind-store-img" style="width: 60px;" />
+        <span v-else>無效圖檔</span>
+        <!-- <img src="@/assets/img/footer/bybit.png" alt="bind-store-img" style="width: 60px;" /> -->
       </div>
-      <div class="status">驗證中</div>
+      <div class="status">{{ ['驗證中', '驗證完畢'][bind.status] }}</div>
     </div>
 
     <!-- 再次確認彈窗 -->
@@ -85,13 +87,14 @@
 </template>
 
 <script>
-import { bindCoinStoreData } from '@/apis/user.js'
+import { bindCoinStoreData, getBindCoinStores } from '@/apis/user.js'
 
 export default {
   name: 'ExchangeControl',
   data() {
     return {
       isLoading: false,
+      isBindLoading: false,
       formData: {
         csgid: '',
         areaCode: '886',
@@ -101,7 +104,8 @@ export default {
       },
       checkDialog: {
         show: false
-      }
+      },
+      bindList: []
     }
   },
   computed: {
@@ -111,6 +115,9 @@ export default {
     csgMap() {
       return this.$store.state.app.csgMap
     }
+  },
+  mounted() {
+    this.getBindStores()
   },
   methods: {
     resetForm() {
@@ -160,6 +167,7 @@ export default {
         await bindCoinStoreData(postData)
         this.checkDialog.show = false
         this.resetForm()
+        this.getBindStores()
       } catch (error) {
         if (error.isHttpError) {
           this.$message.error(error.response?.data?.resultMsg || '綁定失敗')
@@ -167,6 +175,17 @@ export default {
         console.error(error)
       }
       this.isLoading = false
+    },
+    // 取得已綁定交易所清單(需登入)
+    async getBindStores() {
+      this.isBindLoading = true
+      try {
+        const res = await getBindCoinStores()
+        this.bindList = res.data
+      } catch (error) {
+        console.error(error)
+      }
+      this.isBindLoading = false
     }
   }
 }

@@ -55,7 +55,7 @@ export const setNewPassword = data =>
   })
 
 // 取得交易所清單-不需登入
-export const getCoinStoreGroup = data =>
+export const getCoinStoreGroup = () =>
   request({
     url: '/api/User/GetFDB_CoinStoreGroup',
     method: 'GET'
@@ -67,4 +67,11 @@ export const bindCoinStoreData = data =>
     url: '/api/User/BindCoinStoreData',
     method: 'POST',
     data
+  })
+
+// 取得已綁定交易所清單(需登入)
+export const getBindCoinStores = data =>
+  request({
+    url: '/api/User/GetCoinStores',
+    method: 'GET'
   })
