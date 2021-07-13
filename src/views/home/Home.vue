@@ -118,23 +118,104 @@ export default {
 
 /*1024*/
 @media screen and (min-width: 1000px) and (max-width: 1346px) {
+  .home {
+    .banner {
+      margin-bottom: 6vw;
+      &-title {
+        font-size: 36px;
+      }
+      &-sub {
+        font-size: 16px;
+      }
+      &-more {
+        margin-top: 30px;
+        .banner-button {
+          padding: 10px 48px;
+        }
+      }
+      &-currencies {
+        margin-top: 3vw;
+      }
+    }
+  }
 }
 /*768*/
 @media screen and (min-width: 750px) and (max-width: 999px) {
   .home {
     background-size: contain;
+    .banner {
+      margin-bottom: 6vw;
+      &-title {
+        font-size: 28px;
+      }
+      &-sub {
+        font-size: 14px;
+      }
+      &-more {
+        margin-top: 30px;
+        .banner-button {
+          padding: 8px 40px;
+          font-size: 14px;
+        }
+      }
+      &-currencies {
+        margin-top: 3vw;
+      }
+    }
   }
 }
 /*540*/
-@media screen and (min-width: 540px) and (max-width: 749px) {
+@media screen and (min-width: 500px) and (max-width: 749px) {
   .home {
     background-size: contain;
+    background-position: 50% 6%;
+    .banner {
+      margin-bottom: 6vw;
+      &-title {
+        font-size: 24px;
+      }
+      &-sub {
+        font-size: 14px;
+        padding: 0 40px;
+      }
+      &-more {
+        margin-top: 30px;
+        .banner-button {
+          padding: 8px 40px;
+          font-size: 14px;
+        }
+      }
+      &-currencies {
+        margin-top: 3vw;
+      }
+    }
   }
 }
 /*320*/
-@media screen and (min-width: 300px) and (max-width: 539px) {
+@media screen and (min-width: 300px) and (max-width: 499px) {
   .home {
     background-size: contain;
+    background-position: 50% 8%;
+    .banner {
+      margin-bottom: 6vw;
+      &-title {
+        font-size: 22px;
+      }
+      &-sub {
+        font-size: 12px;
+        padding: 0 22px;
+      }
+      &-more {
+        margin-top: 30px;
+        .banner-button {
+          padding: 6px 22px;
+          font-size: 12px;
+        }
+      }
+      &-currencies {
+        margin-top: 3vw;
+      }
+    }
   }
 }
 </style>

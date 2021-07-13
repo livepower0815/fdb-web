@@ -9,9 +9,9 @@ CSS sample
 /*768*/
 @media screen and (min-width: 750px) and (max-width: 999px) {}
 /*540*/
-@media screen and (min-width: 540px) and (max-width: 749px) {}
+@media screen and (min-width: 500px) and (max-width: 749px) {}
 /*320*/
-@media screen and (min-width: 300px) and (max-width: 539px) {}
+@media screen and (min-width: 300px) and (max-width: 499px) {}
 
 ### 測試帳號
 帳號：markweiwebdesign@gmail.com
@@ -22,8 +22,6 @@ CSS sample
 - 可以先用 服務與隱私條款 頁面
 ### 後端及業主回報區
 已回報
-- 登入 api 錯誤訊息要秀的地方沒有ＵＩ
-- 登入圖形驗證碼 無UI
 - 手機版請同步個人資訊的察看及編輯模式
 - 登出登入手機版
 - 編輯使用著資料ＡＰＩ少兩個 key newPassword: '',doubleCheck: ''

@@ -87,4 +87,137 @@
     }
   }
 }
+/*1024*/
+@media screen and (min-width: 1000px) and (max-width: 1346px) {
+  .join {
+    padding: 16px;
+    &-title {
+      font-size: 28px;
+      margin-right: 26px;
+    }
+    &-step {
+      &-item {
+        .join-number {
+          left: 16px;
+          top: -17px;
+          font-size: 28px;
+        }
+        .join-main {
+          height: 144px;
+          padding: 0px 18px;
+          // .title {}
+          .info {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+/*768*/
+@media screen and (min-width: 750px) and (max-width: 999px) {
+  .join {
+    padding: 16px;
+    &-title {
+      font-size: 20px;
+      margin-right: 14px;
+    }
+    &-step {
+      &-item {
+        .join-number {
+          left: 14px;
+          top: -14px;
+          font-size: 24px;
+        }
+        .join-main {
+          height: 107px;
+          padding-left: 10px;
+          padding-right: 4px;
+          .title {
+            font-size: 18px;
+            padding-bottom: 6px;
+          }
+          .info {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+/*540*/
+@media screen and (min-width: 500px) and (max-width: 749px) {
+  .join {
+    padding: 16px;
+    flex-direction: column;
+    margin: 0px 5% 12vw 5%;
+    &-title {
+      font-size: 38px;
+      margin-right: 0px;
+      margin-bottom: 36px;
+      padding: 20px 0;
+      text-align: center;
+    }
+    &-step {
+      flex-direction: column;
+      &-item {
+        margin-bottom: 50px;
+        .join-number {
+          left: 28px;
+          top: -28px;
+          font-size: 46px;
+        }
+        .join-main {
+          height: 107px;
+          padding: 46px;
+          height: 106px;
+          .title {
+            font-size: 38px;
+            padding-bottom: 6px;
+          }
+          .info {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+}
+/*320*/
+@media screen and (min-width: 300px) and (max-width: 499px) {
+  .join {
+    padding: 0px;
+    flex-direction: column;
+    margin: 0px 5% 12vw 5%;
+    &-title {
+      font-size: 20px;
+      margin-right: 0px;
+      margin-bottom: 36px;
+      padding: 20px 0;
+      text-align: center;
+    }
+    &-step {
+      flex-direction: column;
+      &-item {
+        margin-bottom: 50px;
+        .join-number {
+          left: 20px;
+          top: -28px;
+          font-size: 38px;
+        }
+        .join-main {
+          height: 92px;
+          padding: 10px 42px 14px 12px;
+          .title {
+            font-size: 20px;
+            padding-bottom: 6px;
+          }
+          .info {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
