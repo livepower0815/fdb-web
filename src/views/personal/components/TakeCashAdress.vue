@@ -163,9 +163,9 @@ export default {
       this.isValidLoading = true
       try {
         await validWithdrawalData({ authCore: this.authCore })
-        this.checkDialog.show = false
         this.$message.success('綁定成功')
-        this.getAllWithdrawalAddress()
+        this.checkDialog.show = false
+        this.cancelEdit()
       } catch (error) {
         if (error.isHttpError) {
           this.$message.error(error.response?.data?.resultMsg || '驗證失敗')
