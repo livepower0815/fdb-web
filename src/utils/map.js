@@ -7,3 +7,11 @@ export const currencyMap = {
   '4': 'EOS',
   '5': 'USDT'
 }
+
+export const currencyIdMap = {
+  BTC: '1',
+  ETH: '2',
+  XRP: '3',
+  EOS: '4',
+  USDT: '5'
+}

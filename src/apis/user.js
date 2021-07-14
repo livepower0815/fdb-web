@@ -70,8 +70,31 @@ export const bindCoinStoreData = data =>
   })
 
 // 取得已綁定交易所清單(需登入)
-export const getBindCoinStores = data =>
+export const getBindCoinStores = () =>
   request({
     url: '/api/User/GetCoinStores',
     method: 'GET'
+  })
+
+// 取得出金地址資訊
+export const getAllWithdrawalAddress = () =>
+  request({
+    url: '/api/User/GetAllWithdrawalAddressData',
+    method: 'GET'
+  })
+
+// 更新出金地址資訊-發驗證信
+export const withdrawalDataUpdate = data =>
+  request({
+    url: '/api/User/WithdrawalDataUpdate',
+    method: 'POST',
+    data
+  })
+
+// 驗證並且更新出金地址資訊
+export const validWithdrawalData = data =>
+  request({
+    url: '/api/User/ValidWithdrawalData',
+    method: 'POST',
+    data
   })
