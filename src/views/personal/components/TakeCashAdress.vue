@@ -109,10 +109,9 @@ export default {
       this.isLoading = true
       try {
         const res = await getAllWithdrawalAddress()
-        console.log(res)
         for (const item of res.data) {
           const key = currencyMap[item.cid]
-          this.formData[key] = item.address
+          this.formData[key] = item.coinAddress
         }
       } catch (error) {
         console.error(error)

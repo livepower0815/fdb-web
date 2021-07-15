@@ -14,8 +14,8 @@ CSS sample
 @media screen and (min-width: 300px) and (max-width: 499px) {}
 
 ### 測試帳號
-帳號：markweiwebdesign@gmail.com
-密碼：a135246
+帳號： markweiwebdesign@gmail.com
+密碼： a135246
 
 ## TODO List
 - 出金地址驗證
