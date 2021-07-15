@@ -139,12 +139,12 @@ export default {
         return this.$message.error('請選擇交易所')
       }
       // 交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號
-      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,10}$/.test(this.formData.fdB_UID)) {
-        return this.$message.error('交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號')
-      }
-      // 行動電話 ：僅能9開頭，十位數不含特殊符號
-      if (this.formData.phone && !/^9\d{8}$/.test(this.formData.phone)) {
-        return this.$message.error('行動電話：僅能9開頭，九位數不含特殊符號')
+      // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,10}$/.test(this.formData.fdB_UID)) {
+      //   return this.$message.error('交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號')
+      // }
+      // 行動電話：僅限數字不含特殊符號
+      if (this.formData.phone && !/^\d+$/.test(this.formData.phone)) {
+        return this.$message.error('行動電話：僅限數字不含特殊符號')
       }
       // 電子郵件：與範例一致 example@mail.com
       if (this.formData.email && !/\S+@\S+.\S+/.test(this.formData.email)) {

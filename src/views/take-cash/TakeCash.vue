@@ -159,10 +159,11 @@
 
             <div class="take-cash-step-tips">注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交</div>
 
-            <div class="take-cash-step-info-block input" style="margin-bottom:40px;">
+            <!-- 拔掉 7/16 -->
+            <!-- <div class="take-cash-step-info-block input" style="margin-bottom:40px;">
               <div class="title">會員密碼</div>
               <input type="text" placeholder="請輸入FDB會員密碼" />
-            </div>
+            </div> -->
 
             <div class="take-cash-step-btn-block">
               <router-link to="/dashboard" class="cancel">取消出金</router-link>

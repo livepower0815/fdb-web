@@ -2,7 +2,7 @@
   <div class="outline">
     <!--Banner開始-->
     <div class="outline banner-block personal">
-      <div v-if="userInfo.inviteCore" class="outblock">
+      <div class="outblock">
         <div class="title">
           您的好友邀請碼：<span ref="copy">{{ userInfo.inviteCore }}</span>
         </div>
@@ -25,13 +25,14 @@
           <div class="block">
             <div class="personal-main-pic">
               <img :src="userInfo.imageUrl" alt="personal-pic" style="border-radius: 50%;" />
-              <!-- 勾勾是有好友邀請碼的會員 -->
-              <div v-if="userInfo.inviteCore" class="personal-sign">
+              <!-- 勾勾是有綁定交易所 目前先拔掉 7/15 -->
+              <!-- <div class="personal-sign">
                 <img src="@/assets/img/personal/binding.png" alt="binding" style="width: 24px;" />
-              </div>
+              </div> -->
             </div>
             <div class="personal-main-name">{{ userInfo.name }}</div>
-            <div class="personal-main-sub">具有邀請碼認證會員</div>
+            <!-- 拔掉 7/15 -->
+            <!-- <div class="personal-main-sub">具有邀請碼認證會員</div> -->
             <div class="personal-main-email">{{ userInfo.email }}</div>
             <a href="javascript:void(0)" class="personal-main-btn" @click.prevent="$router.push({ name: 'Dashboard' })">返回返佣數量總覽</a>
           </div>

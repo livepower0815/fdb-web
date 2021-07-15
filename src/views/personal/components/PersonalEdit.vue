@@ -156,12 +156,12 @@ export default {
     },
     async validate() {
       // 使用者名稱：僅限英文字母
-      if (!/^[a-zA-Z]{1,}$/.test(this.formData.name)) {
-        return Promise.reject(new Error('使用者名稱：僅限英文字母'))
-      }
-      // 行動電話 ：僅能9開頭，九位數不含特殊符號
-      if (!/^9\d{8}$/.test(this.formData.phone)) {
-        return Promise.reject(new Error('行動電話：僅能9開頭，九位數不含特殊符號'))
+      // if (!/^[a-zA-Z]{1,}$/.test(this.formData.name)) {
+      //   return Promise.reject(new Error('使用者名稱：僅限英文字母'))
+      // }
+      // 行動電話：僅限數字不含特殊符號
+      if (!/^\d+$/.test(this.formData.phone)) {
+        return Promise.reject(new Error('行動電話：僅限數字不含特殊符號'))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {

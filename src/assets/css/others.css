@@ -282,7 +282,7 @@
 
 .take-cash-step-btn-block>a.cancel{width:130px;height:35px;border: 1px #62FFFF solid;border-radius: 7px;float: left;color:#fff;margin-right:5px;text-align:center;line-height:35px;}
 .take-cash-step-btn-block>a.next{width:130px;height:35px;background-image: linear-gradient(to bottom, #62ffff, #3ea9cc);border-radius: 0px;float:left;color:#fff;text-align:center;line-height:35px;clip-path: inset(0 round 7px);}
-.take-cash-step-tips{width:calc(100% - 50px);height:auto;text-align:center;font-size:18px;color:#EB5757;padding:0 0 40px 0;border-bottom:1px solid #C4C4C4;margin:0 auto;display:block;margin-bottom:30px;}
+.take-cash-step-tips{width:calc(100% - 50px);height:auto;text-align:center;font-size:18px;color:#EB5757;padding:0 0 40px 0;margin:0 auto;display:block;}
 
 .take-cash-step-final-block{width:605px;height:auto;display:block;margin:0 auto;padding:36px 0;background:#050608;margin-top:35px;}
 .take-cash-step-info-block.final{width:100%;height:27px;max-width:100%;display:block;margin:0 auto 30px auto;}
