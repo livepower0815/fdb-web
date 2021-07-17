@@ -40,7 +40,12 @@
 
         <div class="register-main">
           <input v-model="formData.checkContract" type="checkbox" class="check" />
-          <div class="check-title">我已閱讀並同意FDB的服務與隱私條款</div>
+          <div class="check-title">
+            我已閱讀並同意FDB的
+            <router-link :to="{ name: 'Disclaimer' }" class="text-link" tag="span">服務</router-link>
+            與
+            <router-link :to="{ name: 'PrivacyPolicy' }" class="text-link" tag="span">隱私條款</router-link>
+          </div>
         </div>
 
         <!-- 註冊按鈕

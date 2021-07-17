@@ -35,6 +35,18 @@ const routes = [
     name: 'NewsInfo',
     component: () => import('@/views/news-info/NewsInfo.vue')
   },
+  // 免責聲明
+  {
+    path: '/disclaimer',
+    name: 'Disclaimer',
+    component: () => import('@/views/disclaimer/Disclaimer.vue')
+  },
+  // 隱私條款
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicy',
+    component: () => import('@/views/privacy-policy/PrivacyPolicy.vue')
+  },
   // 個人帳號
   {
     path: '/personal',
