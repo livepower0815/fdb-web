@@ -145,16 +145,27 @@ export default {
       this.isLoading = false
     },
     // 欄位內的規則，每次儲存時需要驗證
-    // BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成
-    // ETH : 數字0 開頭，42位英文大小寫+數字組成
-    // EOS : 12個字符英文大小寫+數字組成
-    // XRP : r開頭
-    // USDT : 數字1＆3 & 0 開頭
     validateForm() {
-      // TODO: 做到這邊
-      // if (this.formData) {
-      //   throw new Error('kerry test')
-      // }
+      // BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成
+      if (this.formData.BTC && !/^[13](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{25,36}$/.test(this.formData.BTC)) {
+        throw new Error('BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成')
+      }
+      // XRP : r開頭
+      if (this.formData.XRP && !/^r.+/.test(this.formData.XRP)) {
+        throw new Error('XRP : r開頭')
+      }
+      // USDT : 數字1＆3 & 0 開頭
+      if (this.formData.USDT && !/^[013].+$/.test(this.formData.USDT)) {
+        throw new Error('USDT : 數字1＆3 & 0 開頭')
+      }
+      // EOS : 12個字符英文大小寫+數字組成
+      if (this.formData.EOS && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{12}$/.test(this.formData.EOS)) {
+        throw new Error('EOS : 12個字符英文大小寫+數字組成')
+      }
+      // ETH : 數字0 開頭，42位英文大小寫+數字組成
+      if (this.formData.ETH && !/^[0](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{41}$/.test(this.formData.ETH)) {
+        throw new Error('ETH : 數字0 開頭，42位英文大小寫+數字組成')
+      }
       return 'success'
     },
     // 驗證並且更新出金地址資訊
