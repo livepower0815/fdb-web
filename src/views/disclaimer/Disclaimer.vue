@@ -49,6 +49,7 @@
       <div class="red-text">
         本聲明中未定義的詞語，其意義應與本網站使用條款中所具備的意義相同。
       </div>
+      <div class="content-bottom"></div>
     </div>
   </div>
 </template>
@@ -98,6 +99,9 @@ export default {
     }
     .red-text {
       color: #ca3d57;
+    }
+    .content-bottom {
+      height: 30vw;
     }
   }
 }
