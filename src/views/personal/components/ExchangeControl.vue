@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import { bindCoinStoreData, getBindCoinStores } from '@/apis/user.js'
+import { bindCoinStoreData } from '@/apis/user.js'
 
 export default {
   name: 'ExchangeControl',
@@ -104,8 +104,7 @@ export default {
       },
       checkDialog: {
         show: false
-      },
-      bindList: []
+      }
     }
   },
   computed: {
@@ -114,6 +113,9 @@ export default {
     },
     csgMap() {
       return this.$store.state.app.csgMap
+    },
+    bindList() {
+      return this.$store.state.user.bindStores
     }
   },
   mounted() {
@@ -180,8 +182,7 @@ export default {
     async getBindStores() {
       this.isBindLoading = true
       try {
-        const res = await getBindCoinStores()
-        this.bindList = res.data
+        await this.$store.dispatch('user/getBindStores')
       } catch (error) {
         console.error(error)
       }

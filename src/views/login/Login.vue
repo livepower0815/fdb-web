@@ -87,7 +87,7 @@ export default {
         }
         await this.$store.dispatch('user/login', postData)
         this.$message.success('登入成功')
-        this.$router.push({ name: 'Home' })
+        this.$router.push({ name: 'Dashboard' }, () => {})
       } catch (error) {
         if (error.isHttpError) {
           this.$message.error(error.response?.data?.resultMsg || '登入失敗')

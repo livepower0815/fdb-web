@@ -9,7 +9,7 @@ router.beforeEach(async (to, from, next) => {
   const hasToken = getToken()
   // 沒有登入不能造訪會員權限頁面
   if (!hasToken && memberPermissionList.indexOf(to.name) !== -1) {
-    next({ path: '/' })
+    next({ name: 'Home' })
     return
   }
 
@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
       } catch (error) {
         // remove token and go to login page to re-login
         await store.dispatch('user/resetToken')
-        next({ path: '/login' })
+        next({ name: 'Login' })
       }
       return
     }

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -84,7 +85,23 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('@/views/dashboard/Dashboard.vue')
+    component: () => import('@/views/dashboard/Dashboard.vue'),
+    async beforeEnter(to, from, next) {
+      // 沒有綁定交易所 不要讓她到 dashboard 讓它到 綁定交易所頁面並提示 (在提供綁定交易所提示文案)
+      try {
+        const stores = await store.dispatch('user/getBindStores')
+        // TODO: 等綁定成功規則確定在調整
+        if (stores.length === 0) {
+          next({ name: 'Personal' })
+          return
+        }
+      } catch (error) {
+        console.error(error)
+        next({ name: 'Personal' })
+        return
+      }
+      next()
+    }
   },
   // 出金申請
   {

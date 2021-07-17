@@ -1,9 +1,10 @@
-import { login, getUserInfo } from '@/apis/user'
+import { login, getUserInfo, getBindCoinStores } from '@/apis/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const state = {
   token: getToken() || '',
-  userInfo: {}
+  userInfo: {},
+  bindStores: []
 }
 
 const mutations = {
@@ -17,6 +18,9 @@ const mutations = {
   REMOVE_TOKEN(state) {
     state.token = ''
     removeToken()
+  },
+  SET_BIND_STORES(state, stores) {
+    state.bindStores = stores
   }
 }
 
@@ -57,6 +61,16 @@ const actions = {
   async logout({ dispatch }) {
     try {
       dispatch('resetToken')
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  },
+  // 取得已綁定交易所清單(需登入)
+  async getBindStores({ commit }) {
+    try {
+      const res = await getBindCoinStores()
+      commit('SET_BIND_STORES', res.data)
+      return res.data
     } catch (error) {
       return Promise.reject(error)
     }

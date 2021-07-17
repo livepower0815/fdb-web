@@ -27,7 +27,9 @@
         ></el-avatar>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="personal">個人資訊管理</el-dropdown-item>
-          <el-dropdown-item command="dashboard">返佣交易總覽</el-dropdown-item>
+          <el-dropdown-item command="dashboard">
+            <router-link :to="{ name: 'Dashboard' }" tag="span">返佣交易總覽</router-link>
+          </el-dropdown-item>
           <el-dropdown-item command="logout">登出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -88,11 +90,13 @@ export default {
           this.$router.push({ name: 'Personal' })
           break
         case 'dashboard':
-          this.$router.push({ name: 'Dashboard' })
+          // this.$router.push({ name: 'Dashboard' })
           break
         case 'logout':
           this.$store.dispatch('user/logout')
-          this.$router.push({ name: 'Home' })
+          if (this.$route.name !== 'Home') {
+            this.$router.push({ name: 'Home' })
+          }
           break
       }
     }
