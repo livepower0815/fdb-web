@@ -15,10 +15,9 @@ CSS sample
 
 ### 測試帳號
 帳號： markweiwebdesign@gmail.com
-密碼： a246135
+密碼： a135246
 
 ## TODO List
-- 出金地址驗證
 - 個人基本資料 三個密碼其中一隻不為空就驗證密碼
 - 可以先用 服務與隱私條款 頁面
 - nav 及 footer ＲＷＤ

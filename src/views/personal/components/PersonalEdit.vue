@@ -163,17 +163,21 @@ export default {
       if (!/^\d+$/.test(this.formData.phone)) {
         return Promise.reject(new Error('行動電話：僅限數字不含特殊符號'))
       }
-      // 密碼：6位數以上，含英數字，不含特殊符號
-      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
-      }
-      // 新密碼：6位數以上，含英數字，不含特殊符號
-      if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
-        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
-      }
-      // 確認密碼：密碼要與新密碼一致
-      if (this.formData.newPassword !== this.formData.doubleCheck) {
-        return Promise.reject(new Error('確認密碼：密碼要與新密碼一致'))
+
+      // 三個密碼其中一隻不為空就驗證密碼
+      if (this.formData.password || this.formData.newPassword || this.formData.doubleCheck) {
+        // 密碼：6位數以上，含英數字，不含特殊符號
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
+          return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+        }
+        // 新密碼：6位數以上，含英數字，不含特殊符號
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
+          return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+        }
+        // 確認密碼：密碼要與新密碼一致
+        if (this.formData.newPassword !== this.formData.doubleCheck) {
+          return Promise.reject(new Error('確認密碼：密碼要與新密碼一致'))
+        }
       }
       return 'done'
     },
