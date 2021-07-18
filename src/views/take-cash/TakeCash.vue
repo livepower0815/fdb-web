@@ -28,39 +28,34 @@
             <div class="form-item">
               <div class="title">選擇出金幣別</div>
               <div class="value">
-                <img
-                  src="@/assets/img/currency-icon/BTC-icon.png"
-                  alt="BTC"
+                <CoinIcon
                   class="coin-icon"
                   :class="{ active: form.currencySelect === '1' }"
+                  coin-type="BTC"
                   @click="form.currencySelect = currencyIdMap.BTC"
                 />
-                <img
-                  src="@/assets/img/currency-icon/USDT-icon.png"
-                  alt="USDT"
+                <CoinIcon
                   class="coin-icon"
                   :class="{ active: form.currencySelect === '5' }"
+                  coin-type="USDT"
                   @click="form.currencySelect = currencyIdMap.USDT"
                 />
-                <img
-                  src="@/assets/img/currency-icon/ETH-icon.png"
-                  alt="ETH"
+                <CoinIcon
                   class="coin-icon"
                   :class="{ active: form.currencySelect === '2' }"
+                  coin-type="ETH"
                   @click="form.currencySelect = currencyIdMap.ETH"
                 />
-                <img
-                  src="@/assets/img/currency-icon/XRP-icon.png"
-                  alt="XRP"
+                <CoinIcon
                   class="coin-icon"
                   :class="{ active: form.currencySelect === '3' }"
+                  coin-type="XRP"
                   @click="form.currencySelect = currencyIdMap.XRP"
                 />
-                <img
-                  src="@/assets/img/currency-icon/EOS-icon.png"
-                  alt="EOS"
+                <CoinIcon
                   class="coin-icon"
                   :class="{ active: form.currencySelect === '4' }"
+                  coin-type="EOS"
                   @click="form.currencySelect = currencyIdMap.EOS"
                 />
               </div>
@@ -92,16 +87,11 @@
             <div class="form-item">
               <div class="title">選擇出金幣別</div>
               <div class="value">
-                <img v-if="form.currencySelect === '1'" src="@/assets/img/currency-icon/BTC-icon.png" alt="coin" class="coin-icon active" />
-                <img v-if="form.currencySelect === '2'" src="@/assets/img/currency-icon/ETH-icon.png" alt="coin" class="coin-icon active" />
-                <img v-if="form.currencySelect === '3'" src="@/assets/img/currency-icon/XRP-icon.png" alt="coin" class="coin-icon active" />
-                <img v-if="form.currencySelect === '4'" src="@/assets/img/currency-icon/EOS-icon.png" alt="coin" class="coin-icon active" />
-                <img
-                  v-if="form.currencySelect === '5'"
-                  src="@/assets/img/currency-icon/USDT-icon.png"
-                  alt="coin"
-                  class="coin-icon active"
-                />
+                <CoinIcon v-if="form.currencySelect === '1'" coin-type="BTC" class="coin-icon active" />
+                <CoinIcon v-if="form.currencySelect === '2'" coin-type="ETH" class="coin-icon active" />
+                <CoinIcon v-if="form.currencySelect === '3'" coin-type="XRP" class="coin-icon active" />
+                <CoinIcon v-if="form.currencySelect === '4'" coin-type="EOS" class="coin-icon active" />
+                <CoinIcon v-if="form.currencySelect === '5'" coin-type="USDT" class="coin-icon active" />
               </div>
             </div>
             <div class="form-item">
@@ -158,32 +148,7 @@
       </div>
 
       <!-- 交易所開始 -->
-      <div class="store">
-        <div class="store-select">
-          <div>交易所</div>
-          <div>bybit 下拉</div>
-        </div>
-        <div class="store-info">
-          <div class="info-header">
-            <div class="title">您的盈利</div>
-            <div class="link">右邊箭頭</div>
-          </div>
-          <div class="info-body">
-            <div class="info-item">
-              <div class="coin-icon">icon</div>
-              <div class="coin-name">BTC</div>
-              <div class="coin-count">0.390849378</div>
-              <div class="coin-status">未綁定</div>
-            </div>
-            <div class="info-item">
-              <div class="coin-icon">icon</div>
-              <div class="coin-name">USDT</div>
-              <div class="coin-count">0.390849378</div>
-              <div class="coin-status">已綁定</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <StoreSelect />
       <!-- 交易所結束 -->
     </div>
   </div>
@@ -191,9 +156,15 @@
 
 <script>
 import { currencyIdMap, currencyMap } from '@/utils/map.js'
+import StoreSelect from '@/components/StoreSelect'
+import CoinIcon from '@/components/common/CoinIcon'
 
 export default {
   name: 'TakeCash',
+  components: {
+    StoreSelect,
+    CoinIcon
+  },
   data() {
     return {
       step: 1,
@@ -241,7 +212,7 @@ export default {
 
 <style lang="scss" scoped>
 .red-text {
-  color: #ca3d57;
+  color: #eb5757;
   text-align: center;
   font-size: 16px;
 }
@@ -254,6 +225,7 @@ export default {
   .page-title {
     font-size: 30px;
     line-height: 44px;
+    font-weight: bold;
     margin-bottom: 12px;
   }
   .page-main {
@@ -304,10 +276,12 @@ export default {
       }
       &-title {
         font-size: 22px;
+        font-weight: bold;
         line-height: 36px;
         text-align: center;
         margin-top: 6%;
         margin-bottom: 3%;
+        letter-spacing: 0.05em;
       }
       &-body {
         width: 100%;
@@ -362,18 +336,6 @@ export default {
           margin-top: 60px;
           margin-bottom: 60px;
         }
-      }
-    }
-    .store {
-      flex: 1;
-      &-select {
-        margin-bottom: 8px;
-        background-color: #151923;
-        border-radius: 6px;
-      }
-      &-info {
-        background-color: #151923;
-        border-radius: 6px;
       }
     }
   }

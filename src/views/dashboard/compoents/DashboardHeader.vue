@@ -114,20 +114,9 @@
     <div class="dashboard-coin-block">
       <div class="exchange">
         <div class="title">交易所</div>
-        <a href="javasscrip:void(0)" class="drop" @click.prevent="dropExchange">
+        <a href="javasscrip:void(0)" class="drop">
           <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
           <div class="drop-icon"></div>
-          <div class="drop-block">
-            <div @click="selectExchange('exchange1')">
-              <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-            </div>
-            <div @click="selectExchange('exchange2')">
-              <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-            </div>
-            <div @click="selectExchange('exchange3')">
-              <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-            </div>
-          </div>
         </a>
       </div>
 
@@ -373,9 +362,6 @@ export default {
           break
       }
       this.$refs.linechart.$refs.LineChart.refresh()
-    },
-    dropExchange() {
-      window.$('.drop-block').slideToggle()
     },
     selectExchange(exchangeId) {
       this.exchangeSelected = exchangeId
