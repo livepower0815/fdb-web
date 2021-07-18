@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Nav v-if="!hideNavFooter" />
-    <router-view />
+    <transition name="fade-transform" mode="out-in">
+      <router-view />
+    </transition>
     <Footer v-if="!hideNavFooter" />
   </div>
 </template>

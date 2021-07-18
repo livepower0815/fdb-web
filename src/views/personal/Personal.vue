@@ -49,18 +49,19 @@
               編輯個人檔案
             </a>
           </div>
+          <transition name="fade-transform" mode="out-in">
+            <!--交易所管理 開始-->
+            <ExchangeControl v-if="activedTag === 'exchange-control'" />
+            <!--交易所管理 結束-->
 
-          <!--交易所管理 開始-->
-          <ExchangeControl v-if="activedTag === 'exchange-control'" />
-          <!--交易所管理 結束-->
+            <!--出金地址管理 開始-->
+            <TakeCashAdress v-if="activedTag === 'take-cash-adress'" />
+            <!--出金地址管理 結束-->
 
-          <!--出金地址管理 開始-->
-          <TakeCashAdress v-if="activedTag === 'take-cash-adress'" />
-          <!--出金地址管理 結束-->
-
-          <!--編輯個人檔案 開始-->
-          <PersonalEdit v-if="activedTag === 'personal-edit'" />
-          <!--編輯個人檔案 結束-->
+            <!--編輯個人檔案 開始-->
+            <PersonalEdit v-if="activedTag === 'personal-edit'" />
+            <!--編輯個人檔案 結束-->
+          </transition>
         </div>
       </div>
     </div>

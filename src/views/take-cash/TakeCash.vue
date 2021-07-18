@@ -76,7 +76,7 @@
             </div>
           </div>
           <div class="operation">
-            <div class="fdb-btn-default" style="margin-right: 12px;">取消出金</div>
+            <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">取消出金</div>
             <div class="fdb-btn-primary" @click="step = 2">下一步</div>
           </div>
         </div>
@@ -221,7 +221,9 @@ export default {
   font-size: 16px;
 }
 .take-cash {
-  padding: 2vw 4vw;
+  max-width: 1440px;
+  padding: 2% 4%;
+  margin: 0 auto;
   .page-title {
     font-size: 30px;
     line-height: 44px;
@@ -231,10 +233,10 @@ export default {
   .page-main {
     display: flex;
     .step {
-      width: 46vw;
+      width: 50%;
       background-color: #151923;
       margin-right: 8px;
-      padding: 3vw 4vw;
+      padding: 4% 5%;
       display: flex;
       flex-direction: column;
       align-items: center;
