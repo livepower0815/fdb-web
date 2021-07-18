@@ -5,7 +5,7 @@
 
       <div class="personal-take-cash-adress-main">
         <div class="icon">
-          <img src="@/assets/img/currency-icon/BTC.png" alt="BTC" style="width: 20px;" />
+          <img src="@/assets/img/currency-icon/BTC-icon.png" alt="BTC" />
         </div>
         <div class="title">BTC</div>
         <input v-if="isEdit" v-model="formData.BTC" type="text" class="main" placeholder="請填入 BTC 交易地址" />
@@ -14,7 +14,7 @@
 
       <div class="personal-take-cash-adress-main">
         <div class="icon">
-          <img src="@/assets/img/currency-icon/XRP.png" alt="XRP" style="width: 24px;" />
+          <img src="@/assets/img/currency-icon/XRP-icon.png" alt="XRP" />
         </div>
         <div class="title">XRP</div>
         <input v-if="isEdit" v-model="formData.XRP" type="text" class="main" placeholder="請填入 XRP 交易地址" />
@@ -23,7 +23,7 @@
 
       <div class="personal-take-cash-adress-main">
         <div class="icon">
-          <img src="@/assets/img/currency-icon/USDT.png" alt="USDT" style="width: 32px;" />
+          <img src="@/assets/img/currency-icon/USDT-icon.png" alt="USDT" />
         </div>
         <div class="title">USDT</div>
         <input v-if="isEdit" v-model="formData.USDT" type="text" class="main" placeholder="請填入 USDT 交易地址" />
@@ -32,7 +32,7 @@
 
       <div class="personal-take-cash-adress-main">
         <div class="icon">
-          <img src="@/assets/img/currency-icon/EOS.png" alt="EOS" style="width: 22px;" />
+          <img src="@/assets/img/currency-icon/EOS-icon.png" alt="EOS" />
         </div>
         <div class="title">EOS</div>
         <input v-if="isEdit" v-model="formData.EOS" type="text" class="main" placeholder="請填入 EOS 交易地址" />
@@ -41,7 +41,7 @@
 
       <div class="personal-take-cash-adress-main">
         <div class="icon">
-          <img src="@/assets/img/currency-icon/ETH.png" alt="ETH" style="width: 24px;" />
+          <img src="@/assets/img/currency-icon/ETH-icon.png" alt="ETH" />
         </div>
         <div class="title">ETH</div>
         <input v-if="isEdit" v-model="formData.ETH" type="text" class="main" placeholder="請填入 ETH 交易地址" />

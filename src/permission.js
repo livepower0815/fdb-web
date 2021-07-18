@@ -3,15 +3,15 @@ import store from './store'
 import { getToken } from '@/utils/auth' // get token from cookie
 
 // 會員可造訪名单
-const memberPermissionList = ['Personal', 'Dashboard', 'TakeCash']
+// const memberPermissionList = ['Personal', 'Dashboard', 'TakeCash']
 
 router.beforeEach(async (to, from, next) => {
   const hasToken = getToken()
   // 沒有登入不能造訪會員權限頁面
-  if (!hasToken && memberPermissionList.indexOf(to.name) !== -1) {
-    next({ name: 'Home' })
-    return
-  }
+  // if (!hasToken && memberPermissionList.indexOf(to.name) !== -1) {
+  //   next({ name: 'Home' })
+  //   return
+  // }
 
   // 判断登入状态
   if (hasToken) {

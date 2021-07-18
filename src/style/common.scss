@@ -68,9 +68,13 @@ button {
   line-height: 30px;
   border: 1px solid;
   border-color: #62ffff;
-  padding: 0px 22px;
+  padding: 0px 40px;
   border-radius: 6px;
   cursor: pointer;
+  /*540-320*/
+  @media screen and (min-width: 300px) and (max-width: 749px) {
+    padding: 0px 22px;
+  }
 }
 
 .fdb-btn-primary {
@@ -78,7 +82,11 @@ button {
   display: inline-block;
   line-height: 30px;
   background: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
-  padding: 0px 22px;
+  padding: 0px 40px;
   border-radius: 6px;
   cursor: pointer;
+  /*540-320*/
+  @media screen and (min-width: 300px) and (max-width: 749px) {
+    padding: 0px 22px;
+  }
 }

@@ -1,379 +1,381 @@
 <template>
-  <div class="outline">
-    <div class="outblock">
-      <!--出金申請 開始-->
-      <div class="outline dashboard-block">
-        <!--Title 開始-->
-        <div class="dashboard-title">會員出金申請</div>
-        <!--Title 結束-->
-
-        <!--出金申請 開始-->
-        <div class="take-cash-step-block">
-          <!--第一步 開始-->
-          <div v-if="step === 'first'" class="outline">
-            <div class="take-cash-step">
-              <div class="step">
-                <div class="first">
-                  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M12.8773 0.374803L4.99487 8.77714L2.12274 5.71556C1.63126 5.20956 0.850025 5.21679 0.366868 5.73182C-0.116289 6.24685 -0.123077 7.07961 0.35161 7.60351L4.10931 11.6091C4.59843 12.1303 5.39131 12.1303 5.88043 11.6091L14.6484 2.26276C15.1231 1.73886 15.1163 0.906095 14.6331 0.391068C14.15 -0.123959 13.3687 -0.131196 12.8773 0.374803Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div class="second">2</div>
-                <div class="third">3</div>
-              </div>
-              <div class="line"></div>
-            </div>
-
-            <div class="take-cash-step-title">填寫出金帳戶資訊</div>
-
-            <div class="take-cash-step-coin-block">
-              <div class="title">選擇出金幣別</div>
-              <a href="" class="icon" :class="{ active: form.currencyType === 1 }" @click.prevent="form.currencyType = 1">
-                <svg width="21" height="31" viewBox="0 0 21 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M20.0663 16.0898C19.3985 15.2059 18.3909 14.5988 17.0434 14.2688C18.7593 13.3728 19.5134 11.8521 19.3064 9.70641C19.2372 8.92834 19.0271 8.25401 18.6757 7.68243C18.3241 7.11072 17.8496 6.65112 17.2504 6.30342C16.6517 5.9553 16.0005 5.69028 15.2984 5.50758C14.5961 5.32488 13.7898 5.19222 12.88 5.10978V0.653809H10.2201V4.98598C9.75952 4.98598 9.0571 4.99775 8.11291 5.02134V0.653809H5.45267V5.10978C5.07254 5.12161 4.51411 5.12762 3.77714 5.12762L0.115234 5.10978V8.00975H2.03246C2.90768 8.00975 3.42012 8.41064 3.5698 9.21212V14.2871C3.68512 14.2871 3.77714 14.2931 3.84629 14.3049H3.5698V21.4129C3.47778 22.014 3.14387 22.3148 2.56802 22.3148H0.650914L0.115355 25.5507H3.57011C3.78894 25.5507 4.10542 25.5537 4.52016 25.559C4.93465 25.565 5.24545 25.568 5.45279 25.568V30.0769H8.11346V25.621C8.59698 25.633 9.29941 25.6388 10.2207 25.6388V30.0769H12.8806V25.568C13.8251 25.5209 14.6628 25.4329 15.3937 25.3028C16.125 25.1727 16.8247 24.9697 17.4925 24.6925C18.1602 24.4156 18.7186 24.0706 19.1677 23.658C19.6169 23.2458 19.988 22.7209 20.2822 22.0843C20.5753 21.4476 20.7627 20.7108 20.8431 19.8737C20.9934 18.2356 20.7342 16.9741 20.0663 16.0898ZM8.16464 8.20372C8.24529 8.20372 8.47271 8.20075 8.84698 8.1948C9.22142 8.18874 9.53221 8.18291 9.77979 8.17697C10.0274 8.17115 10.3614 8.18589 10.7819 8.22125C11.2022 8.25661 11.5562 8.30387 11.844 8.36271C12.1318 8.42154 12.4488 8.51884 12.794 8.65441C13.1397 8.78986 13.4159 8.95497 13.623 9.14944C13.8304 9.34391 14.006 9.59159 14.1497 9.89221C14.2938 10.1928 14.3658 10.5376 14.3658 10.9265C14.3658 11.2566 14.3141 11.5573 14.2105 11.8286C14.1072 12.0996 13.9514 12.3266 13.7443 12.5093C13.5372 12.6921 13.3238 12.8514 13.1049 12.9868C12.8864 13.1223 12.6068 13.2314 12.2672 13.3138C11.9277 13.3964 11.6312 13.4612 11.378 13.5083C11.1246 13.5555 10.808 13.588 10.4279 13.6056C10.0478 13.6232 9.75982 13.6352 9.56416 13.641C9.36832 13.6469 9.10066 13.6469 8.76082 13.641C8.42093 13.6352 8.22254 13.6321 8.16482 13.6321V8.20366H8.16464V8.20372ZM15.4284 20.2452C15.3187 20.5165 15.1779 20.7524 15.0053 20.9529C14.8324 21.153 14.6048 21.33 14.3228 21.483C14.0409 21.6365 13.7671 21.76 13.5025 21.8544C13.2375 21.9491 12.9178 22.0311 12.5439 22.1021C12.1692 22.1729 11.8412 22.2227 11.5588 22.2524C11.2768 22.2819 10.9401 22.3054 10.5484 22.3232C10.157 22.3406 9.85166 22.3495 9.63295 22.3495C9.41412 22.3495 9.13768 22.3463 8.80372 22.3406C8.46957 22.335 8.25672 22.3321 8.16452 22.3321V16.3552C8.25654 16.3552 8.53007 16.3494 8.98504 16.3374C9.44007 16.3255 9.81125 16.32 10.0992 16.32C10.387 16.32 10.7845 16.3374 11.2914 16.373C11.7977 16.4081 12.2239 16.461 12.5696 16.5317C12.915 16.6026 13.2918 16.7114 13.7009 16.859C14.1096 17.0062 14.4409 17.186 14.6943 17.3982C14.9477 17.6107 15.1606 17.8814 15.3333 18.2116C15.5064 18.5416 15.5927 18.9189 15.5927 19.3434C15.5926 19.6738 15.538 19.9739 15.4284 20.2452Z"
-                    fill="white"
-                  />
-                </svg>
-              </a>
-              <a href="" class="icon" :class="{ active: form.currencyType === 5 }" @click.prevent="form.currencyType = 5">
-                <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.2659 26.2429V16.3181C23.5475 15.9844 28.274 14.5346 28.2742 12.7975C28.2742 11.0608 23.5475 9.61128 17.2663 9.27712L17.2659 6.50938H25.1086V0.749268H3.66377V6.50938H11.5056V9.29041C5.33933 9.64779 0.726562 11.0819 0.726562 12.7975C0.726562 14.5136 5.33933 15.9478 11.5056 16.3046V26.2429H17.2659Z"
-                    fill="#C4C4C4"
-                  />
-                  <path
-                    d="M17.2661 9.90845V13.2776C16.3803 13.3221 15.4538 13.3465 14.5 13.3465C13.4636 13.3465 12.4605 13.3181 11.5062 13.2649V10.575H11.5056V9.91876C6.21182 10.1736 2.29297 11.0889 2.29297 12.1793C2.29297 13.4673 7.75821 14.5107 14.5002 14.5107C21.2417 14.5107 26.7074 13.4673 26.7074 12.1793C26.7072 11.0729 22.675 10.1476 17.2661 9.90845Z"
-                    fill="#F2F2F2"
-                  />
-                </svg>
-              </a>
-              <a href="" class="icon" :class="{ active: form.currencyType === 2 }" @click.prevent="form.currencyType = 2">
-                <svg width="21" height="31" viewBox="0 0 21 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4.33362 9.93088L10.3958 30L1.40039 24.058M4.33362 9.93088L1.40039 24.058M4.33362 9.93088L10.3958 1.19995V7.32366L1.40039 24.058M1.40039 24.058H19.4004M19.4004 24.058L10.4049 7.32366V1.19995L16.4672 9.93088M19.4004 24.058L16.4672 9.93088M19.4004 24.058L10.4049 30L16.4672 9.93088"
-                    stroke="#C4C4C4"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <a href="" class="icon" :class="{ active: form.currencyType === 3 }" @click.prevent="form.currencyType = 3">
-                <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M11.186 10.2017C8.2578 10.2017 5.53702 7.58079 1.07151 2.82285C0.487348 2.20035 0.527237 1.23031 1.1606 0.656237C1.79407 0.0820704 2.7811 0.121279 3.36526 0.743778C6.97738 4.59252 9.62479 7.13522 11.186 7.13522C12.7472 7.13522 15.3945 4.59252 19.0067 0.743778C19.5909 0.121376 20.5779 0.0820704 21.2114 0.656237C21.8447 1.2304 21.8846 2.20035 21.3005 2.82285C16.835 7.58079 14.1142 10.2017 11.186 10.2017Z"
-                    fill="#C4C4C4"
-                  />
-                  <path
-                    d="M19.8911 23.3059C19.4706 23.306 19.3124 23.1399 19.0048 22.8122C15.3927 18.9634 12.7453 16.4207 11.1841 16.4207C9.62286 16.4207 6.97554 18.9634 3.36331 22.8122C2.77915 23.4346 1.79212 23.4739 1.15865 22.8997C0.525283 22.3256 0.485394 21.3556 1.06956 20.7331C5.53507 15.9752 8.25586 13.3542 11.1841 13.3542C14.1122 13.3542 16.833 15.9752 21.2986 20.7331C22.3337 21.8574 21.3029 23.42 19.8911 23.3059Z"
-                    fill="#C4C4C4"
-                  />
-                </svg>
-              </a>
-              <a href="" class="icon" :class="{ active: form.currencyType === 4 }" @click.prevent="form.currencyType = 4">
-                <svg width="23" height="32" viewBox="0 0 23 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M22.0765 18.9317C22.2148 18.425 22.1568 17.8743 21.8931 17.3981L13.3506 1.97057C12.9894 1.3186 12.3031 0.913818 11.5578 0.913818C10.8165 0.913818 10.133 1.31413 9.77042 1.96027L1.11355 17.3864C0.716324 18.0944 0.774688 18.9705 1.26221 19.6198L9.74295 30.9154C10.1299 31.4311 10.7372 31.7346 11.3816 31.7346H11.7332C12.3824 31.7346 12.9935 31.427 13.3801 30.9051L14.9367 28.8452C15.3364 28.3058 15.2176 27.544 14.6731 27.1516C14.1388 26.7667 13.3942 26.8824 13.0021 27.4118L11.5567 29.321L5.56644 21.3422L11.1083 23.3991C11.2563 23.454 11.4118 23.4818 11.567 23.4818C11.7225 23.4818 11.8784 23.454 12.0264 23.3991L17.3129 21.4349L16.1926 22.8913C15.7816 23.4461 15.9203 24.232 16.4964 24.6127C17.0303 24.965 17.7465 24.8386 18.1272 24.3247L21.6789 19.6998C21.8942 19.4955 22.0342 19.2236 22.0765 18.9317ZM10.2432 20.2659L5.64643 18.5596L10.2432 16.8536V20.2659ZM12.8799 16.8502L17.4801 18.5596L12.8799 20.269V16.8502ZM18.4201 16.0962L12.8799 14.0377V6.09113L18.4201 16.0962ZM10.2432 6.03791V14.0411L4.57046 16.1464L10.2432 6.03791Z"
-                    fill="#C4C4C4"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="take-cash-step-info-block">
-              <div class="title">可出金數量</div>
-              <div class="main">20.94848890</div>
-            </div>
-
-            <div class="take-cash-step-info-block">
-              <div class="title">出金地址</div>
-              <div class="main">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
-            </div>
-
-            <div class="take-cash-step-info-block input">
-              <div class="title">出金數量</div>
-              <input type="text" placeholder="請輸入出金金額" />
-            </div>
-
-            <div class="take-cash-step-btn-block">
-              <router-link to="/dashboard" class="cancel">取消出金</router-link>
-              <a href="javascript:void(0)" class="next" @click="step = 'second'">下一步</a>
-            </div>
+  <div class="take-cash">
+    <div class="page-title">會員出金申請</div>
+    <div class="page-main">
+      <!-- 流程開始 -->
+      <div class="step">
+        <div class="step-bar">
+          <div class="line"></div>
+          <div class="first finish">
+            <span v-if="step === 1">1</span>
+            <img v-else src="@/assets/img/common/correct.png" alt="correct" class="correct" />
           </div>
-          <!--第一步 結束-->
-
-          <!--第二步 開始-->
-          <div v-if="step === 'second'" class="outline">
-            <div class="take-cash-step">
-              <div class="step">
-                <div class="first">
-                  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M12.8773 0.374803L4.99487 8.77714L2.12274 5.71556C1.63126 5.20956 0.850025 5.21679 0.366868 5.73182C-0.116289 6.24685 -0.123077 7.07961 0.35161 7.60351L4.10931 11.6091C4.59843 12.1303 5.39131 12.1303 5.88043 11.6091L14.6484 2.26276C15.1231 1.73886 15.1163 0.906095 14.6331 0.391068C14.15 -0.123959 13.3687 -0.131196 12.8773 0.374803Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div class="second active">2</div>
-                <div class="third">3</div>
-              </div>
-              <div class="line"></div>
-            </div>
-
-            <div class="take-cash-step-title">再次確認出金資訊與金額</div>
-
-            <div class="take-cash-step-coin-block">
-              <div class="title">選擇出金幣別</div>
-              <a href="javascript:void(0)" class="icon active">
-                <svg width="21" height="31" viewBox="0 0 21 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M20.0663 16.0898C19.3985 15.2059 18.3909 14.5988 17.0434 14.2688C18.7593 13.3728 19.5134 11.8521 19.3064 9.70641C19.2372 8.92834 19.0271 8.25401 18.6757 7.68243C18.3241 7.11072 17.8496 6.65112 17.2504 6.30342C16.6517 5.9553 16.0005 5.69028 15.2984 5.50758C14.5961 5.32488 13.7898 5.19222 12.88 5.10978V0.653809H10.2201V4.98598C9.75952 4.98598 9.0571 4.99775 8.11291 5.02134V0.653809H5.45267V5.10978C5.07254 5.12161 4.51411 5.12762 3.77714 5.12762L0.115234 5.10978V8.00975H2.03246C2.90768 8.00975 3.42012 8.41064 3.5698 9.21212V14.2871C3.68512 14.2871 3.77714 14.2931 3.84629 14.3049H3.5698V21.4129C3.47778 22.014 3.14387 22.3148 2.56802 22.3148H0.650914L0.115355 25.5507H3.57011C3.78894 25.5507 4.10542 25.5537 4.52016 25.559C4.93465 25.565 5.24545 25.568 5.45279 25.568V30.0769H8.11346V25.621C8.59698 25.633 9.29941 25.6388 10.2207 25.6388V30.0769H12.8806V25.568C13.8251 25.5209 14.6628 25.4329 15.3937 25.3028C16.125 25.1727 16.8247 24.9697 17.4925 24.6925C18.1602 24.4156 18.7186 24.0706 19.1677 23.658C19.6169 23.2458 19.988 22.7209 20.2822 22.0843C20.5753 21.4476 20.7627 20.7108 20.8431 19.8737C20.9934 18.2356 20.7342 16.9741 20.0663 16.0898ZM8.16464 8.20372C8.24529 8.20372 8.47271 8.20075 8.84698 8.1948C9.22142 8.18874 9.53221 8.18291 9.77979 8.17697C10.0274 8.17115 10.3614 8.18589 10.7819 8.22125C11.2022 8.25661 11.5562 8.30387 11.844 8.36271C12.1318 8.42154 12.4488 8.51884 12.794 8.65441C13.1397 8.78986 13.4159 8.95497 13.623 9.14944C13.8304 9.34391 14.006 9.59159 14.1497 9.89221C14.2938 10.1928 14.3658 10.5376 14.3658 10.9265C14.3658 11.2566 14.3141 11.5573 14.2105 11.8286C14.1072 12.0996 13.9514 12.3266 13.7443 12.5093C13.5372 12.6921 13.3238 12.8514 13.1049 12.9868C12.8864 13.1223 12.6068 13.2314 12.2672 13.3138C11.9277 13.3964 11.6312 13.4612 11.378 13.5083C11.1246 13.5555 10.808 13.588 10.4279 13.6056C10.0478 13.6232 9.75982 13.6352 9.56416 13.641C9.36832 13.6469 9.10066 13.6469 8.76082 13.641C8.42093 13.6352 8.22254 13.6321 8.16482 13.6321V8.20366H8.16464V8.20372ZM15.4284 20.2452C15.3187 20.5165 15.1779 20.7524 15.0053 20.9529C14.8324 21.153 14.6048 21.33 14.3228 21.483C14.0409 21.6365 13.7671 21.76 13.5025 21.8544C13.2375 21.9491 12.9178 22.0311 12.5439 22.1021C12.1692 22.1729 11.8412 22.2227 11.5588 22.2524C11.2768 22.2819 10.9401 22.3054 10.5484 22.3232C10.157 22.3406 9.85166 22.3495 9.63295 22.3495C9.41412 22.3495 9.13768 22.3463 8.80372 22.3406C8.46957 22.335 8.25672 22.3321 8.16452 22.3321V16.3552C8.25654 16.3552 8.53007 16.3494 8.98504 16.3374C9.44007 16.3255 9.81125 16.32 10.0992 16.32C10.387 16.32 10.7845 16.3374 11.2914 16.373C11.7977 16.4081 12.2239 16.461 12.5696 16.5317C12.915 16.6026 13.2918 16.7114 13.7009 16.859C14.1096 17.0062 14.4409 17.186 14.6943 17.3982C14.9477 17.6107 15.1606 17.8814 15.3333 18.2116C15.5064 18.5416 15.5927 18.9189 15.5927 19.3434C15.5926 19.6738 15.538 19.9739 15.4284 20.2452Z"
-                    fill="white"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="take-cash-step-info-block">
-              <div class="title">可出金數量</div>
-              <div class="main">20.94848890</div>
-            </div>
-
-            <div class="take-cash-step-info-block">
-              <div class="title">出金地址</div>
-              <div class="main">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
-            </div>
-
-            <div class="take-cash-step-info-block">
-              <div class="title">出金數量</div>
-              <div class="main">15.93000000</div>
-            </div>
-
-            <div class="take-cash-step-tips">注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交</div>
-
-            <!-- 拔掉 7/16 -->
-            <!-- <div class="take-cash-step-info-block input" style="margin-bottom:40px;">
-              <div class="title">會員密碼</div>
-              <input type="text" placeholder="請輸入FDB會員密碼" />
-            </div> -->
-
-            <div class="take-cash-step-btn-block">
-              <router-link to="/dashboard" class="cancel">取消出金</router-link>
-              <a href="javascript:void(0)" class="next" @click.prevent="step = 'third'">下一步</a>
-            </div>
+          <div class="second" :class="{ finish: step > 1 }">
+            <span v-if="step < 3">2</span>
+            <img v-else src="@/assets/img/common/correct.png" alt="correct" class="correct" />
           </div>
-          <!--第二步 結束-->
-
-          <!--第參步 開始-->
-          <div v-if="step === 'third'" class="outline">
-            <div class="take-cash-step">
-              <div class="step">
-                <div class="first">
-                  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M12.8773 0.374803L4.99487 8.77714L2.12274 5.71556C1.63126 5.20956 0.850025 5.21679 0.366868 5.73182C-0.116289 6.24685 -0.123077 7.07961 0.35161 7.60351L4.10931 11.6091C4.59843 12.1303 5.39131 12.1303 5.88043 11.6091L14.6484 2.26276C15.1231 1.73886 15.1163 0.906095 14.6331 0.391068C14.15 -0.123959 13.3687 -0.131196 12.8773 0.374803Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div class="first">
-                  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M12.8773 0.374803L4.99487 8.77714L2.12274 5.71556C1.63126 5.20956 0.850025 5.21679 0.366868 5.73182C-0.116289 6.24685 -0.123077 7.07961 0.35161 7.60351L4.10931 11.6091C4.59843 12.1303 5.39131 12.1303 5.88043 11.6091L14.6484 2.26276C15.1231 1.73886 15.1163 0.906095 14.6331 0.391068C14.15 -0.123959 13.3687 -0.131196 12.8773 0.374803Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div class="first final">
-                  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M12.8773 0.374803L4.99487 8.77714L2.12274 5.71556C1.63126 5.20956 0.850025 5.21679 0.366868 5.73182C-0.116289 6.24685 -0.123077 7.07961 0.35161 7.60351L4.10931 11.6091C4.59843 12.1303 5.39131 12.1303 5.88043 11.6091L14.6484 2.26276C15.1231 1.73886 15.1163 0.906095 14.6331 0.391068C14.15 -0.123959 13.3687 -0.131196 12.8773 0.374803Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div class="line"></div>
-            </div>
-
-            <div class="take-cash-step-title" style="margin-bottom:10px;">操作成功</div>
-            <div class="take-cash-step-sub">預計48 小時內完成出金，若有任何問題請聯繫返多寶客服中心</div>
-
-            <div class="take-cash-step-btn-block">
-              <a href="" class="cancel" @click.prevent="step = 'first'">回到列表</a>
-              <a href="" class="next" @click.prevent="step = 'first'">再申請一筆</a>
-            </div>
-
-            <div class="take-cash-step-final-block">
-              <div class="take-cash-step-info-block final">
-                <div class="title">申請單號</div>
-                <div class="main">abcd456789</div>
-              </div>
-
-              <div class="take-cash-step-info-block final">
-                <div class="title">出金幣別</div>
-                <div class="main">BTC</div>
-              </div>
-
-              <div class="take-cash-step-info-block final">
-                <div class="title">出金地址</div>
-                <div class="main">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
-              </div>
-
-              <div class="take-cash-step-info-block final">
-                <div class="title">出金數量</div>
-                <div class="main">15.93000000</div>
-              </div>
-            </div>
-          </div>
-          <!--第參步 結束-->
+          <div class="third" :class="{ finish: step > 2 }">3</div>
         </div>
-        <!--出金申請 結束-->
+        <div class="step-title">
+          <span v-if="step === 1">填寫出金帳戶資訊</span>
+          <span v-if="step === 2">再次確認出金資訊與金額</span>
+          <span v-if="step === 3">操作成功</span>
+        </div>
 
-        <!--幣 開始-->
-        <div class="dashboard-coin-block">
-          <div class="exchange">
-            <div class="title">交易所</div>
-            <a href="javasscrip:void(0)" class="drop" @click.prevent="dropExchange">
-              <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-              <div class="drop-icon"></div>
-              <div class="drop-block">
-                <div @click="selectExchange('exchange1')">
-                  <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-                </div>
-                <div @click="selectExchange('exchange2')">
-                  <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-                </div>
-                <div @click="selectExchange('exchange3')">
-                  <img src="@/assets/img/svg/dashboard-bybit-icon.svg" alt="" />
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="earn" v-loading="exchangeLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
-            <div class="title">
-              您的盈利
-              <el-tooltip effect="dark" content="前往錢包" placement="top">
-                <a href="javasscrip:void(0)">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M10 -4.37114e-07C12.6522 -5.53044e-07 15.1957 1.05357 17.0711 2.92893C18.9464 4.80429 20 7.34783 20 10C20 12.6522 18.9464 15.1957 17.0711 17.0711C15.1957 18.9464 12.6522 20 10 20C7.34784 20 4.8043 18.9464 2.92893 17.0711C1.05357 15.1957 -3.21184e-07 12.6522 -4.37114e-07 10C-5.53044e-07 7.34783 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34783 -3.21184e-07 10 -4.37114e-07ZM5.625 9.375C5.45924 9.375 5.30027 9.44085 5.18306 9.55806C5.06585 9.67527 5 9.83424 5 10C5 10.1658 5.06585 10.3247 5.18306 10.4419C5.30027 10.5592 5.45924 10.625 5.625 10.625L12.8662 10.625L10.1825 13.3075C10.0651 13.4249 9.99921 13.584 9.99921 13.75C9.99921 13.916 10.0651 14.0751 10.1825 14.1925C10.2999 14.3099 10.459 14.3758 10.625 14.3758C10.791 14.3758 10.9501 14.3099 11.0675 14.1925L14.8175 10.4425C14.8757 10.3844 14.9219 10.3155 14.9534 10.2395C14.9849 10.1636 15.0011 10.0822 15.0011 10C15.0011 9.91779 14.9849 9.83639 14.9534 9.76046C14.9219 9.68453 14.8757 9.61556 14.8175 9.5575L11.0675 5.8075C10.9501 5.69014 10.791 5.62421 10.625 5.62421C10.459 5.62421 10.2999 5.69014 10.1825 5.8075C10.0651 5.92486 9.99921 6.08403 9.99921 6.25C9.99921 6.41597 10.0651 6.57514 10.1825 6.6925L12.8662 9.375L5.625 9.375Z"
-                      fill="#ffffff"
-                    />
-                  </svg>
-                </a>
-              </el-tooltip>
-            </div>
-            <div v-for="currency in exchangeList" :key="currency.currencyType" class="main">
-              <div class="icon">
+        <!-- 第一步 -->
+        <div v-if="step === 1" class="step-body">
+          <div class="form">
+            <div class="form-item">
+              <div class="title">選擇出金幣別</div>
+              <div class="value">
                 <img
-                  :src="require(`@/assets/img/svg/${currencyMap[currency.currencyType]}.svg`)"
-                  alt=""
-                  style="width: 70%; height: 70%; margin: 15%;"
+                  src="@/assets/img/currency-icon/BTC-icon.png"
+                  alt="BTC"
+                  class="coin-icon"
+                  :class="{ active: form.currencySelect === '1' }"
+                  @click="form.currencySelect = currencyIdMap.BTC"
+                />
+                <img
+                  src="@/assets/img/currency-icon/USDT-icon.png"
+                  alt="USDT"
+                  class="coin-icon"
+                  :class="{ active: form.currencySelect === '5' }"
+                  @click="form.currencySelect = currencyIdMap.USDT"
+                />
+                <img
+                  src="@/assets/img/currency-icon/ETH-icon.png"
+                  alt="ETH"
+                  class="coin-icon"
+                  :class="{ active: form.currencySelect === '2' }"
+                  @click="form.currencySelect = currencyIdMap.ETH"
+                />
+                <img
+                  src="@/assets/img/currency-icon/XRP-icon.png"
+                  alt="XRP"
+                  class="coin-icon"
+                  :class="{ active: form.currencySelect === '3' }"
+                  @click="form.currencySelect = currencyIdMap.XRP"
+                />
+                <img
+                  src="@/assets/img/currency-icon/EOS-icon.png"
+                  alt="EOS"
+                  class="coin-icon"
+                  :class="{ active: form.currencySelect === '4' }"
+                  @click="form.currencySelect = currencyIdMap.EOS"
                 />
               </div>
-              <div class="title">{{ currencyMap[currency.currencyType] }}</div>
-              <div class="main">{{ currency.coinCount }}</div>
-              <div v-if="currency.bindStatus === 0" class="status">
-                <span>未綁定</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M9.0605 8L11.1823 10.121C11.323 10.2617 11.402 10.4526 11.402 10.6516C11.402 10.8506 11.323 11.0415 11.1823 11.1823C11.0415 11.323 10.8506 11.402 10.6516 11.402C10.4526 11.402 10.2617 11.323 10.121 11.1823L8 9.0605L5.879 11.1823C5.73827 11.323 5.5474 11.402 5.34838 11.402C5.14935 11.402 4.95848 11.323 4.81775 11.1823C4.67702 11.0415 4.59796 10.8506 4.59796 10.6516C4.59796 10.5531 4.61737 10.4555 4.65508 10.3645C4.69279 10.2734 4.74807 10.1907 4.81775 10.121L6.9395 8L4.81775 5.879C4.67702 5.73827 4.59796 5.5474 4.59796 5.34838C4.59796 5.24983 4.61737 5.15225 4.65508 5.0612C4.69279 4.97016 4.74807 4.88743 4.81775 4.81775C4.88743 4.74807 4.97016 4.69279 5.0612 4.65508C5.15225 4.61737 5.24983 4.59796 5.34838 4.59796C5.5474 4.59796 5.73827 4.67702 5.879 4.81775L8 6.9395L10.121 4.81775C10.2617 4.67702 10.4526 4.59796 10.6516 4.59796C10.8506 4.59796 11.0415 4.67702 11.1823 4.81775C11.323 4.95848 11.402 5.14935 11.402 5.34838C11.402 5.5474 11.323 5.73827 11.1823 5.879L9.0605 8ZM8 15.5C3.85775 15.5 0.5 12.1423 0.5 8C0.5 3.85775 3.85775 0.5 8 0.5C12.1423 0.5 15.5 3.85775 15.5 8C15.5 12.1423 12.1423 15.5 8 15.5ZM8 14C9.5913 14 11.1174 13.3679 12.2426 12.2426C13.3679 11.1174 14 9.5913 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8C2 9.5913 2.63214 11.1174 3.75736 12.2426C4.88258 13.3679 6.4087 14 8 14Z"
-                    fill="#EB5757"
-                  />
-                </svg>
-              </div>
-              <div v-else class="status already">
-                <span>已綁定</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14ZM7.0001 12.9999C10.3138 12.9999 13.0001 10.3136 13.0001 6.99987C13.0001 3.68616 10.3138 0.99987 7.0001 0.99987C3.68639 0.99987 1.0001 3.68616 1.0001 6.99987C1.0001 10.3136 3.68639 12.9999 7.0001 12.9999Z"
-                    fill="#05D394"
-                  />
-                  <path
-                    d="M9.74171 4.20074C9.73469 4.20711 9.72812 4.2139 9.72201 4.22106L6.30257 8.30785L4.24184 6.3739C4.10186 6.25154 3.91671 6.18493 3.72541 6.1881C3.5341 6.19126 3.35158 6.26396 3.21628 6.39087C3.08099 6.51778 3.00349 6.689 3.00012 6.86845C2.99674 7.0479 3.06775 7.22157 3.19819 7.35288L5.80339 9.79757C5.87357 9.86328 5.95714 9.91506 6.04912 9.94982C6.1411 9.98458 6.2396 10.0016 6.33875 9.99988C6.43789 9.99816 6.53565 9.97772 6.6262 9.93979C6.71674 9.90185 6.79821 9.8472 6.86575 9.7791L10.7962 5.17049C10.93 5.03872 11.0032 4.86284 10.9999 4.68087C10.9966 4.4989 10.9171 4.32546 10.7785 4.19805C10.64 4.07064 10.4535 3.9995 10.2595 4C10.0655 4.0005 9.8795 4.07261 9.74171 4.20074Z"
-                    fill="#05D394"
-                  />
-                </svg>
+            </div>
+            <div class="form-item">
+              <div class="title">可出金數量</div>
+              <div class="value">20.94848890</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金地址</div>
+              <div class="value">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金數量</div>
+              <div class="value">
+                <input v-model="form.withdrawAmount" class="input" type="text" placeholder="請輸入出金金額" />
               </div>
             </div>
           </div>
+          <div class="operation">
+            <div class="fdb-btn-default" style="margin-right: 12px;">取消出金</div>
+            <div class="fdb-btn-primary" @click="step = 2">下一步</div>
+          </div>
         </div>
-        <!--幣 結束-->
+
+        <!-- 第二步 -->
+        <div v-if="step === 2" class="step-body">
+          <div class="form">
+            <div class="form-item">
+              <div class="title">選擇出金幣別</div>
+              <div class="value">
+                <img v-if="form.currencySelect === '1'" src="@/assets/img/currency-icon/BTC-icon.png" alt="coin" class="coin-icon active" />
+                <img v-if="form.currencySelect === '2'" src="@/assets/img/currency-icon/ETH-icon.png" alt="coin" class="coin-icon active" />
+                <img v-if="form.currencySelect === '3'" src="@/assets/img/currency-icon/XRP-icon.png" alt="coin" class="coin-icon active" />
+                <img v-if="form.currencySelect === '4'" src="@/assets/img/currency-icon/EOS-icon.png" alt="coin" class="coin-icon active" />
+                <img
+                  v-if="form.currencySelect === '5'"
+                  src="@/assets/img/currency-icon/USDT-icon.png"
+                  alt="coin"
+                  class="coin-icon active"
+                />
+              </div>
+            </div>
+            <div class="form-item">
+              <div class="title">可出金數量</div>
+              <div class="value">20.94848890</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金地址</div>
+              <div class="value">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金數量</div>
+              <div class="value">{{ form.withdrawAmount }}</div>
+            </div>
+          </div>
+          <div class="red-text">
+            注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交
+          </div>
+          <div class="operation">
+            <div class="fdb-btn-default" style="margin-right: 12px;" @click="step = 1">上一步</div>
+            <div class="fdb-btn-primary" @click="submit">提出申請</div>
+          </div>
+        </div>
+
+        <!-- 第三步 -->
+        <div v-if="step === 3" class="step-body">
+          <div class="info-text">
+            預計48小時內完成出金，若有問題歡迎透過 Wechat 或 QQ進行聯絡
+          </div>
+          <div class="operation">
+            <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">回到列表</div>
+            <div class="fdb-btn-primary" @click="step = 1">再申請一次</div>
+          </div>
+          <div class="form block">
+            <div class="form-item">
+              <div class="title">申請單號</div>
+              <div class="value">abcd456789</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金幣別</div>
+              <div class="value">{{ currencyMap[form.currencySelect] }}</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金地址</div>
+              <div class="value">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金數量</div>
+              <div class="value">{{ form.withdrawAmount }}</div>
+            </div>
+          </div>
+        </div>
+        <!-- 流程結束 -->
       </div>
-      <!--出金申請 結束-->
+
+      <!-- 交易所開始 -->
+      <div class="store">
+        <div class="store-select">
+          <div>交易所</div>
+          <div>bybit 下拉</div>
+        </div>
+        <div class="store-info">
+          <div class="info-header">
+            <div class="title">您的盈利</div>
+            <div class="link">右邊箭頭</div>
+          </div>
+          <div class="info-body">
+            <div class="info-item">
+              <div class="coin-icon">icon</div>
+              <div class="coin-name">BTC</div>
+              <div class="coin-count">0.390849378</div>
+              <div class="coin-status">未綁定</div>
+            </div>
+            <div class="info-item">
+              <div class="coin-icon">icon</div>
+              <div class="coin-name">USDT</div>
+              <div class="coin-count">0.390849378</div>
+              <div class="coin-status">已綁定</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 交易所結束 -->
     </div>
   </div>
 </template>
 
 <script>
-import { currencyMap } from '@/utils/map.js'
-import { getExchangeInfo } from '@/apis/dashboard.js'
+import { currencyIdMap, currencyMap } from '@/utils/map.js'
 
 export default {
   name: 'TakeCash',
   data() {
     return {
-      step: 'first',
-      currencyMap: { ...currencyMap },
+      step: 1,
       exchangeLoading: false,
-      exchangeSelected: 'exchange1',
       exchangeList: [],
       form: {
-        currencyType: 1
-      }
+        currencySelect: '1',
+        withdrawAmount: ''
+      },
+      currencyIdMap: currencyIdMap,
+      currencyMap: currencyMap
     }
   },
   mounted() {
-    // const $ = window.$
     this.getExchangeInfo()
   },
   methods: {
+    async submit() {
+      this.step = 3
+    },
     // 交易所
     async getExchangeInfo() {
-      this.exchangeLoading = true
-      try {
-        const queryData = {
-          // exchangeId: '', // 目前寫死不傳
-          currencyType: 0,
-          startDate: '',
-          endDate: '',
-          pageIndex: 0,
-          pageSize: 0,
-          sortKey: '',
-          order: ''
-        }
-        const res = await getExchangeInfo(queryData)
-        this.exchangeList = res
-      } catch (error) {
-        console.error(error)
-      }
-      this.exchangeLoading = false
-    },
-    dropExchange() {
-      window.$('.drop-block').slideToggle()
-    },
-    selectExchange(exchangeId) {
-      this.exchangeSelected = exchangeId
-      this.getExchangeInfo()
+      // this.exchangeLoading = true
+      // try {
+      //   const queryData = {
+      //     // exchangeId: '', // 目前寫死不傳
+      //     currencyType: 0,
+      //     startDate: '',
+      //     endDate: '',
+      //     pageIndex: 0,
+      //     pageSize: 0,
+      //     sortKey: '',
+      //     order: ''
+      //   }
+      //   const res = await getExchangeInfo(queryData)
+      //   this.exchangeList = res
+      // } catch (error) {
+      //   console.error(error)
+      // }
+      // this.exchangeLoading = false
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.red-text {
+  color: #ca3d57;
+  text-align: center;
+  font-size: 16px;
+}
+.info-text {
+  text-align: center;
+  font-size: 16px;
+}
+.take-cash {
+  padding: 2vw 4vw;
+  .page-title {
+    font-size: 30px;
+    line-height: 44px;
+    margin-bottom: 12px;
+  }
+  .page-main {
+    display: flex;
+    .step {
+      width: 46vw;
+      background-color: #151923;
+      margin-right: 8px;
+      padding: 3vw 4vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 6px;
+      &-bar {
+        position: relative;
+        width: 80%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 2% 0;
+        .line {
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background-color: #ffffff;
+        }
+        > div:not(.line) {
+          width: 40px;
+          height: 40px;
+          background-color: #ffffff;
+          color: #3ea9cc;
+          border: 2px solid #f9fafc;
+          box-sizing: border-box;
+          border-radius: 50%;
+          font-size: 24px;
+          line-height: 34px;
+          text-align: center;
+          z-index: 10;
+          &.finish {
+            background-image: linear-gradient(180deg, #62ffff, #3ea9cc);
+            color: #ffffff;
+          }
+        }
+        .correct {
+          width: 22px;
+        }
+      }
+      &-title {
+        font-size: 22px;
+        line-height: 36px;
+        text-align: center;
+        margin-top: 6%;
+        margin-bottom: 3%;
+      }
+      &-body {
+        width: 100%;
+        .form {
+          &.block {
+            background-color: #050608;
+            padding: 1px 0;
+            margin-bottom: 60px;
+          }
+          .form-item {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            .title {
+              width: 24%;
+              text-align: end;
+              font-size: 18px;
+              line-height: 27px;
+            }
+            .value {
+              flex: 1;
+              margin-left: 20px;
+              font-size: 18px;
+              .coin-icon {
+                width: 34px;
+                margin-right: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover {
+                  box-shadow: 0 0 0 1px #62ffff;
+                }
+                &.active {
+                  box-shadow: 0 0 0 1px #62ffff;
+                }
+              }
+              .input {
+                width: calc(100% - 89px);
+                height: 46px;
+                border: none;
+                font-size: 18px;
+                box-sizing: border-box;
+                border-radius: 8px;
+                color: #c4c4c4;
+                padding-left: 10px;
+                background-color: #252c3d;
+              }
+            }
+          }
+        }
+        .operation {
+          text-align: center;
+          margin-top: 60px;
+          margin-bottom: 60px;
+        }
+      }
+    }
+    .store {
+      flex: 1;
+      &-select {
+        margin-bottom: 8px;
+        background-color: #151923;
+        border-radius: 6px;
+      }
+      &-info {
+        background-color: #151923;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+</style>
