@@ -42,9 +42,13 @@
           <input v-model="formData.checkContract" type="checkbox" class="check" />
           <div class="check-title">
             我已閱讀並同意FDB的
-            <router-link :to="{ name: 'Disclaimer' }" class="text-link" tag="span">服務</router-link>
+            <router-link :to="{ name: 'Disclaimer' }" v-slot="{ navigate }" custom>
+              <span class="text-link" @click="navigate">服務</span>
+            </router-link>
             與
-            <router-link :to="{ name: 'PrivacyPolicy' }" class="text-link" tag="span">隱私條款</router-link>
+            <router-link :to="{ name: 'PrivacyPolicy' }" v-slot="{ navigate }" custom>
+              <span class="text-link" @click="navigate">隱私條款</span>
+            </router-link>
           </div>
         </div>
 

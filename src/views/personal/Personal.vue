@@ -4,7 +4,7 @@
     <div class="outline banner-block personal">
       <div class="outblock">
         <div class="title">
-          您的好友邀請碼：<span ref="copy">{{ userInfo.inviteCore }}</span>
+          您的好友邀請碼：<span ref="copy">{{ userInfo.myInviteCore }}</span>
         </div>
 
         <a href="javascript:void(0)">

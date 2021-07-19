@@ -13,8 +13,8 @@
 
     <div class="navbar-setting" :class="{ 'is-mobile': deviceWidth < 768 }">
       <template v-if="deviceWidth < 1024">
-        <img src="@/assets/img/nav/menu.png" alt="menu" />
-        <img src="@/assets/img/nav/mdi_web.png" alt="globel" />
+        <img class="navbar-m-menu" src="@/assets/img/nav/menu.png" alt="menu" @click="mobileMenu.show = true" />
+        <img v-if="deviceWidth < 768" class="navbar-m-lang" src="@/assets/img/nav/mdi_web.png" alt="globel" />
       </template>
 
       <!-- 個人大頭貼工作區 -->
@@ -27,15 +27,13 @@
         ></el-avatar>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="personal">個人資訊管理</el-dropdown-item>
-          <el-dropdown-item command="dashboard">
-            <router-link :to="{ name: 'Dashboard' }" tag="span">返佣交易總覽</router-link>
-          </el-dropdown-item>
+          <el-dropdown-item command="dashboard">返佣交易總覽</el-dropdown-item>
           <el-dropdown-item command="logout">登出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
 
       <template v-if="!hasInfo">
-        <router-link v-if="deviceWidth >= 768" to="/login" style="margin-left: 20px">登入</router-link>
+        <router-link to="/login" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '10px' }">登入</router-link>
         <router-link to="/register" class="register" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '0' }">註冊</router-link>
       </template>
       <template v-if="deviceWidth >= 768">
@@ -44,23 +42,32 @@
       </template>
     </div>
 
-    <!--手機版 menu icon 開始-->
-    <!-- <div class="mobile-ham" @click="toggleMobileMenu">
-      <img src="@/assets/img/nav/menu.png" alt="menu" />
-      <img src="@/assets/img/nav/mdi_web.png" alt="globel" />
-    </div> -->
-    <!--手機版menu icon 結束-->
-
-    <!--手機版drop開始-->
-    <!-- <div class="mobile-drop" @click="toggleMobileMenu">
-      <div>
-        <router-link to="/">FDB首頁</router-link>
-        <router-link to="/about">關於FDB</router-link>
-        <router-link to="/partner">合作夥伴</router-link>
-        <router-link to="/news">最新消息</router-link>
+    <!--手機版menu開始-->
+    <el-drawer :visible.sync="mobileMenu.show" direction="ttb" :with-header="false">
+      <div class="drawer-menu">
+        <router-link to="/" v-slot="{ navigate }" custom>
+          <div class="menu-link" @click="navigate">
+            FDB首頁
+          </div>
+        </router-link>
+        <router-link to="/about" v-slot="{ navigate }" custom>
+          <div class="menu-link" @click="navigate">
+            關於FDB
+          </div>
+        </router-link>
+        <router-link to="/partner" v-slot="{ navigate }" custom>
+          <div class="menu-link" @click="navigate">
+            合作夥伴
+          </div>
+        </router-link>
+        <router-link to="/news" v-slot="{ navigate }" custom>
+          <div class="menu-link" @click="navigate">
+            最新消息
+          </div>
+        </router-link>
       </div>
-    </div> -->
-    <!--手機版drop結束-->
+    </el-drawer>
+    <!--手機版menu結束-->
   </div>
 </template>
 
@@ -69,7 +76,9 @@ export default {
   name: 'Nav',
   data() {
     return {
-      mobileDrop: null
+      mobileMenu: {
+        show: false
+      }
     }
   },
   computed: {
@@ -83,6 +92,11 @@ export default {
       return this.$store.state.user.userInfo
     }
   },
+  watch: {
+    $route() {
+      this.mobileMenu.show = false
+    }
+  },
   methods: {
     handleCommand(command) {
       switch (command) {
@@ -90,7 +104,7 @@ export default {
           this.$router.push({ name: 'Personal' })
           break
         case 'dashboard':
-          // this.$router.push({ name: 'Dashboard' })
+          this.$router.push({ name: 'Dashboard' })
           break
         case 'logout':
           this.$store.dispatch('user/logout')
@@ -116,6 +130,9 @@ export default {
     img {
       width: auto;
     }
+    @media screen and (min-width: 300px) and (max-width: 499px) {
+      flex: 0 1 auto;
+    }
   }
   &-menu {
     flex: 2;
@@ -134,14 +151,16 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    .navbar-m-menu {
+      margin-right: 12px;
+    }
+    .navbar-m-lang {
+      margin-right: 12px;
+    }
     img {
       width: auto;
     }
     &.is-mobile {
-      img {
-        margin-right: 8px;
-        color: #ccc;
-      }
       a {
         margin-right: 8px;
         color: #ccc;
@@ -162,6 +181,27 @@ export default {
       &:hover {
         color: #fff;
       }
+    }
+  }
+}
+.navbar {
+  ::v-deep .el-drawer {
+    background-color: unset;
+  }
+  ::v-deep .el-drawer__body {
+    background-color: #050608cc;
+  }
+  .drawer-menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0;
+    .menu-link {
+      margin: 2px;
+      font-size: 20px;
+      letter-spacing: 0.05em;
     }
   }
 }
