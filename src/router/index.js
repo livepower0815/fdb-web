@@ -11,6 +11,12 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/home/Home.vue')
   },
+  // 首頁2
+  {
+    path: '/2',
+    name: 'Home2',
+    component: () => import('@/views/home/Home2.vue')
+  },
   // 關於ＦＤＢ
   {
     path: '/about',

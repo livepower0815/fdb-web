@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!--Banner開始-->
-    <el-carousel :autoplay="false" arrow="always" height="33vw" indicator-position="none" class="banner">
+    <el-carousel :autoplay="false" arrow="always" height="50vw" indicator-position="none" class="banner">
       <el-carousel-item v-for="item in 4" :key="item">
         <div class="banner-item">
           <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import JoinUs from './components/JoinUs.vue'
+import JoinUs from './components/JoinUs2.vue'
 import Info from './components/Info.vue'
 
 export default {
@@ -86,7 +86,7 @@ export default {
       // background-image: url('../../assets/img/home/banner.png');
       background-color: #777777;
       background-size: cover;
-      height: 33vw;
+      height: 50vw;
     }
     &-title {
       padding-top: 5vh;
