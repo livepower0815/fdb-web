@@ -29,6 +29,7 @@
 
 <style lang="scss" scoped>
 .join {
+  position: relative;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   box-shadow: 0 4px 9px rgb(0 0 0 / 30%);
@@ -36,6 +37,7 @@
   padding: 43px 45px;
   display: flex;
   align-items: center;
+  z-index: 10;
   &-title {
     font-size: 40px;
     font-weight: bold;
@@ -152,7 +154,7 @@
     flex-direction: column;
     margin: 0px 5% 12vw 5%;
     &-title {
-      font-size: 38px;
+      font-size: 30px;
       margin-right: 0px;
       margin-bottom: 36px;
       padding: 20px 0;
@@ -172,7 +174,7 @@
           padding: 46px;
           height: 106px;
           .title {
-            font-size: 38px;
+            font-size: 30px;
             padding-bottom: 6px;
           }
           .info {

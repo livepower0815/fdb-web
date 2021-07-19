@@ -1,20 +1,22 @@
 <template>
   <div class="home">
     <!--Banner開始-->
-    <el-carousel :autoplay="false" arrow="always" height="33vw" indicator-position="none" class="banner">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <div class="banner-item">
-          <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
-          <div class="banner-sub">致力打造全最大虛擬貨幣反傭平台，讓虛擬貨幣交易變得更優惠、讓消費者不在為了不透明的手續費而煩惱</div>
-          <div class="banner-more">
-            <div class="banner-button">了解更多</div>
+    <div class="banner-limit">
+      <el-carousel :autoplay="false" arrow="always" height="50vw" indicator-position="none" class="banner">
+        <el-carousel-item v-for="item in 4" :key="item">
+          <div class="banner-item">
+            <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
+            <div class="banner-sub">致力打造全最大虛擬貨幣反傭平台，讓虛擬貨幣交易變得更優惠、讓消費者不在為了不透明的手續費而煩惱</div>
+            <div class="banner-more">
+              <div class="banner-button">了解更多</div>
+            </div>
           </div>
-        </div>
-        <!-- <div class="banner-currencies">
-          <img src="@/assets/img/common/currencies.png" alt="currencies" />
-        </div> -->
-      </el-carousel-item>
-    </el-carousel>
+          <!-- <div class="banner-currencies">
+            <img src="@/assets/img/common/currencies.png" alt="currencies" />
+          </div> -->
+        </el-carousel-item>
+      </el-carousel>
+    </div>
     <!--Banner結束-->
 
     <!--加入我們 開始-->
@@ -80,12 +82,18 @@ export default {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+  .banner-limit {
+    height: 30vw;
+    @media screen and (min-width: 1500px) {
+      height: 35vw;
+    }
+  }
   .banner {
     margin-bottom: 2vw;
     &-item {
       background-image: url('../../assets/img/home/banner.png');
       background-size: cover;
-      height: 33vw;
+      height: 50vw;
     }
     &-title {
       padding-top: 5vh;
@@ -148,6 +156,9 @@ export default {
 @media screen and (min-width: 750px) and (max-width: 999px) {
   .home {
     background-size: contain;
+    .banner-limit {
+      height: 36vw;
+    }
     .banner {
       margin-bottom: 6vw;
       &-title {
@@ -171,13 +182,18 @@ export default {
   .home {
     background-size: contain;
     background-position: 50% 6%;
+    .banner-limit {
+      height: 50vw;
+      margin-bottom: 50px;
+    }
     .banner {
       margin-bottom: 6vw;
       &-title {
-        font-size: 24px;
+        padding-top: 3vh;
+        font-size: 30px;
       }
       &-sub {
-        font-size: 14px;
+        font-size: 16px;
         padding: 0 40px;
       }
       &-more {
@@ -195,14 +211,19 @@ export default {
   .home {
     background-size: contain;
     background-position: 50% 8%;
+    .banner-limit {
+      height: 50vw;
+      margin-bottom: 50px;
+    }
     .banner {
       margin-bottom: 6vw;
       &-title {
+        padding-top: 2vh;
         font-size: 22px;
       }
       &-sub {
         font-size: 12px;
-        padding: 0 22px;
+        padding: 0 12px;
       }
       &-more {
         margin-top: 30px;
