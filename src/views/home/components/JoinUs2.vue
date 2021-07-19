@@ -31,7 +31,7 @@
 .join {
   position: relative;
   z-index: 100;
-  top: -25vw;
+  top: -15vw;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   box-shadow: 0 4px 9px rgb(0 0 0 / 30%);

@@ -83,8 +83,7 @@ export default {
   .banner {
     margin-bottom: 2vw;
     &-item {
-      // background-image: url('../../assets/img/home/banner.png');
-      background-color: #777777;
+      background-image: url('../../assets/img/home/banner.png');
       background-size: cover;
       height: 50vw;
     }
