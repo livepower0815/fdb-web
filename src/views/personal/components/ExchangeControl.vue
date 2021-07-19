@@ -1,7 +1,7 @@
 <template>
   <div v-loading="isBindLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="personal-function-main exchange-site">
     <div class="title">綁定交易所</div>
-    <div class="sub">為保障各位的交易安全，交易所若綁定之後，無法進行編輯與刪除</div>
+    <div class="sub">為保護帳號安全，交易所綁定後將無法編輯或刪除（*未綁定將無法查看您的返佣資訊）</div>
     <div class="exchange-block">
       <div class="main">
         <div>
