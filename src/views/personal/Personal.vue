@@ -4,7 +4,8 @@
     <div class="outline banner-block personal">
       <div class="outblock">
         <div class="title">
-          您的好友邀請碼：<span ref="copy">{{ userInfo.myInviteCore }}</span>
+          您的好友邀請碼{{ isMobile ? '' : '：' }}<br v-if="isMobile" />
+          <span ref="copy">{{ userInfo.myInviteCore }}</span>
         </div>
 
         <a href="javascript:void(0)">
@@ -89,6 +90,12 @@ export default {
   computed: {
     userInfo() {
       return this.$store.state.user.userInfo
+    },
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    },
+    isMobile() {
+      return this.deviceWidth < 701
     }
   },
   methods: {
