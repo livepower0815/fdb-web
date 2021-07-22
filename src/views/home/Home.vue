@@ -2,7 +2,7 @@
   <div class="home">
     <!--Banner開始-->
     <div class="banner-limit">
-      <el-carousel :autoplay="false" arrow="always" height="60vw" indicator-position="none" class="banner">
+      <el-carousel arrow="always" :height="`${deviceWidth > 700 ? '60vw' : '88vw'}`" indicator-position="none" class="banner">
         <el-carousel-item v-for="item in 4" :key="item">
           <div class="banner-item">
             <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
@@ -72,6 +72,11 @@ export default {
   components: {
     JoinUs,
     Info
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
   }
 }
 </script>
@@ -83,13 +88,20 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   .banner-limit {
-    height: 30vw;
+    height: 37vw;
     @media screen and (min-width: 1500px) {
-      height: 35vw;
+      height: 42vw;
     }
   }
   .banner {
     margin-bottom: 2vw;
+    ::v-deep {
+      .el-carousel__arrow {
+        font-size: 36px;
+        height: 72px;
+        width: 72px;
+      }
+    }
     &-item {
       background-image: url('../../assets/img/common/banner.svg');
       background-size: cover;
@@ -135,8 +147,18 @@ export default {
 /*1024*/
 @media screen and (min-width: 1000px) and (max-width: 1346px) {
   .home {
+    .banner-limit {
+      height: 40vw;
+    }
     .banner {
       margin-bottom: 6vw;
+      ::v-deep {
+        .el-carousel__arrow {
+          font-size: 28px;
+          height: 56px;
+          width: 56px;
+        }
+      }
       &-title {
         font-size: 36px;
       }
@@ -157,10 +179,17 @@ export default {
   .home {
     background-size: contain;
     .banner-limit {
-      height: 36vw;
+      height: 37vw;
     }
     .banner {
       margin-bottom: 6vw;
+      ::v-deep {
+        .el-carousel__arrow {
+          font-size: 22px;
+          height: 44px;
+          width: 44px;
+        }
+      }
       &-title {
         font-size: 28px;
       }
@@ -184,10 +213,21 @@ export default {
     background-position: 50% 6%;
     .banner-limit {
       height: 50vw;
-      margin-bottom: 50px;
+      margin-bottom: 126px;
     }
     .banner {
       margin-bottom: 6vw;
+      ::v-deep {
+        .el-carousel__arrow {
+          font-size: 22px;
+          height: 44px;
+          width: 44px;
+        }
+      }
+      &-item {
+        background-image: url('../../assets/img/home/banner-mobile.png');
+        height: 88vw;
+      }
       &-title {
         padding-top: 3vh;
         font-size: 30px;
@@ -213,10 +253,27 @@ export default {
     background-position: 50% 8%;
     .banner-limit {
       height: 50vw;
-      margin-bottom: 50px;
+      margin-bottom: 80px;
     }
     .banner {
       margin-bottom: 6vw;
+      ::v-deep {
+        .el-carousel__arrow {
+          font-size: 18px;
+          height: 36px;
+          width: 36px;
+        }
+        .el-carousel__arrow--flef {
+          left: 6px;
+        }
+        .el-carousel__arrow--right {
+          right: 6px;
+        }
+      }
+      &-item {
+        background-image: url('../../assets/img/home/banner-mobile.png');
+        height: 88vw;
+      }
       &-title {
         padding-top: 2vh;
         font-size: 22px;

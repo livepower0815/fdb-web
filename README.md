@@ -18,6 +18,7 @@ CSS sample
 密碼： a135246
 
 ## TODO List
+- 首頁 banner ＲＷＤ & 
 - footer ＲＷＤ
 - 整理出金申請頁面ＲＷＤ
 - 沒有綁定交易所 不要讓她到 dashboard 讓它到 綁定交易所頁面並提示 (交易所綁定驗證需要再開新的API)

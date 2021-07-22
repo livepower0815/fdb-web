@@ -64,18 +64,22 @@
         <div class="list-item" v-if="infoSelected === 'unqi-account'" key="unqi-account">
           <div class="title">獨立的帳號綁定</div>
           <div class="sub">平台之間獨立帳號驗證，確保資料的安全信任度</div>
+          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
         <div class="list-item" v-if="infoSelected === 'bonues-visual'" key="bonues-visual">
           <div class="title">佣金收入視覺化</div>
           <div class="sub">清楚分類返佣種類與金額，幫助會員快速檢視返佣狀態</div>
+          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
         <div class="list-item" v-if="infoSelected === 'perfect-control'" key="perfect-control">
           <div class="title">完善資訊管理</div>
           <div class="sub">多個交易所與貨幣地址統一管理，便於會員控管資料</div>
+          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
         <div class="list-item" v-if="infoSelected === 'servicr-team'" key="servicr-team">
           <div class="title">在線客服團隊</div>
           <div class="sub">為您提供24小時溝通服務，無時不刻回應您的建議及疑問</div>
+          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
       </transition>
     </div>
@@ -396,7 +400,7 @@ export default {
         background-image: linear-gradient(to left top, #5ad5d5, #3ea9cc);
         border-radius: 8px;
         margin: 16px;
-        height: 124px;
+        height: 136px;
         padding: 36px;
         display: flex;
         flex-direction: column;
@@ -409,6 +413,15 @@ export default {
         .sub {
           font-size: 20px;
           line-height: 150%;
+        }
+        .start {
+          text-align: end;
+          font-size: 22px;
+          font-weight: bold;
+          img {
+            margin-left: 6px;
+            width: 18px;
+          }
         }
       }
     }
@@ -465,7 +478,7 @@ export default {
         background-image: linear-gradient(to left top, #5ad5d5, #3ea9cc);
         border-radius: 8px;
         margin: 10px;
-        height: 90px;
+        height: 100px;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -478,6 +491,15 @@ export default {
         .sub {
           font-size: 14px;
           line-height: 150%;
+        }
+        .start {
+          text-align: end;
+          font-size: 16px;
+          font-weight: bold;
+          img {
+            margin-left: 4px;
+            width: 13px;
+          }
         }
       }
     }
