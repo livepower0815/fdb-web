@@ -2,7 +2,7 @@
   <div class="home">
     <!--Banner開始-->
     <div class="banner-limit">
-      <el-carousel :autoplay="false" arrow="always" height="50vw" indicator-position="none" class="banner">
+      <el-carousel :autoplay="false" arrow="always" height="60vw" indicator-position="none" class="banner">
         <el-carousel-item v-for="item in 4" :key="item">
           <div class="banner-item">
             <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
@@ -91,9 +91,9 @@ export default {
   .banner {
     margin-bottom: 2vw;
     &-item {
-      background-image: url('../../assets/img/home/banner.png');
+      background-image: url('../../assets/img/common/banner.svg');
       background-size: cover;
-      height: 50vw;
+      height: 60vw;
     }
     &-title {
       padding-top: 5vh;
