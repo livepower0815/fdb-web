@@ -280,8 +280,11 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard-header {
+  width: 100%;
+  margin-bottom: 50px;
   .header-title {
     margin-top: 20px;
+    margin-bottom: 20px;
     font-family: Avenir;
     font-weight: bold;
     font-size: 30px;
@@ -295,14 +298,15 @@ export default {
       flex-direction: column;
     }
     .chart {
-      width: 54vw;
+      width: 54%;
       display: flex;
       flex-direction: column;
       background-color: #151923;
       margin-right: 8px;
       padding: 18px;
       @media screen and (max-width: 800px) {
-        width: 58vw;
+        width: 62%;
+        padding: 12px;
       }
       @media screen and (max-width: 600px) {
         width: auto;
@@ -319,7 +323,7 @@ export default {
         }
         .title-item {
           width: 26%;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 1346px) {
             width: 33%;
             &:last-child {
               width: 24%;

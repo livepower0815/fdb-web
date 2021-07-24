@@ -74,7 +74,7 @@ export default {
         background-color: unset;
         color: #c0c4cc;
         border-radius: 5px;
-        line-height: 32px;
+        line-height: 30px;
         height: 32px;
         margin: 0 4px;
         min-width: 32px;

@@ -192,6 +192,9 @@ export default {
           font-family: Avenir;
           font-weight: 500;
           font-size: 18px;
+          @media screen and (max-width: 1200px) {
+            width: 50px;
+          }
           @media screen and (max-width: 800px) {
             width: 36px;
             font-size: 14px;
