@@ -3,16 +3,7 @@
   <div class="commission">
     <div class="filter-section">
       <!-- 幣別過濾icons -->
-      <div class="coin-select">
-        <div class="icon icon-container" :class="{ active: currencyType === 0 }" @click.prevent="currencyType = 0">
-          <img src="@/assets/img/dashboard/all.png" alt="all" class="all-icon" />
-        </div>
-        <CoinIcon class="icon" coin-type="BTC" :class="{ active: currencyType === 1 }" @click.prevent="currencyType = 1" />
-        <CoinIcon class="icon" coin-type="ETH" :class="{ active: currencyType === 2 }" @click.prevent="currencyType = 2" />
-        <CoinIcon class="icon" coin-type="XRP" :class="{ active: currencyType === 3 }" @click.prevent="currencyType = 3" />
-        <CoinIcon class="icon" coin-type="EOS" :class="{ active: currencyType === 4 }" @click.prevent="currencyType = 4" />
-        <CoinIcon class="icon" coin-type="USDT" :class="{ active: currencyType === 5 }" @click.prevent="currencyType = 5" />
-      </div>
+      <CoinSelector v-model="currencyType" />
 
       <!-- 日期選擇器 -->
       <div class="date-picker">
@@ -20,6 +11,7 @@
         <el-date-picker
           v-model="dateRange"
           type="daterange"
+          class="fdb"
           range-separator="至"
           start-placeholder="開始時間"
           end-placeholder="結束時間"
@@ -32,11 +24,21 @@
     <table class="info-table">
       <thead>
         <tr>
-          <th @click="sortData('txDate')">交易日期</th>
-          <th @click="sortData('currency')">交易幣別</th>
-          <th @click="sortData('changeType')">異動類別</th>
-          <th @click="sortData('changeNum')">異動數量</th>
-          <th @click="sortData('restNum')">剩餘數量</th>
+          <th>交易日期</th>
+          <th>交易幣別</th>
+          <th>異動類別</th>
+          <th @click="sortData('changeNum')">
+            <span style="cursor: pointer;">
+              異動數量
+              <img src="@/assets/img/common/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+            </span>
+          </th>
+          <th @click="sortData('restNum')">
+            <span style="cursor: pointer;">
+              剩餘數量
+              <img src="@/assets/img/common/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+            </span>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -45,7 +47,9 @@
             <td>{{ formatDate(row.txDate) }}</td>
             <td>{{ row.currency }}</td>
             <td>{{ formatChangeType(row.changeType) }}</td>
-            <td>{{ row.changeNum }}</td>
+            <td>
+              <span :class="`${setNumColor(row.changeNum)}`">{{ row.changeNum > 0 ? '+' : '-' }}{{ row.changeNum }}</span>
+            </td>
             <td>{{ row.restNum }}</td>
           </tr>
         </template>
@@ -72,16 +76,16 @@
 import { getCommissionTransaction } from '@/apis/dashboard.js'
 import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
+import CoinSelector from '@/components/common/CoinSelector'
 import moment from 'moment'
-import CoinIcon from '@/components/common/CoinIcon.vue'
 
 const changeTypeMap = ['個人', '推薦人', '出金']
 
 export default {
   name: 'CommissionTransaction',
   components: {
-    Pager,
-    CoinIcon
+    CoinSelector,
+    Pager
   },
   props: {
     filterDateRange: {
@@ -195,6 +199,9 @@ export default {
     },
     formatChangeType(changeCode) {
       return changeTypeMap[changeCode]
+    },
+    setNumColor(num) {
+      return num > 0 ? 'text-green' : 'text-red'
     }
   }
 }
@@ -205,30 +212,13 @@ export default {
   .filter-section {
     display: flex;
     margin-bottom: 16px;
-    .coin-select {
-      display: flex;
-      padding: 0 12px;
-      .icon {
-        width: 30px;
-        margin-right: 12px;
-        cursor: pointer;
-        box-sizing: border-box;
-        border-radius: 4px;
-        transition: border 0.4s;
-        &:hover {
-          border: 1px solid #62ffff;
-        }
-        &.active {
-          border: 1px solid #62ffff;
-        }
-      }
-    }
     .date-picker {
       display: flex;
       align-items: center;
       font-size: 14px;
       .title {
         margin-right: 12px;
+        color: #62ffff;
       }
     }
   }
@@ -277,16 +267,6 @@ export default {
         }
       }
     }
-  }
-}
-.icon-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #1e2533;
-  .all-icon {
-    width: 75%;
   }
 }
 </style>

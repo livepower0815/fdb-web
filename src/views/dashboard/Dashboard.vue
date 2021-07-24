@@ -88,18 +88,18 @@ export default {
       tableLoading: false,
       refundFilter: {
         currencyType: 0,
-        // dateRange: [
-        //   moment()
-        //     .subtract(60, 'days')
-        //     .format('yyyy-MM-DD'),
-        //   moment().format('yyyy-MM-DD')
-        // ]
         dateRange: [
           moment()
-            .subtract(7, 'days')
+            .subtract(60, 'days')
             .format('yyyy-MM-DD'),
           moment().format('yyyy-MM-DD')
         ]
+        // dateRange: [
+        //   moment()
+        //     .subtract(7, 'days')
+        //     .format('yyyy-MM-DD'),
+        //   moment().format('yyyy-MM-DD')
+        // ]
       }
     }
   }
@@ -162,6 +162,7 @@ export default {
       background-color: #151923;
       padding: 26px 0;
       border-top: 1px #ffffff solid;
+      margin-bottom: 30px;
     }
   }
 }

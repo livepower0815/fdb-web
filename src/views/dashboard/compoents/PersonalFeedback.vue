@@ -77,6 +77,7 @@
         <div class="title">篩選時間：</div>
         <el-date-picker
           v-model="dateRange"
+          class="fdb"
           type="daterange"
           range-separator="至"
           start-placeholder="開始時間"

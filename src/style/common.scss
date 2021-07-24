@@ -90,3 +90,26 @@ button {
     padding: 0px 22px;
   }
 }
+
+// date-picker
+.fdb.el-date-editor {
+  background-color: #1e2433;
+  border-color: #1e2433;
+  .el-range-input {
+    background-color: #1e2433;
+    color: #cccccc;
+  }
+  .el-range-separator {
+    color: #cccccc;
+  }
+}
+
+// text color
+.text {
+  &-green {
+    color: #05d394;
+  }
+  &-red {
+    color: #df6475;
+  }
+}
