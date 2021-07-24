@@ -8,7 +8,7 @@ img{width:100%;height:auto;}
 input,select,a,button{outline:none;text-decoration:none;border:none;}
 .outline{width:100%;height:auto;float:left;}
 .outblock{width:1347px;height:auto;display:block;margin:0 auto;}
-::-webkit-scrollbar {width: 10px;height: 10px;} 
+::-webkit-scrollbar {width: 4px;height: 4px;} 
 ::-webkit-scrollbar-thumb {background: rgba(90, 90, 90,0.5);}
 ::-webkit-scrollbar-track {background: rgba(0, 0, 0, 0.2);}
 

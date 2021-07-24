@@ -8,7 +8,7 @@
         <i class="el-icon-caret-bottom bottom-icon"></i>
       </div>
     </div>
-    <div class="store-info">
+    <div v-loading="exchangeLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="store-info">
       <div class="info-header">
         <div class="title">您的盈利</div>
         <div class="link">
@@ -18,12 +18,18 @@
         </div>
       </div>
       <div class="info-body">
-        <div v-for="(coinData, index) in coinList" :key="index" class="info-item">
+        <div v-for="(coinData, index) in exchangeList" :key="index" class="info-item">
           <CoinIcon class="coin-icon" :coin-type="currencyMap[coinData.currencyType]" />
           <div class="coin-name">{{ currencyMap[coinData.currencyType] }}</div>
           <div class="coin-count">{{ coinData.coinCount }}</div>
-          <div v-if="coinData.bindStatus === 0" class="coin-status unbind">未綁定</div>
-          <div v-if="coinData.bindStatus === 1" class="coin-status bind">已綁定</div>
+          <template v-if="deviceWidth > 800">
+            <div v-if="coinData.bindStatus === 0" class="coin-status unbind">未綁定</div>
+            <div v-if="coinData.bindStatus === 1" class="coin-status bind">已綁定</div>
+          </template>
+          <template v-else>
+            <img v-if="coinData.bindStatus === 0" src="@/assets/img/dashboard/check-circle.png" alt="check-circle" style="width: 15px" />
+            <img v-if="coinData.bindStatus === 1" src="@/assets/img/dashboard/close-circle.png" alt="close-circle" style="width: 15px" />
+          </template>
         </div>
       </div>
     </div>
@@ -34,6 +40,8 @@
 <script>
 import CoinIcon from '@/components/common/CoinIcon'
 import { currencyMap } from '@/utils/map.js'
+import { getExchangeInfo } from '@/apis/dashboard.js'
+
 export default {
   name: 'StoreSelect',
   components: {
@@ -42,13 +50,39 @@ export default {
   data() {
     return {
       currencyMap: currencyMap,
-      coinList: [
-        { currencyType: '1', coinCount: 0.390849378, bindStatus: 1 },
-        { currencyType: '5', coinCount: 0.390849378, bindStatus: 0 },
-        { currencyType: '2', coinCount: 0.390849378, bindStatus: 1 },
-        { currencyType: '3', coinCount: 0.390849378, bindStatus: 1 },
-        { currencyType: '4', coinCount: 0.390849378, bindStatus: 0 }
-      ]
+      exchangeLoading: false,
+      exchangeList: []
+    }
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  },
+  async mounted() {
+    this.getExchangeInfo()
+  },
+  methods: {
+    // 交易所
+    async getExchangeInfo() {
+      this.exchangeLoading = true
+      try {
+        const queryData = {
+          // exchangeId: '', // 目前寫死不傳
+          currencyType: 0,
+          startDate: '',
+          endDate: '',
+          pageIndex: 0,
+          pageSize: 0,
+          sortKey: '',
+          order: ''
+        }
+        const res = await getExchangeInfo(queryData)
+        this.exchangeList = res
+      } catch (error) {
+        console.error(error)
+      }
+      this.exchangeLoading = false
     }
   }
 }
@@ -66,19 +100,36 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 0px 32px;
+    @media screen and (max-width: 800px) {
+      height: 56px;
+      padding: 0px 12px;
+    }
+    @media screen and (max-width: 600px) {
+      margin-bottom: 16px;
+    }
     .title {
       font-size: 24px;
       font-weight: bold;
+      @media screen and (max-width: 800px) {
+        font-size: 18px;
+      }
     }
     .select {
       display: flex;
       align-items: center;
       img {
         width: 100px;
+        @media screen and (max-width: 800px) {
+          width: 78px;
+        }
       }
       .bottom-icon {
         font-size: 22px;
         margin-left: 22px;
+        @media screen and (max-width: 800px) {
+          font-size: 18px;
+          margin-left: 18px;
+        }
       }
     }
   }
@@ -86,19 +137,36 @@ export default {
     background-color: #151923;
     border-radius: 6px;
     padding: 0px 32px 32px 32px;
+    min-height: 400px;
+    @media screen and (max-width: 800px) {
+      padding: 0px 12px 12px 12px;
+      min-height: 320px;
+    }
+    @media screen and (max-width: 600px) {
+      margin-bottom: 16px;
+    }
     .info-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 70px;
+      @media screen and (max-width: 800px) {
+        height: 50px;
+      }
       .title {
         font-size: 24px;
         font-weight: bold;
+        @media screen and (max-width: 800px) {
+          font-size: 18px;
+        }
       }
       .link {
         cursor: pointer;
         img {
           width: 20px;
+          @media screen and (max-width: 800px) {
+            width: 16px;
+          }
         }
       }
     }
@@ -107,9 +175,16 @@ export default {
         display: flex;
         align-items: center;
         height: 60px;
+        @media screen and (max-width: 800px) {
+          height: 50px;
+        }
         .coin-icon {
           width: 36px;
-          margin-right: 18px;
+          margin-right: 14px;
+          @media screen and (max-width: 800px) {
+            width: 28px;
+            margin-right: 14px;
+          }
         }
         .coin-name {
           width: 80px;
@@ -117,6 +192,10 @@ export default {
           font-family: Avenir;
           font-weight: 500;
           font-size: 18px;
+          @media screen and (max-width: 800px) {
+            width: 36px;
+            font-size: 14px;
+          }
         }
         .coin-count {
           flex: 2;
@@ -124,11 +203,17 @@ export default {
           font-weight: 800;
           font-size: 18px;
           color: #62ffff;
+          @media screen and (max-width: 800px) {
+            font-size: 14px;
+          }
         }
         .coin-status {
           flex: 1;
           text-align: end;
           font-size: 18px;
+          @media screen and (max-width: 800px) {
+            font-size: 16px;
+          }
           &.bind {
             color: #62ffffb3;
           }
