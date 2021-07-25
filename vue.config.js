@@ -4,10 +4,11 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const isDev = process.env.NODE_ENV !== 'development'
+const isProd = process.env.NODE_ENV !== 'development'
 
 module.exports = {
-  publicPath: '/fdb-web/dist/',
+  publicPath: '/fdb-web/dist/', // github pages
+  // publicPath: './', // mark server
   outputDir: 'dist',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
@@ -65,17 +66,17 @@ module.exports = {
         .end()
     })
 
-    config.when(isDev, config => {
-      config
-        .plugin('ScriptExtHtmlWebpackPlugin')
-        .after('html')
-        .use('script-ext-html-webpack-plugin', [
-          {
-            // `runtime` must same as runtimeChunk name. default is `runtime`
-            inline: /runtime\..*\.js$/
-          }
-        ])
-        .end()
+    config.when(isProd, config => {
+      // config
+      //   .plugin('ScriptExtHtmlWebpackPlugin')
+      //   .after('html')
+      //   .use('script-ext-html-webpack-plugin', [
+      //     {
+      //       // `runtime` must same as runtimeChunk name. default is `runtime`
+      //       inline: /runtime\..*\.js$/
+      //     }
+      //   ])
+      //   .end()
 
       config.optimization.splitChunks({
         chunks: 'all',

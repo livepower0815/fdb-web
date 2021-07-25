@@ -98,12 +98,12 @@
           </div>
           <div class="operation">
             <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">回到列表</div>
-            <div class="fdb-btn-primary" @click="step = 1">再申請一次</div>
+            <div class="fdb-btn-primary" @click="tryAgain">再申請一次</div>
           </div>
           <div class="form block">
             <div class="form-item">
               <div class="title">申請單號</div>
-              <div class="value">abcd456789</div>
+              <div class="value">{{ orderNumber }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金幣別</div>
@@ -155,7 +155,8 @@ export default {
       currencyIdMap: currencyIdMap,
       currencyMap: currencyMap,
       storeData: [],
-      adressData: {}
+      adressData: {},
+      orderNumber: ''
     }
   },
   mounted() {
@@ -164,8 +165,6 @@ export default {
   methods: {
     getStoreInfo(storeData) {
       this.storeData = storeData
-      this.form.currencySelect = storeData[0].currencyType
-      this.form.coinCount = storeData[0].coinCount
     },
     // 取得出金地址資訊
     async getAllWithdrawalAddress() {
@@ -186,6 +185,10 @@ export default {
       this.form.coinCount = coinData.coinCount
     },
     toStep2() {
+      if (!this.form.currencySelect) {
+        this.$message.error('請輸入出金幣別')
+        return false
+      }
       if (!this.form.withdrawAmount) {
         this.$message.error('請輸入出金數量')
         return false
@@ -200,6 +203,11 @@ export default {
       }
       this.step = 2
     },
+    resetForm() {
+      this.form.currencySelect = ''
+      this.form.coinCount = '0'
+      this.form.withdrawAmount = ''
+    },
     async submit() {
       this.isLoading = true
       try {
@@ -208,8 +216,8 @@ export default {
           rebatchangevalue: Number(this.form.withdrawAmount)
         }
         const res = await withdrawalOrder(postData)
-        console.log(res)
-        // TODO: 申請單號尚未實作
+        this.orderNumber = res.data.bwoOrderID
+        this.$message.success('申請成功')
         this.step = 3
       } catch (error) {
         if (error.isHttpError) {
@@ -220,6 +228,10 @@ export default {
         console.error(error)
       }
       this.isLoading = false
+    },
+    tryAgain() {
+      this.step = 1
+      this.resetForm()
     }
   }
 }
