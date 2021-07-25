@@ -4,7 +4,8 @@ const state = {
   deviceWidth: 1024,
   // 交易所清單 coin store group list
   csgList: [],
-  csgMap: {}
+  csgMap: {},
+  globalLoading: false
 }
 
 const mutations = {
@@ -17,6 +18,9 @@ const mutations = {
       obj[csg.csgid] = csg
       return obj
     }, {})
+  },
+  SET_G_LOADING(state, status) {
+    state.globalLoading = status
   }
 }
 

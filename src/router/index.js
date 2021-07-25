@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
+import { Message } from 'element-ui'
 
 Vue.use(VueRouter)
 
@@ -101,10 +102,13 @@ const routes = [
     async beforeEnter(to, from, next) {
       // 沒有綁定交易所 不要讓她到 dashboard 讓它到 綁定交易所頁面並提示 (在提供綁定交易所提示文案)
       try {
+        store.commit('app/SET_G_LOADING', true)
         const stores = await store.dispatch('user/getBindStores')
-        // TODO: 等綁定成功規則確定在調整
-        if (stores.length === 0) {
+        store.commit('app/SET_G_LOADING', false)
+        // 沒有綁定清單或是清單內沒有驗證完成的交易所
+        if (stores.length === 0 || !stores.find(item => item.status === 1)) {
           next({ name: 'Personal' })
+          Message.warning('交易所尚未綁定，無法查看交易總覽。')
           return
         }
       } catch (error) {

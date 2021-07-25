@@ -40,7 +40,6 @@
 <script>
 import CoinIcon from '@/components/common/CoinIcon'
 import { currencyMap } from '@/utils/map.js'
-import { getExchangeInfo } from '@/apis/dashboard.js'
 
 export default {
   name: 'StoreSelect',
@@ -50,13 +49,15 @@ export default {
   data() {
     return {
       currencyMap: currencyMap,
-      exchangeLoading: false,
-      exchangeList: []
+      exchangeLoading: false
     }
   },
   computed: {
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    },
+    exchangeList() {
+      return this.$store.state.dashboard.storeList
     }
   },
   async mounted() {
@@ -67,18 +68,7 @@ export default {
     async getExchangeInfo() {
       this.exchangeLoading = true
       try {
-        const queryData = {
-          // exchangeId: '', // 目前寫死不傳
-          currencyType: 0,
-          startDate: '',
-          endDate: '',
-          pageIndex: 0,
-          pageSize: 0,
-          sortKey: '',
-          order: ''
-        }
-        const res = await getExchangeInfo(queryData)
-        this.exchangeList = res
+        const res = await this.$store.dispatch('dashboard/getExchangeInfo')
         this.$emit('getStoreInfo', res)
       } catch (error) {
         console.error(error)

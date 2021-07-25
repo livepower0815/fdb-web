@@ -123,7 +123,7 @@
       </div>
 
       <!-- 交易所開始 -->
-      <StoreSelect @getStoreInfo="getStoreInfo" />
+      <StoreSelect ref="storeRef" @getStoreInfo="getStoreInfo" />
       <!-- 交易所結束 -->
     </div>
   </div>
@@ -219,6 +219,7 @@ export default {
         this.orderNumber = res.data.bwoOrderID
         this.$message.success('申請成功')
         this.step = 3
+        this.$refs.storeRef.getExchangeInfo()
       } catch (error) {
         if (error.isHttpError) {
           this.$message.error(error.response?.data?.resultMsg || '出金失敗')

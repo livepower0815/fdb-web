@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-loading="globalLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
     <Nav v-if="!hideNavFooter" />
     <transition name="fade-transform" mode="out-in">
       <router-view />
@@ -21,6 +21,9 @@ export default {
   computed: {
     hideNavFooter() {
       return this.$route.meta.hideNavFooter
+    },
+    globalLoading() {
+      return this.$store.state.app.globalLoading
     }
   },
   created() {

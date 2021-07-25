@@ -46,9 +46,8 @@
       <div>
         <img v-if="csgMap[bind.csgid]" :src="csgMap[bind.csgid].imageUrl" alt="bind-store-img" style="width: 60px;" />
         <span v-else>無效圖檔</span>
-        <!-- <img src="@/assets/img/footer/bybit.png" alt="bind-store-img" style="width: 60px;" /> -->
       </div>
-      <div class="status">{{ ['驗證中', '驗證完畢'][bind.status] }}</div>
+      <div :class="`status ${['red', 'green'][bind.status]}`">{{ ['驗證中', '驗證完畢'][bind.status] }}</div>
     </div>
 
     <!-- 再次確認彈窗 -->
