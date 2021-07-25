@@ -48,7 +48,7 @@
         <div v-else class="main">{{ formData.ETH || '未綁定' }}</div>
       </div>
     </div>
-    <div class="take-cash-step-btn-block personal-info">
+    <div class="btns-block personal-info">
       <a v-if="!isEdit" href="javascript:void(0)" class="next" @click="isEdit = true">編輯地址</a>
       <a v-if="isEdit" href="javascript:void(0)" class="cancel" @click="cancelEdit">取消</a>
       <a v-if="isEdit" href="javascript:void(0)" class="next" @click="saveAdress">儲存並驗證</a>

@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="take-cash-step-btn-block personal-info">
+    <div class="btns-block personal-info">
       <a v-if="!isEdit" href="javascript:void(0)" class="next" @click="isEdit = true">編輯內容</a>
       <a v-if="isEdit" href="javascript:void(0)" class="cancel" @click="cancelEdit">取消</a>
       <a v-if="isEdit" href="javascript:void(0)" class="next" @click="saveUserData">儲存</a>

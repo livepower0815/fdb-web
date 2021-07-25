@@ -46,13 +46,19 @@ export default {
 .coin-select {
   display: flex;
   padding: 0 12px;
+  @media screen and (max-width: 1200px) {
+    padding: 0 8px;
+  }
   .icon {
     width: 30px;
-    margin-right: 12px;
+    margin-right: 10px;
     cursor: pointer;
     box-sizing: border-box;
     border-radius: 4px;
     transition: border 0.4s;
+    @media screen and (max-width: 1200px) {
+      width: 28px;
+    }
     &:hover {
       border: 1px solid #62ffff;
     }

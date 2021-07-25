@@ -20,6 +20,15 @@
           :clearable="false"
         ></el-date-picker>
       </div>
+      <!-- 輸入會員名稱關鍵字 -->
+      <div class="key-search">
+        <img src="@/assets/img/common/icon-search.png" alt="search" />
+        <input type="text" placeholder="輸入會員名稱關鍵字" />
+      </div>
+      <!-- 管理組別 -->
+      <div style="flex: 1; text-align: end">
+        <div class="btn">管理組別</div>
+      </div>
     </div>
     <table class="info-table">
       <thead>
@@ -28,10 +37,14 @@
           <th>交易日期</th>
           <th>交易幣別</th>
           <th>會員名稱</th>
-          <th @click="sortData('rgName')">
+          <th>
             <span style="cursor: pointer;">
               推薦人分組
-              <img src="@/assets/img/common/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img
+                src="@/assets/img/common/filter-grid-solid.png"
+                alt="filter-grid-solid"
+                style="width: 14px;transform: translateY(1px);"
+              />
             </span>
           </th>
           <th @click="sortData('canRebatePoint')">
@@ -65,18 +78,10 @@
             <td>{{ currencyMap[row.currency] }}</td>
             <td>{{ row.name }}</td>
             <td>
-              <div class="group green">{{ row.rgName }}</div>
+              <div :class="`group group-color-${row.groupIndex + 1}`">{{ groupMap[row.groupIndex].name }}</div>
             </td>
             <td>{{ row.canRebatePoint }}</td>
             <td>{{ row.canRebatValue }}</td>
-
-            <!-- <td><div class="group green">高中同學</div></td>
-            <td><div class="group bluegreen">高中同學</div></td>
-            <td><div class="group fair">高中同學</div></td>
-            <td><div class="group orange">高中同學</div></td>
-            <td><div class="group lightpurple">高中同學</div></td>
-            <td><div class="group purple">高中同學</div></td>
-            <td><div class="group redpurple">高中同學</div></td> -->
           </tr>
         </template>
         <tr v-else>
@@ -88,50 +93,6 @@
         </tr>
       </tbody>
     </table>
-
-    <!-- <table class="refund-detail-info-block" cellpadding="0" Border="0">
-    <thead class="refund-detail-info-title">
-      <tr>
-        <th @click="sortData('rebateStatus')">返佣狀態</th>
-        <th @click="sortData('txDate')">交易日期</th>
-        <th @click="sortData('currency')">交易幣別</th>
-        <th @click="sortData('name')">會員名稱</th>
-        <th @click="sortData('rgName')">推薦人分組</th>
-        <th @click="sortData('canRebatePoint')">可返佣交易量</th>
-        <th @click="sortData('canRebatValue')">可返佣數量</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(row, index) in tableData" :key="index" class="refund-detail-info-main">
-        <td>
-          <template v-if="row.rebateStatus === 0">
-            <div class="status yet"></div>
-            未返佣
-          </template>
-          <template v-if="row.rebateStatus === 1">
-            <div class="status already"></div>
-            已返佣
-          </template>
-        </td>
-        <td>{{ formatDate(row.txDate) }}</td>
-        <td>{{ currencyMap[row.currency] }}</td>
-        <td>{{ row.name }}</td>
-        <td>
-          <div class="group green">{{ row.rgName }}</div>
-        </td>
-        <td>{{ row.canRebatePoint }}</td>
-        <td>{{ row.canRebatValue }}</td>
-      </tr>
-      <td><div class="group green">高中同學</div></td>
-      <td><div class="group bluegreen">高中同學</div></td>
-      <td><div class="group fair">高中同學</div></td>
-      <td><div class="group orange">高中同學</div></td>
-      <td><div class="group lightpurple">高中同學</div></td>
-      <td><div class="group purple">高中同學</div></td>
-      <td><div class="group redpurple">高中同學</div></td>
-    </tbody>
-  </table> -->
-
     <!--出金 手機版開始-->
     <!--出金 手機版結束-->
     <!--Pages-->
@@ -143,10 +104,121 @@
 
 <script>
 import { currencyMap } from '@/utils/map.js'
-import { getRecommender } from '@/apis/dashboard.js'
+// import { getRecommender } from '@/apis/dashboard.js'
 import Pager from '@/components/common/Pager'
 import moment from 'moment'
 import CoinSelector from '@/components/common/CoinSelector'
+
+const groupMap = [
+  { name: '高中同學' },
+  { name: '家族親戚' },
+  { name: '家族親戚' },
+  { name: '家族親戚' },
+  { name: '高中同學' },
+  { name: '高中同學' },
+  { name: '高中同學' },
+  { name: '高中同學' },
+  { name: '高中同學' },
+  { name: '大學同學' }
+]
+
+const getRecommender = async () => {
+  return {
+    data: [
+      {
+        rebateStatus: 0,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 1,
+        name: 'kerry01',
+        groupIndex: 0,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 1,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 1,
+        name: 'kerry02',
+        groupIndex: 1,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 0,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 2,
+        name: 'kerry02',
+        groupIndex: 2,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 0,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 2,
+        name: 'kerry03',
+        groupIndex: 3,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 1,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 3,
+        name: 'kerry03',
+        groupIndex: 4,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 1,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 3,
+        name: 'kerry04',
+        groupIndex: 5,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 0,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 4,
+        name: 'kerry04',
+        groupIndex: 6,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 1,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 4,
+        name: 'kerry01',
+        groupIndex: 7,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 0,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 5,
+        name: 'kerry01',
+        groupIndex: 8,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      },
+      {
+        rebateStatus: 0,
+        txDate: '2021-06-05T12:21:40.08',
+        currency: 5,
+        name: 'kerry01',
+        groupIndex: 9,
+        canRebatePoint: '100.00345',
+        canRebatValue: '0.0034356'
+      }
+    ],
+    totalCount: 10
+  }
+}
 
 export default {
   name: 'Recommender',
@@ -171,6 +243,7 @@ export default {
   data() {
     return {
       currencyMap: { ...currencyMap },
+      groupMap: groupMap,
       tableData: [],
       pager: {
         pageIndex: 1,
@@ -268,4 +341,44 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.group {
+  display: inline;
+  padding: 4px 20px;
+  background-color: #696969;
+  border-radius: 16px;
+  color: #151923;
+  &-color {
+    &-1 {
+      background-color: #22fab8;
+    }
+    &-2 {
+      background-color: #96fddd;
+    }
+    &-3 {
+      background-color: #f5b0a9;
+    }
+    &-4 {
+      background-color: #ee786c;
+    }
+    &-5 {
+      background-color: #e89fe1;
+    }
+    &-6 {
+      background-color: #bc8bea;
+    }
+    &-7 {
+      background-color: #db68d0;
+    }
+    &-8 {
+      background-color: #cda7ef;
+    }
+    &-9 {
+      background-color: #46a0e3;
+    }
+    &-10 {
+      background-color: #90c6ee;
+    }
+  }
+}
+</style>

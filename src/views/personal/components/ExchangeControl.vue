@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="take-cash-step-btn-block personal">
+    <div class="btns-block personal">
       <a href="javascript:void(0)" class="cancel" @click="resetForm">清空</a>
       <a href="javascript:void(0)" class="next" @click="validate">綁定</a>
     </div>

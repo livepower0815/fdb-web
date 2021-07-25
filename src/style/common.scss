@@ -95,12 +95,19 @@ button {
 .fdb.el-date-editor {
   background-color: #1e2433;
   border-color: #1e2433;
+  @media screen and (max-width: 1200px) {
+    width: 260px;
+  }
   .el-range-input {
     background-color: #1e2433;
     color: #cccccc;
+    width: 41%;
   }
   .el-range-separator {
     color: #cccccc;
+  }
+  .el-range__close-icon {
+    width: 0px;
   }
 }
 

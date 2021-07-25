@@ -7,9 +7,50 @@
       display: flex;
       align-items: center;
       font-size: 14px;
+      margin-right: 12px;
       .title {
         margin-right: 12px;
         color: #62ffff;
+      }
+    }
+    .key-search {
+      width: 260px;
+      display: flex;
+      align-items: center;
+      border: none;
+      height: 30px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      padding-left: 10px;
+      background-color: #1e2433;
+      @media screen and (max-width: 1200px) {
+        width: 174px;
+      }
+      img {
+        width: 16px;
+      }
+      input {
+        font-size: 14px;
+        background-color: transparent;
+        color: #c4c4c4;
+        padding-left: 8px;
+        @media screen and (max-width: 1200px) {
+          font-size: 13px;
+        }
+      }
+    }
+    .btn {
+      color: #fff;
+      display: inline-block;
+      line-height: 30px;
+      border: 1px solid;
+      border-color: #62ffff;
+      padding: 0 40px;
+      margin-right: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      @media screen and (max-width: 1200px) {
+        padding: 0 20px;
       }
     }
   }
