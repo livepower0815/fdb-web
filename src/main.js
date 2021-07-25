@@ -18,6 +18,7 @@ import locale from 'element-ui/lib/locale/lang/zh-TW' // lang i18n
 
 import '@/style/common.scss'
 import '@/style/transition.scss'
+import '@/style/dashboard.scss'
 
 // route gateway
 import '@/permission'

@@ -133,7 +133,7 @@ export default {
         height: 20px;
         border-radius: 6px;
         color: #ffffff;
-        background-image: linear-gradient(0deg, #62ffff, #3ea9cc);
+        background-image: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
         cursor: pointer;
       }
     }

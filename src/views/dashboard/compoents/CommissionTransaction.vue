@@ -1,6 +1,6 @@
 <template>
   <!--佣金異動紀錄 開始-->
-  <div class="commission">
+  <div class="detail-section">
     <div class="filter-section">
       <!-- 幣別過濾icons -->
       <CoinSelector v-model="currencyType" />
@@ -207,66 +207,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.commission {
-  .filter-section {
-    display: flex;
-    margin-bottom: 16px;
-    .date-picker {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      .title {
-        margin-right: 12px;
-        color: #62ffff;
-      }
-    }
-  }
-  .info-table {
-    width: 100%;
-    margin-bottom: 36px;
-    border-spacing: 0;
-    thead {
-      font-size: 16px;
-      font-weight: bold;
-      color: #e5e5e5;
-      line-height: 45px;
-      margin-bottom: 5px;
-      text-align: left;
-      tr {
-        th {
-          border-bottom: 1px solid #e5e5e5;
-          &:first-child {
-            padding-left: 16px;
-          }
-        }
-      }
-    }
-    tbody {
-      height: 45px;
-      line-height: 45px;
-      font-size: 14px;
-      color: #e5e5e5;
-      tr {
-        td {
-          .empty-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
-            img {
-              width: 120px;
-            }
-          }
-          &:first-child {
-            padding-left: 16px;
-            &[colspan] {
-              padding-left: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

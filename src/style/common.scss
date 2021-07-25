@@ -113,3 +113,21 @@ button {
     color: #df6475;
   }
 }
+
+// status 狀態小圓圈
+.status {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+  &.yet {
+    background-color: #eb5757;
+  }
+  &.progress {
+    background-color: #ffc107;
+  }
+  &.already {
+    background-color: #27ae60;
+  }
+}
