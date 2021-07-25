@@ -3,7 +3,7 @@
     <div class="page-title">會員出金申請</div>
     <div class="page-main">
       <!-- 流程開始 -->
-      <div class="step">
+      <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="step">
         <div class="step-bar">
           <div class="line"></div>
           <div class="first finish">
@@ -29,55 +29,34 @@
               <div class="title">選擇出金幣別</div>
               <div class="value">
                 <CoinIcon
+                  v-for="(coin, index) in storeData"
+                  :key="index"
                   class="coin-icon"
-                  :class="{ active: form.currencySelect === '1' }"
-                  coin-type="BTC"
-                  @click="form.currencySelect = currencyIdMap.BTC"
-                />
-                <CoinIcon
-                  class="coin-icon"
-                  :class="{ active: form.currencySelect === '5' }"
-                  coin-type="USDT"
-                  @click="form.currencySelect = currencyIdMap.USDT"
-                />
-                <CoinIcon
-                  class="coin-icon"
-                  :class="{ active: form.currencySelect === '2' }"
-                  coin-type="ETH"
-                  @click="form.currencySelect = currencyIdMap.ETH"
-                />
-                <CoinIcon
-                  class="coin-icon"
-                  :class="{ active: form.currencySelect === '3' }"
-                  coin-type="XRP"
-                  @click="form.currencySelect = currencyIdMap.XRP"
-                />
-                <CoinIcon
-                  class="coin-icon"
-                  :class="{ active: form.currencySelect === '4' }"
-                  coin-type="EOS"
-                  @click="form.currencySelect = currencyIdMap.EOS"
+                  :class="{ active: form.currencySelect === coin.currencyType }"
+                  :coin-type="currencyMap[coin.currencyType]"
+                  :disabled="coin.bindStatus === 0 || !(coin.coinCount > 0)"
+                  @click="selectCoin(coin)"
                 />
               </div>
             </div>
             <div class="form-item">
               <div class="title">可出金數量</div>
-              <div class="value">20.94848890</div>
+              <div class="value">{{ form.coinCount }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
-              <div class="value">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
+              <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金數量</div>
               <div class="value">
-                <input v-model="form.withdrawAmount" class="input" type="text" placeholder="請輸入出金金額" />
+                <input v-model="form.withdrawAmount" class="input" type="number" placeholder="請輸入出金金額" />
               </div>
             </div>
           </div>
           <div class="operation">
             <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">取消出金</div>
-            <div class="fdb-btn-primary" @click="step = 2">下一步</div>
+            <div class="fdb-btn-primary" @click="toStep2">下一步</div>
           </div>
         </div>
 
@@ -87,20 +66,16 @@
             <div class="form-item">
               <div class="title">選擇出金幣別</div>
               <div class="value">
-                <CoinIcon v-if="form.currencySelect === '1'" coin-type="BTC" class="coin-icon active" />
-                <CoinIcon v-if="form.currencySelect === '2'" coin-type="ETH" class="coin-icon active" />
-                <CoinIcon v-if="form.currencySelect === '3'" coin-type="XRP" class="coin-icon active" />
-                <CoinIcon v-if="form.currencySelect === '4'" coin-type="EOS" class="coin-icon active" />
-                <CoinIcon v-if="form.currencySelect === '5'" coin-type="USDT" class="coin-icon active" />
+                <CoinIcon :coin-type="currencyMap[form.currencySelect]" class="coin-icon active" />
               </div>
             </div>
             <div class="form-item">
               <div class="title">可出金數量</div>
-              <div class="value">20.94848890</div>
+              <div class="value">{{ form.coinCount }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
-              <div class="value">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
+              <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金數量</div>
@@ -136,7 +111,7 @@
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
-              <div class="value">1LmjbKTMAbKTMAAbKTAbKT1Lmjb1Lmjb1Lmjb</div>
+              <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金數量</div>
@@ -148,7 +123,7 @@
       </div>
 
       <!-- 交易所開始 -->
-      <StoreSelect />
+      <StoreSelect @getStoreInfo="getStoreInfo" />
       <!-- 交易所結束 -->
     </div>
   </div>
@@ -158,6 +133,8 @@
 import { currencyIdMap, currencyMap } from '@/utils/map.js'
 import StoreSelect from '@/components/StoreSelect'
 import CoinIcon from '@/components/common/CoinIcon'
+import { getAllWithdrawalAddress } from '@/apis/user.js'
+import { withdrawalOrder } from '@/apis/dashboard.js'
 
 export default {
   name: 'TakeCash',
@@ -167,44 +144,82 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       step: 1,
       exchangeLoading: false,
-      exchangeList: [],
       form: {
-        currencySelect: '1',
+        currencySelect: '',
+        coinCount: '0',
         withdrawAmount: ''
       },
       currencyIdMap: currencyIdMap,
-      currencyMap: currencyMap
+      currencyMap: currencyMap,
+      storeData: [],
+      adressData: {}
     }
   },
   mounted() {
-    this.getExchangeInfo()
+    this.getAllWithdrawalAddress()
   },
   methods: {
-    async submit() {
-      this.step = 3
+    getStoreInfo(storeData) {
+      this.storeData = storeData
+      this.form.currencySelect = storeData[0].currencyType
+      this.form.coinCount = storeData[0].coinCount
     },
-    // 交易所
-    async getExchangeInfo() {
-      // this.exchangeLoading = true
-      // try {
-      //   const queryData = {
-      //     // exchangeId: '', // 目前寫死不傳
-      //     currencyType: 0,
-      //     startDate: '',
-      //     endDate: '',
-      //     pageIndex: 0,
-      //     pageSize: 0,
-      //     sortKey: '',
-      //     order: ''
-      //   }
-      //   const res = await getExchangeInfo(queryData)
-      //   this.exchangeList = res
-      // } catch (error) {
-      //   console.error(error)
-      // }
-      // this.exchangeLoading = false
+    // 取得出金地址資訊
+    async getAllWithdrawalAddress() {
+      this.isLoading = true
+      try {
+        const res = await getAllWithdrawalAddress()
+        for (const item of res.data) {
+          const key = currencyMap[item.cid]
+          this.adressData[key] = item.coinAddress
+        }
+      } catch (error) {
+        console.error(error)
+      }
+      this.isLoading = false
+    },
+    selectCoin(coinData) {
+      this.form.currencySelect = coinData.currencyType
+      this.form.coinCount = coinData.coinCount
+    },
+    toStep2() {
+      if (!this.form.withdrawAmount) {
+        this.$message.error('請輸入出金數量')
+        return false
+      }
+      if (!(this.form.withdrawAmount > 0)) {
+        this.$message.error('請輸入出金數量')
+        return false
+      }
+      if (this.form.withdrawAmount > this.form.coinCount) {
+        this.$message.error('超過可出金數量')
+        return false
+      }
+      this.step = 2
+    },
+    async submit() {
+      this.isLoading = true
+      try {
+        const postData = {
+          storeType: Number(this.form.currencySelect),
+          rebatchangevalue: Number(this.form.withdrawAmount)
+        }
+        const res = await withdrawalOrder(postData)
+        console.log(res)
+        // TODO: 申請單號尚未實作
+        this.step = 3
+      } catch (error) {
+        if (error.isHttpError) {
+          this.$message.error(error.response?.data?.resultMsg || '出金失敗')
+        } else {
+          this.$message.error(error.message)
+        }
+        console.error(error)
+      }
+      this.isLoading = false
     }
   }
 }
@@ -252,8 +267,8 @@ export default {
         .line {
           position: absolute;
           width: 100%;
-          height: 3px;
-          background-color: #ffffff;
+          height: 4px;
+          background-color: #0bc8c6;
         }
         > div:not(.line) {
           width: 40px;

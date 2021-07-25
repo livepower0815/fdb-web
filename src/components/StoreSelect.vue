@@ -79,6 +79,7 @@ export default {
         }
         const res = await getExchangeInfo(queryData)
         this.exchangeList = res
+        this.$emit('getStoreInfo', res)
       } catch (error) {
         console.error(error)
       }

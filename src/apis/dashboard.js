@@ -47,3 +47,11 @@ export const getWithdrawal = data =>
     method: 'POST',
     data
   })
+
+// 出金申請
+export const withdrawalOrder = data =>
+  request({
+    url: '/api/DashBoard/WithdrawalOrder',
+    method: 'POST',
+    data
+  })
