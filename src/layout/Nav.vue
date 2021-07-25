@@ -1,6 +1,6 @@
 <template>
   <!--Header開始-->
-  <div class="navbar" :style="`padding: ${deviceWidth >= 1024 ? '0 55px' : '0 2.5%'}`">
+  <div class="navbar">
     <router-link to="/" class="navbar-logo">
       <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
     </router-link>
@@ -125,6 +125,13 @@ export default {
   justify-content: space-between;
   height: 60px;
   background-color: black;
+  padding: 0 3%;
+  @media screen and (max-width: 1200px) {
+    padding: 0 4%;
+  }
+  @media screen and (max-width: 800px) {
+    padding: 0 6%;
+  }
   &-logo {
     flex: 1;
     img {

@@ -93,9 +93,7 @@
 
         <!-- 第三步 -->
         <div v-if="step === 3" class="step-body">
-          <div class="info-text">
-            預計48小時內完成出金，若有問題歡迎透過 Wechat 或 QQ進行聯絡
-          </div>
+          <div class="info-text">預計48小時內完成出金<br />若有問題歡迎透過 Wechat 或 QQ進行聯絡</div>
           <div class="operation">
             <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">回到列表</div>
             <div class="fdb-btn-primary" @click="tryAgain">再申請一次</div>
@@ -243,15 +241,24 @@ export default {
   color: #eb5757;
   text-align: center;
   font-size: 16px;
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  }
 }
 .info-text {
   text-align: center;
   font-size: 16px;
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  }
 }
 .take-cash {
   max-width: 1440px;
   padding: 2% 4%;
   margin: 0 auto;
+  @media screen and (max-width: 800px) {
+    padding: 2% 6%;
+  }
   .page-title {
     font-size: 30px;
     line-height: 44px;
@@ -269,6 +276,13 @@ export default {
       flex-direction: column;
       align-items: center;
       border-radius: 6px;
+      @media screen and (max-width: 1200px) {
+        width: 52%;
+      }
+      @media screen and (max-width: 800px) {
+        width: 59%;
+        padding: 4% 3%;
+      }
       &-bar {
         position: relative;
         width: 80%;
@@ -281,7 +295,7 @@ export default {
           position: absolute;
           width: 100%;
           height: 4px;
-          background-color: #0bc8c6;
+          background-color: #ffffff;
         }
         > div:not(.line) {
           width: 40px;
@@ -312,6 +326,9 @@ export default {
         margin-top: 6%;
         margin-bottom: 3%;
         letter-spacing: 0.05em;
+        @media screen and (max-width: 800px) {
+          font-size: 20px;
+        }
       }
       &-body {
         width: 100%;
@@ -325,21 +342,42 @@ export default {
             display: flex;
             align-items: center;
             margin: 40px 0;
+            @media screen and (max-width: 1200px) {
+              margin: 34px 0;
+            }
+            @media screen and (max-width: 800px) {
+              margin: 30px 0;
+            }
             .title {
               width: 24%;
               text-align: end;
               font-size: 18px;
               line-height: 27px;
+              @media screen and (max-width: 1200px) {
+                font-size: 16px;
+              }
+              @media screen and (max-width: 800px) {
+                font-size: 14px;
+              }
             }
             .value {
               flex: 1;
               margin-left: 20px;
               font-size: 18px;
+              @media screen and (max-width: 1200px) {
+                font-size: 16px;
+              }
+              @media screen and (max-width: 800px) {
+                font-size: 14px;
+              }
               .coin-icon {
                 width: 34px;
                 margin-right: 16px;
                 border-radius: 4px;
                 cursor: pointer;
+                @media screen and (max-width: 800px) {
+                  width: 30px;
+                }
                 &:hover {
                   box-shadow: 0 0 0 1px #62ffff;
                 }
@@ -357,6 +395,14 @@ export default {
                 color: #c4c4c4;
                 padding-left: 10px;
                 background-color: #252c3d;
+                @media screen and (max-width: 1200px) {
+                  height: 42px;
+                  font-size: 16px;
+                }
+                @media screen and (max-width: 800px) {
+                  height: 34px;
+                  font-size: 14px;
+                }
               }
             }
           }
@@ -365,6 +411,14 @@ export default {
           text-align: center;
           margin-top: 60px;
           margin-bottom: 60px;
+          @media screen and (max-width: 1200px) {
+            margin-top: 45px;
+            margin-bottom: 45px;
+          }
+          @media screen and (max-width: 800px) {
+            margin-top: 30px;
+            margin-bottom: 30px;
+          }
         }
       }
     }

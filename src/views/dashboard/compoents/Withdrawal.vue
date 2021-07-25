@@ -186,7 +186,7 @@ export default {
       this.isLoading = false
     },
     formatDate(date) {
-      return moment(date).format('YYYY-MM-DD HH:mm')
+      return date ? moment(date).format('YYYY-MM-DD HH:mm') : '-'
     },
     sortData(sortKey) {
       if (this.pager.sortKey === sortKey) {

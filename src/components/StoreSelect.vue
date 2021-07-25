@@ -91,6 +91,9 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 0px 32px;
+    @media screen and (max-width: 1200px) {
+      padding: 0px 20px;
+    }
     @media screen and (max-width: 800px) {
       height: 56px;
       padding: 0px 12px;
@@ -129,6 +132,9 @@ export default {
     border-radius: 6px;
     padding: 0px 32px 32px 32px;
     min-height: 400px;
+    @media screen and (max-width: 1200px) {
+      padding: 0px 20px 20px 20px;
+    }
     @media screen and (max-width: 800px) {
       padding: 0px 12px 12px 12px;
       min-height: 320px;

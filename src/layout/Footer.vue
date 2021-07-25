@@ -50,7 +50,13 @@ export default {
 .footer {
   display: flex;
   flex-direction: column;
-  padding: 10px 47px 0 47px;
+  padding: 10px 3% 0;
+  @media screen and (max-width: 1200px) {
+    padding: 10px 4% 0;
+  }
+  @media screen and (max-width: 800px) {
+    padding: 10px 6% 0;
+  }
   &-top {
     display: flex;
     justify-content: space-between;
