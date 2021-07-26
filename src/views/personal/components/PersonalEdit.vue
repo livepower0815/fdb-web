@@ -24,9 +24,7 @@
             <div class="title">行動電話</div>
             <div v-if="isEdit" class="split-input">
               <select v-model="formData.areaCode" class="input" style="width: 80px; margin-right: 8px;">
-                <option value="886">+886</option>
-                <option value="885">+885</option>
-                <option value="884">+884</option>
+                <option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :value="phoneArea.code">{{ phoneArea.code }}</option>
               </select>
               <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="請輸入行動電話" autocomplete="off" />
             </div>
@@ -63,6 +61,7 @@
 import PasswordIcon from '@/components/common/PasswordIcon'
 import { uploadFile } from '@/apis/common.js'
 import { updateUserData } from '@/apis/user.js'
+import { phoneAreaCode } from '@/utils/map.js'
 
 export default {
   name: 'PersonalEdit',
@@ -71,6 +70,7 @@ export default {
   },
   data() {
     return {
+      phoneAreaCode,
       isLoading: false,
       isEdit: false,
       formData: {

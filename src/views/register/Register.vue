@@ -19,9 +19,7 @@
           <div class="title">行動電話</div>
           <div class="split-input">
             <select v-model="formData.areaCode" class="input" style="width: 80px; margin-right: 8px;">
-              <option value="886">+886</option>
-              <option value="885">+885</option>
-              <option value="884">+884</option>
+              <option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :value="phoneArea.code">{{ phoneArea.code }}</option>
             </select>
             <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="912345678" autocomplete="off" />
           </div>
@@ -83,6 +81,7 @@
 <script>
 import PasswordIcon from '@/components/common/PasswordIcon'
 import { register } from '@/apis/user.js'
+import { phoneAreaCode } from '@/utils/map.js'
 
 export default {
   name: 'Register',
@@ -92,6 +91,7 @@ export default {
   data() {
     return {
       passwordType: 'password',
+      phoneAreaCode: phoneAreaCode,
       isLoading: false,
       dialogVisible: false,
       formData: {
