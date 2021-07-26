@@ -94,7 +94,7 @@
         <!-- 第三步 -->
         <div v-if="step === 3" class="step-body">
           <div class="info-text">預計48小時內完成出金<br />若有問題歡迎透過 Wechat 或 QQ進行聯絡</div>
-          <div class="operation">
+          <div class="operation finish">
             <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">回到列表</div>
             <div class="fdb-btn-primary" @click="tryAgain">再申請一次</div>
           </div>
@@ -121,7 +121,7 @@
       </div>
 
       <!-- 交易所開始 -->
-      <StoreSelect ref="storeRef" @getStoreInfo="getStoreInfo" />
+      <StoreSelect ref="storeRef" :hide-info="deviceWidth < 600" @getStoreInfo="getStoreInfo" />
       <!-- 交易所結束 -->
     </div>
   </div>
@@ -155,6 +155,11 @@ export default {
       storeData: [],
       adressData: {},
       orderNumber: ''
+    }
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
     }
   },
   mounted() {
@@ -251,6 +256,9 @@ export default {
   @media screen and (max-width: 800px) {
     font-size: 14px;
   }
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
+  }
 }
 .take-cash {
   max-width: 1440px;
@@ -267,6 +275,9 @@ export default {
   }
   .page-main {
     display: flex;
+    @media screen and (max-width: 600px) {
+      flex-direction: column-reverse;
+    }
     .step {
       width: 50%;
       background-color: #151923;
@@ -283,6 +294,12 @@ export default {
         width: 59%;
         padding: 4% 3%;
       }
+      @media screen and (max-width: 600px) {
+        width: 100%;
+        margin-right: 0px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+      }
       &-bar {
         position: relative;
         width: 80%;
@@ -291,6 +308,9 @@ export default {
         align-items: center;
         justify-content: space-around;
         margin: 2% 0;
+        @media screen and (max-width: 400px) {
+          width: 100%;
+        }
         .line {
           position: absolute;
           width: 100%;
@@ -309,6 +329,12 @@ export default {
           line-height: 34px;
           text-align: center;
           z-index: 10;
+          @media screen and (max-width: 400px) {
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            line-height: 24px;
+          }
           &.finish {
             background-image: linear-gradient(180deg, #62ffff, #3ea9cc);
             color: #ffffff;
@@ -316,6 +342,9 @@ export default {
         }
         .correct {
           width: 22px;
+          @media screen and (max-width: 400px) {
+            width: 16px;
+          }
         }
       }
       &-title {
@@ -337,6 +366,12 @@ export default {
             background-color: #050608;
             padding: 1px 0;
             margin-bottom: 60px;
+            @media screen and (max-width: 400px) {
+              padding: 1px 12px;
+              .form-item {
+                margin: 16px 0;
+              }
+            }
           }
           .form-item {
             display: flex;
@@ -347,6 +382,10 @@ export default {
             }
             @media screen and (max-width: 800px) {
               margin: 30px 0;
+            }
+            @media screen and (max-width: 400px) {
+              flex-direction: column;
+              align-items: flex-start;
             }
             .title {
               width: 24%;
@@ -359,6 +398,11 @@ export default {
               @media screen and (max-width: 800px) {
                 font-size: 14px;
               }
+              @media screen and (max-width: 400px) {
+                width: 50%;
+                text-align: start;
+                padding-bottom: 12px;
+              }
             }
             .value {
               flex: 1;
@@ -369,6 +413,10 @@ export default {
               }
               @media screen and (max-width: 800px) {
                 font-size: 14px;
+              }
+              @media screen and (max-width: 400px) {
+                width: 100%;
+                margin-left: 0px;
               }
               .coin-icon {
                 width: 34px;
@@ -403,21 +451,29 @@ export default {
                   height: 34px;
                   font-size: 14px;
                 }
+                @media screen and (max-width: 400px) {
+                  width: 100%;
+                }
               }
             }
           }
         }
         .operation {
           text-align: center;
-          margin-top: 60px;
-          margin-bottom: 60px;
+          margin: 60px 0;
           @media screen and (max-width: 1200px) {
-            margin-top: 45px;
-            margin-bottom: 45px;
+            margin: 45px 0;
           }
           @media screen and (max-width: 800px) {
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin: 30px 0;
+          }
+          @media screen and (max-width: 400px) {
+            margin: 60px 0;
+          }
+          &.finish {
+            @media screen and (max-width: 400px) {
+              margin: 30px 0;
+            }
           }
         }
       }

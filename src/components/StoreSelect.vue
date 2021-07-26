@@ -8,7 +8,7 @@
         <i class="el-icon-caret-bottom bottom-icon"></i>
       </div>
     </div>
-    <div v-loading="exchangeLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="store-info">
+    <div v-if="!hideInfo" v-loading="exchangeLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="store-info">
       <div class="info-header">
         <div class="title">您的盈利</div>
         <div class="link">
@@ -43,6 +43,12 @@ import { currencyMap } from '@/utils/map.js'
 
 export default {
   name: 'StoreSelect',
+  props: {
+    hideInfo: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     CoinIcon
   },

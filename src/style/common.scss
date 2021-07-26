@@ -74,6 +74,7 @@ button {
   /*540-320*/
   @media screen and (min-width: 300px) and (max-width: 749px) {
     padding: 0px 22px;
+    font-size: 14px;
   }
 }
 
@@ -88,6 +89,7 @@ button {
   /*540-320*/
   @media screen and (min-width: 300px) and (max-width: 749px) {
     padding: 0px 22px;
+    font-size: 14px;
   }
 }
 
@@ -109,6 +111,11 @@ button {
   .el-range__close-icon {
     width: 0px;
   }
+}
+
+// avatar
+.el-avatar {
+  background-color: unset;
 }
 
 // text color
