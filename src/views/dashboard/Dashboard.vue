@@ -122,10 +122,14 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 22px;
       .title {
         font-weight: bold;
         font-size: 30px;
+        @media screen and (max-width: 400px) {
+          font-size: 26px;
+        }
       }
       .withdraw-btn {
         font-size: 14px;
@@ -135,12 +139,17 @@ export default {
         color: #ffffff;
         background-image: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
         cursor: pointer;
+        @media screen and (max-width: 400px) {
+          padding: 5px 30px;
+        }
       }
     }
     .detail-menu {
       display: flex;
       width: 100%;
+      overflow-x: auto;
       .menu {
+        flex: 0 0 auto;
         font-size: 16px;
         color: #e5e5e5;
         margin-right: 26px;
@@ -148,6 +157,9 @@ export default {
         padding-bottom: 10px;
         cursor: pointer;
         transition: color 0.4s;
+        @media screen and (max-width: 400px) {
+          font-size: 14px;
+        }
         &:hover {
           color: #62ffff;
         }

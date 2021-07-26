@@ -322,19 +322,9 @@ export default {
           flex-direction: column;
         }
         .title-item {
-          width: 26%;
-          @media screen and (max-width: 1346px) {
-            width: 33%;
-            &:last-child {
-              width: 24%;
-            }
-          }
+          flex: 1;
           @media screen and (max-width: 600px) {
-            width: auto;
             margin-bottom: 16px;
-            &:last-child {
-              width: auto;
-            }
           }
           .title {
             display: flex;
@@ -346,6 +336,9 @@ export default {
             }
             .word {
               font-size: 16px;
+              @media screen and (max-width: 800px) {
+                font-size: 14px;
+              }
             }
           }
           .sub {
