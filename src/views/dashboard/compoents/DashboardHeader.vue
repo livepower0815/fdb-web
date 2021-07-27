@@ -285,7 +285,7 @@ export default {
   .header-title {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: Avenir;
+    font-family: 'Avenir';
     font-weight: bold;
     font-size: 30px;
     @media screen and (max-width: 500px) {
@@ -342,7 +342,7 @@ export default {
             }
           }
           .sub {
-            font-family: Avenir;
+            font-family: 'Avenir';
             font-weight: bold;
             font-size: 28px;
             &.green {

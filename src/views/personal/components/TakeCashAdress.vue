@@ -4,45 +4,35 @@
       <div class="title adress">為保障用戶權益和出金安全，修正出金地址須透過email驗證，變動地址需待一周後再次進行</div>
 
       <div class="personal-take-cash-adress-main">
-        <div class="icon">
-          <img src="@/assets/img/currency-icon/BTC-icon.png" alt="BTC" />
-        </div>
+        <CoinIcon class="icon" coin-type="BTC" />
         <div class="title">BTC</div>
         <input v-if="isEdit" v-model="formData.BTC" type="text" class="main" placeholder="請填入 BTC 交易地址" />
         <div v-else class="main">{{ formData.BTC || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
-        <div class="icon">
-          <img src="@/assets/img/currency-icon/XRP-icon.png" alt="XRP" />
-        </div>
+        <CoinIcon class="icon" coin-type="XRP" />
         <div class="title">XRP</div>
         <input v-if="isEdit" v-model="formData.XRP" type="text" class="main" placeholder="請填入 XRP 交易地址" />
         <div v-else class="main">{{ formData.XRP || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
-        <div class="icon">
-          <img src="@/assets/img/currency-icon/USDT-icon.png" alt="USDT" />
-        </div>
+        <CoinIcon class="icon" coin-type="USDT" />
         <div class="title">USDT</div>
         <input v-if="isEdit" v-model="formData.USDT" type="text" class="main" placeholder="請填入 USDT 交易地址" />
         <div v-else class="main">{{ formData.USDT || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
-        <div class="icon">
-          <img src="@/assets/img/currency-icon/EOS-icon.png" alt="EOS" />
-        </div>
+        <CoinIcon class="icon" coin-type="EOS" />
         <div class="title">EOS</div>
         <input v-if="isEdit" v-model="formData.EOS" type="text" class="main" placeholder="請填入 EOS 交易地址" />
         <div v-else class="main">{{ formData.EOS || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
-        <div class="icon">
-          <img src="@/assets/img/currency-icon/ETH-icon.png" alt="ETH" />
-        </div>
+        <CoinIcon class="icon" coin-type="ETH" />
         <div class="title">ETH</div>
         <input v-if="isEdit" v-model="formData.ETH" type="text" class="main" placeholder="請填入 ETH 交易地址" />
         <div v-else class="main">{{ formData.ETH || '未綁定' }}</div>
@@ -79,9 +69,13 @@
 <script>
 import { getAllWithdrawalAddress, withdrawalDataUpdate, validWithdrawalData } from '@/apis/user.js'
 import { currencyMap, currencyIdMap } from '@/utils/map.js'
+import CoinIcon from '@/components/common/CoinIcon.vue'
 
 export default {
   name: 'TakeCashAdress',
+  components: {
+    CoinIcon
+  },
   data() {
     return {
       isLoading: false,

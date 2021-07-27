@@ -1,10 +1,15 @@
 <template>
   <div v-bind="$attrs" v-on="$listeners" class="container" :class="{ disabled: disabled }">
-    <img v-if="coinType === 'BTC'" src="@/assets/img/currency-icon/BTC-icon.png" alt="BTC" />
-    <img v-if="coinType === 'EOS'" src="@/assets/img/currency-icon/EOS-icon.png" alt="EOS" />
-    <img v-if="coinType === 'ETH'" src="@/assets/img/currency-icon/ETH-icon.png" alt="ETH" />
-    <img v-if="coinType === 'USDT'" src="@/assets/img/currency-icon/USDT-icon.png" alt="USDT" />
-    <img v-if="coinType === 'XRP'" src="@/assets/img/currency-icon/XRP-icon.png" alt="XRP" />
+    <img v-if="coinType === 'BTC' && !active" src="@/assets/img/currency-icon/BTC.png" alt="BTC" />
+    <img v-if="coinType === 'BTC' && active" src="@/assets/img/currency-icon/BTC-active.png" alt="BTC" />
+    <img v-if="coinType === 'EOS' && !active" src="@/assets/img/currency-icon/EOS.png" alt="EOS" />
+    <img v-if="coinType === 'EOS' && active" src="@/assets/img/currency-icon/EOS-active.png" alt="EOS" />
+    <img v-if="coinType === 'ETH' && !active" src="@/assets/img/currency-icon/ETH.png" alt="ETH" />
+    <img v-if="coinType === 'ETH' && active" src="@/assets/img/currency-icon/ETH-active.png" alt="ETH" />
+    <img v-if="coinType === 'USDT' && !active" src="@/assets/img/currency-icon/USDT.png" alt="USDT" />
+    <img v-if="coinType === 'USDT' && active" src="@/assets/img/currency-icon/USDT-active.png" alt="USDT" />
+    <img v-if="coinType === 'XRP' && !active" src="@/assets/img/currency-icon/XRP.png" alt="XRP" />
+    <img v-if="coinType === 'XRP' && active" src="@/assets/img/currency-icon/XRP-active.png" alt="XRP" />
   </div>
 </template>
 
@@ -17,6 +22,10 @@ export default {
       required: true
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    active: {
       type: Boolean,
       default: false
     }

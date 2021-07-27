@@ -181,10 +181,6 @@ export default {
   }
 }
 
-.text-link {
-  color: #62ffff;
-  cursor: pointer;
-}
 /* Change the white to any color ;) */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

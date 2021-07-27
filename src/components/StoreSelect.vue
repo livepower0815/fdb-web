@@ -192,7 +192,7 @@ export default {
         .coin-name {
           width: 80px;
           margin-right: 12px;
-          font-family: Avenir;
+          font-family: 'Avenir';
           font-weight: 500;
           font-size: 18px;
           @media screen and (max-width: 1200px) {
@@ -205,7 +205,7 @@ export default {
         }
         .coin-count {
           flex: 2;
-          font-family: Avenir;
+          font-family: 'Avenir';
           font-weight: 800;
           font-size: 18px;
           color: #62ffff;

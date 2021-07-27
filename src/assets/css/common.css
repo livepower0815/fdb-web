@@ -1,8 +1,15 @@
 /*共用*/
-/* @font-face {
+@font-face {
   font-family:'Noto Sans CJK TC';
   src: url("../font/NotoSansCJKtc-Regular.otf") format("opentype");
-} */
+}
+@font-face {
+  font-family:'Avenir';
+  src: url("../font/avenir_ff/AvenirLTStd-Book.otf") format("opentype");
+  /* src: url("../font/avenir_ff/AvenirLTStd-Black.otf") format("opentype"); */
+  /* src: url("../font/avenir_ff/AvenirLTStd-Roman.otf") format("opentype"); */
+}
+
 body::-webkit-scrollbar {display: none;}
 img{width:100%;height:auto;}
 input,select,a,button{outline:none;text-decoration:none;border:none;}

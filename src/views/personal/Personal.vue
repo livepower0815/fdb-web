@@ -46,22 +46,25 @@
             <a href="" :class="{ active: activedTag === 'take-cash-adress' }" @click.prevent="switchTag('take-cash-adress')">
               出金地址管理
             </a>
+            <a href="" :class="{ active: activedTag === 'recommend-management' }" @click.prevent="switchTag('recommend-management')">
+              推薦人管理
+            </a>
             <a href="javascript:vod(0)" :class="{ active: activedTag === 'personal-edit' }" @click.prevent="switchTag('personal-edit')">
               編輯個人檔案
             </a>
           </div>
           <transition name="fade-transform" mode="out-in">
-            <!--交易所管理 開始-->
+            <!-- 交易所管理 -->
             <ExchangeControl v-if="activedTag === 'exchange-control'" />
-            <!--交易所管理 結束-->
 
-            <!--出金地址管理 開始-->
+            <!-- 出金地址管理 -->
             <TakeCashAdress v-if="activedTag === 'take-cash-adress'" />
-            <!--出金地址管理 結束-->
 
-            <!--編輯個人檔案 開始-->
+            <!-- 推薦人管理 -->
+            <Recommend v-if="activedTag === 'recommend-management'" />
+
+            <!-- 編輯個人檔案 -->
             <PersonalEdit v-if="activedTag === 'personal-edit'" />
-            <!--編輯個人檔案 結束-->
           </transition>
         </div>
       </div>
@@ -73,6 +76,7 @@
 <script>
 import ExchangeControl from './components/ExchangeControl.vue'
 import TakeCashAdress from './components/TakeCashAdress.vue'
+import Recommend from './components/Recommend.vue'
 import PersonalEdit from './components/PersonalEdit.vue'
 
 export default {
@@ -80,6 +84,7 @@ export default {
   components: {
     ExchangeControl,
     TakeCashAdress,
+    Recommend,
     PersonalEdit
   },
   data() {

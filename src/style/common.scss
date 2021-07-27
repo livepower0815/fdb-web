@@ -1,7 +1,7 @@
-@font-face {
-  font-family: 'Noto Sans CJK TC';
-  src: url('../assets/font/NotoSansCJKtc-Regular.otf') format('opentype');
-}
+// @font-face {
+//   font-family: 'Noto Sans CJK TC';
+//   src: url('../assets/font/NotoSansCJKtc-Regular.otf') format('opentype');
+// }
 
 html,
 body {
@@ -62,6 +62,21 @@ button {
 }
 
 // button
+.fdb-btn-info {
+  color: #fff;
+  display: inline-block;
+  line-height: 30px;
+  padding: 0px 40px;
+  background: #1e2433;
+  border-radius: 6px;
+  cursor: pointer;
+  /*540-320*/
+  @media screen and (min-width: 300px) and (max-width: 749px) {
+    padding: 0px 22px;
+    font-size: 14px;
+  }
+}
+
 .fdb-btn-default {
   color: #fff;
   display: inline-block;
@@ -144,4 +159,10 @@ button {
   &.already {
     background-color: #27ae60;
   }
+}
+
+// 連結文字
+.text-link {
+  color: #62ffff;
+  cursor: pointer;
 }
