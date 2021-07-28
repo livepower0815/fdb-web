@@ -107,12 +107,6 @@ a.personal-main-btn{width:150px;height:auto;padding:15px 50px;line-height:14px;f
 
 /*首頁*/
 
-/*About*/
-.about-banner-title-block{margin-top:100px !important;}
-.news-title.about{font-size:24px;}
-.news-title{font-size:36px;}
-/*About*/
-
 /*Partner*/
 .banner-block.partner{min-height:450px;}
 .banner-block.partner>div.out{transform:translateY(100%);padding:0 25px;width:calc(100% - 50px);}
@@ -244,14 +238,6 @@ a.personal-main-btn{width:120px;height:auto;padding:13px 30px;line-height:14px;f
     .news-all-sum-sub-block.chat{display:none;}
 
 /*首頁*/
-
-/*About*/
-.banner-block.about{max-height:450px;margin-bottom:0px;}
-.about-banner-title-block{margin-top:100px !important;}
-.news-title.about{font-size:20px;}
-.news-title{font-size:36px;}
-.about-pagging-main-block{font-size:16px;}
-/*About*/
 
 /*Partner*/
 .banner-block.partner{min-height:350px;margin-bottom:100px;}
@@ -388,14 +374,6 @@ a.personal-main-btn{width:250px;height:auto;padding:15px 30px;line-height:14px;f
         .news-main{margin:0 0 20px 0;}
     
 /*首頁*/
-
-/*About*/
-    .banner-block.about{max-height:500px;margin-bottom:0px;}
-    .about-banner-title-block{margin-top:100px !important;}
-    .news-title.about{font-size:18px;}
-    .news-title{font-size:22px;}
-    .about-pagging-main-block{font-size:16px;}
-/*About*/
 
 /*Partner*/
 .banner-block.partner{min-height:285px;margin-bottom:50px;}

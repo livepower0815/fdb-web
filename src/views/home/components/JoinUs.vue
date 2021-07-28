@@ -30,14 +30,18 @@
 <style lang="scss" scoped>
 .join {
   position: relative;
+  max-width: 1440px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   box-shadow: 0 4px 9px rgb(0 0 0 / 30%);
-  margin: 0px 3% 12vw 3%;
+  margin: 0px auto 12vw auto;
   padding: 43px 45px;
   display: flex;
   align-items: center;
   z-index: 10;
+  @media screen and (max-width: 1500px) {
+    margin: 0px 3% 12vw 3%;
+  }
   &-title {
     font-size: 40px;
     font-weight: bold;

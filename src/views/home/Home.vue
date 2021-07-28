@@ -88,9 +88,9 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   .banner-limit {
-    height: 37vw;
-    @media screen and (min-width: 1500px) {
-      height: 42vw;
+    height: 35vw;
+    @media screen and (max-width: 1500px) {
+      height: 37vw;
     }
   }
   .banner {

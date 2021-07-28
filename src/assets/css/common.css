@@ -6,8 +6,6 @@
 @font-face {
   font-family:'Avenir';
   src: url("../font/avenir_ff/AvenirLTStd-Book.otf") format("opentype");
-  /* src: url("../font/avenir_ff/AvenirLTStd-Black.otf") format("opentype"); */
-  /* src: url("../font/avenir_ff/AvenirLTStd-Roman.otf") format("opentype"); */
 }
 
 body::-webkit-scrollbar {display: none;}
@@ -34,7 +32,7 @@ input,select,a,button{outline:none;text-decoration:none;border:none;}
 /*News*/
 .news-outline{margin-bottom:100px;}
 .home .news-title{width:100%;height:auto;float:left;font-size:48px;margin-bottom:30px;text-align:center;font-weight:bold;color:white;}
-.news-title.about{font-size:36px;}
+.news-title{width:100%;height:auto;float:left;font-size:48px;margin-bottom:30px;text-align:center;font-weight:bold;color:white;}
 .news-main{width:100%;max-width:397px;height:438px;float:left;margin:0 10px;background: #151923;border-radius: 8px;padding:16px;margin-bottom:20px;}
 .news-main:nth-last-child(1){margin-right:0px;}
 .news-main>div.pic{width:100%;height:240px;float: left;border-radius: 8px;margin-bottom:15px;}

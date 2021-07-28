@@ -99,8 +99,9 @@ export default {
 <style lang="scss" scoped>
 .info {
   display: flex;
+  max-width: 1440px;
   padding: 0 5%;
-  margin-bottom: 8vw;
+  margin: 0 auto 8vw auto;
   &-m-title {
     display: none;
   }
