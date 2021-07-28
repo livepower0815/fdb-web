@@ -8,7 +8,7 @@
             <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
             <div class="banner-sub">致力打造全最大虛擬貨幣反傭平台，讓虛擬貨幣交易變得更優惠、讓消費者不在為了不透明的手續費而煩惱</div>
             <div class="banner-more">
-              <div class="banner-button">了解更多</div>
+              <div class="banner-button fdb-btn-primary-hover">了解更多</div>
             </div>
           </div>
           <!-- <div class="banner-currencies">

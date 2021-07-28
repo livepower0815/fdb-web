@@ -111,7 +111,7 @@
 .personal-main-name{width:100%;height:auto;display:block;text-align:center;font-size:26px;margin-top:25px;margin-bottom:5px;font-weight:700;}
 .personal-main-sub{width:100%;height:auto;display:block;text-align:center;font-size:16px;margin-bottom:5px;color:#ffffff;}
 .personal-main-email{width:100%;height:auto;display:block;text-align:center;font-size:16px;margin-bottom:32px;color:#ffffff;}
-.personal-main-btn{width:286px;height:41px;display:block;text-align:center;margin:0 auto;font-size:18px;background-image: linear-gradient(to top, #3ea9cc, #62ffff);line-height:41px;color:#fff;border-radius:7px;}
+a.personal-main-btn{width:286px;height:41px;display:block;text-align:center;margin:0 auto;font-size:18px;background-image: linear-gradient(to top, #3ea9cc, #62ffff);line-height:41px;color:#fff;border-radius:7px;padding: 0;}
 
 
 

@@ -57,7 +57,7 @@
         點擊註冊後，（同時寄出信箱驗證連結）顯示彈跳式窗，請使用者立即驗證信箱，若尚未驗證完成這個帳號就不算註冊成功
 
         點擊信箱url請導入登入畫面 -->
-        <a href="javascript:void(0)" class="register-main-btn" @click="doRegister">註冊</a>
+        <a href="javascript:void(0)" class="register-main-btn fdb-btn-primary-hover" @click="doRegister">註冊</a>
         <div class="register-main-tips">已經有帳號？請 <span class="text-link" @click="$router.push('/login')">登入</span></div>
       </div>
     </div>

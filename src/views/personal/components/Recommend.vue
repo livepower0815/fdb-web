@@ -20,10 +20,10 @@
             <tr>
               <th><input type="checkbox" class="check" /></th>
               <th>會員名稱</th>
-              <th>聯絡資訊</th>
+              <th style="text-align: center;">聯絡資訊</th>
               <th>交易幣別</th>
-              <th>反佣交易量</th>
-              <th>所在組別</th>
+              <th style="text-align: center;">反佣交易量</th>
+              <th style="text-align: center;">所在組別</th>
               <th>加入日期</th>
               <th>最後交易日</th>
             </tr>
@@ -33,22 +33,33 @@
               <tr :key="`tr-1-${index}`">
                 <td><input type="checkbox" class="check" /></td>
                 <td>{{ row.name }}</td>
-                <td>聯絡資訊</td>
-                <td>交易幣別</td>
+                <td style="text-align: center;">
+                  <el-tooltip effect="dark" :content="row.email" placement="top">
+                    <img class="connect-icon" src="@/assets/img/personal/email.png" alt="email" />
+                  </el-tooltip>
+                  <el-tooltip effect="dark" :content="`${row.areaCode} ${row.phone}`" placement="top">
+                    <img class="connect-icon" src="@/assets/img/personal/phone.png" alt="phone" />
+                  </el-tooltip>
+                </td>
                 <td>
+                  <CoinIcon v-for="(coin, coinIndex) in row.coins" :key="coinIndex" class="coin" :coin-type="currencyMap[coin.type]" />
+                </td>
+                <td style="text-align: center;">
                   <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">檢視資訊</span>
                 </td>
-                <td>高中同學</td>
+                <td style="text-align: center;">
+                  <div :class="`group group-color-${row.rgid}`">高中同學</div>
+                </td>
                 <td>2021-02-02 14:00</td>
                 <td>2021-02-02 14:00</td>
               </tr>
               <tr v-if="row.showInfo" :key="`tr-2-${index}`" class="detail">
                 <td colspan="8">
                   <div class="detail-content">
-                    regmagmrealgmrealkgmelkgmrke這邊是內容<br />
-                    regmagmrealgmrealkgmelkgmrke這邊是內容<br />
-                    regmagmrealgmrealkgmelkgmrke這邊是內容<br />
-                    regmagmrealgmrealkgmelkgmrke這邊是內容
+                    <div v-for="(coin, coinIndex) in row.coins" :key="coinIndex" class="coin-info">
+                      <CoinIcon class="coin" :coin-type="currencyMap[coin.type]" />
+                      <span>{{ currencyMap[coin.type] }} - {{ coin.value }}</span>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -65,21 +76,86 @@
 
 <script>
 import Pager from '@/components/common/Pager'
+import { currencyMap } from '@/utils/map.js'
+import CoinIcon from '@/components/common/CoinIcon'
 
 const getRecData = async () => {
   return [
-    { name: 'kerry', rgid: 0, showInfo: false },
-    { name: 'mark', rgid: 2, showInfo: false },
-    { name: 'cat', rgid: 1, showInfo: false },
-    { name: 'dog', rgid: 0, showInfo: false },
-    { name: 'rrrr', rgid: 2, showInfo: false }
+    {
+      name: 'kerry',
+      rgid: 0,
+      showInfo: false,
+      coins: [
+        { type: 1, value: '0.12345678' },
+        { type: 2, value: '0.12345678' },
+        { type: 3, value: '0.12345678' },
+        { type: 4, value: '0.12345678' },
+        { type: 5, value: '0.12345678' }
+      ],
+      email: 'markweiwebdesign@gmail.com',
+      areaCode: '886',
+      phone: '987654321'
+    },
+    {
+      name: 'mark',
+      rgid: 2,
+      showInfo: false,
+      coins: [
+        { type: 1, value: '0.12345678' },
+        { type: 2, value: '0.12345678' },
+        { type: 5, value: '0.12345678' }
+      ],
+      email: 'markweiwebdesign@gmail.com',
+      areaCode: '886',
+      phone: '987654321'
+    },
+    {
+      name: 'cat',
+      rgid: 1,
+      showInfo: false,
+      coins: [
+        { type: 2, value: '0.12345678' },
+        { type: 3, value: '0.12345678' },
+        { type: 4, value: '0.12345678' },
+        { type: 5, value: '0.12345678' }
+      ],
+      email: 'markweiwebdesign@gmail.com',
+      areaCode: '886',
+      phone: '987654321'
+    },
+    {
+      name: 'dog',
+      rgid: 6,
+      showInfo: false,
+      coins: [
+        { type: 1, value: '0.12345678' },
+        { type: 3, value: '0.12345678' },
+        { type: 5, value: '0.12345678' }
+      ],
+      email: 'markweiwebdesign@gmail.com',
+      areaCode: '886',
+      phone: '987654321'
+    },
+    {
+      name: 'rrrr',
+      rgid: 8,
+      showInfo: false,
+      coins: [
+        { type: 1, value: '0.12345678' },
+        { type: 2, value: '0.12345678' }
+      ],
+      email: 'markweiwebdesign@gmail.com',
+      areaCode: '886',
+      phone: '987654321'
+    }
   ]
 }
 
 export default {
   name: 'Recommend',
   components: {
-    Pager
+    Pager,
+    CoinIcon
   },
   data() {
     return {
@@ -92,7 +168,8 @@ export default {
         totalCount: 57,
         sortKey: 'txDate',
         order: 'asc'
-      }
+      },
+      currencyMap
     }
   },
   created() {
@@ -180,15 +257,6 @@ export default {
           tr {
             min-height: 50px;
             background-color: #252c3d66;
-            &.detail {
-              background-color: #05060866;
-              td {
-                background-color: #05060866;
-                .detail-content {
-                  text-align: start;
-                }
-              }
-            }
             td {
               padding: 0;
               margin: 0;
@@ -197,6 +265,44 @@ export default {
               &:first-child {
                 width: 36px;
                 text-align: center;
+              }
+              .coin {
+                width: 25px;
+                margin-right: 6px;
+              }
+              .connect-icon {
+                width: 20px;
+                cursor: pointer;
+                &:first-child {
+                  margin-right: 6px;
+                }
+              }
+              .group {
+                text-align: center;
+                color: #151923;
+                border-radius: 12px;
+                padding: 0px 8px;
+                margin: 0 8px;
+              }
+            }
+            &.detail {
+              background-color: #05060866;
+              td {
+                background-color: #05060866;
+                .detail-content {
+                  display: flex;
+                  .coin-info {
+                    font-family: 'Avenir';
+                    display: inline-flex;
+                    align-items: center;
+                    font-size: 14px;
+                    line-height: 14px;
+                    margin: 0 13px;
+                    .coin {
+                      width: 20px;
+                    }
+                  }
+                }
               }
             }
           }

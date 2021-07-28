@@ -31,13 +31,13 @@
           <th @click="sortData('orderValue')">
             <span style="cursor: pointer;">
               申請數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
           <th @click="sortData('finishDate')">
             <span style="cursor: pointer;">
               完成出金日期
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
         </tr>

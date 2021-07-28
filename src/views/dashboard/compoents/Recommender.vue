@@ -27,7 +27,7 @@
       </div>
       <!-- 管理組別 -->
       <div style="flex: 1; text-align: end">
-        <div class="btn">管理組別</div>
+        <div class="btn fdb-btn-default">管理組別</div>
       </div>
     </div>
     <table class="info-table">
@@ -40,23 +40,19 @@
           <th>
             <span style="cursor: pointer;">
               推薦人分組
-              <img
-                src="@/assets/img/common/filter-grid-solid.png"
-                alt="filter-grid-solid"
-                style="width: 14px;transform: translateY(1px);"
-              />
+              <img src="@/assets/img/filter/filter.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
             </span>
           </th>
           <th @click="sortData('canRebatePoint')">
             <span style="cursor: pointer;">
               可返佣交易量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
           <th @click="sortData('canRebatValue')">
             <span style="cursor: pointer;">
               可返佣數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
         </tr>
@@ -78,7 +74,7 @@
             <td>{{ currencyMap[row.currency] }}</td>
             <td>{{ row.name }}</td>
             <td>
-              <div :class="`group group-color-${row.groupIndex + 1}`">{{ groupMap[row.groupIndex].name }}</div>
+              <div :class="`group group-color-${row.groupIndex}`">{{ groupMap[row.groupIndex].name }}</div>
             </td>
             <td>{{ row.canRebatePoint }}</td>
             <td>{{ row.canRebatValue }}</td>
@@ -345,40 +341,8 @@ export default {
 .group {
   display: inline;
   padding: 4px 20px;
-  background-color: #696969;
+  // background-color: #696969;
   border-radius: 16px;
   color: #151923;
-  &-color {
-    &-1 {
-      background-color: #22fab8;
-    }
-    &-2 {
-      background-color: #96fddd;
-    }
-    &-3 {
-      background-color: #f5b0a9;
-    }
-    &-4 {
-      background-color: #ee786c;
-    }
-    &-5 {
-      background-color: #e89fe1;
-    }
-    &-6 {
-      background-color: #bc8bea;
-    }
-    &-7 {
-      background-color: #db68d0;
-    }
-    &-8 {
-      background-color: #cda7ef;
-    }
-    &-9 {
-      background-color: #46a0e3;
-    }
-    &-10 {
-      background-color: #90c6ee;
-    }
-  }
 }
 </style>

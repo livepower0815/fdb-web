@@ -16,9 +16,7 @@ import ElementUI from 'element-ui'
 import '@/style/element-variables.scss'
 import locale from 'element-ui/lib/locale/lang/zh-TW' // lang i18n
 
-import '@/style/common.scss'
-import '@/style/transition.scss'
-import '@/style/dashboard.scss'
+import '@/style/index.scss'
 
 // route gateway
 import '@/permission'

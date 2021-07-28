@@ -31,7 +31,7 @@
           <PasswordIcon :pwd-type.sync="checkPasswordType" />
         </div>
 
-        <a href="javascript:void(0)" class="newpwd-main-btn" @click="resetPassword">儲存密碼</a>
+        <a href="javascript:void(0)" class="fdb-btn-primary-hover newpwd-main-btn" @click="resetPassword">儲存密碼</a>
       </div>
     </div>
 

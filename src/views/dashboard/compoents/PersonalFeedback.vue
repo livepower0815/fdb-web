@@ -30,13 +30,13 @@
           <th @click="sortData('canRebatePoint')">
             <span style="cursor: pointer;">
               可返佣交易量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
           <th @click="sortData('canRebatValue')">
             <span style="cursor: pointer;">
               可返佣數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
         </tr>

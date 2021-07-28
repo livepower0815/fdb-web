@@ -36,7 +36,13 @@
             <!-- 拔掉 7/15 -->
             <!-- <div class="personal-main-sub">具有邀請碼認證會員</div> -->
             <div class="personal-main-email">{{ userInfo.email }}</div>
-            <a href="javascript:void(0)" class="personal-main-btn" @click.prevent="$router.push({ name: 'Dashboard' })">返回返佣數量總覽</a>
+            <a
+              href="javascript:void(0)"
+              class="fdb-btn-primary-hover personal-main-btn"
+              @click.prevent="$router.push({ name: 'Dashboard' })"
+            >
+              返回返佣數量總覽
+            </a>
           </div>
         </div>
 
@@ -89,7 +95,7 @@ export default {
   },
   data() {
     return {
-      activedTag: 'recommend-management' // TODO: exchange-control
+      activedTag: 'exchange-control' // TODO: exchange-control
     }
   },
   computed: {

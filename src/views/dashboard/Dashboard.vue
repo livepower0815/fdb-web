@@ -9,7 +9,7 @@
       <!-- 標題 -->
       <div class="detail-title">
         <span class="title">佣金明細</span>
-        <router-link to="/take-cash" class="withdraw-btn">出金申請</router-link>
+        <router-link to="/take-cash" class="withdraw-btn fdb-btn-primary-hover">出金申請</router-link>
       </div>
 
       <!-- menu -->
@@ -135,6 +135,7 @@ export default {
         font-size: 14px;
         padding: 9px 30px;
         height: 20px;
+        line-height: unset;
         border-radius: 6px;
         color: #ffffff;
         background-image: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);

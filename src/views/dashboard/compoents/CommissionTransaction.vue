@@ -30,13 +30,13 @@
           <th @click="sortData('changeNum')">
             <span style="cursor: pointer;">
               異動數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
           <th @click="sortData('restNum')">
             <span style="cursor: pointer;">
               剩餘數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 14px;transform: translateY(1px);" />
+              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
             </span>
           </th>
         </tr>

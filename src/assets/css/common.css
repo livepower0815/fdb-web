@@ -57,7 +57,7 @@ input,select,a,button{outline:none;text-decoration:none;border:none;}
 .register-main>input.input{width:100%;height:42px;float: left;font-size:16px;color:#c4c4c4;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;padding-left:10px;}
 .register-main>input.check{width:20px;height:20px;float:left;margin-right:9px;border:none;background:#252c3d;box-sizing: border-box;border-radius: 2px;}
 .register-main>div.check-title{width:auto;height:auto;float: left;font-size:16px;font-weight:normal;margin-bottom:32px;}
-.register-main-btn{width:100%;height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
+.register-bg .register-main-btn{height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
 .register-main-tips{width:100%;height:auto;float: left;margin-top:20px;font-size:16px;text-align: center;}
 /*Register*/
 
@@ -71,7 +71,7 @@ input,select,a,button{outline:none;text-decoration:none;border:none;}
 .login-main{width:100%;height:66px;float: left;margin-bottom:12px;}
 .login-main>div.title{width:100%;height:auto;float: left;font-size:16px;color:#fff;margin-bottom:5px;}
 .login-main>input.input{width:100%;height:42px;float: left;font-size:16px;color:#c4c4c4;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;padding-left:10px;}
-.login-main-btn{width:100%;height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
+.login-bg .login-main-btn{height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
 .login-main-tips{width:100%;height:auto;float: left;margin-top:20px;font-size:16px;text-align: center;}
 /*login*/
 
@@ -85,7 +85,7 @@ input,select,a,button{outline:none;text-decoration:none;border:none;}
 .reset-main{width:100%;height:66px;float: left;margin-bottom:12px;}
 .reset-main>div.title{width:100%;height:auto;float: left;font-size:16px;color:#fff;margin-bottom:5px;}
 .reset-main>input.input{width:100%;height:42px;float: left;font-size:16px;color:#c4c4c4;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;padding-left:10px;}
-.reset-main-btn{width:100%;height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
+.reset-bg .reset-main-btn{height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
 .reset-main-tips{width:100%;height:auto;float: left;margin-top:20px;font-size:16px;text-align: center;}
 /*reset*/
 
@@ -99,5 +99,5 @@ input,select,a,button{outline:none;text-decoration:none;border:none;}
 .newpwd-main{width:100%;height:66px;float: left;margin-bottom:12px;}
 .newpwd-main>div.title{width:100%;height:auto;float: left;font-size:16px;color:#fff;margin-bottom:5px;}
 .newpwd-main>input.input{width:100%;height:42px;float: left;font-size:16px;color:#c4c4c4;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;padding-left:10px;}
-.newpwd-main-btn{width:100%;height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
+.newpwd-bg .newpwd-main-btn{height:44px;float: left; background-image: linear-gradient(to top, #3ea9cc, #62ffff);;border-radius:500px;line-height:44px;text-align:center;color:white;font-size:20px;}
 /*newpwd*/

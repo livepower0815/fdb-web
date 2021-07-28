@@ -11,7 +11,7 @@
           <input v-model="email" type="text" class="input" placeholder="example@mail.com" autocomplete="off" />
         </div>
 
-        <a href="javascript:void(0)" class="reset-main-btn" @click="submitReq">發送密碼重置連結</a>
+        <a href="javascript:void(0)" class="fdb-btn-primary-hover reset-main-btn" @click="submitReq">發送密碼重置連結</a>
         <div class="reset-main-tips"><span class="text-link" @click="$router.push('/login')">回到登入畫面</span></div>
       </div>
     </div>

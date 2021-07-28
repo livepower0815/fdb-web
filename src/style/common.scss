@@ -61,53 +61,6 @@ button {
   }
 }
 
-// button
-.fdb-btn-info {
-  color: #fff;
-  display: inline-block;
-  line-height: 30px;
-  padding: 0px 40px;
-  background: #1e2433;
-  border-radius: 6px;
-  cursor: pointer;
-  /*540-320*/
-  @media screen and (min-width: 300px) and (max-width: 749px) {
-    padding: 0px 22px;
-    font-size: 14px;
-  }
-}
-
-.fdb-btn-default {
-  color: #fff;
-  display: inline-block;
-  line-height: 30px;
-  border: 1px solid;
-  border-color: #62ffff;
-  padding: 0px 40px;
-  border-radius: 6px;
-  cursor: pointer;
-  /*540-320*/
-  @media screen and (min-width: 300px) and (max-width: 749px) {
-    padding: 0px 22px;
-    font-size: 14px;
-  }
-}
-
-.fdb-btn-primary {
-  color: #fff;
-  display: inline-block;
-  line-height: 30px;
-  background: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
-  padding: 0px 40px;
-  border-radius: 6px;
-  cursor: pointer;
-  /*540-320*/
-  @media screen and (min-width: 300px) and (max-width: 749px) {
-    padding: 0px 22px;
-    font-size: 14px;
-  }
-}
-
 // date-picker
 .fdb.el-date-editor {
   background-color: #1e2433;

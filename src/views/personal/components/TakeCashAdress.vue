@@ -39,9 +39,9 @@
       </div>
     </div>
     <div class="btns-block personal-info">
-      <a v-if="!isEdit" href="javascript:void(0)" class="next" @click="isEdit = true">編輯地址</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="cancel" @click="cancelEdit">取消</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="next" @click="saveAdress">儲存並驗證</a>
+      <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="isEdit = true">編輯地址</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">取消</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="saveAdress">儲存並驗證</a>
     </div>
 
     <!-- 信箱驗證碼彈窗 -->
