@@ -76,8 +76,8 @@
         </div>
       </div>
       <span v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
-        <div class="fdb-btn-default" style="margin-right: 12px;line-height: 30px;" @click="checkDialog.show = false">返回</div>
-        <div class="fdb-btn-primary" style="line-height: 30px;" @click="bindCSG">綁定</div>
+        <div class="fdb-btn-default" style="margin-right: 12px;" @click="checkDialog.show = false">返回</div>
+        <div class="fdb-btn-primary" @click="bindCSG">綁定</div>
       </span>
     </el-dialog>
   </div>

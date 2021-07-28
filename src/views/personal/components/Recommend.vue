@@ -5,27 +5,42 @@
         <div class="controller-store">
           <div class="label">選擇交易所：</div>
           <select v-model="storeSelect">
+            <option :value="''" disabled>請選擇交易所</option>
             <option value="bybit">bybit</option>
           </select>
         </div>
         <div class="controller-btns">
-          <div class="fdb-btn-info btn" style="margin-right: 8px;">編輯組別</div>
+          <div class="fdb-btn-info btn" style="margin-right: 8px;" @click="setGroupDialog.show = true">編輯組別</div>
           <div class="fdb-btn-primary btn">管理組別</div>
         </div>
       </div>
       <div class="list">
-        <!-- TODO: 坐到這邊 -->
         <table class="list-table" cellspacing="0" cellpadding="0" border="0">
           <thead>
             <tr>
               <th><input type="checkbox" class="check" /></th>
               <th>會員名稱</th>
               <th style="text-align: center;">聯絡資訊</th>
-              <th>交易幣別</th>
+              <th style="width: 156px;">交易幣別</th>
               <th style="text-align: center;">反佣交易量</th>
-              <th style="text-align: center;">所在組別</th>
-              <th>加入日期</th>
-              <th>最後交易日</th>
+              <th style="text-align: center;">
+                <span style="cursor: pointer;">
+                  所在組別
+                  <img src="@/assets/img/filter/filter.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
+                </span>
+              </th>
+              <th>
+                <span style="cursor: pointer;">
+                  加入日期
+                  <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
+                </span>
+              </th>
+              <th>
+                <span style="cursor: pointer;">
+                  最後交易日
+                  <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -71,6 +86,50 @@
     <div class="pager">
       <Pager :get-data="getRecommend" :pager="pager" />
     </div>
+
+    <!-- 編輯推薦人組別彈窗 -->
+    <el-dialog
+      title="編輯推薦人組別"
+      :visible.sync="setGroupDialog.show"
+      width="488px"
+      :show-close="false"
+      custom-class="fbd-dialog set-group-dialog"
+    >
+      <div class="dialog-body">
+        <div class="group-select">
+          <div class="label">選擇組別</div>
+          <select v-model="setGroupDialog.groupSelect">
+            <option :value="''" disabled>請選擇現有組別</option>
+            <option :value="0">組別1</option>
+            <option :value="1">組別2</option>
+            <option :value="2">組別3</option>
+            <option :value="3">組別4</option>
+          </select>
+        </div>
+        <div class="line">or</div>
+        <div class="new-group">
+          <div class="item">
+            <div class="label">建立新組別</div>
+            <input v-model="setGroupDialog.newGroupName" type="text" placeholder="輸入新組別名稱" />
+          </div>
+          <div class="item">
+            <div class="label">選擇顏色</div>
+            <div class="color-picker">
+              <div
+                v-for="(item, index) in 10"
+                :key="index"
+                :class="`color-item group-color-${index} ${setGroupDialog.activeColor === index ? 'active' : ''}`"
+                @click="setGroupDialog.activeColor = index"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
+        <div class="fdb-btn-default" style="margin-right: 12px;" @click="setGroupDialog.show = false">取消</div>
+        <div class="fdb-btn-primary">綁定</div>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -160,7 +219,7 @@ export default {
   data() {
     return {
       isLoading: false,
-      storeSelect: 'bybit',
+      storeSelect: '',
       tableData: [],
       pager: {
         pageIndex: 1,
@@ -169,7 +228,23 @@ export default {
         sortKey: 'txDate',
         order: 'asc'
       },
-      currencyMap
+      currencyMap,
+      setGroupDialog: {
+        show: false,
+        isLoading: false,
+        groupSelect: '',
+        newGroupName: '',
+        activeColor: null
+      }
+    }
+  },
+  watch: {
+    'setGroupDialog.show'(value) {
+      if (value) {
+        this.setGroupDialog.groupSelect = ''
+        this.setGroupDialog.newGroupName = ''
+        this.setGroupDialog.activeColor = null
+      }
     }
   },
   created() {
@@ -191,6 +266,99 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.set-group-dialog {
+  .dialog-body {
+    padding: 0 20px;
+    .group-select {
+      display: flex;
+      align-items: center;
+      .label {
+        font-size: 18px;
+        padding-right: 20px;
+      }
+      select {
+        flex: 1;
+        height: 42px;
+        font-size: 16px;
+        color: #c4c4c4;
+        border: none;
+        background: #252c3d;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding-left: 14px;
+      }
+    }
+    .line {
+      position: relative;
+      text-align: center;
+      font-size: 16px;
+      width: 100%;
+      line-height: 70px;
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        content: '';
+        height: 1px;
+        width: 43%;
+        background-color: #ffffff;
+      }
+      &::after {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        content: '';
+        height: 1px;
+        width: 43%;
+        background-color: #ffffff;
+      }
+    }
+    .new-group {
+      .item {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: center;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+        .label {
+          width: 100px;
+          text-align: end;
+          font-size: 18px;
+          padding-right: 20px;
+        }
+        input {
+          flex: 1;
+          height: 42px;
+          border: none;
+          box-sizing: border-box;
+          border-radius: 8px;
+          color: #c4c4c4;
+          padding-left: 10px;
+          background-color: #252c3d;
+          font-size: 16px;
+        }
+        .color-picker {
+          flex: 1;
+          display: flex;
+          justify-content: space-around;
+          .color-item {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+            &:hover,
+            &.active {
+              transform: scale(1.4);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .recommend {
   float: left;
   width: 100%;
@@ -221,7 +389,7 @@ export default {
         select {
           height: 30px;
           width: 176px;
-          font-size: 16px;
+          font-size: 13px;
           color: #c4c4c4;
           border: none;
           background: #252c3d;
