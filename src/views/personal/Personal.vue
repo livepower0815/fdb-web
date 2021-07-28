@@ -89,7 +89,7 @@ export default {
   },
   data() {
     return {
-      activedTag: 'exchange-control'
+      activedTag: 'recommend-management' // TODO: exchange-control
     }
   },
   computed: {
