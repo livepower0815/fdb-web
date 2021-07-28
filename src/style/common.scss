@@ -81,6 +81,32 @@ button {
   }
 }
 
+// fdb dropdown-menu
+.fdb-menu.el-dropdown-menu {
+  padding: 2px 0;
+  margin: 0;
+  background-color: #252c3d;
+  border: 1px solid #252c3d;
+  .el-dropdown-menu__item {
+    color: #ffffff;
+    padding: 8px 20px;
+    line-height: unset;
+    &.active,
+    &:hover {
+      background-color: #373f53;
+      color: #ffffff;
+    }
+    .color-item {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+  .popper__arrow {
+    display: none;
+  }
+}
+
 // avatar
 .el-avatar {
   background-color: unset;

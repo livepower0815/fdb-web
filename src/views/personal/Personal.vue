@@ -95,7 +95,7 @@ export default {
   },
   data() {
     return {
-      activedTag: 'exchange-control' // TODO: exchange-control recommend-management
+      activedTag: 'exchange-control'
     }
   },
   computed: {

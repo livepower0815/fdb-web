@@ -11,7 +11,7 @@
         </div>
         <div class="controller-btns">
           <div class="fdb-btn-info btn" style="margin-right: 8px;" @click="setGroupDialog.show = true">編輯組別</div>
-          <div class="fdb-btn-primary btn">管理組別</div>
+          <div class="fdb-btn-primary btn" @click="editGroupDialog.show = true">管理組別</div>
         </div>
       </div>
       <div class="list">
@@ -24,10 +24,19 @@
               <th style="width: 156px;">交易幣別</th>
               <th style="text-align: center;">反佣交易量</th>
               <th style="text-align: center;">
-                <span style="cursor: pointer;">
-                  所在組別
-                  <img src="@/assets/img/filter/filter.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
-                </span>
+                <el-dropdown trigger="click" @command="filterGroup">
+                  <span style="cursor: pointer; color: #ffffff; font-size: 15px;">
+                    所在組別
+                    <img src="@/assets/img/filter/filter.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
+                  </span>
+                  <el-dropdown-menu class="fdb-menu" slot="dropdown">
+                    <el-dropdown-item :command="''">全部</el-dropdown-item>
+                    <el-dropdown-item :command="0">組別1</el-dropdown-item>
+                    <el-dropdown-item :command="1">組別2</el-dropdown-item>
+                    <el-dropdown-item :command="2">組別3</el-dropdown-item>
+                    <el-dropdown-item :command="3">組別4</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </th>
               <th>
                 <span style="cursor: pointer;">
@@ -128,6 +137,36 @@
       <span v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px;" @click="setGroupDialog.show = false">取消</div>
         <div class="fdb-btn-primary">綁定</div>
+      </span>
+    </el-dialog>
+
+    <!-- 管理推薦人組別彈窗 -->
+    <el-dialog
+      title="管理推薦人組別"
+      :visible.sync="editGroupDialog.show"
+      width="488px"
+      :show-close="false"
+      custom-class="fbd-dialog edit-group-dialog"
+    >
+      <div class="dialog-body">
+        <div v-for="(group, gIndex) in editGroupDialog.groups" :key="gIndex" class="group-item">
+          <input v-model="group.name" type="text" placeholder="請輸入群組名稱" />
+          <el-dropdown trigger="click" placement="right-start" @command="handleCommand">
+            <div class="color-picker">
+              <div :class="`color-item group-color-${group.color}`"></div>
+              <i class="el-icon-caret-right"></i>
+            </div>
+            <el-dropdown-menu class="fdb-menu" slot="dropdown">
+              <el-dropdown-item v-for="(item, cIndex) in 10" :key="cIndex" :command="{ groupIndex: gIndex, colorIndex: cIndex }">
+                <div :class="`color-item group-color-${cIndex}`"></div>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+      </div>
+      <span v-loading="editGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
+        <div class="fdb-btn-default" style="margin-right: 12px;" @click="editGroupDialog.show = false">全部取消</div>
+        <div class="fdb-btn-primary">全部儲存</div>
       </span>
     </el-dialog>
   </div>
@@ -235,6 +274,22 @@ export default {
         groupSelect: '',
         newGroupName: '',
         activeColor: null
+      },
+      editGroupDialog: {
+        show: false,
+        groups: [
+          { name: '幼稚園同學', color: 0 },
+          { name: '國小同學', color: 0 },
+          { name: '國中同學', color: 0 },
+          { name: '高中同學', color: 0 },
+          { name: '大學同學', color: 0 },
+          { name: '', color: 0 },
+          { name: '主力', color: 0 },
+          { name: '同事', color: 0 },
+          { name: '大戶', color: 0 },
+          { name: '', color: 0 }
+        ],
+        isLoading: false
       }
     }
   },
@@ -260,6 +315,12 @@ export default {
         console.error(error)
       }
       this.isLoading = false
+    },
+    filterGroup(groupId) {
+      console.log(groupId)
+    },
+    handleCommand({ groupIndex, colorIndex }) {
+      this.editGroupDialog.groups[groupIndex].color = colorIndex
     }
   }
 }
@@ -353,6 +414,55 @@ export default {
               transform: scale(1.4);
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.edit-group-dialog {
+  .dialog-body {
+    padding: 0 20px;
+    .group-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      :last-child {
+        margin-bottom: 0;
+      }
+      input {
+        flex: 1;
+        height: 42px;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 8px;
+        color: #ffffff;
+        padding-left: 10px;
+        background-color: #252c3d;
+        font-size: 16px;
+      }
+      .color-picker {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 76px;
+        height: 42px;
+        background-color: #252c3d;
+        border-radius: 8px;
+        margin-left: 6px;
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+          color: #62ffff;
+        }
+        i {
+          margin-left: 8px;
+        }
+        .color-item {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
         }
       }
     }
