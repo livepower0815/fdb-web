@@ -33,7 +33,7 @@
 
         <div class="register-main">
           <div class="title">邀請碼</div>
-          <input v-model="formData.invitCode" type="text" class="input" />
+          <input v-model="formData.invitCode" type="text" class="input" placeholder="輸入推薦人邀請碼" />
         </div>
 
         <div class="register-main">
@@ -104,6 +104,9 @@ export default {
         checkContract: false
       }
     }
+  },
+  mounted() {
+    this.formData.invitCode = this.$route.query.inviteCode || ''
   },
   methods: {
     async doRegister() {

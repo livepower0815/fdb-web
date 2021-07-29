@@ -27,7 +27,7 @@
       </div>
       <!-- 管理組別 -->
       <div style="flex: 1; text-align: end">
-        <div class="btn fdb-btn-default">管理組別</div>
+        <router-link :to="{ name: 'Personal', query: { tab: 'recommend-management' } }" class="btn fdb-btn-default">管理組別</router-link>
       </div>
     </div>
     <table class="info-table">

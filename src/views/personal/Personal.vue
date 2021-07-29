@@ -8,11 +8,14 @@
           <span ref="copy">{{ userInfo.myInviteCore }}</span>
         </div>
 
-        <a href="javascript:void(0)">
+        <div ref="copyLink" style="position: absolute;opacity: 0;">
+          https://fdb-web-front.azurewebsites.net/dist/#/register?inviteCode={{ userInfo.myInviteCore }}
+        </div>
+        <a href="javascript:void(0)" @click.prevent="copyInviteCode('copyLink')">
           <img src="@/assets/img/personal/bx_bx-link.png" alt="bx_bx-link" />
         </a>
 
-        <a href="javascript:void(0)" @click.prevent="copyInviteCode">
+        <a href="javascript:void(0)" @click.prevent="copyInviteCode('copy')">
           <img src="@/assets/img/personal/mi_copy.png" alt="mi_copy" />
         </a>
       </div>
@@ -95,7 +98,8 @@ export default {
   },
   data() {
     return {
-      activedTag: 'exchange-control'
+      activedTag: 'exchange-control',
+      inviteLink: ''
     }
   },
   computed: {
@@ -109,19 +113,22 @@ export default {
       return this.deviceWidth < 701
     }
   },
+  created() {
+    this.activedTag = this.$route.query.tab || 'exchange-control'
+  },
   methods: {
     switchTag(tagKey) {
       this.activedTag = tagKey
     },
-    copyInviteCode() {
+    copyInviteCode(refKey) {
       const sel = window.getSelection()
       const range = document.createRange()
-      range.selectNodeContents(this.$refs.copy)
+      range.selectNodeContents(this.$refs[refKey])
       sel.removeAllRanges()
       sel.addRange(range)
       document.execCommand('copy')
       sel.removeAllRanges()
-      this.$message.success('複製成功')
+      this.$message.success(refKey === 'copy' ? '邀請碼複製成功' : '邀請連結複製成功')
     }
   }
 }

@@ -17,7 +17,9 @@
           <div class="third" :class="{ finish: step > 2 }">3</div>
         </div>
         <div class="step-title">
-          <span v-if="step === 1">填寫出金帳戶資訊</span>
+          <span v-if="step === 1" :class="{ 'text-red': !canTrade }">
+            {{ canTrade ? '填寫出金帳戶資訊' : '尚無可交易幣種 請取消出金' }}
+          </span>
           <span v-if="step === 2">再次確認出金資訊與金額</span>
           <span v-if="step === 3">操作成功</span>
         </div>
@@ -58,7 +60,7 @@
             <div class="fdb-btn-default" style="margin-right: 12px;line-height: 30px;" @click="$router.push({ name: 'Dashboard' })">
               取消出金
             </div>
-            <div class="fdb-btn-primary" @click="toStep2">下一步</div>
+            <div v-if="canTrade" class="fdb-btn-primary" @click="toStep2">下一步</div>
           </div>
         </div>
 
@@ -164,6 +166,9 @@ export default {
   computed: {
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    },
+    canTrade() {
+      return this.storeData.some(coin => coin.bindStatus > 0 && coin.coinCount > 0)
     }
   },
   mounted() {
