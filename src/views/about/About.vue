@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="about-title">
-      返多寶致力成為全球最大虛擬貨幣「返擁平台」及「論壇」 具24小時在線客服團隊，為客戶提供手續費返佣、交易返佣、推廣返佣等全方位返佣方案
+      返多寶致力成為全球最大虛擬貨幣「返擁平台」及「論壇」<br />具24小時在線客服團隊，為客戶提供手續費返佣、交易返佣、推廣返佣等全方位返佣方案
     </div>
     <div class="about-mission">我們的使命與願景</div>
     <div class="about-detail">返多寶為幣圈第一間返佣平台</div>
@@ -29,16 +29,16 @@ export default {
   @media screen and (max-width: 1500px) {
     background-position: 50% -26%;
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1370px) {
     background-position: 50% -22%;
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     background-position: 50% -18%;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 700px) {
     background-position: 50% 16%;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     background-position: 50% 6%;
   }
   &-title {
@@ -47,20 +47,20 @@ export default {
     line-height: 53px;
     margin: 10% 17% 40% 17%;
     text-align: center;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1370px) {
       font-size: 24px;
       line-height: 36px;
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       font-size: 20px;
       line-height: 30px;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       font-size: 30px;
       line-height: 46px;
       margin: 10% 4% 40% 4%;
     }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
       font-size: 16px;
       line-height: 24px;
     }
@@ -72,16 +72,16 @@ export default {
     font-size: 48px;
     font-weight: bold;
     text-align: center;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1370px) {
       font-size: 36px;
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       font-size: 28px;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       font-size: 36px;
     }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
       font-size: 22px;
     }
   }
@@ -91,16 +91,16 @@ export default {
     text-align: center;
     letter-spacing: 0.05em;
     color: #e5e5e5;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       font-size: 16px;
       line-height: 28px;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       font-size: 22px;
       line-height: 34px;
       margin: 0 3%;
     }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
       font-size: 12px;
       line-height: 20px;
     }
@@ -112,16 +112,16 @@ export default {
     margin-bottom: 20%;
     img {
       width: 1000px;
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1370px) {
         width: 772px;
       }
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 960px) {
         width: 600px;
       }
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 700px) {
         width: 470px;
       }
-      @media screen and (max-width: 400px) {
+      @media screen and (max-width: 500px) {
         width: 291px;
       }
     }

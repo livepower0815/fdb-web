@@ -294,7 +294,7 @@ export default {
   }
   .header-body {
     display: flex;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       flex-direction: column;
     }
     .chart {
@@ -304,11 +304,11 @@ export default {
       background-color: #151923;
       margin-right: 8px;
       padding: 18px;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 960px) {
         width: 62%;
         padding: 12px;
       }
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 700px) {
         width: auto;
         margin-right: 0;
         margin-bottom: 16px;
@@ -318,12 +318,12 @@ export default {
         padding: 16px 0;
         border-bottom: 1px #ffffff solid;
         justify-content: space-between;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 700px) {
           flex-direction: column;
         }
         .title-item {
           flex: 1;
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: 700px) {
             margin-bottom: 16px;
           }
           .title {
@@ -336,7 +336,7 @@ export default {
             }
             .word {
               font-size: 16px;
-              @media screen and (max-width: 800px) {
+              @media screen and (max-width: 960px) {
                 font-size: 14px;
               }
             }
@@ -361,11 +361,11 @@ export default {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 700px) {
           flex-direction: column;
         }
         &-menu {
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: 700px) {
             display: flex;
             overflow: auto;
             margin-bottom: 12px;
@@ -379,10 +379,10 @@ export default {
             @media screen and (max-width: 1346px) {
               font-size: 14px;
             }
-            @media screen and (max-width: 800px) {
+            @media screen and (max-width: 960px) {
               margin-right: 6px;
             }
-            @media screen and (max-width: 600px) {
+            @media screen and (max-width: 700px) {
               flex: 0 0 auto;
               margin-right: 16px;
             }
@@ -396,7 +396,7 @@ export default {
           }
         }
         &-select {
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: 700px) {
             text-align: end;
             margin-bottom: 12px;
           }
@@ -410,7 +410,7 @@ export default {
             color: #62ffff;
             padding-left: 10px;
             margin-right: 10px;
-            @media screen and (max-width: 800px) {
+            @media screen and (max-width: 960px) {
               width: 64px;
               padding-left: 6px;
               margin-right: 6px;
@@ -421,7 +421,7 @@ export default {
       &-main {
         height: 200px;
         flex: 1;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 700px) {
           flex: 0 0 auto;
         }
         &-container {

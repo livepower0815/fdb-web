@@ -46,7 +46,7 @@ export default {
 .coin-select {
   display: flex;
   padding: 0 12px;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1370px) {
     padding: 0 8px;
   }
   .icon {
@@ -56,7 +56,7 @@ export default {
     box-sizing: border-box;
     border-radius: 4px;
     transition: border 0.4s;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1370px) {
       width: 28px;
     }
     &:hover {

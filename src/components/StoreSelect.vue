@@ -97,20 +97,20 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 0px 32px;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1370px) {
       padding: 0px 20px;
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       height: 56px;
       padding: 0px 12px;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       margin-bottom: 16px;
     }
     .title {
       font-size: 24px;
       font-weight: bold;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 960px) {
         font-size: 18px;
       }
     }
@@ -119,14 +119,14 @@ export default {
       align-items: center;
       img {
         width: 100px;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 960px) {
           width: 78px;
         }
       }
       .bottom-icon {
         font-size: 22px;
         margin-left: 22px;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 960px) {
           font-size: 18px;
           margin-left: 18px;
         }
@@ -138,14 +138,14 @@ export default {
     border-radius: 6px;
     padding: 0px 32px 32px 32px;
     min-height: 400px;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1370px) {
       padding: 0px 20px 20px 20px;
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       padding: 0px 12px 12px 12px;
       min-height: 320px;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       margin-bottom: 16px;
     }
     .info-header {
@@ -153,13 +153,13 @@ export default {
       justify-content: space-between;
       align-items: center;
       height: 70px;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 960px) {
         height: 50px;
       }
       .title {
         font-size: 24px;
         font-weight: bold;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 960px) {
           font-size: 18px;
         }
       }
@@ -167,7 +167,7 @@ export default {
         cursor: pointer;
         img {
           width: 20px;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 960px) {
             width: 16px;
           }
         }
@@ -178,13 +178,13 @@ export default {
         display: flex;
         align-items: center;
         height: 60px;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 960px) {
           height: 50px;
         }
         .coin-icon {
           width: 36px;
           margin-right: 14px;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 960px) {
             width: 28px;
             margin-right: 14px;
           }
@@ -195,10 +195,10 @@ export default {
           font-family: 'Avenir';
           font-weight: 500;
           font-size: 18px;
-          @media screen and (max-width: 1200px) {
+          @media screen and (max-width: 1370px) {
             width: 50px;
           }
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 960px) {
             width: 36px;
             font-size: 14px;
           }
@@ -209,7 +209,7 @@ export default {
           font-weight: 800;
           font-size: 18px;
           color: #62ffff;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 960px) {
             font-size: 14px;
           }
         }
@@ -217,7 +217,7 @@ export default {
           flex: 1;
           text-align: end;
           font-size: 18px;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 960px) {
             font-size: 16px;
           }
           &.bind {

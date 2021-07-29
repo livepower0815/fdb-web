@@ -51,10 +51,10 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 10px 3% 0;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1370px) {
     padding: 10px 4% 0;
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     padding: 10px 6% 0;
   }
   &-top {

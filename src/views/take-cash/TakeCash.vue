@@ -250,17 +250,17 @@ export default {
   color: #eb5757;
   text-align: center;
   font-size: 16px;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     font-size: 14px;
   }
 }
 .info-text {
   text-align: center;
   font-size: 16px;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     font-size: 14px;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     font-size: 12px;
   }
 }
@@ -268,7 +268,7 @@ export default {
   max-width: 1440px;
   padding: 2% 4%;
   margin: 0 auto;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     padding: 2% 6%;
   }
   .page-title {
@@ -279,7 +279,7 @@ export default {
   }
   .page-main {
     display: flex;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
       flex-direction: column-reverse;
     }
     .step {
@@ -291,14 +291,14 @@ export default {
       flex-direction: column;
       align-items: center;
       border-radius: 6px;
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1370px) {
         width: 52%;
       }
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 960px) {
         width: 59%;
         padding: 4% 3%;
       }
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 700px) {
         width: 100%;
         margin-right: 0px;
         box-sizing: border-box;
@@ -312,7 +312,7 @@ export default {
         align-items: center;
         justify-content: space-around;
         margin: 2% 0;
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 500px) {
           width: 100%;
         }
         .line {
@@ -333,7 +333,7 @@ export default {
           line-height: 34px;
           text-align: center;
           z-index: 10;
-          @media screen and (max-width: 400px) {
+          @media screen and (max-width: 500px) {
             width: 30px;
             height: 30px;
             font-size: 16px;
@@ -346,7 +346,7 @@ export default {
         }
         .correct {
           width: 22px;
-          @media screen and (max-width: 400px) {
+          @media screen and (max-width: 500px) {
             width: 16px;
           }
         }
@@ -359,7 +359,7 @@ export default {
         margin-top: 6%;
         margin-bottom: 3%;
         letter-spacing: 0.05em;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 960px) {
           font-size: 20px;
         }
       }
@@ -370,7 +370,7 @@ export default {
             background-color: #050608;
             padding: 1px 0;
             margin-bottom: 60px;
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 500px) {
               padding: 1px 12px;
               .form-item {
                 margin: 16px 0;
@@ -381,13 +381,13 @@ export default {
             display: flex;
             align-items: center;
             margin: 40px 0;
-            @media screen and (max-width: 1200px) {
+            @media screen and (max-width: 1370px) {
               margin: 34px 0;
             }
-            @media screen and (max-width: 800px) {
+            @media screen and (max-width: 960px) {
               margin: 30px 0;
             }
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 500px) {
               flex-direction: column;
               align-items: flex-start;
             }
@@ -396,13 +396,13 @@ export default {
               text-align: end;
               font-size: 18px;
               line-height: 27px;
-              @media screen and (max-width: 1200px) {
+              @media screen and (max-width: 1370px) {
                 font-size: 16px;
               }
-              @media screen and (max-width: 800px) {
+              @media screen and (max-width: 960px) {
                 font-size: 14px;
               }
-              @media screen and (max-width: 400px) {
+              @media screen and (max-width: 500px) {
                 width: 50%;
                 text-align: start;
                 padding-bottom: 12px;
@@ -412,13 +412,13 @@ export default {
               flex: 1;
               margin-left: 20px;
               font-size: 18px;
-              @media screen and (max-width: 1200px) {
+              @media screen and (max-width: 1370px) {
                 font-size: 16px;
               }
-              @media screen and (max-width: 800px) {
+              @media screen and (max-width: 960px) {
                 font-size: 14px;
               }
-              @media screen and (max-width: 400px) {
+              @media screen and (max-width: 500px) {
                 width: 100%;
                 margin-left: 0px;
               }
@@ -427,7 +427,7 @@ export default {
                 margin-right: 16px;
                 border-radius: 4px;
                 cursor: pointer;
-                @media screen and (max-width: 800px) {
+                @media screen and (max-width: 960px) {
                   width: 30px;
                 }
                 &:hover {
@@ -447,15 +447,15 @@ export default {
                 color: #c4c4c4;
                 padding-left: 10px;
                 background-color: #252c3d;
-                @media screen and (max-width: 1200px) {
+                @media screen and (max-width: 1370px) {
                   height: 42px;
                   font-size: 16px;
                 }
-                @media screen and (max-width: 800px) {
+                @media screen and (max-width: 960px) {
                   height: 34px;
                   font-size: 14px;
                 }
-                @media screen and (max-width: 400px) {
+                @media screen and (max-width: 500px) {
                   width: 100%;
                 }
               }
@@ -465,17 +465,17 @@ export default {
         .operation {
           text-align: center;
           margin: 60px 0;
-          @media screen and (max-width: 1200px) {
+          @media screen and (max-width: 1370px) {
             margin: 45px 0;
           }
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 960px) {
             margin: 30px 0;
           }
-          @media screen and (max-width: 400px) {
+          @media screen and (max-width: 500px) {
             margin: 60px 0;
           }
           &.finish {
-            @media screen and (max-width: 400px) {
+            @media screen and (max-width: 500px) {
               margin: 30px 0;
             }
           }

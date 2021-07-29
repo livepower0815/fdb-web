@@ -127,7 +127,7 @@ export default {
       .title {
         font-weight: bold;
         font-size: 30px;
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 500px) {
           font-size: 26px;
         }
       }
@@ -140,7 +140,7 @@ export default {
         color: #ffffff;
         background-image: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
         cursor: pointer;
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 500px) {
           padding: 5px 30px;
         }
       }
@@ -158,7 +158,7 @@ export default {
         padding-bottom: 10px;
         cursor: pointer;
         transition: color 0.4s;
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 500px) {
           font-size: 14px;
         }
         &:hover {

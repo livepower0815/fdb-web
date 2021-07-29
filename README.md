@@ -5,13 +5,13 @@
 裝置寬度共六個版型 1920 1440 1024 768 540 320
 CSS sample
 /*1024*/
-@media screen and (min-width: 1000px) and (max-width: 1346px) {}
+@media screen and (max-width: 1370px) {}
 /*768*/
-@media screen and (min-width: 750px) and (max-width: 999px) {}
+@media screen and (max-width: 960px) {}
 /*540*/
-@media screen and (min-width: 500px) and (max-width: 749px) {}
+@media screen and (max-width: 700px) {}
 /*320*/
-@media screen and (min-width: 300px) and (max-width: 499px) {}
+@media screen and (max-width: 500px) {}
 
 ### 測試帳號
 帳號： markweiwebdesign@gmail.com

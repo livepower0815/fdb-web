@@ -126,10 +126,10 @@ export default {
   height: 60px;
   background-color: black;
   padding: 0 3%;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1370px) {
     padding: 0 4%;
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     padding: 0 6%;
   }
   &-logo {
