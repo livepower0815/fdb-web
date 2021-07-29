@@ -38,13 +38,13 @@
                   </el-dropdown-menu>
                 </el-dropdown>
               </th>
-              <th>
+              <th style="width: 142px;">
                 <span style="cursor: pointer;">
                   加入日期
                   <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
                 </span>
               </th>
-              <th>
+              <th style="width: 142px;">
                 <span style="cursor: pointer;">
                   最後交易日
                   <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
@@ -560,7 +560,7 @@ export default {
                 color: #151923;
                 border-radius: 12px;
                 padding: 0px 8px;
-                margin: 0 8px;
+                margin: 0 12px;
               }
             }
             &.detail {
