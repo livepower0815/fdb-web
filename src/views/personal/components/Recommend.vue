@@ -11,14 +11,14 @@
         </div>
         <div class="controller-btns">
           <div class="fdb-btn-info btn" style="margin-right: 8px;" @click="setGroupDialog.show = true">編輯組別</div>
-          <div class="fdb-btn-primary btn" @click="editGroupDialog.show = true">管理組別</div>
+          <div class="fdb-btn-primary btn" @click="editGroup">管理組別</div>
         </div>
       </div>
       <div class="list">
         <table class="list-table" cellspacing="0" cellpadding="0" border="0">
           <thead>
             <tr>
-              <th><input type="checkbox" class="check" /></th>
+              <th><input v-model="selectAllCheckBox" type="checkbox" class="check" /></th>
               <th>會員名稱</th>
               <th style="text-align: center;">聯絡資訊</th>
               <th style="width: 156px;">交易幣別</th>
@@ -27,27 +27,66 @@
                 <el-dropdown trigger="click" @command="filterGroup">
                   <span style="cursor: pointer; color: #ffffff; font-size: 15px;">
                     所在組別
-                    <img src="@/assets/img/filter/filter.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
+                    <img
+                      v-if="sreachForm.gid === -1"
+                      src="@/assets/img/filter/filter.png"
+                      alt="filter-grid-solid"
+                      style="width: 16px;transform: translateY(2px);"
+                    />
+                    <img
+                      v-else
+                      src="@/assets/img/filter/filter-active.png"
+                      alt="filter-grid-solid"
+                      style="width: 16px;transform: translateY(2px);"
+                    />
                   </span>
                   <el-dropdown-menu class="fdb-menu" slot="dropdown">
-                    <el-dropdown-item :command="''">全部</el-dropdown-item>
-                    <el-dropdown-item :command="0">組別1</el-dropdown-item>
-                    <el-dropdown-item :command="1">組別2</el-dropdown-item>
-                    <el-dropdown-item :command="2">組別3</el-dropdown-item>
-                    <el-dropdown-item :command="3">組別4</el-dropdown-item>
+                    <el-dropdown-item :class="{ active: sreachForm.gid === -1 }" :command="-1">全部</el-dropdown-item>
+                    <el-dropdown-item
+                      v-for="(group, index) in availableGroups"
+                      :key="index"
+                      :class="{ active: sreachForm.gid === group.key }"
+                      :command="group.key"
+                    >
+                      {{ group.name }}
+                    </el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
               </th>
-              <th style="width: 142px;">
+              <th style="width: 142px;" @click="sortData('createdate')">
                 <span style="cursor: pointer;">
                   加入日期
-                  <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
+                  <img
+                    v-if="pager.sortKey === 'createdate' && pager.order === 'asc'"
+                    src="@/assets/img/sort/asc.png"
+                    alt="sort-arrows"
+                    style="width: 12px;transform: translateY(2px);"
+                  />
+                  <img
+                    v-else-if="pager.sortKey === 'createdate' && pager.order === 'desc'"
+                    src="@/assets/img/sort/desc.png"
+                    alt="sort-arrows"
+                    style="width: 12px;transform: translateY(2px);"
+                  />
+                  <img v-else src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
                 </span>
               </th>
-              <th style="width: 142px;">
+              <th style="width: 142px;" @click="sortData('lastdate')">
                 <span style="cursor: pointer;">
                   最後交易日
-                  <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
+                  <img
+                    v-if="pager.sortKey === 'lastdate' && pager.order === 'asc'"
+                    src="@/assets/img/sort/asc.png"
+                    alt="sort-arrows"
+                    style="width: 12px;transform: translateY(2px);"
+                  />
+                  <img
+                    v-else-if="pager.sortKey === 'lastdate' && pager.order === 'desc'"
+                    src="@/assets/img/sort/desc.png"
+                    alt="sort-arrows"
+                    style="width: 12px;transform: translateY(2px);"
+                  />
+                  <img v-else src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
                 </span>
               </th>
             </tr>
@@ -55,7 +94,7 @@
           <tbody>
             <template v-for="(row, index) in tableData">
               <tr :key="`tr-1-${index}`">
-                <td><input type="checkbox" class="check" /></td>
+                <td><input v-model="selectIdsCheckBox" type="checkbox" class="check" :value="row.fdb_id" /></td>
                 <td>{{ row.name }}</td>
                 <td style="text-align: center;">
                   <el-tooltip effect="dark" :content="row.email" placement="top">
@@ -72,7 +111,7 @@
                   <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">檢視資訊</span>
                 </td>
                 <td style="text-align: center;">
-                  <div :class="`group group-color-${row.rgid}`">高中同學</div>
+                  <div :class="`group group-color-${row.gid}`">{{ groupList[row.gid].name }}</div>
                 </td>
                 <td>2021-02-02 14:00</td>
                 <td>2021-02-02 14:00</td>
@@ -109,10 +148,7 @@
           <div class="label">選擇組別</div>
           <select v-model="setGroupDialog.groupSelect">
             <option :value="''" disabled>請選擇現有組別</option>
-            <option :value="0">組別1</option>
-            <option :value="1">組別2</option>
-            <option :value="2">組別3</option>
-            <option :value="3">組別4</option>
+            <option v-for="(group, index) in availableGroups" :key="index" :value="group.key">{{ group.name }}</option>
           </select>
         </div>
         <div class="line">or</div>
@@ -176,78 +212,7 @@
 import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import CoinIcon from '@/components/common/CoinIcon'
-
-const getRecData = async () => {
-  return [
-    {
-      name: 'kerry',
-      rgid: 0,
-      showInfo: false,
-      coins: [
-        { type: 1, value: '0.12345678' },
-        { type: 2, value: '0.12345678' },
-        { type: 3, value: '0.12345678' },
-        { type: 4, value: '0.12345678' },
-        { type: 5, value: '0.12345678' }
-      ],
-      email: 'markweiwebdesign@gmail.com',
-      areaCode: '886',
-      phone: '987654321'
-    },
-    {
-      name: 'mark',
-      rgid: 2,
-      showInfo: false,
-      coins: [
-        { type: 1, value: '0.12345678' },
-        { type: 2, value: '0.12345678' },
-        { type: 5, value: '0.12345678' }
-      ],
-      email: 'markweiwebdesign@gmail.com',
-      areaCode: '886',
-      phone: '987654321'
-    },
-    {
-      name: 'cat',
-      rgid: 1,
-      showInfo: false,
-      coins: [
-        { type: 2, value: '0.12345678' },
-        { type: 3, value: '0.12345678' },
-        { type: 4, value: '0.12345678' },
-        { type: 5, value: '0.12345678' }
-      ],
-      email: 'markweiwebdesign@gmail.com',
-      areaCode: '886',
-      phone: '987654321'
-    },
-    {
-      name: 'dog',
-      rgid: 6,
-      showInfo: false,
-      coins: [
-        { type: 1, value: '0.12345678' },
-        { type: 3, value: '0.12345678' },
-        { type: 5, value: '0.12345678' }
-      ],
-      email: 'markweiwebdesign@gmail.com',
-      areaCode: '886',
-      phone: '987654321'
-    },
-    {
-      name: 'rrrr',
-      rgid: 8,
-      showInfo: false,
-      coins: [
-        { type: 1, value: '0.12345678' },
-        { type: 2, value: '0.12345678' }
-      ],
-      email: 'markweiwebdesign@gmail.com',
-      areaCode: '886',
-      phone: '987654321'
-    }
-  ]
-}
+import { getRecList } from '@/apis/recommender.js'
 
 export default {
   name: 'Recommend',
@@ -260,13 +225,18 @@ export default {
       isLoading: false,
       storeSelect: '',
       tableData: [],
+      sreachForm: {
+        gid: -1
+      },
       pager: {
         pageIndex: 1,
         pageSize: 10,
         totalCount: 57,
-        sortKey: 'txDate',
+        sortKey: 'createdate',
         order: 'asc'
       },
+      selectAll: false,
+      selectIds: [],
       currencyMap,
       setGroupDialog: {
         show: false,
@@ -277,19 +247,62 @@ export default {
       },
       editGroupDialog: {
         show: false,
-        groups: [
-          { name: '幼稚園同學', color: 0 },
-          { name: '國小同學', color: 0 },
-          { name: '國中同學', color: 0 },
-          { name: '高中同學', color: 0 },
-          { name: '大學同學', color: 0 },
-          { name: '', color: 0 },
-          { name: '主力', color: 0 },
-          { name: '同事', color: 0 },
-          { name: '大戶', color: 0 },
-          { name: '', color: 0 }
-        ],
+        groups: [],
         isLoading: false
+      }
+    }
+  },
+  computed: {
+    groupList() {
+      return this.$store.state.group.groupList
+    },
+    availableGroups() {
+      return this.groupList.map((item, index) => ({ ...item, key: index })).filter(item => item.name)
+    },
+    selectAllCheckBox: {
+      get() {
+        return this.selectAll
+      },
+      set(value) {
+        switch (value) {
+          case 'setTrue':
+            this.selectAll = true
+            break
+          case 'setFalse':
+            this.selectAll = false
+            break
+          case true:
+            this.selectIdsCheckBox = 'setAll'
+            this.selectAll = true
+            break
+          case false:
+            this.selectIdsCheckBox = 'removeAll'
+            this.selectAll = false
+            break
+        }
+      }
+    },
+    selectIdsCheckBox: {
+      get() {
+        return this.selectIds
+      },
+      set(value) {
+        switch (value) {
+          case 'setAll':
+            this.selectIds = this.tableData.map(item => item.fdb_id)
+            break
+          case 'removeAll':
+            this.selectIds = []
+            break
+          default:
+            if (value.length === this.tableData.length) {
+              this.selectAllCheckBox = 'setTrue'
+            } else {
+              this.selectAllCheckBox = 'setFalse'
+            }
+            this.selectIds = value
+            break
+        }
       }
     }
   },
@@ -304,23 +317,59 @@ export default {
   },
   created() {
     this.getRecommend()
+    this.$store.dispatch('group/getRecGroup')
   },
   methods: {
     async getRecommend() {
       this.isLoading = true
       try {
-        const res = await getRecData()
-        this.tableData = res
+        const reqBody = {
+          pageIndex: 0,
+          pageSize: 0,
+          totalCount: 0,
+          sortKey: this.pager.sortKey,
+          order: this.pager.order,
+          gid: this.sreachForm.gid
+        }
+        const res = await getRecList(reqBody)
+        this.tableData = res.data.map(item => {
+          return { ...item, showInfo: false }
+        })
+        this.pager.totalCount = res.totalCount
       } catch (error) {
         console.error(error)
       }
       this.isLoading = false
     },
     filterGroup(groupId) {
-      console.log(groupId)
+      this.sreachForm.gid = groupId
+      this.getRecommend()
     },
     handleCommand({ groupIndex, colorIndex }) {
       this.editGroupDialog.groups[groupIndex].color = colorIndex
+    },
+    editGroup() {
+      this.editGroupDialog.groups = JSON.parse(JSON.stringify(this.groupList))
+      this.editGroupDialog.show = true
+    },
+    sortData(sortKey) {
+      if (this.pager.sortKey === sortKey) {
+        switch (this.pager.order) {
+          case 'asc':
+            this.pager.order = 'desc'
+            break
+          case 'desc':
+            this.pager.order = 'asc'
+            break
+          default:
+            this.pager.order = 'asc'
+            break
+        }
+      } else {
+        this.pager.sortKey = sortKey
+        this.pager.order = 'asc'
+      }
+      this.getRecommend(true)
     }
   }
 }

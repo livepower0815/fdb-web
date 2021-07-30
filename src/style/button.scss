@@ -17,6 +17,10 @@
     border: 1px #62ffff solid !important;
     color: #62ffff !important;
   }
+  &.disabled {
+    filter: opacity(0.3);
+    pointer-events: none;
+  }
   /*540-320*/
   @media screen and (min-width: 300px) and (max-width: 749px) {
     padding: 0px 22px;
@@ -42,6 +46,10 @@
     border-color: #3ea9cc !important;
     background: #3ea9cc !important;
   }
+  &.disabled {
+    filter: opacity(0.3);
+    pointer-events: none;
+  }
   /*540-320*/
   @media screen and (min-width: 300px) and (max-width: 749px) {
     padding: 0px 22px;
@@ -64,9 +72,18 @@
   &-hover:hover {
     background: linear-gradient(180deg, #3ea9cc 9.47%, #3ea9cc 100%) !important;
   }
+  &.disabled {
+    filter: opacity(0.3);
+    pointer-events: none;
+  }
   /*540-320*/
   @media screen and (min-width: 300px) and (max-width: 749px) {
     padding: 0px 22px;
     font-size: 14px;
   }
+}
+
+.click-disabled {
+  filter: opacity(0.3);
+  pointer-events: none;
 }

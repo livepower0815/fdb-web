@@ -47,9 +47,9 @@
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
-              <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
+              <div class="value">{{ adressData[currencyMap[form.currencySelect]] || '--' }}</div>
             </div>
-            <div class="form-item">
+            <div class="form-item" :class="{ 'click-disabled': !form.currencySelect }">
               <div class="title">出金數量</div>
               <div class="value">
                 <input v-model="form.withdrawAmount" class="input" type="number" placeholder="請輸入出金金額" />
@@ -60,7 +60,7 @@
             <div class="fdb-btn-default" style="margin-right: 12px;line-height: 30px;" @click="$router.push({ name: 'Dashboard' })">
               取消出金
             </div>
-            <div v-if="canTrade" class="fdb-btn-primary" @click="toStep2">下一步</div>
+            <div v-if="canTrade" class="fdb-btn-primary" :class="{ disabled: !form.currencySelect }" @click="toStep2">下一步</div>
           </div>
         </div>
 
