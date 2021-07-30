@@ -24,70 +24,13 @@
               <th style="width: 156px;">交易幣別</th>
               <th style="text-align: center;">反佣交易量</th>
               <th style="text-align: center;">
-                <el-dropdown trigger="click" @command="filterGroup">
-                  <span style="cursor: pointer; color: #ffffff; font-size: 15px;">
-                    所在組別
-                    <img
-                      v-if="sreachForm.gid === -1"
-                      src="@/assets/img/filter/filter.png"
-                      alt="filter-grid-solid"
-                      style="width: 16px;transform: translateY(2px);"
-                    />
-                    <img
-                      v-else
-                      src="@/assets/img/filter/filter-active.png"
-                      alt="filter-grid-solid"
-                      style="width: 16px;transform: translateY(2px);"
-                    />
-                  </span>
-                  <el-dropdown-menu class="fdb-menu" slot="dropdown">
-                    <el-dropdown-item :class="{ active: sreachForm.gid === -1 }" :command="-1">全部</el-dropdown-item>
-                    <el-dropdown-item
-                      v-for="(group, index) in availableGroups"
-                      :key="index"
-                      :class="{ active: sreachForm.gid === group.key }"
-                      :command="group.key"
-                    >
-                      {{ group.name }}
-                    </el-dropdown-item>
-                  </el-dropdown-menu>
-                </el-dropdown>
+                <TableFilter v-model="sreachForm.gid" title="所在組別" :items="availableGroups" />
               </th>
               <th style="width: 142px;" @click="sortData('createdate')">
-                <span style="cursor: pointer;">
-                  加入日期
-                  <img
-                    v-if="pager.sortKey === 'createdate' && pager.order === 'asc'"
-                    src="@/assets/img/sort/asc.png"
-                    alt="sort-arrows"
-                    style="width: 12px;transform: translateY(2px);"
-                  />
-                  <img
-                    v-else-if="pager.sortKey === 'createdate' && pager.order === 'desc'"
-                    src="@/assets/img/sort/desc.png"
-                    alt="sort-arrows"
-                    style="width: 12px;transform: translateY(2px);"
-                  />
-                  <img v-else src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-                </span>
+                <Sort title="加入日期" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
               <th style="width: 142px;" @click="sortData('lastdate')">
-                <span style="cursor: pointer;">
-                  最後交易日
-                  <img
-                    v-if="pager.sortKey === 'lastdate' && pager.order === 'asc'"
-                    src="@/assets/img/sort/asc.png"
-                    alt="sort-arrows"
-                    style="width: 12px;transform: translateY(2px);"
-                  />
-                  <img
-                    v-else-if="pager.sortKey === 'lastdate' && pager.order === 'desc'"
-                    src="@/assets/img/sort/desc.png"
-                    alt="sort-arrows"
-                    style="width: 12px;transform: translateY(2px);"
-                  />
-                  <img v-else src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-                </span>
+                <Sort title="最後交易日" sort="lastdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
             </tr>
           </thead>
@@ -213,12 +156,16 @@ import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import CoinIcon from '@/components/common/CoinIcon'
 import { getRecList } from '@/apis/recommender.js'
+import Sort from '@/components/common/Sort'
+import TableFilter from '@/components/common/TableFilter'
 
 export default {
   name: 'Recommend',
   components: {
     Pager,
-    CoinIcon
+    CoinIcon,
+    Sort,
+    TableFilter
   },
   data() {
     return {

@@ -24,20 +24,26 @@
     <table class="info-table">
       <thead>
         <tr>
-          <th>交易日期</th>
+          <th @click="sortData('txDate')">
+            <Sort title="交易日期" sort="txDate" :sort-key="pager.sortKey" :order="pager.order" />
+          </th>
           <th>交易幣別</th>
-          <th>異動類別</th>
+          <th>
+            <TableFilter
+              v-model="queryForm.changeType"
+              title="異動類別"
+              :items="[
+                { name: '個人', key: 0 },
+                { name: '推薦人', key: 1 },
+                { name: '出金', key: 2 }
+              ]"
+            />
+          </th>
           <th @click="sortData('changeNum')">
-            <span style="cursor: pointer;">
-              異動數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="異動數量" sort="changeNum" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('restNum')">
-            <span style="cursor: pointer;">
-              剩餘數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="剩餘數量" sort="restNum" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -78,6 +84,8 @@ import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import CoinSelector from '@/components/common/CoinSelector'
 import moment from 'moment'
+import Sort from '@/components/common/Sort'
+import TableFilter from '@/components/common/TableFilter'
 
 const changeTypeMap = ['個人', '推薦人', '出金']
 
@@ -85,7 +93,9 @@ export default {
   name: 'CommissionTransaction',
   components: {
     CoinSelector,
-    Pager
+    Pager,
+    Sort,
+    TableFilter
   },
   props: {
     filterDateRange: {
@@ -104,6 +114,9 @@ export default {
   data() {
     return {
       currencyMap: { ...currencyMap },
+      queryForm: {
+        changeType: -1
+      },
       tableData: [],
       pager: {
         pageIndex: 1,
@@ -146,6 +159,12 @@ export default {
     },
     currencyType() {
       this.getCommissionTransaction(true)
+    },
+    queryForm: {
+      handler() {
+        this.getCommissionTransaction(true)
+      },
+      deep: true
     }
   },
   mounted() {
@@ -160,6 +179,7 @@ export default {
       try {
         const queryData = {
           currencyType: this.currencyType,
+          changeType: this.queryForm.changeType,
           startDate: this.dateRange[0],
           endDate: this.dateRange[1],
           pageIndex: this.pager.pageIndex,

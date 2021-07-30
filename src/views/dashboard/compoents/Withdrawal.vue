@@ -24,21 +24,27 @@
     <table class="info-table">
       <thead>
         <tr>
-          <th>申請狀態</th>
+          <th>
+            <TableFilter
+              v-model="queryForm.rebatStatus"
+              title="申請狀態"
+              :items="[
+                { name: '申請中', key: 0 },
+                { name: '出金中', key: 1 },
+                { name: '已完成', key: 2 }
+              ]"
+            />
+          </th>
           <th>申請單號</th>
-          <th>申請出金時間</th>
+          <th @click="sortData('orderDate')">
+            <Sort title="申請出金時間" sort="orderDate" :sort-key="pager.sortKey" :order="pager.order" />
+          </th>
           <th>申請幣別</th>
           <th @click="sortData('orderValue')">
-            <span style="cursor: pointer;">
-              申請數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="申請數量" sort="orderValue" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('finishDate')">
-            <span style="cursor: pointer;">
-              完成出金日期
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="完成出金日期" sort="finishDate" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -90,12 +96,16 @@ import { getWithdrawal } from '@/apis/dashboard.js'
 import Pager from '@/components/common/Pager'
 import moment from 'moment'
 import CoinSelector from '@/components/common/CoinSelector'
+import Sort from '@/components/common/Sort'
+import TableFilter from '@/components/common/TableFilter'
 
 export default {
   name: 'Withdrawal',
   components: {
     CoinSelector,
-    Pager
+    Pager,
+    Sort,
+    TableFilter
   },
   props: {
     filterDateRange: {
@@ -115,6 +125,9 @@ export default {
     return {
       currencyMap: { ...currencyMap },
       tableData: [],
+      queryForm: {
+        rebatStatus: -1
+      },
       pager: {
         pageIndex: 1,
         pageSize: 10,
@@ -156,6 +169,12 @@ export default {
     },
     currencyType() {
       this.getWithdrawal(true)
+    },
+    queryForm: {
+      handler() {
+        this.getWithdrawal(true)
+      },
+      deep: true
     }
   },
   mounted() {
@@ -170,6 +189,7 @@ export default {
       try {
         const queryData = {
           currencyType: this.currencyType,
+          rebatStatus: this.queryForm.rebatStatus,
           startDate: this.dateRange[0],
           endDate: this.dateRange[1],
           pageIndex: this.pager.pageIndex,

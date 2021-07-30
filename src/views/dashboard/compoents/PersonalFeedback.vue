@@ -24,20 +24,25 @@
     <table class="info-table">
       <thead>
         <tr>
-          <th>返佣狀態</th>
-          <th>交易日期</th>
+          <th>
+            <TableFilter
+              v-model="queryForm.rebateStatus"
+              title="返佣狀態"
+              :items="[
+                { name: '未返佣', key: 0 },
+                { name: '已返佣', key: 1 }
+              ]"
+            />
+          </th>
+          <th @click="sortData('txDate')">
+            <Sort title="交易日期" sort="txDate" :sort-key="pager.sortKey" :order="pager.order" />
+          </th>
           <th>交易幣別</th>
           <th @click="sortData('canRebatePoint')">
-            <span style="cursor: pointer;">
-              可返佣交易量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="可返佣交易量" sort="canRebatePoint" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('canRebatValue')">
-            <span style="cursor: pointer;">
-              可返佣數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="可返佣數量" sort="canRebatValue" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -79,12 +84,16 @@ import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import moment from 'moment'
 import CoinSelector from '@/components/common/CoinSelector'
+import Sort from '@/components/common/Sort'
+import TableFilter from '@/components/common/TableFilter'
 
 export default {
   name: 'PersonalFeedback',
   components: {
     CoinSelector,
-    Pager
+    Pager,
+    Sort,
+    TableFilter
   },
   props: {
     filterDateRange: {
@@ -104,6 +113,9 @@ export default {
     return {
       currencyMap: { ...currencyMap },
       tableData: [],
+      queryForm: {
+        rebateStatus: -1
+      },
       pager: {
         pageIndex: 1,
         pageSize: 10,
@@ -145,6 +157,12 @@ export default {
     },
     currencyType() {
       this.getPersonalFeedback(true)
+    },
+    queryForm: {
+      handler() {
+        this.getPersonalFeedback(true)
+      },
+      deep: true
     }
   },
   mounted() {
@@ -159,6 +177,7 @@ export default {
       try {
         const queryData = {
           currencyType: this.currencyType,
+          rebateStatus: this.queryForm.rebateStatus,
           startDate: this.dateRange[0],
           endDate: this.dateRange[1],
           pageIndex: this.pager.pageIndex,
