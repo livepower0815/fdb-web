@@ -1,169 +1,122 @@
 <template>
-  <div class="outline">
+  <div class="nwes">
     <!--Banner開始-->
-    <div class="banner-block news">
-      <div class="outblock">
-        <div class="news-banner-title">返多寶社群</div>
-        <div class="news-banner-sub">發展獨立的虛擬貨幣自媒體、<br />帶領投資人深度了解虛擬貨幣</div>
+    <div class="news-banner">
+      <div class="banner-content">
+        <div class="banner-title">返多寶社群</div>
+        <div class="banner-info">逐步發展虛擬貨幣須知，發展成獨立的虛擬貨幣自媒體</div>
       </div>
     </div>
     <!--Banner結束-->
 
     <!--內容 開始-->
-    <div class="outline news-outline">
-      <div class="outblock">
-        <!--Menu開始-->
-        <div class="news-pagging-menu-block">
-          <a class="active" href="javascript:void(0)" id="all-btn">全部</a>
-          <a href="javascript:void(0)" id="chat-btn">論壇</a>
-          <a href="javascript:void(0)" id="announced-btn">公告</a>
-          <a href="javascript:void(0)" id="activity-btn">活動</a>
+    <div class="news-content">
+      <!-- menu bar -->
+      <div class="menu-bar">
+        <div class="menu-left">
+          <div class="menu-item" :class="{ active: activeTab === 'all' }" @click="activeTab = 'all'">全部</div>
+          <div class="menu-item" :class="{ active: activeTab === 'forum' }" @click="activeTab = 'forum'">論壇</div>
+          <div class="menu-item" :class="{ active: activeTab === 'bulletin' }" @click="activeTab = 'bulletin'">公告</div>
+          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="activeTab = 'activity'">活動</div>
         </div>
-        <!--Menu結束-->
-
-        <!--全部 開始-->
-        <div id="all">
-          <!--總攬 開始-->
-          <div class="news-all-sum-block">
-            <router-link to="/news-info" class="news-all-sum-main-block">
-              <div class="pic"><img src="@/assets/img/news/news-announced-pic.jpg" alt="" /></div>
-              <div class="sign-block">
-                <div>公告</div>
-              </div>
-              <div class="title">How to make a website look more attractive with illustrations.</div>
-              <div class="main">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-              <div class="date">2020.03.01</div>
-            </router-link>
-            <div class="news-all-sum-sub-block">
-              <router-link to="/news-info" class="news-all-sum-sub-main">
-                <div class="main">
-                  <div class="sign-block">
-                    <div>論壇</div>
-                  </div>
-                  <div class="title">How to make a website look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </div>
-                <div class="pic"><img src="@/assets/img/news/news-chat-pic.jpg" alt="" /></div>
-              </router-link>
-              <router-link to="/news-info" class="news-all-sum-sub-main">
-                <div class="main">
-                  <div class="sign-block">
-                    <div>論壇</div>
-                  </div>
-                  <div class="title">How to make a website look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </div>
-                <div class="pic"><img src="@/assets/img/news/news-chat-pic.jpg" alt="" /></div>
-              </router-link>
-              <router-link to="/news-info" class="news-all-sum-sub-main">
-                <div class="main">
-                  <div class="sign-block">
-                    <div>論壇</div>
-                  </div>
-                  <div class="title">How to make a website look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </div>
-                <div class="pic"><img src="@/assets/img/news/news-chat-pic.jpg" alt="" /></div>
-              </router-link>
-            </div>
-          </div>
-          <!--總攬 結束-->
-
-          <!--消息 開始-->
-          <div class="outline news-outline">
-            <div class="outline">
-              <div class="outblock">
-                <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                  <div class="sign-block">
-                    <div>活動</div>
-                  </div>
-                  <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </router-link>
-                <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                  <div class="sign-block">
-                    <div>活動</div>
-                  </div>
-                  <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </router-link>
-                <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                  <div class="sign-block">
-                    <div>活動</div>
-                  </div>
-                  <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </router-link>
-
-                <router-link to="/news-info" class="news-main activity">
-                  <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                  <div class="sign-block">
-                    <div>活動</div>
-                  </div>
-                  <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                  <div class="date">2020.03.01</div>
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <!--消息 結束-->
+        <div class="menu-right">
+          <img @click="showSearch = !showSearch" class="icon-search" src="@/assets/img/common/icon-search.png" alt="search" />
+          <input class="input" :class="{ hide: !showSearch }" type="text" />
         </div>
-        <!--全部 結束-->
-
-        <!--活動 開始-->
-        <div class="outline news-outline" id="activity">
-          <div class="outline">
-            <div class="outblock">
-              <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                <div class="sign-block">
-                  <div>活動</div>
-                </div>
-                <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                <div class="date">2020.03.01</div>
-              </router-link>
-              <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                <div class="sign-block">
-                  <div>活動</div>
-                </div>
-                <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                <div class="date">2020.03.01</div>
-              </router-link>
-              <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                <div class="sign-block">
-                  <div>活動</div>
-                </div>
-                <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                <div class="date">2020.03.01</div>
-              </router-link>
-              <router-link to="/news-info" class="news-main activity">
-                <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-                <div class="sign-block">
-                  <div>活動</div>
-                </div>
-                <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-                <div class="date">2020.03.01</div>
-              </router-link>
-            </div>
-          </div>
-        </div>
-        <!--活動 結束-->
       </div>
+
+      <!-- all info -->
+      <AllInfo />
+
+      <Information />
     </div>
     <!--內容 結束-->
   </div>
 </template>
 
 <script>
+import AllInfo from './components/AllInfo'
+import Information from './components/Information.vue'
+
 export default {
   name: 'News',
-  mounted() {
-    // const $ = window.$
+  components: {
+    AllInfo,
+    Information
+  },
+  data() {
+    return {
+      activeTab: 'all',
+      showSearch: false
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.news {
+  &-banner {
+    position: relative;
+    height: 30vw;
+    background-image: url('../../assets/img/news/news-banner.png');
+    background-size: cover;
+    .banner-content {
+      position: absolute;
+      left: 5%;
+      top: 32%;
+      .banner-title {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 71px;
+      }
+      .banner-info {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+  &-content {
+    max-width: 1440px;
+    padding: 0 4%;
+    margin: 0 auto;
+    .menu-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      .menu-left {
+        display: flex;
+        .menu-item {
+          font-size: 20px;
+          margin-right: 60px;
+          cursor: pointer;
+          &:hover,
+          &.active {
+            color: #62ffff;
+          }
+        }
+      }
+      .menu-right {
+        display: flex;
+        .icon-search {
+          width: 20px;
+          cursor: pointer;
+        }
+        .input {
+          margin-left: 8px;
+          color: #c4c4c4;
+          background-color: #050608;
+          border-bottom: 1px #fff solid;
+          width: 140px;
+          opacity: 1;
+          transition: all 0.4s;
+          &.hide {
+            width: 0px;
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
