@@ -10,7 +10,14 @@
           </select>
         </div>
         <div class="controller-btns">
-          <div class="fdb-btn-info btn" style="margin-right: 8px;" @click="setGroupDialog.show = true">編輯組別</div>
+          <div
+            class="fdb-btn-info btn"
+            :class="{ 'click-disabled': selectIds.length === 0 }"
+            style="margin-right: 8px;"
+            @click="setGroupDialog.show = true"
+          >
+            編輯組別
+          </div>
           <div class="fdb-btn-primary btn" @click="editGroup">管理組別</div>
         </div>
       </div>
@@ -48,7 +55,12 @@
                   </el-tooltip>
                 </td>
                 <td>
-                  <CoinIcon v-for="(coin, coinIndex) in row.coins" :key="coinIndex" class="coin" :coin-type="currencyMap[coin.type]" />
+                  <CoinIcon
+                    v-for="(coin, coinIndex) in row.userCoinModels"
+                    :key="coinIndex"
+                    class="coin"
+                    :coin-type="currencyMap[coin.currencyType]"
+                  />
                 </td>
                 <td style="text-align: center;">
                   <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">檢視資訊</span>
@@ -58,15 +70,16 @@
                     {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分類' }}
                   </div>
                 </td>
+                <!-- TODO: data format -->
                 <td>{{ row.createdate }}</td>
                 <td>{{ row.lastdate || '-' }}</td>
               </tr>
               <tr v-if="row.showInfo" :key="`tr-2-${index}`" class="detail">
                 <td colspan="8">
                   <div class="detail-content">
-                    <div v-for="(coin, coinIndex) in row.coins" :key="coinIndex" class="coin-info">
-                      <CoinIcon class="coin" :coin-type="currencyMap[coin.type]" />
-                      <span>{{ currencyMap[coin.type] }} - {{ coin.value }}</span>
+                    <div v-for="(coin, coinIndex) in row.userCoinModels" :key="coinIndex" class="coin-info">
+                      <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />
+                      <span>{{ currencyMap[coin.currencyType] }} - {{ coin.coinCount }}</span>
                     </div>
                   </div>
                 </td>
@@ -88,16 +101,16 @@
       :show-close="false"
       custom-class="fbd-dialog set-group-dialog"
     >
-      <div class="dialog-body">
-        <div class="group-select">
+      <div v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="dialog-body">
+        <div class="group-select" :class="{ 'click-disabled': setGroupDialog.newGroupName || availableGroups.length === 0 }">
           <div class="label">選擇組別</div>
           <select v-model="setGroupDialog.groupSelect">
             <option :value="''" disabled>請選擇現有組別</option>
-            <option v-for="(group, index) in availableGroups" :key="index" :value="group.key">{{ group.name }}</option>
+            <option v-for="(group, index) in availableGroups" :key="index" :value="group.rgid">{{ group.name }}</option>
           </select>
         </div>
         <div class="line">or</div>
-        <div class="new-group">
+        <div class="new-group" :class="{ 'click-disabled': setGroupDialog.groupSelect || availableGroups.length > 9 }">
           <div class="item">
             <div class="label">建立新組別</div>
             <input v-model="setGroupDialog.newGroupName" type="text" placeholder="輸入新組別名稱" />
@@ -117,7 +130,9 @@
       </div>
       <span v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px;" @click="setGroupDialog.show = false">取消</div>
-        <div class="fdb-btn-primary">綁定</div>
+        <div class="fdb-btn-primary" :class="{ disabled: !setGroupDialog.groupSelect && !setGroupDialog.newGroupName }" @click="bindGroup">
+          綁定
+        </div>
       </span>
     </el-dialog>
 
@@ -129,7 +144,7 @@
       :show-close="false"
       custom-class="fbd-dialog edit-group-dialog"
     >
-      <div class="dialog-body">
+      <div v-loading="editGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="dialog-body">
         <div v-for="(group, gIndex) in editGroupDialog.groups" :key="gIndex" class="group-item">
           <input v-model="group.name" type="text" placeholder="請輸入群組名稱" />
           <el-dropdown trigger="click" placement="right-start" @command="handleCommand">
@@ -157,7 +172,7 @@
 import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import CoinIcon from '@/components/common/CoinIcon'
-import { getRecList, editGroup } from '@/apis/recommender.js'
+import { getRecList, editGroup, insertGroup } from '@/apis/recommender.js'
 import Sort from '@/components/common/Sort'
 import TableFilter from '@/components/common/TableFilter'
 
@@ -192,7 +207,7 @@ export default {
         isLoading: false,
         groupSelect: '',
         newGroupName: '',
-        activeColor: null
+        activeColor: 0
       },
       editGroupDialog: {
         show: false,
@@ -266,7 +281,7 @@ export default {
       if (value) {
         this.setGroupDialog.groupSelect = ''
         this.setGroupDialog.newGroupName = ''
-        this.setGroupDialog.activeColor = null
+        this.setGroupDialog.activeColor = 0
       }
     }
   },
@@ -279,6 +294,7 @@ export default {
       if (reset) {
         this.pager.pageIndex = 1
       }
+      this.selectIds = []
       this.isLoading = true
       try {
         const reqBody = {
@@ -328,11 +344,31 @@ export default {
       }
       this.getRecommend(true)
     },
+    async bindGroup() {
+      this.setGroupDialog.isLoading = true
+      try {
+        const reqBody = {
+          fdb_ids: this.selectIds,
+          rgid: this.setGroupDialog.groupSelect,
+          name: this.setGroupDialog.newGroupName,
+          color: this.setGroupDialog.activeColor
+        }
+        await insertGroup(reqBody)
+        await this.$store.dispatch('group/getRecGroup')
+        this.setGroupDialog.show = false
+        this.$message.success('綁定群組成功')
+      } catch (error) {
+        console.error(error)
+      }
+      this.setGroupDialog.isLoading = false
+    },
     async saveGroup() {
       this.editGroupDialog.isLoading = true
       try {
         await editGroup(this.editGroupDialog.groups)
+        await this.$store.dispatch('group/getRecGroup')
         this.editGroupDialog.show = false
+        this.$message.success('保存成功')
       } catch (error) {
         console.error(error)
       }

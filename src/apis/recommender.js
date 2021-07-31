@@ -102,15 +102,13 @@ export const getRecList = data =>
 //   }
 // }
 
-// 添加群組
-export const insertGroup = async () => {
-  return { status: 200 }
-}
-
-// 建立新組別
-export const addNewGroup = async () => {
-  return { status: 200 }
-}
+// 推薦人綁定群組
+export const insertGroup = data =>
+  request({
+    url: '/api/User/BindReferrerGroup',
+    method: 'POST',
+    data
+  })
 
 // 編輯推薦人組別
 export const editGroup = data =>
