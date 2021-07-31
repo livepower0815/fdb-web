@@ -13,7 +13,7 @@ const actions = {
   async getRecGroup({ commit }) {
     try {
       const res = await getRecGroup()
-      commit('SET_GROUP_LIST', res)
+      commit('SET_GROUP_LIST', res.data)
       return res
     } catch (error) {
       return Promise.reject(error)

@@ -24,7 +24,7 @@
               <th style="width: 156px;">交易幣別</th>
               <th style="text-align: center;">反佣交易量</th>
               <th style="text-align: center;">
-                <TableFilter v-model="sreachForm.gid" title="所在組別" :items="availableGroups" />
+                <TableFilter v-model="sreachForm.rgid" title="所在組別" :items="availableGroups" />
               </th>
               <th style="width: 142px;" @click="sortData('createdate')">
                 <Sort title="加入日期" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
@@ -54,10 +54,12 @@
                   <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">檢視資訊</span>
                 </td>
                 <td style="text-align: center;">
-                  <div :class="`group group-color-${row.gid}`">{{ groupList[row.gid].name }}</div>
+                  <div :class="`group group-color-${(groupMap[row.rgid] && groupMap[row.rgid].color) || 0}`">
+                    {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分類' }}
+                  </div>
                 </td>
-                <td>2021-02-02 14:00</td>
-                <td>2021-02-02 14:00</td>
+                <td>{{ row.createdate }}</td>
+                <td>{{ row.lastdate || '-' }}</td>
               </tr>
               <tr v-if="row.showInfo" :key="`tr-2-${index}`" class="detail">
                 <td colspan="8">
@@ -145,7 +147,7 @@
       </div>
       <span v-loading="editGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px;" @click="editGroupDialog.show = false">全部取消</div>
-        <div class="fdb-btn-primary">全部儲存</div>
+        <div class="fdb-btn-primary" @click="saveGroup">全部儲存</div>
       </span>
     </el-dialog>
   </div>
@@ -155,7 +157,7 @@
 import Pager from '@/components/common/Pager'
 import { currencyMap } from '@/utils/map.js'
 import CoinIcon from '@/components/common/CoinIcon'
-import { getRecList } from '@/apis/recommender.js'
+import { getRecList, editGroup } from '@/apis/recommender.js'
 import Sort from '@/components/common/Sort'
 import TableFilter from '@/components/common/TableFilter'
 
@@ -173,7 +175,7 @@ export default {
       storeSelect: '',
       tableData: [],
       sreachForm: {
-        gid: -1
+        rgid: -1
       },
       pager: {
         pageIndex: 1,
@@ -204,7 +206,13 @@ export default {
       return this.$store.state.group.groupList
     },
     availableGroups() {
-      return this.groupList.map((item, index) => ({ ...item, key: index })).filter(item => item.name)
+      return this.groupList.filter(item => item.name)
+    },
+    groupMap() {
+      return this.availableGroups.reduce((obj, item) => {
+        obj[item.rgid] = item
+        return obj
+      }, {})
     },
     selectAllCheckBox: {
       get() {
@@ -267,16 +275,18 @@ export default {
     this.$store.dispatch('group/getRecGroup')
   },
   methods: {
-    async getRecommend() {
+    async getRecommend(reset) {
+      if (reset) {
+        this.pager.pageIndex = 1
+      }
       this.isLoading = true
       try {
         const reqBody = {
-          pageIndex: 0,
-          pageSize: 0,
-          totalCount: 0,
+          pageIndex: this.pager.pageIndex,
+          pageSize: this.pager.pageSize,
           sortKey: this.pager.sortKey,
           order: this.pager.order,
-          gid: this.sreachForm.gid
+          rgid: this.sreachForm.rgid
         }
         const res = await getRecList(reqBody)
         this.tableData = res.data.map(item => {
@@ -289,7 +299,7 @@ export default {
       this.isLoading = false
     },
     filterGroup(groupId) {
-      this.sreachForm.gid = groupId
+      this.sreachForm.rgid = groupId
       this.getRecommend()
     },
     handleCommand({ groupIndex, colorIndex }) {
@@ -317,6 +327,16 @@ export default {
         this.pager.order = 'asc'
       }
       this.getRecommend(true)
+    },
+    async saveGroup() {
+      this.editGroupDialog.isLoading = true
+      try {
+        await editGroup(this.editGroupDialog.groups)
+        this.editGroupDialog.show = false
+      } catch (error) {
+        console.error(error)
+      }
+      this.editGroupDialog.isLoading = false
     }
   }
 }
