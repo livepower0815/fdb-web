@@ -23,7 +23,7 @@
       <!-- 輸入會員名稱關鍵字 -->
       <div class="key-search">
         <img src="@/assets/img/common/icon-search.png" alt="search" />
-        <input type="text" placeholder="輸入會員名稱關鍵字" />
+        <input v-model="memberName" type="text" placeholder="輸入會員名稱關鍵字" />
       </div>
       <!-- 管理組別 -->
       <div style="flex: 1; text-align: end">
@@ -33,27 +33,33 @@
     <table class="info-table">
       <thead>
         <tr>
-          <th>返佣狀態</th>
-          <th>交易日期</th>
+          <th>
+            <TableFilter
+              v-model="queryForm.rebateStatus"
+              title="返佣狀態"
+              :items="[
+                { name: '未返佣', key: 0 },
+                { name: '已返佣', key: 1 }
+              ]"
+            />
+          </th>
+          <th @click="sortData('txDate')">
+            <Sort title="交易日期" sort="txDate" :sort-key="pager.sortKey" :order="pager.order" />
+          </th>
           <th>交易幣別</th>
           <th>會員名稱</th>
           <th>
-            <span style="cursor: pointer;">
-              推薦人分組
-              <img src="@/assets/img/filter/filter.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
-            </span>
+            <TableFilter
+              v-model="queryForm.rgid"
+              title="推薦人分組"
+              :items="availableGroups.map(item => ({ name: item.name, key: item.rgid }))"
+            />
           </th>
           <th @click="sortData('canRebatePoint')">
-            <span style="cursor: pointer;">
-              可返佣交易量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="可返佣交易量" sort="canRebatePoint" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('canRebatValue')">
-            <span style="cursor: pointer;">
-              可返佣數量
-              <img src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
-            </span>
+            <Sort title="可返佣數量" sort="canRebatValue" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -72,9 +78,11 @@
             </td>
             <td>{{ formatDate(row.txDate) }}</td>
             <td>{{ currencyMap[row.currency] }}</td>
-            <td>{{ row.name }}</td>
+            <td>{{ row.memberName }}</td>
             <td>
-              <div :class="`group group-color-${row.groupIndex}`">{{ groupMap[row.groupIndex].name }}</div>
+              <div :class="`group group-color-${(groupMap[row.rgid] && groupMap[row.rgid].color) || 0}`">
+                {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分組' }}
+              </div>
             </td>
             <td>{{ row.canRebatePoint }}</td>
             <td>{{ row.canRebatValue }}</td>
@@ -104,19 +112,8 @@ import { currencyMap } from '@/utils/map.js'
 import Pager from '@/components/common/Pager'
 import moment from 'moment'
 import CoinSelector from '@/components/common/CoinSelector'
-
-const groupMap = [
-  { name: '高中同學' },
-  { name: '家族親戚' },
-  { name: '家族親戚' },
-  { name: '家族親戚' },
-  { name: '高中同學' },
-  { name: '高中同學' },
-  { name: '高中同學' },
-  { name: '高中同學' },
-  { name: '高中同學' },
-  { name: '大學同學' }
-]
+import Sort from '@/components/common/Sort'
+import TableFilter from '@/components/common/TableFilter'
 
 const getRecommender = async () => {
   return {
@@ -125,8 +122,8 @@ const getRecommender = async () => {
         rebateStatus: 0,
         txDate: '2021-06-05T12:21:40.08',
         currency: 1,
-        name: 'kerry01',
-        groupIndex: 0,
+        memberName: 'kerry01',
+        rgid: 0,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -134,8 +131,8 @@ const getRecommender = async () => {
         rebateStatus: 1,
         txDate: '2021-06-05T12:21:40.08',
         currency: 1,
-        name: 'kerry02',
-        groupIndex: 1,
+        memberName: 'kerry02',
+        rgid: 1,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -143,8 +140,8 @@ const getRecommender = async () => {
         rebateStatus: 0,
         txDate: '2021-06-05T12:21:40.08',
         currency: 2,
-        name: 'kerry02',
-        groupIndex: 2,
+        memberName: 'kerry02',
+        rgid: 2,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -152,8 +149,8 @@ const getRecommender = async () => {
         rebateStatus: 0,
         txDate: '2021-06-05T12:21:40.08',
         currency: 2,
-        name: 'kerry03',
-        groupIndex: 3,
+        memberName: 'kerry03',
+        rgid: 3,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -161,8 +158,8 @@ const getRecommender = async () => {
         rebateStatus: 1,
         txDate: '2021-06-05T12:21:40.08',
         currency: 3,
-        name: 'kerry03',
-        groupIndex: 4,
+        memberName: 'kerry03',
+        rgid: 4,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -170,8 +167,8 @@ const getRecommender = async () => {
         rebateStatus: 1,
         txDate: '2021-06-05T12:21:40.08',
         currency: 3,
-        name: 'kerry04',
-        groupIndex: 5,
+        memberName: 'kerry04',
+        rgid: 5,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -179,8 +176,8 @@ const getRecommender = async () => {
         rebateStatus: 0,
         txDate: '2021-06-05T12:21:40.08',
         currency: 4,
-        name: 'kerry04',
-        groupIndex: 6,
+        memberName: 'kerry04',
+        rgid: 6,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -188,8 +185,8 @@ const getRecommender = async () => {
         rebateStatus: 1,
         txDate: '2021-06-05T12:21:40.08',
         currency: 4,
-        name: 'kerry01',
-        groupIndex: 7,
+        memberName: 'kerry01',
+        rgid: 7,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -197,8 +194,8 @@ const getRecommender = async () => {
         rebateStatus: 0,
         txDate: '2021-06-05T12:21:40.08',
         currency: 5,
-        name: 'kerry01',
-        groupIndex: 8,
+        memberName: 'kerry01',
+        rgid: 8,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       },
@@ -206,8 +203,8 @@ const getRecommender = async () => {
         rebateStatus: 0,
         txDate: '2021-06-05T12:21:40.08',
         currency: 5,
-        name: 'kerry01',
-        groupIndex: 9,
+        memberName: 'kerry01',
+        rgid: 9,
         canRebatePoint: '100.00345',
         canRebatValue: '0.0034356'
       }
@@ -220,7 +217,9 @@ export default {
   name: 'Recommender',
   components: {
     CoinSelector,
-    Pager
+    Pager,
+    Sort,
+    TableFilter
   },
   props: {
     filterDateRange: {
@@ -239,7 +238,11 @@ export default {
   data() {
     return {
       currencyMap: { ...currencyMap },
-      groupMap: groupMap,
+      queryForm: {
+        rebateStatus: -1,
+        rgid: -1
+      },
+      memberName: '',
       tableData: [],
       pager: {
         pageIndex: 1,
@@ -274,6 +277,18 @@ export default {
       set(val) {
         this.$emit('update:loading', val)
       }
+    },
+    groupList() {
+      return this.$store.state.group.groupList
+    },
+    availableGroups() {
+      return this.groupList.filter(item => item.name)
+    },
+    groupMap() {
+      return this.availableGroups.reduce((obj, item) => {
+        obj[item.rgid] = item
+        return obj
+      }, {})
     }
   },
   watch: {
@@ -282,6 +297,12 @@ export default {
     },
     currencyType() {
       this.getRecommender(true)
+    },
+    queryForm: {
+      handler() {
+        this.getRecommender(true)
+      },
+      deep: true
     }
   },
   mounted() {
@@ -294,8 +315,11 @@ export default {
       }
       this.isLoading = true
       try {
-        const queryData = {
+        const reqBody = {
           currencyType: this.currencyType,
+          rebateStatus: this.queryForm.rebateStatus,
+          rgid: this.queryForm.rgid,
+          memberName: this.memberName,
           startDate: this.dateRange[0],
           endDate: this.dateRange[1],
           pageIndex: this.pager.pageIndex,
@@ -303,7 +327,7 @@ export default {
           sortKey: this.pager.sortKey,
           order: this.pager.order
         }
-        const res = await getRecommender(queryData)
+        const res = await getRecommender(reqBody)
         this.tableData = res.data
         this.pager.totalCount = res.totalCount
       } catch (error) {

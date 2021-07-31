@@ -60,7 +60,7 @@
             <div class="fdb-btn-default" style="margin-right: 12px;line-height: 30px;" @click="$router.push({ name: 'Dashboard' })">
               取消出金
             </div>
-            <div v-if="canTrade" class="fdb-btn-primary" :class="{ disabled: !form.currencySelect }" @click="toStep2">下一步</div>
+            <div class="fdb-btn-primary" :class="{ disabled: !form.currencySelect }" @click="toStep2">下一步</div>
           </div>
         </div>
 

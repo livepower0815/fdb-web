@@ -31,7 +31,11 @@
               <th style="width: 156px;">交易幣別</th>
               <th style="text-align: center;">反佣交易量</th>
               <th style="text-align: center;">
-                <TableFilter v-model="sreachForm.rgid" title="所在組別" :items="availableGroups" />
+                <TableFilter
+                  v-model="sreachForm.rgid"
+                  title="所在組別"
+                  :items="availableGroups.map(item => ({ name: item.name, key: item.rgid }))"
+                />
               </th>
               <th style="width: 142px;" @click="sortData('createdate')">
                 <Sort title="加入日期" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
