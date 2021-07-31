@@ -195,7 +195,7 @@ export default {
       pager: {
         pageIndex: 1,
         pageSize: 10,
-        totalCount: 57,
+        totalCount: 0,
         sortKey: 'createdate',
         order: 'asc'
       },
@@ -305,10 +305,10 @@ export default {
           rgid: this.sreachForm.rgid
         }
         const res = await getRecList(reqBody)
-        this.tableData = res.data.map(item => {
+        this.tableData = res.data.data.map(item => {
           return { ...item, showInfo: false }
         })
-        this.pager.totalCount = res.totalCount
+        this.pager.totalCount = res.data.totalCount
       } catch (error) {
         console.error(error)
       }
