@@ -129,8 +129,12 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  scrollBehavior() {
-    return { x: 0, y: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    if (to.name === from.name) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
   }
 })
 

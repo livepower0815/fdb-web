@@ -26,9 +26,13 @@
       </div>
 
       <!-- all info -->
-      <AllInfo />
+      <AllInfo v-if="activeTab === 'all'" />
 
-      <Information />
+      <!-- 文章列表 -->
+      <Information @loadArticle="loadArticle" />
+
+      <!-- 文章內容 -->
+      <Article />
     </div>
     <!--內容 結束-->
   </div>
@@ -37,17 +41,29 @@
 <script>
 import AllInfo from './components/AllInfo'
 import Information from './components/Information.vue'
+import Article from './components/Article'
 
 export default {
   name: 'News',
   components: {
     AllInfo,
-    Information
+    Information,
+    Article
   },
   data() {
     return {
-      activeTab: 'all',
+      activeTab: this.$route.query.tab || 'all',
       showSearch: false
+    }
+  },
+  watch: {
+    activeTab(val) {
+      this.$router.replace({ query: { tab: val } })
+    }
+  },
+  methods: {
+    loadArticle() {
+      this.activeTab = 'article'
     }
   }
 }
@@ -77,8 +93,11 @@ export default {
   }
   &-content {
     max-width: 1440px;
-    padding: 0 4%;
+    padding: 0 3%;
     margin: 0 auto;
+    @media screen and (max-width: 1370px) {
+      padding: 0 4%;
+    }
     .menu-bar {
       display: flex;
       justify-content: space-between;

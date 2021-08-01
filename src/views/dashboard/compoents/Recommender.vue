@@ -23,7 +23,7 @@
       <!-- 輸入會員名稱關鍵字 -->
       <div class="key-search">
         <img src="@/assets/img/common/icon-search.png" alt="search" />
-        <input v-model="memberName" type="text" placeholder="輸入會員名稱關鍵字" />
+        <input v-model="memberName" type="text" placeholder="輸入會員名稱關鍵字" @keyup.enter="getRecommender(true)" />
       </div>
       <!-- 管理組別 -->
       <div style="flex: 1; text-align: end">
@@ -108,110 +108,12 @@
 
 <script>
 import { currencyMap } from '@/utils/map.js'
-// import { getRecommender } from '@/apis/dashboard.js'
+import { getRecommender } from '@/apis/dashboard.js'
 import Pager from '@/components/common/Pager'
 import moment from 'moment'
 import CoinSelector from '@/components/common/CoinSelector'
 import Sort from '@/components/common/Sort'
 import TableFilter from '@/components/common/TableFilter'
-
-const getRecommender = async () => {
-  return {
-    data: [
-      {
-        rebateStatus: 0,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 1,
-        memberName: 'kerry01',
-        rgid: 0,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 1,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 1,
-        memberName: 'kerry02',
-        rgid: 1,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 0,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 2,
-        memberName: 'kerry02',
-        rgid: 2,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 0,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 2,
-        memberName: 'kerry03',
-        rgid: 3,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 1,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 3,
-        memberName: 'kerry03',
-        rgid: 4,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 1,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 3,
-        memberName: 'kerry04',
-        rgid: 5,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 0,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 4,
-        memberName: 'kerry04',
-        rgid: 6,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 1,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 4,
-        memberName: 'kerry01',
-        rgid: 7,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 0,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 5,
-        memberName: 'kerry01',
-        rgid: 8,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      },
-      {
-        rebateStatus: 0,
-        txDate: '2021-06-05T12:21:40.08',
-        currency: 5,
-        memberName: 'kerry01',
-        rgid: 9,
-        canRebatePoint: '100.00345',
-        canRebatValue: '0.0034356'
-      }
-    ],
-    totalCount: 10
-  }
-}
 
 export default {
   name: 'Recommender',
@@ -305,10 +207,16 @@ export default {
       deep: true
     }
   },
+  created() {
+    this.$store.dispatch('group/getRecGroup')
+  },
   mounted() {
     this.getRecommender(true)
   },
   methods: {
+    test() {
+      console.log('test')
+    },
     async getRecommender(resetPager = false) {
       if (resetPager) {
         this.pager.pageIndex = 1
@@ -328,6 +236,7 @@ export default {
           order: this.pager.order
         }
         const res = await getRecommender(reqBody)
+        console.log(res)
         this.tableData = res.data
         this.pager.totalCount = res.totalCount
       } catch (error) {

@@ -145,3 +145,16 @@ button {
   color: #62ffff;
   cursor: pointer;
 }
+
+// 文章背景
+.info-bg {
+  &-forum {
+    background-color: #F2C94C;
+  }
+  &-bulletin {
+    background-color: #F2994A;
+  }
+  &-activity {
+    background-color: #4BBABD;
+  }
+}
