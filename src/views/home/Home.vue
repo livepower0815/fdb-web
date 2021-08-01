@@ -30,52 +30,24 @@
     <Info />
     <!--介紹 結束-->
 
-    <!--最新消息 開始-->
-    <div class="outline news-outline">
-      <div class="news-title">最新活動與消息</div>
-      <div class="outline scroll">
-        <div class="outblock full-news">
-          <div href="javascript:void(0)" class="news-main">
-            <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-            <div class="sign-block">
-              <div>活動</div>
-            </div>
-            <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-            <div class="date">2020.03.01</div>
-          </div>
-          <div href="javascript:void(0)" class="news-main">
-            <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-            <div class="sign-block">
-              <div>活動</div>
-            </div>
-            <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-            <div class="date">2020.03.01</div>
-          </div>
-          <div href="javascript:void(0)" class="news-main">
-            <div class="pic"><img src="@/assets/img/news/news-pic.jpg" alt="" /></div>
-            <div class="sign-block">
-              <div>活動</div>
-            </div>
-            <div class="main">How to make a website<br />look more attractive with illustrations.</div>
-            <div class="date">2020.03.01</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--最新消息 結束-->
+    <!-- 文章列表 最新消息 -->
+    <ArticleList />
+    <!-- 最新消息 結束 -->
   </div>
 </template>
 
 <script>
 import JoinUs from './components/JoinUs.vue'
 import Info from './components/Info.vue'
+import ArticleList from './components/ArticleList.vue'
 import { getHomePageInfo } from '@/apis/common.js'
 
 export default {
   name: 'Home',
   components: {
     JoinUs,
-    Info
+    Info,
+    ArticleList
   },
   data() {
     return {

@@ -377,9 +377,9 @@ export default {
       @media screen and (max-width: 960px) {
         margin-top: 52px;
       }
-      @media screen and (min-width: 600) and (max-width: 800px) {
-        transform: translateX(70px) scale(1.2);
-      }
+      // @media screen and (min-width: 600px) and (max-width: 800px) {
+      //   transform: translateX(70px) scale(1.2);
+      // }
     }
     &-body {
       flex: 0 0 50%;

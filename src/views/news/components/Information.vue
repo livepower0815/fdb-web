@@ -1,6 +1,6 @@
 <template>
   <div class="information">
-    <div v-for="item in 6" :key="item" class="info-card" @click="$emit('loadArticle')">
+    <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle')">
       <div class="info-card-img">
         <img src="@/assets/img/news/news-pic.jpg" alt="news" />
       </div>
@@ -17,7 +17,13 @@
 
 <script>
 export default {
-  name: 'Information'
+  name: 'Information',
+  props: {
+    infoList: {
+      type: Array,
+      default: () => [{}, {}, {}, {}, {}, {}]
+    }
+  }
 }
 </script>
 
@@ -47,6 +53,7 @@ export default {
         line-height: 22px;
         border-radius: 12px;
         text-align: center;
+        margin-top: 12px;
         margin-bottom: 12px;
       }
     }
