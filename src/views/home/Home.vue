@@ -2,18 +2,21 @@
   <div class="home">
     <!--Banner開始-->
     <div class="banner-limit">
-      <el-carousel arrow="always" :height="`${deviceWidth > 700 ? '60vw' : '88vw'}`" indicator-position="none" class="banner">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <div class="banner-item">
-            <div class="banner-title">返多寶-虛擬貨幣返佣先驅</div>
-            <div class="banner-sub">致力打造全最大虛擬貨幣反傭平台，讓虛擬貨幣交易變得更優惠、讓消費者不在為了不透明的手續費而煩惱</div>
+      <el-carousel
+        :arrow="bannerList > 1 ? 'always' : ''"
+        :height="`${deviceWidth > 700 ? '60vw' : '88vw'}`"
+        indicator-position="none"
+        class="banner"
+      >
+        <el-carousel-item v-for="(item, index) in bannerList" :key="index">
+          <!-- 手機版背景還沒串 -->
+          <div class="banner-item" :style="`backgroundImage: url('${item.webImageUrl}')`">
+            <div class="banner-title">{{ item.title }}</div>
+            <div class="banner-sub">{{ item.description }}</div>
             <div class="banner-more">
-              <div class="banner-button fdb-btn-primary-hover">了解更多</div>
+              <a :href="item.buttonUrl" class="banner-button fdb-btn-primary-hover">{{ item.buttonName }}</a>
             </div>
           </div>
-          <!-- <div class="banner-currencies">
-            <img src="@/assets/img/common/currencies.png" alt="currencies" />
-          </div> -->
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -66,6 +69,7 @@
 <script>
 import JoinUs from './components/JoinUs.vue'
 import Info from './components/Info.vue'
+import { getHomePageInfo } from '@/apis/common.js'
 
 export default {
   name: 'Home',
@@ -73,9 +77,27 @@ export default {
     JoinUs,
     Info
   },
+  data() {
+    return {
+      bannerList: []
+    }
+  },
   computed: {
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    }
+  },
+  created() {
+    this.getHomePageInfo()
+  },
+  methods: {
+    async getHomePageInfo() {
+      try {
+        const res = await getHomePageInfo({ lang: 0 })
+        this.bannerList = res.data
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }
@@ -103,7 +125,7 @@ export default {
       }
     }
     &-item {
-      background-image: url('../../assets/img/common/banner.svg');
+      // background-image: url('../../assets/img/common/banner.svg');
       background-size: cover;
       height: 60vw;
     }
@@ -126,19 +148,11 @@ export default {
       justify-content: center;
       align-items: center;
       .banner-button {
+        color: #ffffff;
         padding: 10px 48px;
         background: linear-gradient(180deg, #62ffff 9.47%, #3ea9cc 100%);
         border-radius: 8px;
         cursor: pointer;
-      }
-    }
-    &-currencies {
-      margin-top: 6vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 58vw;
       }
     }
   }
@@ -225,7 +239,7 @@ export default {
         }
       }
       &-item {
-        background-image: url('../../assets/img/home/banner-mobile.png');
+        // background-image: url('../../assets/img/home/banner-mobile.png');
         height: 88vw;
       }
       &-title {

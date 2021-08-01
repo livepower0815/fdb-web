@@ -7,3 +7,11 @@ export const uploadFile = data =>
     method: 'POST',
     data
   })
+
+// 首頁資訊
+export const getHomePageInfo = params =>
+  request({
+    url: '/api/Index/GetIndexPageInfo',
+    method: 'GET',
+    params
+  })
