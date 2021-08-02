@@ -30,12 +30,6 @@ const routes = [
     name: 'News',
     component: () => import('@/views/news/News.vue')
   },
-  // 消息資訊
-  {
-    path: '/news-info',
-    name: 'NewsInfo',
-    component: () => import('@/views/news-info/NewsInfo.vue')
-  },
   // 免責聲明
   {
     path: '/disclaimer',

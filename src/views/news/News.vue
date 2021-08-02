@@ -26,13 +26,13 @@
       </div>
 
       <!-- all info -->
-      <AllInfo v-if="activeTab === 'all'" />
+      <AllInfo v-if="activeTab === 'all' && activeTab !== 'article'" @loadArticle="loadArticle" />
 
       <!-- 文章列表 -->
-      <Information @loadArticle="loadArticle" />
+      <Information v-if="activeTab !== 'article'" @loadArticle="loadArticle" />
 
       <!-- 文章內容 -->
-      <Article />
+      <Article v-if="activeTab === 'article'" />
     </div>
     <!--內容 結束-->
   </div>
@@ -76,18 +76,57 @@ export default {
     height: 30vw;
     background-image: url('../../assets/img/news/news-banner.png');
     background-size: cover;
+    @media screen and (max-width: 700px) {
+      height: 80vw;
+      background-image: url('../../assets/img/news/news-banner-mobile.png');
+    }
     .banner-content {
       position: absolute;
       left: 5%;
       top: 32%;
+      @media screen and (max-width: 1370px) {
+        top: 36%;
+      }
+      @media screen and (max-width: 500px) {
+        top: 34%;
+      }
       .banner-title {
         font-weight: bold;
         font-size: 48px;
         line-height: 71px;
+        @media screen and (max-width: 1370px) {
+          font-size: 36px;
+          line-height: 53px;
+        }
+        @media screen and (max-width: 960px) {
+          font-size: 28px;
+          line-height: 41px;
+        }
+        @media screen and (max-width: 700px) {
+          font-size: 34px;
+          line-height: 52px;
+        }
+        @media screen and (max-width: 500px) {
+          font-size: 22px;
+          line-height: 33px;
+          margin-bottom: 12px;
+        }
       }
       .banner-info {
         font-size: 16px;
         line-height: 24px;
+        @media screen and (max-width: 960px) {
+          font-size: 14px;
+          line-height: 21px;
+        }
+        @media screen and (max-width: 700px) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+        @media screen and (max-width: 500px) {
+          font-size: 12px;
+          line-height: 18px;
+        }
       }
     }
   }
@@ -98,17 +137,31 @@ export default {
     @media screen and (max-width: 1370px) {
       padding: 0 4%;
     }
+    @media screen and (max-width: 960px) {
+      padding: 0 6%;
+    }
     .menu-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 80px;
+      @media screen and (max-width: 500px) {
+        height: 54px;
+      }
       .menu-left {
         display: flex;
         .menu-item {
           font-size: 20px;
           margin-right: 60px;
           cursor: pointer;
+          transition: color 0.4s;
+          @media screen and (max-width: 700px) {
+            margin-right: 44px;
+          }
+          @media screen and (max-width: 500px) {
+            font-size: 14px;
+            margin-right: 22px;
+          }
           &:hover,
           &.active {
             color: #62ffff;
@@ -120,6 +173,9 @@ export default {
         .icon-search {
           width: 20px;
           cursor: pointer;
+          @media screen and (max-width: 500px) {
+            width: 16px;
+          }
         }
         .input {
           margin-left: 8px;
@@ -129,6 +185,14 @@ export default {
           width: 140px;
           opacity: 1;
           transition: all 0.4s;
+          @media screen and (max-width: 700px) {
+            width: 100px;
+          }
+          @media screen and (max-width: 500px) {
+            margin-left: 4px;
+            font-size: 12px;
+            width: 50px;
+          }
           &.hide {
             width: 0px;
             opacity: 0;

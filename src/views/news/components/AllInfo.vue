@@ -1,6 +1,6 @@
 <template>
   <div class="all-info">
-    <div class="info-main">
+    <div class="info-main" @click="$emit('loadArticle')">
       <div class="img">
         <img src="@/assets/img/news/news-announced-pic.jpg" alt="announced" />
       </div>
@@ -24,6 +24,7 @@
         ]"
         :key="item.class"
         class="list-item"
+        @click="$emit('loadArticle')"
       >
         <div class="list-main">
           <div :class="`list-tag info-bg-${item.class}`">{{ item.name }}</div>
@@ -49,8 +50,18 @@ export default {
   display: flex;
   padding-bottom: 20px;
   border-bottom: 1px #ffffff solid;
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
   .info-main {
     width: 36%;
+    cursor: pointer;
+    @media screen and (max-width: 1370px) {
+      width: 40%;
+    }
+    @media screen and (max-width: 960px) {
+      width: 41%;
+    }
     .img {
       width: auto;
     }
@@ -69,19 +80,32 @@ export default {
       font-weight: bold;
       font-size: 24px;
       line-height: 32px;
-      text-align: justify;
       margin-bottom: 8px;
+      letter-spacing: 0.03em;
+      @media screen and (max-width: 1370px) {
+        font-size: 22px;
+      }
+      @media screen and (max-width: 960px) {
+        font-size: 18px;
+        line-height: 28px;
+      }
     }
     .info-content {
       font-size: 16px;
       line-height: 150%;
       color: #e5e5e5;
       margin-bottom: 10px;
+      @media screen and (max-width: 960px) {
+        font-size: 14px;
+      }
     }
     .info-date {
       font-size: 16px;
       line-height: 150%;
       color: #e5e5e5;
+      @media screen and (max-width: 960px) {
+        font-size: 14px;
+      }
     }
   }
   .info-list {
@@ -90,9 +114,13 @@ export default {
     .list-item {
       display: flex;
       margin-bottom: 36px;
+      cursor: pointer;
       .list-main {
         flex: 1;
         margin-right: 40px;
+        @media screen and (max-width: 960px) {
+          margin-right: 10px;
+        }
         .list-tag {
           width: 100px;
           font-size: 14px;
@@ -105,17 +133,33 @@ export default {
           font-weight: bold;
           font-size: 24px;
           line-height: 32px;
-          text-align: justify;
           margin-bottom: 4px;
+          letter-spacing: 0.03em;
+          @media screen and (max-width: 1370px) {
+            font-size: 22px;
+          }
+          @media screen and (max-width: 960px) {
+            font-size: 18px;
+            line-height: 22px;
+          }
         }
         .list-date {
           font-size: 16px;
           line-height: 150%;
           color: #e5e5e5;
+          @media screen and (max-width: 960px) {
+            font-size: 14px;
+          }
         }
       }
       .list-img {
         width: 186px;
+        @media screen and (max-width: 1370px) {
+          width: 115px;
+        }
+        @media screen and (max-width: 960px) {
+          width: 109px;
+        }
       }
     }
   }

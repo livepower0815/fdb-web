@@ -3,7 +3,7 @@
     <!--Banner開始-->
     <div class="banner-limit">
       <el-carousel
-        :arrow="bannerList > 1 ? 'always' : ''"
+        :arrow="bannerList.length > 1 ? 'always' : ''"
         :height="`${deviceWidth > 700 ? '60vw' : '88vw'}`"
         indicator-position="none"
         class="banner"

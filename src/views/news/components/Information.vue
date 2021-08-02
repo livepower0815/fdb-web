@@ -10,6 +10,7 @@
       <div class="info-card-title">
         How to make a website look more attractive with illustrations.
       </div>
+      <div class="info-card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
       <div class="info-card-date">2020.03.01</div>
     </div>
   </div>
@@ -43,6 +44,18 @@ export default {
     border-radius: 8px;
     box-sizing: border-box;
     cursor: pointer;
+    @media screen and (max-width: 1370px) {
+      padding: 14px;
+    }
+    @media screen and (max-width: 960px) {
+      flex: 0 0 48%;
+    }
+    @media screen and (max-width: 700px) {
+      flex: 0 0 100%;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 10px;
+    }
     &-img {
       width: auto;
     }
@@ -61,6 +74,26 @@ export default {
       font-size: 24px;
       line-height: 32px;
       margin-bottom: 12px;
+      @media screen and (max-width: 1370px) {
+        font-size: 22px;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+    &-content {
+      font-size: 16px;
+      line-height: 150%;
+      color: #e5e5e5;
+      margin-bottom: 8px;
+      display: none;
+      @media screen and (max-width: 700px) {
+        display: block;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 14px;
+      }
     }
     &-date {
       font-size: 16px;
