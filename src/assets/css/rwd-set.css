@@ -9,6 +9,31 @@
 @media screen and (min-width: 1000px) and (max-width: 1346px) {
 .outblock{width:95%;max-width:1300px;height:auto;display:block;margin:0 auto;}
 }
+
+/*personal*/
+.banner-block.personal>.outblock{top: 20%;margin-right: 5%;}
+.banner-block.personal>.outblock>div.title{margin-bottom:15px;font-size:30px;}
+.banner-block.personal>.outblock>a{width: 30px;height: 30px;}
+.personal-main-block{max-width:calc(30% - 8.5px);margin-right:17px;}
+.personal-main-name{font-size:24px;}
+.personal-main-sub{font-size:14px;}
+.personal-main-email{font-size:14px;}
+a.personal-main-btn{width:150px;height:auto;padding:15px 50px;line-height:14px;font-size:14px;}
+.personal-function-block{max-width:calc(70% - 8.5px);}
+.personal-function-block>div.menu-block{transform:none;left:0%;}
+.personal-function-main>div.title{font-size: 14px;}
+.personal-function-main>div.exchange-block>div.main{width:46%;margin-right:40px;}
+.personal-function-main>div.exchange-block>div.main:nth-last-child(1){margin-right:0px;}
+.personal-function-main>div.exchange-block>div.main>div{height:76px;}
+.personal-function-main>div.exchange-block>div.main>div>div.title{width:100%;margin-bottom:5px;margin-right:0px;}
+.personal-function-main>div.exchange-block>div.main>div>.input{width:calc(100% - 10px);}
+
+.personal-take-cash-adress-main>input.main{width:calc(100% - 200px);font-size:14px;}
+.personal-take-cash-adress-main>div.main{font-size:14px;}
+
+.personal-edit-info-block>div.info-input-block>div.main>div.title{margin-bottom:7px;margin-right:0px;}
+.personal-edit-info-block>div.info-input-block>div.main>input.input{width:100%;}
+/*personal*/
 /*1024*/
 
 /*768*/

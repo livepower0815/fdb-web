@@ -5,11 +5,13 @@
         <div class="controller-store">
           <div class="label">選擇交易所：</div>
           <select v-model="storeSelect">
-            <option :value="''" disabled>請選擇交易所</option>
+            <!-- <option :value="''" disabled>請選擇交易所</option> -->
             <option value="bybit">bybit</option>
           </select>
         </div>
         <div class="controller-btns">
+          <div v-if="widthWithiIn(['L', 'M', 'S'])" class="fdb-btn-info btn" style="margin-right: 8px;">排序</div>
+          <div v-if="widthWithiIn(['L', 'M', 'S'])" class="fdb-btn-info btn" style="margin-right: 8px;">篩選</div>
           <div
             class="fdb-btn-info btn"
             :class="{ 'click-disabled': selectIds.length === 0 }"
@@ -27,30 +29,43 @@
             <tr>
               <th><input v-model="selectAllCheckBox" type="checkbox" class="check" /></th>
               <th>會員名稱</th>
-              <th style="text-align: center;">聯絡資訊</th>
-              <th style="width: 156px;">交易幣別</th>
-              <th style="text-align: center;">反佣交易量</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">聯絡資訊</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">交易幣別</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">反佣交易量</th>
               <th style="text-align: center;">
                 <TableFilter
+                  v-if="widthWithiIn(['MAX', 'XXL', 'XL'])"
                   v-model="sreachForm.rgid"
                   title="所在組別"
                   :items="availableGroups.map(item => ({ name: item.name, key: item.rgid }))"
                 />
+                <span v-else>所在組別</span>
               </th>
-              <th style="width: 142px;" @click="sortData('createdate')">
+              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;" @click="sortData('createdate')">
                 <Sort title="加入日期" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
-              <th style="width: 142px;" @click="sortData('lastdate')">
+              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;" @click="sortData('lastdate')">
                 <Sort title="最後交易日" sort="lastdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
+              <th v-if="widthWithiIn(['XL', 'L', 'M', 'S'])" style="width: 30px;"></th>
             </tr>
           </thead>
           <tbody>
             <template v-for="(row, index) in tableData">
               <tr :key="`tr-1-${index}`">
                 <td><input v-model="selectIdsCheckBox" type="checkbox" class="check" :value="row.fdb_id" /></td>
-                <td>{{ row.name }}</td>
-                <td style="text-align: center;">
+                <td>
+                  <span>{{ row.name }}</span>
+                  <span v-if="widthWithiIn(['S'])" style="margin-left: 12px;">
+                    <el-tooltip effect="dark" :content="row.email" placement="top">
+                      <img class="connect-icon" src="@/assets/img/personal/email.png" alt="email" />
+                    </el-tooltip>
+                    <el-tooltip effect="dark" :content="`${row.areaCode} ${row.phone}`" placement="top">
+                      <img class="connect-icon" src="@/assets/img/personal/phone.png" alt="phone" />
+                    </el-tooltip>
+                  </span>
+                </td>
+                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">
                   <el-tooltip effect="dark" :content="row.email" placement="top">
                     <img class="connect-icon" src="@/assets/img/personal/email.png" alt="email" />
                   </el-tooltip>
@@ -58,7 +73,7 @@
                     <img class="connect-icon" src="@/assets/img/personal/phone.png" alt="phone" />
                   </el-tooltip>
                 </td>
-                <td>
+                <td v-if="widthWithiIn(['MAX', 'XXL'])">
                   <CoinIcon
                     v-for="(coin, coinIndex) in row.userCoinModels"
                     :key="coinIndex"
@@ -66,7 +81,7 @@
                     :coin-type="currencyMap[coin.currencyType]"
                   />
                 </td>
-                <td style="text-align: center;">
+                <td v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">
                   <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">檢視資訊</span>
                 </td>
                 <td style="text-align: center;">
@@ -75,16 +90,26 @@
                   </div>
                 </td>
                 <!-- TODO: data format -->
-                <td>{{ row.createdate }}</td>
-                <td>{{ row.lastdate || '-' }}</td>
+                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">{{ row.createdate }}</td>
+                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">
+                  {{ row.lastdate || '-' }}
+                  <span></span>
+                </td>
+                <td v-if="widthWithiIn(['XL', 'L', 'M', 'S'])" style="text-align: center;" @click="row.showInfo = !row.showInfo">
+                  <i :class="`el-icon-caret-${row.showInfo ? 'top' : 'bottom'}`"></i>
+                </td>
               </tr>
               <tr v-if="row.showInfo" :key="`tr-2-${index}`" class="detail">
-                <td colspan="8">
-                  <div class="detail-content">
+                <td :colspan="detailColspan">
+                  <div v-if="widthWithiIn(['MAX', 'XXL'])" class="detail-content">
                     <div v-for="(coin, coinIndex) in row.userCoinModels" :key="coinIndex" class="coin-info">
                       <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />
                       <span>{{ currencyMap[coin.currencyType] }} - {{ coin.coinCount }}</span>
                     </div>
+                  </div>
+                  <!-- TODO: 開始切ＲＷＤ -->
+                  <div v-else class="detail-content">
+                    小小的東西喔！！！
                   </div>
                 </td>
               </tr>
@@ -101,7 +126,7 @@
     <el-dialog
       title="編輯推薦人組別"
       :visible.sync="setGroupDialog.show"
-      width="488px"
+      :width="widthSize !== 'S' ? '488px' : '290px'"
       :show-close="false"
       custom-class="fbd-dialog set-group-dialog"
     >
@@ -144,7 +169,7 @@
     <el-dialog
       title="管理推薦人組別"
       :visible.sync="editGroupDialog.show"
-      width="488px"
+      :width="widthSize !== 'S' ? '488px' : '290px'"
       :show-close="false"
       custom-class="fbd-dialog edit-group-dialog"
     >
@@ -191,7 +216,7 @@ export default {
   data() {
     return {
       isLoading: false,
-      storeSelect: '',
+      storeSelect: 'bybit',
       tableData: [],
       sreachForm: {
         rgid: -1
@@ -221,6 +246,22 @@ export default {
     }
   },
   computed: {
+    widthSize() {
+      return this.$store.getters['app/widthSize']
+    },
+    detailColspan() {
+      switch (this.widthSize) {
+        case 'XL':
+          return 7
+        case 'L':
+        case 'M':
+          return 5
+        case 'S':
+          return 4
+        default:
+          return 8
+      }
+    },
     groupList() {
       return this.$store.state.group.groupList
     },
@@ -377,6 +418,9 @@ export default {
         console.error(error)
       }
       this.editGroupDialog.isLoading = false
+    },
+    widthWithiIn(sizes) {
+      return sizes.includes(this.widthSize)
     }
   }
 }
@@ -386,12 +430,24 @@ export default {
 .set-group-dialog {
   .dialog-body {
     padding: 0 20px;
+    @media screen and (max-width: 500px) {
+      padding: 0;
+    }
     .group-select {
       display: flex;
       align-items: center;
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
+      }
       .label {
         font-size: 18px;
         padding-right: 20px;
+        @media screen and (max-width: 500px) {
+          width: 100%;
+          font-size: 16px;
+          padding-right: 0;
+          margin-bottom: 8px;
+        }
       }
       select {
         flex: 1;
@@ -403,6 +459,12 @@ export default {
         box-sizing: border-box;
         border-radius: 8px;
         padding-left: 14px;
+        @media screen and (max-width: 500px) {
+          flex: 0 0 auto;
+          height: 38px;
+          font-size: 14px;
+          width: 100%;
+        }
       }
     }
     .line {
@@ -411,6 +473,9 @@ export default {
       font-size: 16px;
       width: 100%;
       line-height: 70px;
+      @media screen and (max-width: 500px) {
+        line-height: 52px;
+      }
       &::before {
         position: absolute;
         left: 0;
@@ -435,6 +500,12 @@ export default {
         display: flex;
         margin-bottom: 30px;
         align-items: center;
+        @media screen and (max-width: 500px) {
+          margin-bottom: 14px;
+        }
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+        }
         &:last-child {
           margin-bottom: 0px;
         }
@@ -443,6 +514,13 @@ export default {
           text-align: end;
           font-size: 18px;
           padding-right: 20px;
+          @media screen and (max-width: 500px) {
+            width: 100%;
+            font-size: 16px;
+            padding-right: 0;
+            text-align: start;
+            margin-bottom: 8px;
+          }
         }
         input {
           flex: 1;
@@ -454,11 +532,22 @@ export default {
           padding-left: 10px;
           background-color: #252c3d;
           font-size: 16px;
+          @media screen and (max-width: 500px) {
+            flex: 0 0 auto;
+            height: 38px;
+            width: 100%;
+            font-size: 14px;
+          }
         }
         .color-picker {
           flex: 1;
           display: flex;
           justify-content: space-around;
+          @media screen and (max-width: 500px) {
+            margin-top: 10px;
+            width: 100%;
+            flex: 0 0 auto;
+          }
           .color-item {
             width: 16px;
             height: 16px;
@@ -479,6 +568,9 @@ export default {
 .edit-group-dialog {
   .dialog-body {
     padding: 0 20px;
+    @media screen and (max-width: 500px) {
+      padding: 0;
+    }
     .group-item {
       display: flex;
       align-items: center;
@@ -496,6 +588,10 @@ export default {
         padding-left: 10px;
         background-color: #252c3d;
         font-size: 16px;
+        @media screen and (max-width: 500px) {
+          height: 38px;
+          font-size: 14px;
+        }
       }
       .color-picker {
         display: inline-flex;
@@ -509,6 +605,10 @@ export default {
         color: #ffffff;
         font-size: 16px;
         cursor: pointer;
+        @media screen and (max-width: 500px) {
+          height: 38px;
+          font-size: 14px;
+        }
         &:hover {
           color: #62ffff;
         }
@@ -544,9 +644,19 @@ export default {
       align-items: center;
       padding: 0 12px;
       box-sizing: border-box;
+      @media screen and (max-width: 960px) {
+        flex-direction: column;
+      }
+      @media screen and (max-width: 500px) {
+        padding: 0 4px;
+      }
       &-store {
         display: flex;
         align-items: center;
+        @media screen and (max-width: 960px) {
+          width: 100%;
+          margin-bottom: 20px;
+        }
         .label {
           font-family: 'Avenir';
           color: #62ffff;
@@ -566,9 +676,19 @@ export default {
       }
       &-btns {
         display: flex;
+        @media screen and (max-width: 960px) {
+          width: 100%;
+        }
         .btn {
           padding: 0px 26px;
           font-size: 14px;
+          @media screen and (max-width: 960px) {
+            flex: 1;
+          }
+          @media screen and (max-width: 500px) {
+            padding: 0px;
+            font-size: 12px;
+          }
         }
       }
     }
@@ -577,6 +697,9 @@ export default {
         width: 100%;
         margin-top: 20px;
         margin-bottom: 10px;
+        @media screen and (max-width: 500px) {
+          font-size: 14px;
+        }
         tr {
           height: 50px;
           th {
