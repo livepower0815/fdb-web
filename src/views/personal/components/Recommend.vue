@@ -107,9 +107,24 @@
                       <span>{{ currencyMap[coin.currencyType] }} - {{ coin.coinCount }}</span>
                     </div>
                   </div>
-                  <!-- TODO: 開始切ＲＷＤ -->
                   <div v-else class="detail-content">
-                    小小的東西喔！！！
+                    <div v-if="widthWithiIn(['L', 'M', 'S'])" class="content-item">
+                      <div class="item-title">加入日期</div>
+                      <div class="item-body">{{ row.createdate }}</div>
+                    </div>
+                    <div v-if="widthWithiIn(['L', 'M', 'S'])" class="content-item">
+                      <div class="item-title">最後交易日</div>
+                      <div class="item-body">{{ row.lastdate }}</div>
+                    </div>
+                    <div class="content-item">
+                      <div class="item-title">反佣交易量</div>
+                      <div class="item-body">
+                        <div v-for="(coin, coinIndex) in row.userCoinModels" :key="coinIndex" class="detail-coin-info">
+                          <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />
+                          <span>{{ currencyMap[coin.currencyType] }} - {{ coin.coinCount }}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -748,6 +763,10 @@ export default {
                 background-color: #05060866;
                 .detail-content {
                   display: flex;
+                  padding: 20px;
+                  @media screen and (max-width: 1370px) {
+                    flex-direction: column;
+                  }
                   .coin-info {
                     font-family: 'Avenir';
                     display: inline-flex;
@@ -757,6 +776,42 @@ export default {
                     margin: 0 13px;
                     .coin {
                       width: 20px;
+                    }
+                  }
+                  .content-item {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: 20px;
+                    @media screen and (max-width: 500px) {
+                      font-size: 12px;
+                    }
+                    &:last-child {
+                      margin-bottom: 0;
+                    }
+                    .item-title {
+                      width: 100px;
+                      text-align: start;
+                    }
+                    .item-body {
+                      flex: 1;
+                      display: flex;
+                      justify-content: flex-start;
+                      flex-wrap: wrap;
+                      .detail-coin-info {
+                        font-family: 'Avenir';
+                        display: inline-flex;
+                        align-items: center;
+                        font-size: 14px;
+                        line-height: 14px;
+                        margin-right: 12px;
+                        margin-bottom: 12px;
+                        @media screen and (max-width: 500px) {
+                          font-size: 12px;
+                        }
+                        .coin {
+                          width: 20px;
+                        }
+                      }
                     }
                   }
                 }
