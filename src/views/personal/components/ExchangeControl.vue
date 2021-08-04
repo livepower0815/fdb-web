@@ -6,10 +6,9 @@
       <div class="main">
         <div>
           <div class="title">*選擇交易所</div>
-          <select v-model="formData.csgid" class="input">
-            <option value="">請選擇交易所</option>
-            <option v-for="(csg, index) in csgList" :key="index" :value="csg.csgid">{{ csg.csgName }}</option>
-          </select>
+          <el-select v-model="formData.csgid" class="fdb-select input select-M" popper-class="fdb-select" style="padding-left: 0px;">
+            <el-option v-for="(csg, index) in csgList" :key="index" :label="csg.csgName" :value="csg.csgid" />
+          </el-select>
         </div>
         <div>
           <div class="title">*交易所UID</div>
@@ -20,9 +19,14 @@
         <div>
           <div class="title">行動電話</div>
           <div class="split-input">
-            <select v-model="formData.areaCode" class="input" style="width: 80px; margin-right: 8px;">
-              <option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :value="phoneArea.code">{{ phoneArea.code }}</option>
-            </select>
+            <el-select
+              v-model="formData.areaCode"
+              class="fdb-select input select-M"
+              popper-class="fdb-select"
+              style="width: 80px; margin-right: 8px;"
+            >
+              <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code" />
+            </el-select>
             <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="請輸入行動電話" autocomplete="off" />
           </div>
         </div>
@@ -68,11 +72,13 @@
         </div>
         <div class="check-content-item">
           <div class="title">行動電話</div>
-          <div class="value">{{ formData.areaCode }} {{ formData.phone }}</div>
+          <div v-if="formData.phone" class="value">{{ formData.areaCode }} {{ formData.phone }}</div>
+          <div v-else class="value" style="opacity: 0.6;">未填寫</div>
         </div>
         <div class="check-content-item">
           <div class="title">電子郵件</div>
-          <div class="value">{{ formData.email }}</div>
+          <div v-if="formData.email" class="value">{{ formData.email }}</div>
+          <div v-else class="value" style="opacity: 0.6;">未填寫</div>
         </div>
       </div>
       <span v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
@@ -143,6 +149,10 @@ export default {
       // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,10}$/.test(this.formData.fdB_UID)) {
       //   return this.$message.error('交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號')
       // }
+      if (!this.formData.fdB_UID) {
+        return this.$message.error('請輸入交易所ID')
+      }
+
       // 行動電話：僅限數字不含特殊符號
       if (this.formData.phone && !/^\d+$/.test(this.formData.phone)) {
         return this.$message.error('行動電話：僅限數字不含特殊符號')
@@ -160,7 +170,7 @@ export default {
       try {
         const postData = {
           csgid: this.formData.csgid,
-          areaCode: this.formData.areaCode,
+          areaCode: this.formData.phone ? this.formData.areaCode : '',
           phone: this.formData.phone,
           fdB_UID: this.formData.fdB_UID,
           email: this.formData.email
@@ -170,9 +180,6 @@ export default {
         this.resetForm()
         this.getBindStores()
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '綁定失敗')
-        }
         console.error(error)
       }
       this.isLoading = false
@@ -206,7 +213,6 @@ export default {
       background: #252c3d;
       box-sizing: border-box;
       border-radius: 8px;
-      padding-left: 10px;
     }
   }
 

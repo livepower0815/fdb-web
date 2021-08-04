@@ -66,18 +66,18 @@
             </span>
           </div>
           <div class="chart-filter-select">
-            <select v-model="dashboardChart.dateRange">
-              <option value="week">一週</option>
-              <option value="mouth">一月</option>
-              <option value="quarter">一季</option>
-            </select>
-            <select v-model="dashboardChart.currencyType">
-              <option :value="1">BTC</option>
-              <option :value="2">ETH</option>
-              <option :value="3">XRP</option>
-              <option :value="4">EOS</option>
-              <option :value="5">USDT</option>
-            </select>
+            <el-select v-model="dashboardChart.dateRange" class="fdb-select select" popper-class="fdb-select">
+              <el-option label="一週" :value="'week'" />
+              <el-option label="一月" :value="'mouth'" />
+              <el-option label="一季" :value="'quarter'" />
+            </el-select>
+            <el-select v-model="dashboardChart.currencyType" class="fdb-select select" popper-class="fdb-select">
+              <el-option label="BTC" :value="1" />
+              <el-option label="ETH" :value="2" />
+              <el-option label="XRP" :value="3" />
+              <el-option label="EOS" :value="4" />
+              <el-option label="USDT" :value="5" />
+            </el-select>
           </div>
         </div>
 
@@ -361,14 +361,18 @@ export default {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 960px) {
           flex-direction: column;
         }
         &-menu {
-          @media screen and (max-width: 700px) {
+          @media screen and (max-width: 960px) {
             display: flex;
             overflow: auto;
             margin-bottom: 12px;
+            justify-content: space-around;
+          }
+          @media screen and (max-width: 500px) {
+            justify-content: flex-start;
           }
           .filter-item {
             font-size: 16px;
@@ -378,6 +382,7 @@ export default {
             cursor: pointer;
             @media screen and (max-width: 1346px) {
               font-size: 14px;
+              margin-right: 10px;
             }
             @media screen and (max-width: 960px) {
               margin-right: 6px;
@@ -396,25 +401,13 @@ export default {
           }
         }
         &-select {
-          @media screen and (max-width: 700px) {
+          @media screen and (max-width: 960px) {
             text-align: end;
             margin-bottom: 12px;
           }
-          select {
+          .select {
             width: 79px;
-            height: 29px;
-            border-radius: 5px;
-            background-color: #050608;
-            border: 0;
-            line-height: 29px;
-            color: #62ffff;
-            padding-left: 10px;
             margin-right: 10px;
-            @media screen and (max-width: 960px) {
-              width: 64px;
-              padding-left: 6px;
-              margin-right: 6px;
-            }
           }
         }
       }

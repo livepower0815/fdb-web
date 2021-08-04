@@ -78,9 +78,7 @@ export default {
         this.$message.success('設定成功')
         this.$router.push({ name: 'Login' })
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '建立失敗')
-        } else {
+        if (!error.isHttpError) {
           this.$message.error(error.message)
         }
         console.error(error)

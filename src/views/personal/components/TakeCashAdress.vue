@@ -129,9 +129,7 @@ export default {
         this.authCore = ''
         this.checkDialog.show = true
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '連線失敗')
-        } else {
+        if (!error.isHttpError) {
           this.$message.error(error.message)
         }
         console.error(error)
@@ -171,9 +169,6 @@ export default {
         this.checkDialog.show = false
         this.cancelEdit()
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '驗證失敗')
-        }
         console.log(error)
       }
       this.isValidLoading = false

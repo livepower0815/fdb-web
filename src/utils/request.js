@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
+import { Message } from 'element-ui'
 
 // create an axios instance
 const service = axios.create({
@@ -40,16 +41,18 @@ service.interceptors.response.use(
   error => {
     error.isHttpError = true
     const { response } = error
-
-    switch (response.status) {
-      case 400:
-        console.error(error)
-        break
-      case 401:
-        console.error(error)
-        break
-      default:
-        console.error(error)
+    if (response) {
+      switch (response.status) {
+        case 400:
+          console.error(error)
+          break
+        case 401:
+          console.error(error)
+          break
+        default:
+          console.error(error)
+      }
+      Message.error(error.response?.data?.resultMsg || '連線錯誤')
     }
     return Promise.reject(error)
   }

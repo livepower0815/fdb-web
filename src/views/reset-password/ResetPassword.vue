@@ -53,9 +53,7 @@ export default {
         await resetPassword({ email: this.email })
         this.dialogVisible = true
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '重置失敗')
-        } else {
+        if (!error.isHttpError) {
           this.$message.error(error.message)
         }
         console.error(error)

@@ -22,7 +22,7 @@
           <CoinIcon class="coin-icon" :coin-type="currencyMap[coinData.currencyType]" />
           <div class="coin-name">{{ currencyMap[coinData.currencyType] }}</div>
           <div class="coin-count">{{ coinData.coinCount }}</div>
-          <template v-if="deviceWidth > 800">
+          <template v-if="deviceWidth > 960">
             <div v-if="coinData.bindStatus === 0" class="coin-status unbind">未綁定</div>
             <div v-if="coinData.bindStatus === 1" class="coin-status bind">已綁定</div>
           </template>

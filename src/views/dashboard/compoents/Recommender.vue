@@ -214,9 +214,6 @@ export default {
     this.getRecommender(true)
   },
   methods: {
-    test() {
-      console.log('test')
-    },
     async getRecommender(resetPager = false) {
       if (resetPager) {
         this.pager.pageIndex = 1
@@ -236,7 +233,6 @@ export default {
           order: this.pager.order
         }
         const res = await getRecommender(reqBody)
-        console.log(res)
         this.tableData = res.data
         this.pager.totalCount = res.totalCount
       } catch (error) {

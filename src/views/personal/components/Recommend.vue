@@ -192,10 +192,16 @@
       <div v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="dialog-body">
         <div class="group-select" :class="{ 'click-disabled': setGroupDialog.newGroupName || availableGroups.length === 0 }">
           <div class="label">選擇組別</div>
-          <select v-model="setGroupDialog.groupSelect">
-            <option :value="''" disabled>請選擇現有組別</option>
-            <option v-for="(group, index) in availableGroups" :key="index" :value="group.rgid">{{ group.name }}</option>
-          </select>
+          <el-select
+            v-model="setGroupDialog.groupSelect"
+            class="fdb-select select-L"
+            popper-class="fdb-select"
+            :style="`${widthWithiIn(['S']) ? 'width: 100%;' : ''}`"
+            placeholder="請選擇現有組別"
+            clearable
+          >
+            <el-option v-for="(group, index) in availableGroups" :key="index" :label="group.name" :value="group.rgid" />
+          </el-select>
         </div>
         <div class="line">or</div>
         <div class="new-group" :class="{ 'click-disabled': setGroupDialog.groupSelect || availableGroups.length > 9 }">
@@ -509,8 +515,10 @@ export default {
     .group-select {
       display: flex;
       align-items: center;
+      padding-left: 20px;
       @media screen and (max-width: 500px) {
         flex-direction: column;
+        padding-left: 0px;
       }
       .label {
         font-size: 18px;

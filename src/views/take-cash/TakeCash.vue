@@ -233,11 +233,6 @@ export default {
         this.step = 3
         this.$refs.storeRef.getExchangeInfo()
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '出金失敗')
-        } else {
-          this.$message.error(error.message)
-        }
         console.error(error)
       }
       this.isLoading = false

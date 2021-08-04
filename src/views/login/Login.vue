@@ -20,6 +20,7 @@
           <div class="title flex-center" style="justify-content: flex-start;">
             圖形驗證碼：
             <img v-if="captchaImg" :src="`data:image\/(png|jpg);base64,${captchaImg}`" alt="captchaImg" style="width: 80px;" />
+            <div v-else v-loading="true" style="height: 35px; width: 80px;" element-loading-background="rgba(0, 0, 0, 0.5)"></div>
             <i class="el-icon-refresh-right captcha-refresh" @click="init"></i>
           </div>
           <input v-model="formData.captchaCode" type="text" class="input" placeholder="請輸入圖形驗證碼" />
@@ -69,6 +70,8 @@ export default {
   methods: {
     async init() {
       try {
+        this.formData.captchaCode = ''
+        this.captchaImg = ''
         const res = await getCaptchaImage()
         this.captchaImg = res.img
       } catch (error) {
@@ -89,9 +92,7 @@ export default {
         this.$message.success('登入成功')
         this.$router.push({ name: 'Dashboard' }, () => {})
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '登入失敗')
-        } else {
+        if (!error.isHttpError) {
           this.$message.error(error.message)
         }
         console.error(error)

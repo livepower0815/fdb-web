@@ -18,9 +18,14 @@
         <div class="register-main">
           <div class="title">行動電話</div>
           <div class="split-input">
-            <select v-model="formData.areaCode" class="input" style="width: 80px; margin-right: 8px;">
-              <option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :value="phoneArea.code">{{ phoneArea.code }}</option>
-            </select>
+            <el-select
+              v-model="formData.areaCode"
+              class="fdb-select input select-L"
+              popper-class="fdb-select"
+              style="width: 90px; margin-right: 8px; padding-left: 0px;"
+            >
+              <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code" />
+            </el-select>
             <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="912345678" autocomplete="off" />
           </div>
         </div>
@@ -125,9 +130,7 @@ export default {
         await register(postData)
         this.dialogVisible = true
       } catch (error) {
-        if (error.isHttpError) {
-          this.$message.error(error.response?.data?.resultMsg || '註冊失敗')
-        } else {
+        if (!error.isHttpError) {
           this.$message.error(error.message)
         }
         console.error(error.message)

@@ -10,7 +10,7 @@
       >
         <el-carousel-item v-for="(item, index) in bannerList" :key="index">
           <!-- 手機版背景還沒串 -->
-          <div class="banner-item" :style="`backgroundImage: url('${item.webImageUrl}')`">
+          <div class="banner-item" :style="`backgroundImage: url('${deviceWidth > 700 ? item.webImageUrl : item.mobileAImageUrl}')`">
             <div class="banner-title">{{ item.title }}</div>
             <div class="banner-sub">{{ item.description }}</div>
             <div class="banner-more">
