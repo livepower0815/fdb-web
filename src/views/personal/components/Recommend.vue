@@ -4,14 +4,29 @@
       <div class="controller">
         <div class="controller-store">
           <div class="label">選擇交易所：</div>
-          <select v-model="storeSelect">
-            <!-- <option :value="''" disabled>請選擇交易所</option> -->
-            <option value="bybit">bybit</option>
-          </select>
+          <el-select v-model="storeSelect" class="fdb-select" popper-class="fdb-select">
+            <el-option label="bybit" :value="'bybit'" />
+          </el-select>
         </div>
         <div class="controller-btns">
-          <div v-if="widthWithiIn(['L', 'M', 'S'])" class="fdb-btn-info btn" style="margin-right: 8px;">排序</div>
-          <div v-if="widthWithiIn(['L', 'M', 'S'])" class="fdb-btn-info btn" style="margin-right: 8px;">篩選</div>
+          <div
+            v-if="widthWithiIn(['L', 'M', 'S'])"
+            class="fdb-btn-info btn"
+            :class="{ active: controllerMode === 'sort' }"
+            style="margin-right: 8px;"
+            @click="setControlMode('sort')"
+          >
+            排序
+          </div>
+          <div
+            v-if="widthWithiIn(['L', 'M', 'S'])"
+            class="fdb-btn-info btn"
+            :class="{ active: controllerMode === 'filter' }"
+            style="margin-right: 8px;"
+            @click="setControlMode('filter')"
+          >
+            篩選
+          </div>
           <div
             class="fdb-btn-info btn"
             :class="{ 'click-disabled': selectIds.length === 0 }"
@@ -21,6 +36,35 @@
             編輯組別
           </div>
           <div class="fdb-btn-primary btn" @click="editGroup">管理組別</div>
+        </div>
+      </div>
+      <div v-if="widthWithiIn(['L', 'M', 'S'])" class="controller-m" :class="{ show: controllerMode !== 'none' }">
+        <div v-if="controllerMode === 'filter'" class="m-item">
+          <div class="item-title">所在組別：</div>
+          <div class="item-body">
+            <el-select v-model="sreachForm.rgid" class="fdb-select" popper-class="fdb-select">
+              <el-option label="全部" :value="-1" />
+              <el-option v-for="group in availableGroups" :key="group.rgid" :label="group.name" :value="group.rgid"></el-option>
+            </el-select>
+          </div>
+        </div>
+        <div v-if="controllerMode === 'sort'" class="m-item">
+          <div class="item-title">排序欄位：</div>
+          <div class="item-body">
+            <el-select v-model="pager.sortKey" class="fdb-select" popper-class="fdb-select" @change="getRecommend(true)">
+              <el-option label="加入日期" value="createdate" />
+              <el-option label="最後交易日" value="lastdate" />
+            </el-select>
+          </div>
+        </div>
+        <div v-if="controllerMode === 'sort'" class="m-item">
+          <div class="item-title">排序方式：</div>
+          <div class="item-body">
+            <el-select v-model="pager.order" class="fdb-select" popper-class="fdb-select" @change="getRecommend(true)">
+              <el-option label="正序" value="asc" />
+              <el-option label="反序" value="desc" />
+            </el-select>
+          </div>
         </div>
       </div>
       <div class="list">
@@ -232,6 +276,7 @@ export default {
     return {
       isLoading: false,
       storeSelect: 'bybit',
+      controllerMode: 'none',
       tableData: [],
       sreachForm: {
         rgid: -1
@@ -343,6 +388,12 @@ export default {
         this.setGroupDialog.newGroupName = ''
         this.setGroupDialog.activeColor = 0
       }
+    },
+    sreachForm: {
+      handler() {
+        this.getRecommend(true)
+      },
+      deep: true
     }
   },
   created() {
@@ -436,6 +487,13 @@ export default {
     },
     widthWithiIn(sizes) {
       return sizes.includes(this.widthSize)
+    },
+    setControlMode(mode) {
+      if (mode === this.controllerMode) {
+        this.controllerMode = 'none'
+      } else {
+        this.controllerMode = mode
+      }
     }
   }
 }
@@ -703,6 +761,48 @@ export default {
           @media screen and (max-width: 500px) {
             padding: 0px;
             font-size: 12px;
+          }
+        }
+      }
+    }
+    .controller-m {
+      padding: 0px;
+      overflow: hidden;
+      opacity: 0;
+      height: 0px;
+      transition: all 0.4s;
+      &.show {
+        opacity: 1;
+        height: 86px;
+        padding: 20px;
+        @media screen and (max-width: 500px) {
+          opacity: 1;
+          padding: 8px;
+          height: 140px;
+        }
+      }
+      .m-item {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+        }
+        .item-title {
+          font-family: 'Avenir';
+          font-size: 14px;
+          line-height: 20px;
+          color: #62ffff;
+          @media screen and (max-width: 500px) {
+            width: 100%;
+            margin-bottom: 8px;
+          }
+        }
+        .item-body {
+          margin-left: 12px;
+          @media screen and (max-width: 500px) {
+            margin-left: 0px;
+            width: 100%;
           }
         }
       }

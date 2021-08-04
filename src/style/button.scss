@@ -10,10 +10,8 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
-  &:hover {
-    border: 1px #62ffff solid !important;
-    color: #62ffff !important;
-  }
+  &.active,
+  &:hover,
   &-hover:hover {
     border: 1px #62ffff solid !important;
     color: #62ffff !important;
@@ -40,10 +38,8 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
-  &:hover {
-    border-color: #3ea9cc !important;
-    background: #3ea9cc !important;
-  }
+  &.active,
+  &:hover,
   &-hover:hover {
     border-color: #3ea9cc !important;
     background: #3ea9cc !important;
@@ -69,9 +65,8 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
-  &:hover {
-    background: linear-gradient(180deg, #3ea9cc 9.47%, #3ea9cc 100%) !important;
-  }
+  &.active,
+  &:hover,
   &-hover:hover {
     background: linear-gradient(180deg, #3ea9cc 9.47%, #3ea9cc 100%) !important;
   }

@@ -158,3 +158,46 @@ button {
     background-color: #4BBABD;
   }
 }
+
+// element select
+.fdb-select.el-select {
+  .el-input {
+    .el-input__inner {
+      background-color: #252c3d;
+      border: 1px solid #252c3d;
+      height: 28px;
+      color: #c4c4c4;
+      line-height: 28px;
+      font-size: 13px;
+    }
+    .el-input__icon {
+      line-height: 28px;
+    }
+  }
+}
+.fdb-select.el-select-dropdown {
+  padding: 2px 0;
+  margin-top: 4px; 
+  background-color: #252c3d;
+  border: 1px solid #252c3d;
+  .el-select-dropdown__item {
+    color: #ffffff;
+    padding: 8px 20px;
+    line-height: unset;
+    &.selected,
+    &.hover,
+    &.active,
+    &:hover {
+      background-color: #373f53;
+      color: #ffffff;
+    }
+    .color-item {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+  .popper__arrow {
+    display: none;
+  }
+}
