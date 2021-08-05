@@ -477,6 +477,7 @@ export default {
         await this.$store.dispatch('group/getRecGroup')
         this.setGroupDialog.show = false
         this.$message.success('綁定群組成功')
+        this.getRecommend()
       } catch (error) {
         console.error(error)
       }
@@ -489,6 +490,7 @@ export default {
         await this.$store.dispatch('group/getRecGroup')
         this.editGroupDialog.show = false
         this.$message.success('保存成功')
+        this.getRecommend()
       } catch (error) {
         console.error(error)
       }
