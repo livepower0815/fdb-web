@@ -29,7 +29,10 @@
                 popper-class="fdb-select"
                 style="width: 90px; margin-right: 8px; padding-left: 0px;"
               >
-                <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code" />
+                <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code">
+                  <span style="float: left; color: #cccccc; margin-right: 26px;">{{ phoneArea.country }}</span>
+                  <span style="float: right;">{{ phoneArea.code }}</span>
+                </el-option>
               </el-select>
               <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="請輸入行動電話" autocomplete="off" />
             </div>

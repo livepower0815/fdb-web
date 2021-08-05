@@ -81,7 +81,7 @@
                   v-if="widthWithiIn(['MAX', 'XXL', 'XL'])"
                   v-model="sreachForm.rgid"
                   title="所在組別"
-                  :items="availableGroups.map(item => ({ name: item.name, key: item.rgid }))"
+                  :items="availableGroups.map(item => ({ name: item.name, key: item.rgid, color: item.color }))"
                 />
                 <span v-else>所在組別</span>
               </th>
@@ -94,7 +94,7 @@
               <th v-if="widthWithiIn(['XL', 'L', 'M', 'S'])" style="width: 30px;"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="tableData.length > 0">
             <template v-for="(row, index) in tableData">
               <tr :key="`tr-1-${index}`">
                 <td><input v-model="selectIdsCheckBox" type="checkbox" class="check" :value="row.fdb_id" /></td>
@@ -174,6 +174,14 @@
               </tr>
             </template>
           </tbody>
+          <tbody v-else>
+            <tr>
+              <td style="padding: 10vw 0;" colspan="12">
+                <img src="@/assets/img/common/empty.png" alt="empty" style="width: 60px;" />
+                <div style="color: #dddddd;">暫無數據</div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -200,7 +208,10 @@
             placeholder="請選擇現有組別"
             clearable
           >
-            <el-option v-for="(group, index) in availableGroups" :key="index" :label="group.name" :value="group.rgid" />
+            <el-option v-for="(group, index) in availableGroups" :key="index" :label="group.name" :value="group.rgid">
+              <span :class="`color-dot group-color-${group.color}`"></span>
+              {{ group.name }}
+            </el-option>
           </el-select>
         </div>
         <div class="line">or</div>
@@ -415,6 +426,7 @@ export default {
         this.pager.pageIndex = 1
       }
       this.selectIds = []
+      this.selectAll = false
       this.isLoading = true
       try {
         const reqBody = {
@@ -935,8 +947,13 @@ export default {
       }
     }
   }
-  // &-pager {
-
-  // }
+  .color-dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 4px;
+    transform: translateY(2px);
+  }
 }
 </style>

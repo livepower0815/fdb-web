@@ -13,6 +13,7 @@
     <el-dropdown-menu class="fdb-menu" slot="dropdown">
       <el-dropdown-item :class="{ active: activeKey === -1 }" :command="-1">全部</el-dropdown-item>
       <el-dropdown-item v-for="(item, index) in items" :key="index" :class="{ active: activeKey === item.key }" :command="item.key">
+        <span v-if="item.color !== undefined" :class="`color-dot group-color-${item.color}`"></span>
         {{ item.name }}
       </el-dropdown-item>
     </el-dropdown-menu>
@@ -43,3 +44,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.color-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 4px;
+  transform: translateY(2px);
+}
+</style>

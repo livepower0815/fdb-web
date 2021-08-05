@@ -25,7 +25,10 @@
               popper-class="fdb-select"
               style="width: 80px; margin-right: 8px;"
             >
-              <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code" />
+              <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code">
+                <span style="float: left; color: #cccccc; margin-right: 26px;">{{ phoneArea.country }}</span>
+                <span style="float: right;">{{ phoneArea.code }}</span>
+              </el-option>
             </el-select>
             <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="請輸入行動電話" autocomplete="off" />
           </div>
@@ -203,7 +206,7 @@ export default {
   .split-input {
     float: left;
     display: flex;
-    width: calc(100% - 89px);
+    width: calc(100% - 10px);
     .input {
       height: 38px;
       float: left;
@@ -213,11 +216,14 @@ export default {
       background: #252c3d;
       box-sizing: border-box;
       border-radius: 8px;
+      &:last-child {
+        padding-left: 10px;
+      }
     }
   }
 
-  /* 1300-300 */
-  @media screen and (min-width: 300px) and (max-width: 1300px) {
+  /* < 1300  */
+  @media screen and (max-width: 1300px) {
     .split-input {
       width: calc(100% - 10px);
     }

@@ -52,7 +52,7 @@
             <TableFilter
               v-model="queryForm.rgid"
               title="推薦人分組"
-              :items="availableGroups.map(item => ({ name: item.name, key: item.rgid }))"
+              :items="availableGroups.map(item => ({ name: item.name, key: item.rgid, color: item.color }))"
             />
           </th>
           <th @click="sortData('canRebatePoint')">
