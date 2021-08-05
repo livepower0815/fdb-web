@@ -185,7 +185,7 @@
     <el-dialog
       title="編輯推薦人組別"
       :visible.sync="setGroupDialog.show"
-      :width="widthSize !== 'S' ? '488px' : '290px'"
+      :width="deviceWidth > 500 ? '488px' : '95vw'"
       :show-close="false"
       custom-class="fbd-dialog set-group-dialog"
     >
@@ -234,7 +234,7 @@
     <el-dialog
       title="管理推薦人組別"
       :visible.sync="editGroupDialog.show"
-      :width="widthSize !== 'S' ? '488px' : '290px'"
+      :width="deviceWidth > 500 ? '488px' : '95vw'"
       :show-close="false"
       custom-class="fbd-dialog edit-group-dialog"
     >
@@ -312,6 +312,9 @@ export default {
     }
   },
   computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    },
     widthSize() {
       return this.$store.getters['app/widthSize']
     },
@@ -466,7 +469,7 @@ export default {
       try {
         const reqBody = {
           fdb_ids: this.selectIds,
-          rgid: this.setGroupDialog.groupSelect,
+          rgid: this.setGroupDialog.groupSelect || 0,
           name: this.setGroupDialog.newGroupName,
           color: this.setGroupDialog.activeColor
         }
