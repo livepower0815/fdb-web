@@ -44,11 +44,11 @@
           </div>
           <div class="list-item" @click="infoSelected = 'perfect-control'" :class="{ actived: infoSelected === 'perfect-control' }">
             <div class="title">完善資訊管理</div>
-            <div class="sub">多個交易所與貨幣地址統一管理，便於會員控管資料</div>
+            <div class="sub">多家交易所與貨幣地址管理，便於會員控管資料</div>
           </div>
           <div class="list-item" @click="infoSelected = 'servicr-team'" :class="{ actived: infoSelected === 'servicr-team' }">
             <div class="title">在線客服團隊</div>
-            <div class="sub">為您提供24小時溝通服務，無時不刻回應您的建議及疑問</div>
+            <div class="sub">專業提供24客服服務，隨時隨地回應您的建議及疑問</div>
           </div>
         </div>
         <a href="javascript:void(0)" class="info-btn">

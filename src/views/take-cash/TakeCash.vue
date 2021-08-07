@@ -97,12 +97,12 @@
 
         <!-- 第三步 -->
         <div v-if="step === 3" class="step-body">
-          <div class="info-text">預計48小時內完成出金<br />若有問題歡迎透過 Wechat 或 QQ進行聯絡</div>
+          <div class="info-text">預計48 小時內完成出金<br />若有任何問題請聯繫返多寶客服中心</div>
           <div class="operation finish">
             <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">
               回到列表
             </div>
-            <div class="fdb-btn-primary" @click="tryAgain">再申請一次</div>
+            <div class="fdb-btn-primary" @click="tryAgain">再申請一筆</div>
           </div>
           <div class="form block">
             <div class="form-item">

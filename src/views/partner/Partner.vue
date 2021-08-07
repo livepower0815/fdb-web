@@ -101,8 +101,7 @@
       <div class="rule-body">
         <div class="title">返佣規則</div>
         <div class="content">
-          一般平台只給你 30% 的返佣， 您還需要不斷的累積交易量才可保持或提高佣金條件， 但您成為我們返多寶的用戶，
-          您不需要任何交易條件即可享有40%的返佣， 而邀請好友來返多寶一同交易，好友返傭的 10% 將會是你的推薦獎金
+          成為返多寶用戶，不需要任何交易條件，即有40%的返佣，邀請好友來返多寶交易，好友交易返佣的10%將成為您的推薦獎金。
         </div>
         <div class="rule-data">
           <div class="data-item">
@@ -111,7 +110,7 @@
           </div>
           <div class="data-item">
             <div class="percent">40%</div>
-            <div class="text">返多寶捕獲返佣比例</div>
+            <div class="text">返多寶補貼比例</div>
           </div>
           <div class="data-item">
             <div class="percent">10%</div>
