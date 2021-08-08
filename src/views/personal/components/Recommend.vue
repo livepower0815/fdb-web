@@ -119,7 +119,7 @@
                 </td>
                 <td v-if="widthWithiIn(['MAX', 'XXL'])">
                   <CoinIcon
-                    v-for="(coin, coinIndex) in row.userCoinModels"
+                    v-for="(coin, coinIndex) in filterZeroCoin(row.userCoinModels)"
                     :key="coinIndex"
                     class="coin"
                     :coin-type="currencyMap[coin.currencyType]"
@@ -133,10 +133,9 @@
                     {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分類' }}
                   </div>
                 </td>
-                <!-- TODO: data format -->
-                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">{{ row.createdate }}</td>
+                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">{{ formatDate(row.createdate) }}</td>
                 <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">
-                  {{ row.lastdate || '-' }}
+                  {{ formatDate(row.lastdate) }}
                   <span></span>
                 </td>
                 <td v-if="widthWithiIn(['XL', 'L', 'M', 'S'])" style="text-align: center;" @click="row.showInfo = !row.showInfo">
@@ -146,7 +145,7 @@
               <tr v-if="row.showInfo" :key="`tr-2-${index}`" class="detail">
                 <td :colspan="detailColspan">
                   <div v-if="widthWithiIn(['MAX', 'XXL'])" class="detail-content">
-                    <div v-for="(coin, coinIndex) in row.userCoinModels" :key="coinIndex" class="coin-info">
+                    <div v-for="(coin, coinIndex) in filterZeroCoin(row.userCoinModels)" :key="coinIndex" class="coin-info">
                       <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />
                       <span>{{ currencyMap[coin.currencyType] }} - {{ coin.coinCount }}</span>
                     </div>
@@ -154,16 +153,16 @@
                   <div v-else class="detail-content">
                     <div v-if="widthWithiIn(['L', 'M', 'S'])" class="content-item">
                       <div class="item-title">加入日期</div>
-                      <div class="item-body">{{ row.createdate }}</div>
+                      <div class="item-body">{{ formatDate(row.createdate) }}</div>
                     </div>
                     <div v-if="widthWithiIn(['L', 'M', 'S'])" class="content-item">
                       <div class="item-title">最後交易日</div>
-                      <div class="item-body">{{ row.lastdate }}</div>
+                      <div class="item-body">{{ formatDate(row.lastdate) }}</div>
                     </div>
                     <div class="content-item">
                       <div class="item-title">反佣交易量</div>
                       <div class="item-body">
-                        <div v-for="(coin, coinIndex) in row.userCoinModels" :key="coinIndex" class="detail-coin-info">
+                        <div v-for="(coin, coinIndex) in filterZeroCoin(row.userCoinModels)" :key="coinIndex" class="detail-coin-info">
                           <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />
                           <span>{{ currencyMap[coin.currencyType] }} - {{ coin.coinCount }}</span>
                         </div>
@@ -280,6 +279,7 @@ import CoinIcon from '@/components/common/CoinIcon'
 import { getRecList, editGroup, insertGroup } from '@/apis/recommender.js'
 import Sort from '@/components/common/Sort'
 import TableFilter from '@/components/common/TableFilter'
+import moment from 'moment'
 
 export default {
   name: 'Recommend',
@@ -516,6 +516,16 @@ export default {
         this.controllerMode = 'none'
       } else {
         this.controllerMode = mode
+      }
+    },
+    filterZeroCoin(coins) {
+      return coins.filter(coin => Number(coin.coinCount) > 0)
+    },
+    formatDate(dString) {
+      if (dString) {
+        return moment(dString, 'YYYY/MM/DD HH:mm:ss').format('YYYY-MM-DD HH:mm')
+      } else {
+        return '-'
       }
     }
   }
