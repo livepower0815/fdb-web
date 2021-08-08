@@ -33,7 +33,7 @@
       <thead>
         <tr>
           <th>
-            <TableFilter v-model="queryForm.rebatStatus" title="申請狀態" :items="rebatStatusMap" />
+            <TableFilter v-model="queryForm.rebateStatus" title="申請狀態" :items="rebateStatusMap" />
           </th>
           <th>申請單號</th>
           <th @click="sortData('orderDate')">
@@ -52,15 +52,15 @@
         <template v-if="tableData.length > 0">
           <tr v-for="(row, index) in tableData" :key="index">
             <td>
-              <template v-if="row.rebatStatus === 0">
+              <template v-if="row.rebateStatus === 0">
                 <div class="status yet"></div>
                 申請中
               </template>
-              <template v-if="row.rebatStatus === 1">
+              <template v-if="row.rebateStatus === 1">
                 <div class="status progress"></div>
                 出金中
               </template>
-              <template v-if="row.rebatStatus === 2">
+              <template v-if="row.rebateStatus === 2">
                 <div class="status already"></div>
                 已完成
               </template>
@@ -89,15 +89,15 @@
           <div class="card-item">
             <div class="label">返佣狀態</div>
             <div class="content">
-              <template v-if="row.rebatStatus === 0">
+              <template v-if="row.rebateStatus === 0">
                 <div class="status yet"></div>
                 申請中
               </template>
-              <template v-if="row.rebatStatus === 1">
+              <template v-if="row.rebateStatus === 1">
                 <div class="status progress"></div>
                 出金中
               </template>
-              <template v-if="row.rebatStatus === 2">
+              <template v-if="row.rebateStatus === 2">
                 <div class="status already"></div>
                 已完成
               </template>
@@ -166,9 +166,9 @@
       <div class="form-item">
         <div class="label">申請狀態：</div>
         <div class="content">
-          <el-select v-model="queryForm.rebatStatus" class="fdb-select" style="width: 100%;" popper-class="fdb-select">
+          <el-select v-model="queryForm.rebateStatus" class="fdb-select" style="width: 100%;" popper-class="fdb-select">
             <el-option label="全部" :value="-1" />
-            <el-option v-for="item in rebatStatusMap" :key="item.key" :label="item.name" :value="item.key" />
+            <el-option v-for="item in rebateStatusMap" :key="item.key" :label="item.name" :value="item.key" />
           </el-select>
         </div>
       </div>
@@ -252,7 +252,7 @@ export default {
       currencyMap: { ...currencyMap },
       tableData: [],
       queryForm: {
-        rebatStatus: -1
+        rebateStatus: -1
       },
       pager: {
         pageIndex: 1,
@@ -267,7 +267,7 @@ export default {
       sortDialog: {
         show: false
       },
-      rebatStatusMap: [
+      rebateStatusMap: [
         { name: '申請中', key: 0 },
         { name: '出金中', key: 1 },
         { name: '已完成', key: 2 }
@@ -326,7 +326,7 @@ export default {
       try {
         const queryData = {
           currencyType: this.currencyType,
-          rebatStatus: this.queryForm.rebatStatus,
+          rebateStatus: this.queryForm.rebateStatus,
           startDate: this.dateRange[0],
           endDate: this.dateRange[1],
           pageIndex: this.pager.pageIndex,

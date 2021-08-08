@@ -141,7 +141,7 @@ query = {
 response = {
   data: [
     {
-      rebatStatus: Math.floor(Math.random() * 3), // 0 申請中, 1 出金中 2 已完成  申請狀態
+      rebateStatus: Math.floor(Math.random() * 3), // 0 申請中, 1 出金中 2 已完成  申請狀態
       orderNum: 'abcd456789', // 申請單號
       orderDate: randomDate(60), // 申請出金時間
       currency: currencyType, // 交易幣別
@@ -149,7 +149,7 @@ response = {
       finishDate: randomDate(60, 60) // 	完成出金日期
     },
     {
-      rebatStatus: Math.floor(Math.random() * 3), // 0 申請中, 1 出金中 2 已完成  申請狀態
+      rebateStatus: Math.floor(Math.random() * 3), // 0 申請中, 1 出金中 2 已完成  申請狀態
       orderNum: 'abcd456789', // 申請單號
       orderDate: randomDate(60), // 申請出金時間
       currency: currencyType, // 交易幣別
