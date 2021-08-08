@@ -21,19 +21,19 @@
         ></el-date-picker>
       </div>
     </div>
+
+    <!-- 控制器手機版 開始 -->
+    <div class="filter-section-m">
+      <div class="fdb-btn-info btn" @click="filterDialog.show = true">篩選</div>
+      <div class="fdb-btn-info btn" @click="sortDialog.show = true">排序</div>
+    </div>
+    <!-- 控制器手機版 結束 -->
+
     <table class="info-table">
       <thead>
         <tr>
           <th>
-            <TableFilter
-              v-model="queryForm.rebatStatus"
-              title="申請狀態"
-              :items="[
-                { name: '申請中', key: 0 },
-                { name: '出金中', key: 1 },
-                { name: '已完成', key: 2 }
-              ]"
-            />
+            <TableFilter v-model="queryForm.rebatStatus" title="申請狀態" :items="rebatStatusMap" />
           </th>
           <th>申請單號</th>
           <th @click="sortData('orderDate')">
@@ -81,8 +81,134 @@
         </tr>
       </tbody>
     </table>
+
     <!--出金 手機版開始-->
+    <div class="info-table-m">
+      <template v-if="tableData.length > 0">
+        <div v-for="(row, index) in tableData" :key="index" class="info-card">
+          <div class="card-item">
+            <div class="label">返佣狀態</div>
+            <div class="content">
+              <template v-if="row.rebatStatus === 0">
+                <div class="status yet"></div>
+                申請中
+              </template>
+              <template v-if="row.rebatStatus === 1">
+                <div class="status progress"></div>
+                出金中
+              </template>
+              <template v-if="row.rebatStatus === 2">
+                <div class="status already"></div>
+                已完成
+              </template>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="label">申請單號</div>
+            <div class="content">{{ row.orderNum }}</div>
+          </div>
+          <div class="card-item">
+            <div class="label">交易日期</div>
+            <div class="content">{{ formatDate(row.orderDate) }}</div>
+          </div>
+          <div class="card-item">
+            <div class="label">交易幣別</div>
+            <div class="content">{{ currencyMap[row.currency] }}</div>
+          </div>
+          <div class="card-item">
+            <div class="label">申請數量</div>
+            <div class="content">{{ row.orderValue }}</div>
+          </div>
+          <div class="card-item">
+            <div class="label">完成出金日期</div>
+            <div class="content">{{ formatDate(row.finishDate) }}</div>
+          </div>
+        </div>
+      </template>
+      <div v-else style="margin: 0 auto;" class="empty-container">
+        <img src="@/assets/img/common/empty.svg" alt="empty" />
+      </div>
+    </div>
     <!--出金 手機版結束-->
+
+    <!-- 篩選彈窗 -->
+    <el-dialog title="篩選" :visible.sync="filterDialog.show" width="300px" :show-close="false" custom-class="fbd-dialog controller-dialog">
+      <div class="form-item">
+        <div class="label">幣別：</div>
+        <div class="content"><CoinSelector v-model="currencyType" /></div>
+      </div>
+      <div class="form-item">
+        <div class="label">開始時間：</div>
+        <div class="content">
+          <el-date-picker
+            v-model="dateRange[0]"
+            type="date"
+            class="fdb"
+            value-format="yyyy-MM-dd"
+            placeholder="開始日期"
+            :clearable="false"
+          ></el-date-picker>
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">結束時間：</div>
+        <div class="content">
+          <el-date-picker
+            v-model="dateRange[1]"
+            type="date"
+            class="fdb"
+            value-format="yyyy-MM-dd"
+            placeholder="結束日期"
+            :clearable="false"
+          ></el-date-picker>
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">申請狀態：</div>
+        <div class="content">
+          <el-select v-model="queryForm.rebatStatus" class="fdb-select" style="width: 100%;" popper-class="fdb-select">
+            <el-option label="全部" :value="-1" />
+            <el-option v-for="item in rebatStatusMap" :key="item.key" :label="item.name" :value="item.key" />
+          </el-select>
+        </div>
+      </div>
+      <div slot="footer" style="width: 100%;">
+        <div class="fdb-btn-default" @click="filterDialog.show = false">關閉</div>
+      </div>
+    </el-dialog>
+
+    <!-- 排序彈窗 -->
+    <el-dialog title="排序" :visible.sync="sortDialog.show" width="300px" :show-close="false" custom-class="fbd-dialog controller-dialog">
+      <div class="form-item">
+        <div class="label">排序欄位：</div>
+        <div class="content">
+          <el-select
+            v-model="pager.sortKey"
+            class="fdb-select"
+            style="width: 100%;"
+            popper-class="fdb-select"
+            @change="getWithdrawal(true)"
+          >
+            <el-option label="申請出金時間" value="orderDate" />
+            <el-option label="申請數量" value="orderValue" />
+            <el-option label="完成出金日期" value="finishDate" />
+          </el-select>
+        </div>
+      </div>
+      <div class="form-item">
+        <div class="label">排序方式：</div>
+        <div class="content">
+          <el-select v-model="pager.order" class="fdb-select" style="width: 100%;" popper-class="fdb-select" @change="getWithdrawal(true)">
+            <el-option label="正序" value="asc" />
+            <el-option label="倒序" value="desc" />
+          </el-select>
+        </div>
+      </div>
+      <div slot="footer" style="width: 100%;">
+        <div class="fdb-btn-default" @click="sortDialog.show = false">關閉</div>
+      </div>
+    </el-dialog>
+
     <!--Pages-->
     <Pager v-if="tableData.length > 0" :get-data="getWithdrawal" :pager="pager" />
     <!--Pages-->
@@ -134,7 +260,18 @@ export default {
         totalCount: 0,
         sortKey: 'orderDate',
         order: 'asc'
-      }
+      },
+      filterDialog: {
+        show: false
+      },
+      sortDialog: {
+        show: false
+      },
+      rebatStatusMap: [
+        { name: '申請中', key: 0 },
+        { name: '出金中', key: 1 },
+        { name: '已完成', key: 2 }
+      ]
     }
   },
   computed: {

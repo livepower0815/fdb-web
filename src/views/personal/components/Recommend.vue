@@ -62,7 +62,7 @@
           <div class="item-body">
             <el-select v-model="pager.order" class="fdb-select" popper-class="fdb-select" @change="getRecommend(true)">
               <el-option label="正序" value="asc" />
-              <el-option label="反序" value="desc" />
+              <el-option label="倒序" value="desc" />
             </el-select>
           </div>
         </div>

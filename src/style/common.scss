@@ -68,10 +68,21 @@ button {
   @media screen and (max-width: 1370px) {
     width: 260px;
   }
+  .el-input__inner {
+    height: 34px;
+    line-height: 34px;
+    background-color: #1e2433;
+    color: #cccccc;
+    border: 1px solid #1e2533;
+  }
   .el-range-input {
     background-color: #1e2433;
     color: #cccccc;
     width: 41%;
+  }
+  .el-input__prefix {
+    top: -3px;
+    color: #cccccc;
   }
   .el-range-separator {
     color: #cccccc;

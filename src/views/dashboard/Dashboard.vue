@@ -94,12 +94,6 @@ export default {
             .format('yyyy-MM-DD'),
           moment().format('yyyy-MM-DD')
         ]
-        // dateRange: [
-        //   moment()
-        //     .subtract(7, 'days')
-        //     .format('yyyy-MM-DD'),
-        //   moment().format('yyyy-MM-DD')
-        // ]
       }
     }
   }
@@ -176,6 +170,9 @@ export default {
       padding: 26px 0;
       border-top: 1px #ffffff solid;
       margin-bottom: 30px;
+      @media screen and (max-width: 960px) {
+        padding: 12px 0;
+      }
     }
   }
 }
