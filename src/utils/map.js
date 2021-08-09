@@ -27,3 +27,9 @@ export const phoneAreaCode = [
   { country: '馬來西亞', code: '60' },
   { country: '美國', code: '1' }
 ]
+
+export const articleMap = {
+  '0': { name: '論壇', key: 'forum' },
+  '1': { name: '公告', key: 'bulletin' },
+  '2': { name: '活動', key: 'activity' }
+}

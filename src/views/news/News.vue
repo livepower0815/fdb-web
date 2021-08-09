@@ -14,25 +14,31 @@
       <!-- menu bar -->
       <div class="menu-bar">
         <div class="menu-left">
-          <div class="menu-item" :class="{ active: activeTab === 'all' }" @click="activeTab = 'all'">全部</div>
-          <div class="menu-item" :class="{ active: activeTab === 'forum' }" @click="activeTab = 'forum'">論壇</div>
-          <div class="menu-item" :class="{ active: activeTab === 'bulletin' }" @click="activeTab = 'bulletin'">公告</div>
-          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="activeTab = 'activity'">活動</div>
+          <div class="menu-item" :class="{ active: activeTab === 'all' }" @click="changeActiveTag('all')">全部</div>
+          <div class="menu-item" :class="{ active: activeTab === 'forum' }" @click="changeActiveTag('forum')">論壇</div>
+          <div class="menu-item" :class="{ active: activeTab === 'bulletin' }" @click="changeActiveTag('bulletin')">公告</div>
+          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="changeActiveTag('activity')">活動</div>
         </div>
         <div class="menu-right">
           <img @click="showSearch = !showSearch" class="icon-search" src="@/assets/img/common/icon-search.png" alt="search" />
-          <input class="input" :class="{ hide: !showSearch }" type="text" />
+          <input
+            v-model="searchKey"
+            class="input"
+            :class="{ hide: !showSearch }"
+            type="text"
+            @keyup.enter="changeActiveTag('search', true)"
+          />
         </div>
       </div>
 
       <!-- all info -->
-      <AllInfo v-if="activeTab === 'all' && activeTab !== 'article'" @loadArticle="loadArticle" />
+      <AllInfo v-if="activeTab === 'all' && mode === 'list'" @loadArticle="loadArticle" />
 
       <!-- 文章列表 -->
-      <Information v-if="activeTab !== 'article'" @loadArticle="loadArticle" />
+      <Information v-if="activeTab !== 'article' && mode === 'list'" :info-list="newsList" @loadArticle="loadArticle" />
 
       <!-- 文章內容 -->
-      <Article v-if="activeTab === 'article'" />
+      <Article v-if="mode === 'article'" :article-id="articleId" />
     </div>
     <!--內容 結束-->
   </div>
@@ -42,6 +48,7 @@
 import AllInfo from './components/AllInfo'
 import Information from './components/Information.vue'
 import Article from './components/Article'
+import { getNews } from '@/apis/news.js'
 
 export default {
   name: 'News',
@@ -52,18 +59,70 @@ export default {
   },
   data() {
     return {
+      mode: this.$route.query.mode || 'list',
       activeTab: this.$route.query.tab || 'all',
-      showSearch: false
+      articleId: Number(this.$route.query.articleId) || 0,
+      showSearch: false,
+      searchKey: '',
+      newsList: [],
+      pager: {
+        tag: -1,
+        pageIndex: 1,
+        pageSize: 12,
+        totalCount: 0
+      }
     }
   },
-  watch: {
-    activeTab(val) {
-      this.$router.replace({ query: { tab: val } })
+  computed: {
+    tagKey() {
+      switch (this.activeTab) {
+        case 'all':
+        case 'search':
+          return -1
+        case 'forum':
+          return 0
+        case 'bulletin':
+          return 1
+        case 'activity':
+          return 2
+        default:
+          return -1
+      }
     }
+  },
+  mounted() {
+    this.getNews(true)
   },
   methods: {
-    loadArticle() {
-      this.activeTab = 'article'
+    async getNews() {
+      try {
+        const reqData = {
+          lang: 0,
+          pageIndex: this.pager.pageIndex,
+          pageSize: this.pager.pageSize,
+          tag: this.tagKey,
+          keyWord: this.searchKey
+        }
+        const res = await getNews(reqData)
+        this.newsList = res.data.data
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    changeActiveTag(type, useKeyWord) {
+      this.mode = 'list'
+      this.activeTab = type
+      if (!useKeyWord) {
+        this.showSearch = false
+        this.searchKey = ''
+      }
+      this.$router.replace({ query: { mode: 'list', tab: type } })
+      this.getNews(true)
+    },
+    loadArticle(id = 0) {
+      this.articleId = id
+      this.mode = 'article'
+      this.$router.replace({ query: { mode: this.mode, tab: this.activeTab, articleId: id } })
     }
   }
 }

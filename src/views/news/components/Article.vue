@@ -1,10 +1,10 @@
 <template>
   <div class="article">
     <div class="article-main">
-      <div class="main-title">推薦計畫</div>
-      <div class="main-date">2020.03.01 by FDB official</div>
-      <div class="main-content">
-        <img src="@/assets/img/news/news-chat-main-pic.jpg" alt="img" />
+      <div class="main-title">{{ articleData.title }}</div>
+      <div class="main-date">{{ articleData.createdate }} by {{ articleData.auther }}</div>
+      <div class="main-content" v-html="articleData.content">
+        <!-- <img src="@/assets/img/news/news-chat-main-pic.jpg" alt="img" />
         <p>
           从今天起至2021年3月31日，您和每位足推荐条件的好友将分别得10美元等的BTC体金。
           新用戶使用您的推荐注册，成功充且交易至少一次BTCUSD反向永合，即“推荐成功”。
@@ -19,26 +19,73 @@
           步驟2：点集Bybit推荐好友页面<br />
           步驟3：将您的推荐碼共享給好友<br />
           每成功推荐一位好友，您和好友各得$10，最高可或得 $600奖励！
-        </p>
+        </p> -->
       </div>
     </div>
     <div class="article-other">
       <div class="other-title">其他相關文章</div>
-      <div v-for="item in 8" :key="item" class="other-item">
+      <div v-for="item in newsList" :key="item.id" class="other-item">
         <div class="item">
-          <div class="item-tag info-bg-forum">論壇</div>
-          <div class="item-title">How to make a website look more attractive with illustrations.</div>
-          <div class="item-date">2020.03.01</div>
+          <div :class="`item-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
+          <div class="item-title">{{ item.title }}</div>
+          <div class="item-date">{{ item.createdate }}</div>
         </div>
-        <img class="img" src="@/assets/img/news/news-chat-scroll-pic.jpg" alt="pic" />
+        <img class="img" :src="item.img" alt="pic" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getNews, getNewsDetail } from '@/apis/news.js'
+import { articleMap } from '@/utils/map.js'
+
 export default {
-  name: 'Article'
+  name: 'Article',
+  props: {
+    articleId: [Number, String]
+  },
+  data() {
+    return {
+      articleData: {},
+      newsList: [],
+      articleMap
+    }
+  },
+  mounted() {
+    this.getNewsDetail()
+  },
+  methods: {
+    async getNewsDetail() {
+      try {
+        const reqBody = {
+          id: this.articleId
+        }
+        const res = await getNewsDetail(reqBody)
+        this.articleData = res.data
+        // 文章其他相關文章用相同tag的前10篇
+        await this.getNews(res.data.tag)
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    async getNews(tagKey) {
+      try {
+        const reqData = {
+          lang: 0,
+          pageIndex: 1,
+          // 文章其他相關文章用相同tag的前10篇
+          pageSize: 10,
+          tag: tagKey,
+          keyWord: ''
+        }
+        const res = await getNews(reqData)
+        this.newsList = res.data.data
+      } catch (e) {
+        console.error(e)
+      }
+    }
+  }
 }
 </script>
 

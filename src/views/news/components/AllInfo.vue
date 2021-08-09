@@ -1,38 +1,29 @@
 <template>
   <div class="all-info">
-    <div class="info-main" @click="$emit('loadArticle')">
+    <div v-if="infoList[0]" class="info-main" @click="$emit('loadArticle', infoList[0].id)">
       <div class="img">
-        <img src="@/assets/img/news/news-announced-pic.jpg" alt="announced" />
+        <img :src="infoList[0].img" alt="announced" />
       </div>
       <div class="info-tag">
-        <div class="info-tag-inside info-bg-bulletin">公告</div>
+        <div :class="`info-tag-inside info-bg-${articleMap[infoList[0].tag].key}`">{{ articleMap[infoList[0].tag].name }}</div>
       </div>
       <div class="info-title">
-        How to make a website look more attractive with illustrations.
+        {{ infoList[0].title }}
       </div>
       <div class="info-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+        {{ infoList[0].desc }}
       </div>
-      <div class="info-date">2020.03.01</div>
+      <div class="info-date">{{ infoList[0].createdate }}</div>
     </div>
     <div class="info-list">
-      <div
-        v-for="item in [
-          { name: '論壇', class: 'forum' },
-          { name: '公告', class: 'bulletin' },
-          { name: '活動', class: 'activity' }
-        ]"
-        :key="item.class"
-        class="list-item"
-        @click="$emit('loadArticle')"
-      >
+      <div v-for="item in infoList.slice(1)" :key="item.id" class="list-item" @click="$emit('loadArticle', item.id)">
         <div class="list-main">
-          <div :class="`list-tag info-bg-${item.class}`">{{ item.name }}</div>
-          <div class="list-title">How to make a website look more attractive with illustrations.</div>
-          <div class="list-date">2020.03.01</div>
+          <div :class="`list-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
+          <div class="list-title">{{ item.title }}</div>
+          <div class="list-date">{{ item.createdate }}</div>
         </div>
         <div class="list-img">
-          <img src="@/assets/img/news/news-chat-pic.jpg" alt="img" />
+          <img :src="item.img" alt="img" />
         </div>
       </div>
     </div>
@@ -40,8 +31,30 @@
 </template>
 
 <script>
+import { getTopNews } from '@/apis/news.js'
+import { articleMap } from '@/utils/map.js'
+
 export default {
-  name: 'AllInfo'
+  name: 'AllInfo',
+  data() {
+    return {
+      infoList: [],
+      articleMap
+    }
+  },
+  mounted() {
+    this.getTopNews()
+  },
+  methods: {
+    async getTopNews() {
+      try {
+        const res = await getTopNews()
+        this.infoList = res.data
+      } catch (e) {
+        console.error(e)
+      }
+    }
+  }
 }
 </script>
 

@@ -1,28 +1,35 @@
 <template>
   <div class="information">
-    <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle')">
+    <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle', item.id)">
       <div class="info-card-img">
-        <img src="@/assets/img/news/news-pic.jpg" alt="news" />
+        <img :src="item.img" alt="news" />
       </div>
       <div class="info-card-tag">
-        <div class="tag info-bg-activity">活動</div>
+        <div :class="`tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
       </div>
       <div class="info-card-title">
-        How to make a website look more attractive with illustrations.
+        {{ item.title }}
       </div>
-      <div class="info-card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-      <div class="info-card-date">2020.03.01</div>
+      <div class="info-card-content">{{ item.desc }}</div>
+      <div class="info-card-date">{{ item.createdate }}</div>
     </div>
   </div>
 </template>
 
 <script>
+import { articleMap } from '@/utils/map.js'
+
 export default {
   name: 'Information',
   props: {
     infoList: {
       type: Array,
-      default: () => [{}, {}, {}, {}, {}, {}]
+      default: () => []
+    }
+  },
+  data() {
+    return {
+      articleMap
     }
   }
 }
@@ -33,11 +40,13 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 4%;
   margin-bottom: 8%;
   .info-card {
-    flex: 0 0 32%;
+    flex: 0 0 31%;
+    margin-right: 1%;
+    margin-left: 1%;
     margin-bottom: 26px;
     padding: 16px;
     background-color: #151923;
@@ -52,6 +61,8 @@ export default {
     }
     @media screen and (max-width: 700px) {
       flex: 0 0 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
     @media screen and (max-width: 500px) {
       padding: 10px;
