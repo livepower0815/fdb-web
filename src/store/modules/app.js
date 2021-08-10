@@ -13,7 +13,6 @@ const state = {
 
 const mutations = {
   SET_DEVICE_WIDTH(state, width) {
-    console.log(width)
     state.deviceWidth = width
   },
   SET_SCROLL_BOTTOM(state, distance) {
