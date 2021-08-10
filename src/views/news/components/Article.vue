@@ -121,27 +121,6 @@ export default {
         line-height: 21px;
       }
     }
-    .main-content {
-      h3 {
-        margin-top: 36px;
-        font-weight: bold;
-        font-size: 22px;
-        line-height: 160%;
-        letter-spacing: 0.05em;
-        @media screen and (max-width: 500px) {
-          font-size: 20px;
-        }
-      }
-      p {
-        font-size: 20px;
-        line-height: 160%;
-        letter-spacing: 0.05em;
-        color: #e5e5e5;
-        @media screen and (max-width: 500px) {
-          font-size: 18px;
-        }
-      }
-    }
   }
   &-other {
     width: 416px;
@@ -200,6 +179,32 @@ export default {
       justify-content: center;
       align-items: center;
       color: #e5e5e5;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.article-main {
+  .main-content {
+    h3 {
+      margin-top: 36px;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 160%;
+      letter-spacing: 0.05em;
+      @media screen and (max-width: 500px) {
+        font-size: 20px;
+      }
+    }
+    p {
+      font-size: 20px;
+      line-height: 160%;
+      letter-spacing: 0.05em;
+      color: #e5e5e5;
+      @media screen and (max-width: 500px) {
+        font-size: 18px;
+      }
     }
   }
 }
