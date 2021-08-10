@@ -1,22 +1,22 @@
 <template>
-  <div class="all-info">
-    <div v-if="infoList[0]" class="info-main" @click="$emit('loadArticle', infoList[0].id)">
+  <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="all-info">
+    <div v-if="topList[0]" class="info-main" @click="$emit('loadArticle', topList[0].id)">
       <div class="img">
-        <img :src="infoList[0].img" alt="announced" />
+        <img :src="topList[0].img" alt="announced" />
       </div>
       <div class="info-tag">
-        <div :class="`info-tag-inside info-bg-${articleMap[infoList[0].tag].key}`">{{ articleMap[infoList[0].tag].name }}</div>
+        <div :class="`info-tag-inside info-bg-${articleMap[topList[0].tag].key}`">{{ articleMap[topList[0].tag].name }}</div>
       </div>
       <div class="info-title">
-        {{ infoList[0].title }}
+        {{ topList[0].title }}
       </div>
       <div class="info-content">
-        {{ infoList[0].desc }}
+        {{ topList[0].desc }}
       </div>
-      <div class="info-date">{{ infoList[0].createdate }}</div>
+      <div class="info-date">{{ topList[0].createdate }}</div>
     </div>
     <div class="info-list">
-      <div v-for="item in infoList.slice(1)" :key="item.id" class="list-item" @click="$emit('loadArticle', item.id)">
+      <div v-for="item in topList.slice(1)" :key="item.id" class="list-item" @click="$emit('loadArticle', item.id)">
         <div class="list-main">
           <div :class="`list-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
           <div class="list-title">{{ item.title }}</div>
@@ -31,28 +31,23 @@
 </template>
 
 <script>
-import { getTopNews } from '@/apis/news.js'
 import { articleMap } from '@/utils/map.js'
 
 export default {
   name: 'AllInfo',
-  data() {
-    return {
-      infoList: [],
-      articleMap
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: false
+    },
+    topList: {
+      type: Array,
+      default: () => []
     }
   },
-  mounted() {
-    this.getTopNews()
-  },
-  methods: {
-    async getTopNews() {
-      try {
-        const res = await getTopNews()
-        this.infoList = res.data
-      } catch (e) {
-        console.error(e)
-      }
+  data() {
+    return {
+      articleMap
     }
   }
 }
@@ -63,6 +58,7 @@ export default {
   display: flex;
   padding-bottom: 20px;
   border-bottom: 1px #ffffff solid;
+  min-height: 400px;
   @media screen and (max-width: 700px) {
     display: none;
   }

@@ -1,18 +1,25 @@
 <template>
   <div class="information">
-    <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle', item.id)">
-      <div class="info-card-img">
-        <img :src="item.img" alt="news" />
+    <template v-if="infoList.length > 0">
+      <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle', item.id)">
+        <div class="info-card-img">
+          <img :src="item.img" alt="news" />
+        </div>
+        <div class="info-card-tag">
+          <div :class="`tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
+        </div>
+        <div class="info-card-title">
+          {{ item.title }}
+        </div>
+        <div class="info-card-content">{{ item.desc }}</div>
+        <div class="info-card-date">{{ item.createdate }}</div>
       </div>
-      <div class="info-card-tag">
-        <div :class="`tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
-      </div>
-      <div class="info-card-title">
-        {{ item.title }}
-      </div>
-      <div class="info-card-content">{{ item.desc }}</div>
-      <div class="info-card-date">{{ item.createdate }}</div>
+    </template>
+    <div v-else-if="!isLoading" class="info-empty">
+      <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />
+      <div>無相關文章</div>
     </div>
+    <div v-if="isLoading" class="loading-section" v-loading="true" element-loading-background="#050608"></div>
   </div>
 </template>
 
@@ -25,6 +32,10 @@ export default {
     infoList: {
       type: Array,
       default: () => []
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -43,6 +54,7 @@ export default {
   justify-content: center;
   margin-top: 4%;
   margin-bottom: 8%;
+  min-height: 400px;
   .info-card {
     flex: 0 0 31%;
     margin-right: 1%;
@@ -111,6 +123,19 @@ export default {
       line-height: 150%;
       color: #e5e5e5;
     }
+  }
+  .loading-section {
+    width: 100%;
+    height: 100px;
+  }
+  .info-empty {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #e5e5e5;
   }
 }
 </style>

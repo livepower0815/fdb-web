@@ -1,36 +1,25 @@
 <template>
   <div class="article">
-    <div class="article-main">
+    <div class="article-main" v-loading="mainLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
       <div class="main-title">{{ articleData.title }}</div>
       <div class="main-date">{{ articleData.createdate }} by {{ articleData.auther }}</div>
-      <div class="main-content" v-html="articleData.content">
-        <!-- <img src="@/assets/img/news/news-chat-main-pic.jpg" alt="img" />
-        <p>
-          从今天起至2021年3月31日，您和每位足推荐条件的好友将分别得10美元等的BTC体金。
-          新用戶使用您的推荐注册，成功充且交易至少一次BTCUSD反向永合，即“推荐成功”。
-        </p>
-        <h3>推荐越多，獎励越多</h3>
-        <p>推荐好友无上限，推荐励浩瀚无！您可以推荐无数名好友。除了推荐獎励以外，有更多交易獎励等您来領取！</p>
-        <h3>交易量更多，獎励翻倍</h3>
-        <p>好友的永續合約累積交易量每增加100K，即可解所 $10 USDT 体驗金。通過API进行的交易量并不符合獎勵励条件。</p>
-        <h3>活動适用于所有 Bybit用戶，使用辦法</h3>
-        <p>
-          步驟1：确保您已登入Bybit 账户<br />
-          步驟2：点集Bybit推荐好友页面<br />
-          步驟3：将您的推荐碼共享給好友<br />
-          每成功推荐一位好友，您和好友各得$10，最高可或得 $600奖励！
-        </p> -->
-      </div>
+      <div class="main-content" v-html="articleData.content"></div>
     </div>
-    <div class="article-other">
+    <div class="article-other" v-loading="otherLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
       <div class="other-title">其他相關文章</div>
-      <div v-for="item in newsList" :key="item.id" class="other-item">
-        <div class="item">
-          <div :class="`item-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
-          <div class="item-title">{{ item.title }}</div>
-          <div class="item-date">{{ item.createdate }}</div>
+      <template v-if="newsList.length > 0">
+        <div v-for="item in newsList" :key="item.id" class="other-item" @click="changeArticle(item.id)">
+          <div class="item">
+            <div :class="`item-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
+            <div class="item-title">{{ item.title }}</div>
+            <div class="item-date">{{ item.createdate }}</div>
+          </div>
+          <img class="img" :src="item.img" alt="pic" />
         </div>
-        <img class="img" :src="item.img" alt="pic" />
+      </template>
+      <div v-else class="other-empty">
+        <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />
+        <div>無相關文章</div>
       </div>
     </div>
   </div>
@@ -42,14 +31,18 @@ import { articleMap } from '@/utils/map.js'
 
 export default {
   name: 'Article',
-  props: {
-    articleId: [Number, String]
-  },
   data() {
     return {
       articleData: {},
       newsList: [],
-      articleMap
+      articleMap,
+      mainLoading: false,
+      otherLoading: false
+    }
+  },
+  computed: {
+    articleId() {
+      return Number(this.$route.query.articleId)
     }
   },
   mounted() {
@@ -57,6 +50,7 @@ export default {
   },
   methods: {
     async getNewsDetail() {
+      this.mainLoading = true
       try {
         const reqBody = {
           id: this.articleId
@@ -68,8 +62,10 @@ export default {
       } catch (e) {
         console.error(e)
       }
+      this.mainLoading = false
     },
     async getNews(tagKey) {
+      this.otherLoading = true
       try {
         const reqData = {
           lang: 0,
@@ -84,6 +80,12 @@ export default {
       } catch (e) {
         console.error(e)
       }
+      this.otherLoading = false
+    },
+    changeArticle(articleId) {
+      if (articleId === this.articleId) return
+      this.$router.replace({ query: { ...this.$route.query, articleId: articleId } })
+      this.getNewsDetail()
     }
   }
 }
@@ -163,6 +165,7 @@ export default {
     .other-item {
       display: flex;
       margin-bottom: 24px;
+      cursor: pointer;
       .item {
         flex: 1;
         .item-tag {
@@ -188,6 +191,15 @@ export default {
         width: 112px;
         height: 100%;
       }
+    }
+    .other-empty {
+      width: 100%;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #e5e5e5;
     }
   }
 }

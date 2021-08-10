@@ -31,14 +31,27 @@
         </div>
       </div>
 
-      <!-- all info -->
-      <AllInfo v-if="activeTab === 'all' && mode === 'list'" @loadArticle="loadArticle" />
+      <!-- 置頂文章 768 以上 -->
+      <AllInfo
+        v-if="activeTab === 'all' && mode === 'list' && deviceWidth > 700"
+        :top-list="topList"
+        :is-loading="topLoading"
+        @loadArticle="loadArticle"
+      />
+      <!-- 置頂文章 540 以下 -->
+      <Information
+        v-if="activeTab === 'all' && mode === 'list' && deviceWidth <= 700"
+        :is-loading="topLoading"
+        :info-list="topList"
+        style="border-bottom: 1px #ffffff solid;"
+        @loadArticle="loadArticle"
+      />
 
       <!-- 文章列表 -->
-      <Information v-if="activeTab !== 'article' && mode === 'list'" :info-list="newsList" @loadArticle="loadArticle" />
+      <Information v-if="mode === 'list'" :is-loading="infoLoading" :info-list="newsList" @loadArticle="loadArticle" />
 
       <!-- 文章內容 -->
-      <Article v-if="mode === 'article'" :article-id="articleId" />
+      <Article v-if="mode === 'article'" />
     </div>
     <!--內容 結束-->
   </div>
@@ -48,7 +61,7 @@
 import AllInfo from './components/AllInfo'
 import Information from './components/Information.vue'
 import Article from './components/Article'
-import { getNews } from '@/apis/news.js'
+import { getNews, getTopNews } from '@/apis/news.js'
 
 export default {
   name: 'News',
@@ -63,7 +76,10 @@ export default {
       activeTab: this.$route.query.tab || 'all',
       articleId: Number(this.$route.query.articleId) || 0,
       showSearch: false,
+      infoLoading: false,
+      topLoading: false,
       searchKey: '',
+      topList: [],
       newsList: [],
       pager: {
         tag: -1,
@@ -88,13 +104,18 @@ export default {
         default:
           return -1
       }
+    },
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
     }
   },
   mounted() {
     this.getNews(true)
+    this.getTopNews()
   },
   methods: {
     async getNews() {
+      this.infoLoading = true
       try {
         const reqData = {
           lang: 0,
@@ -108,10 +129,22 @@ export default {
       } catch (e) {
         console.error(e)
       }
+      this.infoLoading = false
+    },
+    async getTopNews() {
+      this.topLoading = true
+      try {
+        const res = await getTopNews()
+        this.topList = res.data
+      } catch (e) {
+        console.error(e)
+      }
+      this.topLoading = false
     },
     changeActiveTag(type, useKeyWord) {
       this.mode = 'list'
       this.activeTab = type
+      this.newsList = []
       if (!useKeyWord) {
         this.showSearch = false
         this.searchKey = ''
@@ -121,8 +154,8 @@ export default {
     },
     loadArticle(id = 0) {
       this.articleId = id
-      this.mode = 'article'
       this.$router.replace({ query: { mode: this.mode, tab: this.activeTab, articleId: id } })
+      this.mode = 'article'
     }
   }
 }
