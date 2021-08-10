@@ -42,11 +42,11 @@ export default {
     this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)
     const debounceWidth = debounce(() => {
       this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)
-    }, 200)
+    }, 100)
     window.addEventListener('resize', debounceWidth)
 
     // 滾動距離底部距離
-    const debounceScroll = debounce(this.scorllBottomCheck, 200)
+    const debounceScroll = debounce(this.scorllBottomCheck, 20)
     window.addEventListener('scroll', debounceScroll)
   },
   methods: {

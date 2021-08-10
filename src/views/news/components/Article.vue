@@ -8,7 +8,7 @@
     <div class="article-other" v-loading="otherLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
       <div class="other-title">其他相關文章</div>
       <template v-if="newsList.length > 0">
-        <div v-for="item in newsList" :key="item.id" class="other-item" @click="changeArticle(item.id)">
+        <div v-for="(item, index) in newsList" :key="index" class="other-item" @click="changeArticle(item.id)">
           <div class="item">
             <div :class="`item-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
             <div class="item-title">{{ item.title }}</div>

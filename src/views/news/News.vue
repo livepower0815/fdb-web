@@ -107,10 +107,22 @@ export default {
     },
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    },
+    scrollBottom() {
+      return this.$store.state.app.scrollBottom
+    }
+  },
+  watch: {
+    // 監聽滾動載入
+    scrollBottom(val) {
+      if (!this.infoLoading && val < 400 && this.newsList.length < this.pager.totalCount && this.mode === 'list') {
+        this.getNews()
+      }
     }
   },
   mounted() {
-    this.getNews(true)
+    window.vm = this
+    this.getNews()
     this.getTopNews()
   },
   methods: {
@@ -125,7 +137,11 @@ export default {
           keyWord: this.searchKey
         }
         const res = await getNews(reqData)
-        this.newsList = res.data.data
+        res.data.data.forEach(item => {
+          this.newsList.push(item)
+        })
+        this.pager.pageIndex += 1
+        this.pager.totalCount = res.data.totalCount
       } catch (e) {
         console.error(e)
       }
@@ -146,17 +162,18 @@ export default {
       this.mode = 'list'
       this.activeTab = type
       this.newsList = []
+      this.pager.pageIndex = 1
       if (!useKeyWord) {
         this.showSearch = false
         this.searchKey = ''
       }
       this.$router.replace({ query: { mode: 'list', tab: type } })
-      this.getNews(true)
+      this.getNews()
     },
     loadArticle(id = 0) {
       this.articleId = id
-      this.$router.replace({ query: { mode: this.mode, tab: this.activeTab, articleId: id } })
       this.mode = 'article'
+      this.$router.replace({ query: { mode: 'article', tab: this.activeTab, articleId: id } })
     }
   }
 }
