@@ -5,7 +5,7 @@
       <router-view />
     </transition>
     <Footer v-if="!hideNavFooter" />
-    <Connect v-if="!hideNavFooter && scrollBottom > 100" />
+    <Connect v-if="!hideNavFooter" />
   </div>
 </template>
 
@@ -28,9 +28,6 @@ export default {
     },
     globalLoading() {
       return this.$store.state.app.globalLoading
-    },
-    scrollBottom() {
-      return this.$store.state.app.scrollBottom
     }
   },
   created() {

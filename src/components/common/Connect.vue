@@ -1,5 +1,5 @@
 <template>
-  <div class="connect">
+  <div class="connect" :class="{ hide: scrollBottom < 101 }">
     <img v-if="!mediaShow" src="@/assets/img/common/connect.png" alt="connect" class="fixd-icon" @click="mediaShow = !mediaShow" />
     <img v-else src="@/assets/img/common/close.png" alt="connect" class="fixd-icon" @click="mediaShow = !mediaShow" />
     <!-- 
@@ -44,6 +44,11 @@ export default {
     return {
       mediaShow: false
     }
+  },
+  computed: {
+    scrollBottom() {
+      return this.$store.state.app.scrollBottom
+    }
   }
 }
 </script>
@@ -54,6 +59,10 @@ export default {
   right: 3vw;
   bottom: 50px;
   z-index: 100;
+  transition: all 0.6s;
+  &.hide {
+    right: -20vw;
+  }
   .fixd-icon {
     width: 70px;
     cursor: pointer;
