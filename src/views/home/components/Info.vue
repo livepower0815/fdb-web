@@ -51,7 +51,7 @@
             <div class="sub">專業提供24客服服務，隨時隨地回應您的建議及疑問</div>
           </div>
         </div>
-        <a href="javascript:void(0)" class="info-btn">
+        <a href="javascript:void(0)" class="info-btn" @click="goToRegister">
           開始使用
           <img src="@/assets/img/home/array-right.png" alt="" style="width: auto; margin-left: 10px;" />
         </a>
@@ -64,22 +64,22 @@
         <div class="list-item" v-if="infoSelected === 'unqi-account'" key="unqi-account">
           <div class="title">獨立的帳號綁定</div>
           <div class="sub">平台之間獨立帳號驗證，確保資料的安全信任度</div>
-          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
+          <div class="start" @click="goToRegister">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
         <div class="list-item" v-if="infoSelected === 'bonues-visual'" key="bonues-visual">
           <div class="title">佣金收入視覺化</div>
           <div class="sub">清楚分類返佣種類與金額，幫助會員快速檢視返佣狀態</div>
-          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
+          <div class="start" @click="goToRegister">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
         <div class="list-item" v-if="infoSelected === 'perfect-control'" key="perfect-control">
           <div class="title">完善資訊管理</div>
           <div class="sub">多個交易所與貨幣地址統一管理，便於會員控管資料</div>
-          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
+          <div class="start" @click="goToRegister">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
         <div class="list-item" v-if="infoSelected === 'servicr-team'" key="servicr-team">
           <div class="title">在線客服團隊</div>
           <div class="sub">為您提供24小時溝通服務，無時不刻回應您的建議及疑問</div>
-          <div class="start">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
+          <div class="start" @click="goToRegister">開始使用<img src="@/assets/img/home/array-right-mobile.png" alt="array-right" /></div>
         </div>
       </transition>
     </div>
@@ -91,6 +91,11 @@ export default {
   data() {
     return {
       infoSelected: 'unqi-account'
+    }
+  },
+  methods: {
+    goToRegister() {
+      this.$router.push({ name: 'Register' })
     }
   }
 }

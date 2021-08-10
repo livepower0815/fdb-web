@@ -2,29 +2,47 @@
   <div class="info">
     <div class="info-title">最新活動與消息</div>
     <div class="info-list">
-      <div v-for="(item, index) in infoList" :key="index" class="info-card">
+      <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="goToNews(item.id)">
         <div class="info-card-img">
-          <img src="@/assets/img/news/news-pic.jpg" alt="news" />
+          <img :src="item.img" alt="news" />
         </div>
         <div class="info-card-tag">
-          <div class="tag info-bg-activity">活動</div>
+          <div :class="`tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
         </div>
-        <div class="info-card-title">
-          How to make a website look more attractive with illustrations.
-        </div>
-        <div class="info-card-date">2020.03.01</div>
+        <div class="info-card-title">{{ item.title }}</div>
+        <div class="info-card-date">{{ item.createdate }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getTopNews } from '@/apis/news.js'
+import { articleMap } from '@/utils/map.js'
+
 export default {
   name: 'ArticleList',
-  props: {
-    infoList: {
-      type: Array,
-      default: () => [{}, {}, {}]
+  data() {
+    return {
+      articleMap,
+      infoList: [{ tag: 0 }, { tag: 0 }, { tag: 0 }]
+    }
+  },
+  mounted() {
+    this.getTopNews()
+  },
+  methods: {
+    async getTopNews() {
+      try {
+        const res = await getTopNews()
+        // 只顯示三筆資料
+        this.infoList = res.data.slice(0, 3)
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    goToNews(articleId) {
+      this.$router.push({ name: 'News', query: { mode: 'article', tab: 'all', articleId } })
     }
   }
 }
