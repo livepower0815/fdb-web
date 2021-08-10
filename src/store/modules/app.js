@@ -1,7 +1,10 @@
 import { getCoinStoreGroup } from '@/apis/user'
 
 const state = {
+  // 裝置寬度
   deviceWidth: 1024,
+  // 滾動距離底部距離
+  scrollBottom: 110,
   // 交易所清單 coin store group list
   csgList: [],
   csgMap: {},
@@ -10,7 +13,11 @@ const state = {
 
 const mutations = {
   SET_DEVICE_WIDTH(state, width) {
+    console.log(width)
     state.deviceWidth = width
+  },
+  SET_SCROLL_BOTTOM(state, distance) {
+    state.scrollBottom = distance
   },
   SET_CSG_LIST(state, list) {
     state.csgList = list

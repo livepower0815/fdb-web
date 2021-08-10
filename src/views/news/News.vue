@@ -31,21 +31,23 @@
         </div>
       </div>
 
-      <!-- 置頂文章 768 以上 -->
-      <AllInfo
-        v-if="activeTab === 'all' && mode === 'list' && deviceWidth > 700"
-        :top-list="topList"
-        :is-loading="topLoading"
-        @loadArticle="loadArticle"
-      />
-      <!-- 置頂文章 540 以下 -->
-      <Information
-        v-if="activeTab === 'all' && mode === 'list' && deviceWidth <= 700"
-        :is-loading="topLoading"
-        :info-list="topList"
-        style="border-bottom: 1px #ffffff solid;"
-        @loadArticle="loadArticle"
-      />
+      <template v-if="topList.length > 0">
+        <!-- 置頂文章 768 以上 -->
+        <AllInfo
+          v-if="activeTab === 'all' && mode === 'list' && deviceWidth > 700"
+          :top-list="topList"
+          :is-loading="topLoading"
+          @loadArticle="loadArticle"
+        />
+        <!-- 置頂文章 540 以下 -->
+        <Information
+          v-if="activeTab === 'all' && mode === 'list' && deviceWidth <= 700"
+          :is-loading="topLoading"
+          :info-list="topList"
+          style="border-bottom: 1px #ffffff solid;"
+          @loadArticle="loadArticle"
+        />
+      </template>
 
       <!-- 文章列表 -->
       <Information v-if="mode === 'list'" :is-loading="infoLoading" :info-list="newsList" @loadArticle="loadArticle" />

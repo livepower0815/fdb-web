@@ -5,18 +5,22 @@
       <router-view />
     </transition>
     <Footer v-if="!hideNavFooter" />
+    <Connect v-if="!hideNavFooter && scrollBottom > 100" />
   </div>
 </template>
 
 <script>
 import Nav from '@/layout/Nav'
 import Footer from '@/layout/Footer'
+import Connect from '@/components/common/Connect'
+import { debounce } from '@/utils/debounce.js'
 
 export default {
   name: 'App',
   components: {
     Nav,
-    Footer
+    Footer,
+    Connect
   },
   computed: {
     hideNavFooter() {
@@ -24,6 +28,9 @@ export default {
     },
     globalLoading() {
       return this.$store.state.app.globalLoading
+    },
+    scrollBottom() {
+      return this.$store.state.app.scrollBottom
     }
   },
   created() {
@@ -33,9 +40,22 @@ export default {
   mounted() {
     // 監聽裝置寬度
     this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)
-    window.addEventListener('resize', () => {
+    const debounceWidth = debounce(() => {
       this.$store.commit('app/SET_DEVICE_WIDTH', window.innerWidth)
-    })
+    }, 200)
+    window.addEventListener('resize', debounceWidth)
+
+    // 滾動距離底部距離
+    const debounceScroll = debounce(this.scorllBottomCheck, 200)
+    window.addEventListener('scroll', debounceScroll)
+  },
+  methods: {
+    scorllBottomCheck() {
+      this.$store.commit(
+        'app/SET_SCROLL_BOTTOM',
+        document.documentElement.scrollHeight - document.documentElement.clientHeight - document.documentElement.scrollTop
+      )
+    }
   }
 }
 </script>

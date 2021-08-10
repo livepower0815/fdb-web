@@ -12,10 +12,20 @@
         <router-link to="/news">最新消息</router-link>
       </div>
       <div class="footer-connect">
+        <!-- 
+        IG ：https://www.instagram.com/fundobit_official/
+        TG：https://t.me/fundobit
+        -->
         <div>聯絡我們</div>
-        <img src="@/assets/img/footer/telegram.png" alt="connect-icon" class="connect-icon" />
-        <img src="@/assets/img/footer/wechat.png" alt="connect-icon" class="connect-icon" />
-        <img src="@/assets/img/footer/qq-penguin.png" alt="connect-icon" class="connect-icon" />
+        <a href="https://t.me/fundobit" target="_blank" rel="noopener noreferrer">
+          <img src="@/assets/img/footer/telegram.png" alt="connect-icon" class="connect-icon" />
+        </a>
+        <a href="JavaScript:void(0);" rel="noopener noreferrer">
+          <img src="@/assets/img/footer/wechat.png" alt="connect-icon" class="connect-icon" />
+        </a>
+        <a href="JavaScript:void(0);" rel="noopener noreferrer">
+          <img src="@/assets/img/footer/qq-penguin.png" alt="connect-icon" class="connect-icon" />
+        </a>
       </div>
     </div>
     <div class="footer-bottom">

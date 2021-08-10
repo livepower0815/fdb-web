@@ -1,0 +1,80 @@
+<template>
+  <div class="connect">
+    <img v-if="!mediaShow" src="@/assets/img/common/connect.png" alt="connect" class="fixd-icon" @click="mediaShow = !mediaShow" />
+    <img v-else src="@/assets/img/common/close.png" alt="connect" class="fixd-icon" @click="mediaShow = !mediaShow" />
+    <!-- 
+    IG ：https://www.instagram.com/fundobit_official/
+    TG ：https://t.me/fundobit
+    -->
+    <!-- TODO: 補上新icon及連結 -->
+    <a href="JavaScript:void(0);" rel="noopener noreferrer">
+      <img
+        src="@/assets/img/common/qq-penguin.png"
+        alt="telegram"
+        class="media-icon"
+        :class="{ show: mediaShow }"
+        :style="{ top: mediaShow ? `${-60}px` : '-50px' }"
+      />
+    </a>
+    <a href="JavaScript:void(0);" rel="noopener noreferrer">
+      <img
+        src="@/assets/img/common/wechat.png"
+        alt="telegram"
+        class="media-icon"
+        :class="{ show: mediaShow }"
+        :style="{ top: mediaShow ? `${-60 - 60}px` : '-50px' }"
+      />
+    </a>
+    <a href="https://t.me/fundobit" target="_blank" rel="noopener noreferrer">
+      <img
+        src="@/assets/img/common/telegram.png"
+        alt="telegram"
+        class="media-icon"
+        :class="{ show: mediaShow }"
+        :style="{ top: mediaShow ? `${-60 - 120}px` : '-50px' }"
+      />
+    </a>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Connect',
+  data() {
+    return {
+      mediaShow: false
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.connect {
+  position: fixed;
+  right: 3vw;
+  bottom: 50px;
+  z-index: 100;
+  .fixd-icon {
+    width: 70px;
+    cursor: pointer;
+    @media screen and (max-width: 1370px) {
+      width: 50px;
+    }
+  }
+  .media-icon {
+    width: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.4s;
+    @media screen and (max-width: 1370px) {
+      width: 34px;
+    }
+    &.show {
+      opacity: 1;
+    }
+  }
+}
+</style>
