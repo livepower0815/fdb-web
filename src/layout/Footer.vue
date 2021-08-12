@@ -20,11 +20,11 @@
         <a href="https://t.me/fundobit" target="_blank" rel="noopener noreferrer">
           <img src="@/assets/img/footer/telegram.png" alt="connect-icon" class="connect-icon" />
         </a>
-        <a href="JavaScript:void(0);" rel="noopener noreferrer">
-          <img src="@/assets/img/footer/wechat.png" alt="connect-icon" class="connect-icon" />
+        <a href="https://www.instagram.com/fundobit_official" target="_blank" rel="noopener noreferrer">
+          <img src="@/assets/img/common/instagram.png" alt="connect-icon" class="connect-icon" />
         </a>
-        <a href="JavaScript:void(0);" rel="noopener noreferrer">
-          <img src="@/assets/img/footer/qq-penguin.png" alt="connect-icon" class="connect-icon" />
+        <a href="mailto: CS@fundobit.com" target="_blank" rel="noopener noreferrer">
+          <img src="@/assets/img/common/email.png" alt="connect-icon" class="connect-icon" />
         </a>
       </div>
     </div>

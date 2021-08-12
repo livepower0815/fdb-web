@@ -211,7 +211,7 @@ a.personal-main-btn{width:193px;height:auto;padding:15px 30px;line-height:14px;f
 .personal-take-cash-adress-main>div.title{font-size:14px;margin:0px;line-height:24px;}
 
 .personal-edit-info-block>div.pic-block{height:auto;border:none;width:100%;}
-.personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;}
+.personal-edit-info-block>div.pic-block>a.btn{margin-left:30px;margin-top:55px;width: 120px;}
 .personal-edit-info-block>div.info-input-block{width:100%;margin-left:0px;padding-left:0px;border-left: unset;}
 .personal-edit-info-block>div.info-input-block>div.main{margin-bottom:15px;}
 .personal-edit-info-block>div.info-input-block>div.main>div.title{margin-bottom:0px;margin-right:0px;}

@@ -7,18 +7,18 @@
     TG ：https://t.me/fundobit
     -->
     <!-- TODO: 補上新icon及連結 -->
-    <a href="JavaScript:void(0);" rel="noopener noreferrer">
+    <a href="mailto: CS@fundobit.com" target="_blank" rel="noopener noreferrer">
       <img
-        src="@/assets/img/common/qq-penguin.png"
+        src="@/assets/img/common/email.png"
         alt="telegram"
         class="media-icon"
         :class="{ show: mediaShow }"
         :style="{ top: mediaShow ? `${-60}px` : '-50px' }"
       />
     </a>
-    <a href="JavaScript:void(0);" rel="noopener noreferrer">
+    <a href="https://www.instagram.com/fundobit_official" target="_blank" rel="noopener noreferrer">
       <img
-        src="@/assets/img/common/wechat.png"
+        src="@/assets/img/common/instagram.png"
         alt="telegram"
         class="media-icon"
         :class="{ show: mediaShow }"

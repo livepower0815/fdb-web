@@ -499,6 +499,7 @@ export default {
           line-height: 150%;
         }
         .start {
+          margin-top: 10px;
           text-align: end;
           font-size: 16px;
           font-weight: bold;
