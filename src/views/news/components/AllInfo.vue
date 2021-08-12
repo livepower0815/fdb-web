@@ -10,9 +10,9 @@
       <div class="info-title">
         {{ topList[0].title }}
       </div>
-      <div class="info-content">
+      <!-- <div class="info-content">
         {{ topList[0].desc }}
-      </div>
+      </div> -->
       <div class="info-date">{{ topList[0].createdate }}</div>
     </div>
     <div class="info-list">
