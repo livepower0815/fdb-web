@@ -59,7 +59,7 @@
     <el-dialog
       title="再次確認交易所綁定資訊"
       :visible.sync="checkDialog.show"
-      width="500px"
+      :width="deviceWidth > 500 ? '500px' : '300px'"
       :show-close="false"
       custom-class="fbd-dialog exchange-site-dialog"
     >
@@ -116,6 +116,9 @@ export default {
     }
   },
   computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    },
     csgList() {
       return this.$store.state.app.csgList
     },

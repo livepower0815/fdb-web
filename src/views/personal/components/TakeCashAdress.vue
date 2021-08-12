@@ -48,7 +48,7 @@
     <el-dialog
       title="請至返多寶會員郵箱驗證"
       :visible.sync="checkDialog.show"
-      width="360px"
+      :width="deviceWidth > 500 ? '360px' : '300px'"
       :show-close="false"
       custom-class="fbd-dialog adress-site-dialog"
       top="30vh"
@@ -92,6 +92,11 @@ export default {
       },
       isValidLoading: false,
       authCore: ''
+    }
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
     }
   },
   mounted() {
