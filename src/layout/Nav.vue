@@ -1,6 +1,6 @@
 <template>
   <!--Header開始-->
-  <div class="navbar">
+  <div class="navbar" :style="{ zIndex: mobileMenu.show ? '3000' : '300' }">
     <router-link to="/" class="navbar-logo">
       <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
     </router-link>
@@ -120,6 +120,8 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
