@@ -27,8 +27,8 @@
             <div v-if="coinData.bindStatus === 1" class="coin-status bind">已綁定</div>
           </template>
           <template v-else>
-            <img v-if="coinData.bindStatus === 0" src="@/assets/img/dashboard/check-circle.png" alt="check-circle" style="width: 15px" />
-            <img v-if="coinData.bindStatus === 1" src="@/assets/img/dashboard/close-circle.png" alt="close-circle" style="width: 15px" />
+            <img v-if="coinData.bindStatus === 0" src="@/assets/img/dashboard/close-circle.png" alt="close-circle" style="width: 15px" />
+            <img v-if="coinData.bindStatus === 1" src="@/assets/img/dashboard/check-circle.png" alt="check-circle" style="width: 15px" />
           </template>
         </div>
       </div>
