@@ -8,14 +8,19 @@
     <div class="article-other" v-loading="otherLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
       <div class="other-title">其他相關文章</div>
       <template v-if="newsList.length > 0">
-        <div v-for="(item, index) in newsList" :key="index" class="other-item" @click="changeArticle(item.id)">
+        <router-link
+          :to="{ query: { ...$route.query, articleId: item.id } }"
+          v-for="(item, index) in newsList"
+          :key="index"
+          class="other-item"
+        >
           <div class="item">
             <div :class="`item-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
             <div class="item-title">{{ item.title }}</div>
             <div class="item-date">{{ item.createdate }}</div>
           </div>
           <img class="img" :src="item.img" alt="pic" />
-        </div>
+        </router-link>
       </template>
       <div v-else class="other-empty">
         <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />
@@ -86,10 +91,6 @@ export default {
         console.error(e)
       }
       this.otherLoading = false
-    },
-    changeArticle(articleId) {
-      if (articleId === this.articleId) return
-      this.$router.push({ query: { ...this.$route.query, articleId: articleId } })
     }
   }
 }

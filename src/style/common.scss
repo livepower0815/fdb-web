@@ -20,6 +20,7 @@ select,
 a,
 button {
   outline: none;
+  color: inherit; /* blue colors for links too */
   text-decoration: none;
   border: none;
 }

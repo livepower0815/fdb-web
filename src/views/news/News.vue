@@ -26,23 +26,17 @@
       </div>
 
       <!-- 置頂文章 768 以上 -->
-      <AllInfo
-        v-if="activeTab === 'all' && mode === 'list' && deviceWidth > 700"
-        :top-list="topList"
-        :is-loading="topLoading"
-        @loadArticle="loadArticle"
-      />
+      <AllInfo v-if="activeTab === 'all' && mode === 'list' && deviceWidth > 700" :top-list="topList" :is-loading="topLoading" />
       <!-- 置頂文章 540 以下 -->
       <Information
         v-if="activeTab === 'all' && mode === 'list' && deviceWidth <= 700"
         :is-loading="topLoading"
         :info-list="topList"
         style="border-bottom: 1px #ffffff solid;"
-        @loadArticle="loadArticle"
       />
 
       <!-- 文章列表 -->
-      <Information v-if="mode === 'list'" :is-loading="infoLoading" :info-list="newsList" @loadArticle="loadArticle" />
+      <Information v-if="mode === 'list'" :is-loading="infoLoading" :info-list="newsList" />
       <!--Pages-->
       <Pager v-if="mode === 'list' && newsList.length > 0" :get-data="getNews" :pager="pager" style="margin-bottom: 8%;" />
 
@@ -167,9 +161,6 @@ export default {
     searchKeyWord() {
       this.$router.push({ query: { mode: 'list', activeTab: 'search' } })
       this.getNews(true)
-    },
-    loadArticle(id = 0) {
-      this.$router.push({ query: { mode: 'article', activeTab: this.activeTab, articleId: id } })
     }
   }
 }

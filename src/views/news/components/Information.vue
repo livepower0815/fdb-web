@@ -1,7 +1,12 @@
 <template>
   <div v-loading="isLoading" element-loading-background="#050608" class="information">
     <template v-if="infoList.length > 0">
-      <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle', item.id)">
+      <router-link
+        :to="{ query: { ...$route.query, mode: 'article', articleId: item.id } }"
+        v-for="(item, index) in infoList"
+        :key="index"
+        class="info-card"
+      >
         <div class="info-card-img">
           <img :src="item.img" alt="news" />
         </div>
@@ -13,7 +18,7 @@
         </div>
         <div class="info-card-content">{{ item.desc }}</div>
         <div class="info-card-date">{{ item.createdate }}</div>
-      </div>
+      </router-link>
     </template>
     <div v-else-if="!isLoading" class="info-empty">
       <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />

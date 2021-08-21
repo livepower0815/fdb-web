@@ -1,6 +1,6 @@
 <template>
   <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="all-info">
-    <div v-if="topList[0]" class="info-main" @click="$emit('loadArticle', topList[0].id)">
+    <router-link :to="{ query: { ...$route.query, mode: 'article', articleId: topList[0].id } }" v-if="topList[0]" class="info-main">
       <div class="img">
         <img :src="topList[0].img" alt="announced" />
       </div>
@@ -14,9 +14,14 @@
         {{ topList[0].desc }}
       </div> -->
       <div class="info-date">{{ topList[0].createdate }}</div>
-    </div>
+    </router-link>
     <div class="info-list">
-      <div v-for="item in topList.slice(1)" :key="item.id" class="list-item" @click="$emit('loadArticle', item.id)">
+      <router-link
+        :to="{ query: { ...$route.query, mode: 'article', articleId: item.id } }"
+        v-for="item in topList.slice(1)"
+        :key="item.id"
+        class="list-item"
+      >
         <div class="list-main">
           <div :class="`list-tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
           <div class="list-title">{{ item.title }}</div>
@@ -25,7 +30,7 @@
         <div class="list-img">
           <img :src="item.img" alt="img" />
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
