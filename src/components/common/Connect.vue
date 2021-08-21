@@ -13,7 +13,7 @@
         alt="telegram"
         class="media-icon"
         :class="{ show: mediaShow }"
-        :style="{ top: mediaShow ? `${-60}px` : '-50px' }"
+        :style="{ top: mediaShow ? `${-60}px` : '-50px', pointerEvents: mediaShow ? 'auto' : 'none' }"
       />
     </a>
     <a href="https://www.instagram.com/fundobit_official" target="_blank" rel="noopener noreferrer">
@@ -22,7 +22,7 @@
         alt="telegram"
         class="media-icon"
         :class="{ show: mediaShow }"
-        :style="{ top: mediaShow ? `${-60 - 60}px` : '-50px' }"
+        :style="{ top: mediaShow ? `${-60 - 60}px` : '-50px', pointerEvents: mediaShow ? 'auto' : 'none' }"
       />
     </a>
     <a href="https://t.me/fundobit" target="_blank" rel="noopener noreferrer">
@@ -31,7 +31,7 @@
         alt="telegram"
         class="media-icon"
         :class="{ show: mediaShow }"
-        :style="{ top: mediaShow ? `${-60 - 120}px` : '-50px' }"
+        :style="{ top: mediaShow ? `${-60 - 120}px` : '-50px', pointerEvents: mediaShow ? 'auto' : 'none' }"
       />
     </a>
   </div>

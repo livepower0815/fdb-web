@@ -23,11 +23,19 @@
           <div class="coin-name">{{ currencyMap[coinData.currencyType] }}</div>
           <div class="coin-count">{{ coinData.coinCount }}</div>
           <template v-if="deviceWidth > 960">
-            <div v-if="coinData.bindStatus === 0" class="coin-status unbind">未綁定</div>
+            <router-link
+              :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }"
+              v-if="coinData.bindStatus === 0"
+              class="coin-status unbind"
+            >
+              未綁定
+            </router-link>
             <div v-if="coinData.bindStatus === 1" class="coin-status bind">已綁定</div>
           </template>
           <template v-else>
-            <img v-if="coinData.bindStatus === 0" src="@/assets/img/dashboard/close-circle.png" alt="close-circle" style="width: 15px" />
+            <router-link :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
+              <img v-if="coinData.bindStatus === 0" src="@/assets/img/dashboard/close-circle.png" alt="close-circle" style="width: 15px" />
+            </router-link>
             <img v-if="coinData.bindStatus === 1" src="@/assets/img/dashboard/check-circle.png" alt="check-circle" style="width: 15px" />
           </template>
         </div>
@@ -225,6 +233,7 @@ export default {
           }
           &.unbind {
             color: #eb4664;
+            text-decoration: underline;
           }
         }
       }
