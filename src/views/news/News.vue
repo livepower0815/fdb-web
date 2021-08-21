@@ -21,13 +21,7 @@
         </div>
         <div class="menu-right">
           <img @click="showSearch = !showSearch" class="icon-search" src="@/assets/img/common/icon-search.png" alt="search" />
-          <input
-            v-model="searchKey"
-            class="input"
-            :class="{ hide: !showSearch }"
-            type="text"
-            @keyup.enter="changeActiveTag('search', true)"
-          />
+          <input v-model="searchKey" class="input" :class="{ hide: !showSearch }" type="text" @keyup.enter="searchKeyWord" />
         </div>
       </div>
 
@@ -49,6 +43,8 @@
 
       <!-- 文章列表 -->
       <Information v-if="mode === 'list'" :is-loading="infoLoading" :info-list="newsList" @loadArticle="loadArticle" />
+      <!--Pages-->
+      <Pager v-if="mode === 'list' && newsList.length > 0" :get-data="getNews" :pager="pager" style="margin-bottom: 8%;" />
 
       <!-- 文章內容 -->
       <Article v-if="mode === 'article'" />
@@ -62,13 +58,15 @@ import AllInfo from './components/AllInfo'
 import Information from './components/Information.vue'
 import Article from './components/Article'
 import { getNews, getTopNews } from '@/apis/news.js'
+import Pager from '@/components/common/Pager'
 
 export default {
   name: 'News',
   components: {
     AllInfo,
     Information,
-    Article
+    Article,
+    Pager
   },
   data() {
     return {
@@ -116,13 +114,11 @@ export default {
     }
   },
   watch: {
-    // 監聽滾動載入
-    scrollBottom(val) {
-      if (!this.infoLoading && val < 400 && this.newsList.length < this.pager.totalCount && this.mode === 'list') {
-        this.getNews()
-      }
-    },
     activeTab(val) {
+      // 查詢關鍵字由手動觸發
+      if (val === 'search') return
+      this.showSearch = false
+      this.searchKey = ''
       this.getNews(true)
     }
   },
@@ -134,7 +130,6 @@ export default {
     async getNews(reset) {
       this.infoLoading = true
       if (reset) {
-        this.newsList = []
         this.pager.pageIndex = 1
       }
       try {
@@ -146,10 +141,8 @@ export default {
           keyWord: this.searchKey
         }
         const res = await getNews(reqData)
-        res.data.data.forEach(item => {
-          this.newsList.push(item)
-        })
-        this.pager.pageIndex += 1
+        this.newsList = res.data.data
+        this.pager.pageIndex = res.data.pageIndex
         this.pager.totalCount = res.data.totalCount
       } catch (e) {
         console.error(e)
@@ -167,13 +160,13 @@ export default {
       }
       this.topLoading = false
     },
-    changeActiveTag(type, useKeyWord) {
+    changeActiveTag(type) {
       if (type === this.activeTab) return
-      if (!useKeyWord) {
-        this.showSearch = false
-        this.searchKey = ''
-      }
       this.$router.push({ query: { mode: 'list', activeTab: type } })
+    },
+    searchKeyWord() {
+      this.$router.push({ query: { mode: 'list', activeTab: 'search' } })
+      this.getNews(true)
     },
     loadArticle(id = 0) {
       this.$router.push({ query: { mode: 'article', activeTab: this.activeTab, articleId: id } })

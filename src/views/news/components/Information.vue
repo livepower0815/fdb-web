@@ -1,5 +1,5 @@
 <template>
-  <div class="information">
+  <div v-loading="isLoading" element-loading-background="#050608" class="information">
     <template v-if="infoList.length > 0">
       <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="$emit('loadArticle', item.id)">
         <div class="info-card-img">
@@ -19,7 +19,6 @@
       <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />
       <div>無相關文章</div>
     </div>
-    <div v-if="isLoading" class="loading-section" v-loading="true" element-loading-background="#050608"></div>
   </div>
 </template>
 
@@ -53,7 +52,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 4%;
-  margin-bottom: 8%;
+  margin-bottom: 2%;
   min-height: 400px;
   .info-card {
     flex: 0 0 31%;
@@ -123,10 +122,6 @@ export default {
       line-height: 150%;
       color: #e5e5e5;
     }
-  }
-  .loading-section {
-    width: 100%;
-    height: 100px;
   }
   .info-empty {
     width: 100%;

@@ -77,10 +77,11 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  background-image: url('../../assets/img/common/globe.png');
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  // 先移除背景之後可能會補上
+  // background-image: url('../../assets/img/common/globe.png');
+  // background-position: top;
+  // background-size: cover;
+  // background-repeat: no-repeat;
   .banner-limit {
     height: 35vw;
     @media screen and (max-width: 1500px) {
