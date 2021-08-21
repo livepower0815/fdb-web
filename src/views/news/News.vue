@@ -72,9 +72,6 @@ export default {
   },
   data() {
     return {
-      mode: this.$route.query.mode || 'list',
-      activeTab: this.$route.query.tab || 'all',
-      articleId: Number(this.$route.query.articleId) || 0,
       showSearch: false,
       infoLoading: false,
       topLoading: false,
@@ -110,6 +107,12 @@ export default {
     },
     scrollBottom() {
       return this.$store.state.app.scrollBottom
+    },
+    mode() {
+      return this.$route.query.mode || 'list'
+    },
+    activeTab() {
+      return this.$route.query.activeTab || 'all'
     }
   },
   watch: {
@@ -118,16 +121,22 @@ export default {
       if (!this.infoLoading && val < 400 && this.newsList.length < this.pager.totalCount && this.mode === 'list') {
         this.getNews()
       }
+    },
+    activeTab(val) {
+      this.getNews(true)
     }
   },
   mounted() {
-    window.vm = this
-    this.getNews()
+    this.getNews(true)
     this.getTopNews()
   },
   methods: {
-    async getNews() {
+    async getNews(reset) {
       this.infoLoading = true
+      if (reset) {
+        this.newsList = []
+        this.pager.pageIndex = 1
+      }
       try {
         const reqData = {
           lang: 0,
@@ -159,21 +168,15 @@ export default {
       this.topLoading = false
     },
     changeActiveTag(type, useKeyWord) {
-      this.mode = 'list'
-      this.activeTab = type
-      this.newsList = []
-      this.pager.pageIndex = 1
+      if (type === this.activeTab) return
       if (!useKeyWord) {
         this.showSearch = false
         this.searchKey = ''
       }
-      this.$router.replace({ query: { mode: 'list', tab: type } })
-      this.getNews()
+      this.$router.push({ query: { mode: 'list', activeTab: type } })
     },
     loadArticle(id = 0) {
-      this.articleId = id
-      this.mode = 'article'
-      this.$router.replace({ query: { mode: 'article', tab: this.activeTab, articleId: id } })
+      this.$router.push({ query: { mode: 'article', activeTab: this.activeTab, articleId: id } })
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="about-title">
-      返多寶致力成為全球最大虛擬貨幣「返擁平台」及「論壇」<br />交易返佣、手續費返佣、推廣返佣<br />全方面的反佣方案、24小時專業客服團隊<br />只有返多寶
+      返多寶致力成為全球最大虛擬貨幣「返佣平台」及「論壇」<br />交易返佣、手續費返佣、推廣返佣<br />全方面的反佣方案、24小時專業客服團隊<br />只有返多寶
     </div>
     <div class="about-mission">我們的使命</div>
     <div class="about-detail">返多寶為幣圈第一間返佣平台</div>

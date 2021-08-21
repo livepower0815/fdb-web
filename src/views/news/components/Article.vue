@@ -45,6 +45,11 @@ export default {
       return Number(this.$route.query.articleId)
     }
   },
+  watch: {
+    articleId() {
+      this.getNewsDetail()
+    }
+  },
   mounted() {
     this.getNewsDetail()
   },
@@ -84,8 +89,7 @@ export default {
     },
     changeArticle(articleId) {
       if (articleId === this.articleId) return
-      this.$router.replace({ query: { ...this.$route.query, articleId: articleId } })
-      this.getNewsDetail()
+      this.$router.push({ query: { ...this.$route.query, articleId: articleId } })
     }
   }
 }
