@@ -12,8 +12,10 @@
       <div class="info-header">
         <div class="title">您的盈利</div>
         <div class="link">
-          <el-tooltip effect="dark" content="前往錢包" placement="top">
-            <img src="@/assets/img/common/arrow-right.png" alt="arrow-right" />
+          <el-tooltip effect="dark" content="前往出金地址" placement="top">
+            <router-link :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
+              <img src="@/assets/img/common/arrow-right.png" alt="arrow-right" />
+            </router-link>
           </el-tooltip>
         </div>
       </div>

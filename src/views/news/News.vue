@@ -12,7 +12,7 @@
     <!--內容 開始-->
     <div class="news-content">
       <!-- menu bar -->
-      <div class="menu-bar">
+      <div class="menu-bar" id="news-menu-bar">
         <div class="menu-left">
           <div class="menu-item" :class="{ active: activeTab === 'all' }" @click="changeActiveTag('all')">全部</div>
           <div class="menu-item" :class="{ active: activeTab === 'forum' }" @click="changeActiveTag('forum')">論壇</div>
@@ -125,6 +125,8 @@ export default {
       this.infoLoading = true
       if (reset) {
         this.pager.pageIndex = 1
+      } else {
+        this.scrollToTop()
       }
       try {
         const reqData = {
@@ -161,6 +163,11 @@ export default {
     searchKeyWord() {
       this.$router.push({ query: { mode: 'list', activeTab: 'search' } })
       this.getNews(true)
+    },
+    scrollToTop() {
+      this.$nextTick(() => {
+        document.querySelector('#news-menu-bar').scrollIntoView({ behavior: 'smooth' })
+      })
     }
   }
 }
@@ -293,6 +300,7 @@ export default {
           &.hide {
             width: 0px;
             opacity: 0;
+            pointer-events: none;
           }
         }
       }
