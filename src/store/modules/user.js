@@ -30,9 +30,7 @@ const actions = {
     const { account, password, captchaCode } = loginData
     try {
       const res = await login({ account, password, captchaCode })
-      const token = res.data
-      commit('SET_TOKEN', token)
-      return 'done'
+      return res
     } catch (error) {
       return Promise.reject(error)
     }

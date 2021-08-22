@@ -40,11 +40,34 @@
         <img src="@/assets/img/nav/logo.png" alt="logo" />
       </router-link>
     </div>
+
+    <el-dialog title="登入失敗" :visible.sync="validateEmail.show" width="300px" :show-close="false" custom-class="fbd-dialog">
+      <div v-if="!validateEmail.hasSent">
+        <div style="color: #eb4664; margin-bottom: 12px; text-align: center;">信箱未驗證</div>
+        <div style="text-align: center;">請至信箱收取驗證信件或重新寄發驗證信</div>
+      </div>
+      <div v-else style="text-align: center;">驗證信已重新寄發</div>
+      <span slot="footer">
+        <template v-if="!validateEmail.hasSent">
+          <div
+            v-loading="validateEmail.loading"
+            element-loading-background="rgba(0, 0, 0, 0.5)"
+            class="fdb-btn-primary"
+            style="padding: 0 12px; margin-right: 8px;"
+            @click="reSentEmail"
+          >
+            重新寄發驗證信
+          </div>
+          <div class="fdb-btn-default" style="padding: 0 12px;" @click="validateEmail.show = false">取消</div>
+        </template>
+        <div v-else class="fdb-btn-default" @click="validateEmail.show = false">關閉</div>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { getCaptchaImage } from '@/apis/user.js'
+import { getCaptchaImage, reSendCheckMail } from '@/apis/user.js'
 import PasswordIcon from '@/components/common/PasswordIcon'
 
 export default {
@@ -61,7 +84,12 @@ export default {
         password: '',
         captchaCode: ''
       },
-      captchaImg: ''
+      captchaImg: '',
+      validateEmail: {
+        show: false,
+        loading: false,
+        hasSent: false
+      }
     }
   },
   mounted() {
@@ -88,9 +116,16 @@ export default {
           password: this.formData.password,
           captchaCode: this.formData.captchaCode
         }
-        await this.$store.dispatch('user/login', postData)
-        this.$message.success('登入成功')
-        this.$router.push({ name: 'Dashboard' }, () => {})
+        // result = 1 的時候是登入成功，2 信箱未驗證
+        const res = await this.$store.dispatch('user/login', postData)
+        if (res.result === 1) {
+          this.$store.commit('user/SET_TOKEN', res.data)
+          this.$message.success('登入成功')
+          this.$router.push({ name: 'Dashboard' }, () => {})
+        } else if (res.result === 2) {
+          this.validateEmail.show = true
+          this.validateEmail.hasSent = false
+        }
       } catch (error) {
         if (!error.isHttpError) {
           this.$message.error(error.message)
@@ -114,6 +149,21 @@ export default {
         return Promise.reject(new Error('請輸入圖形驗證碼'))
       }
       return 'done'
+    },
+    // 重新寄發驗證信
+    async reSentEmail() {
+      this.validateEmail.loading = true
+      try {
+        const reqBody = {
+          email: this.formData.account,
+          password: this.formData.password
+        }
+        await reSendCheckMail(reqBody)
+        this.validateEmail.hasSent = true
+      } catch (e) {
+        console.error(e)
+      }
+      this.validateEmail.loading = false
     }
   }
 }

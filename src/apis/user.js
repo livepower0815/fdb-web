@@ -8,6 +8,14 @@ export const login = data =>
     data
   })
 
+// 補發驗證信
+export const reSendCheckMail = data =>
+  request({
+    url: '/api/User/ReSendCheckMail',
+    method: 'POST',
+    data
+  })
+
 // 會員註冊
 export const register = data =>
   request({
