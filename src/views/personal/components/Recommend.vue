@@ -75,7 +75,7 @@
               <th>會員名稱</th>
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">聯絡資訊</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">交易幣別</th>
-              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">反佣交易量</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">返佣交易量</th>
               <th style="text-align: center;">
                 <TableFilter
                   v-if="widthWithiIn(['MAX', 'XXL', 'XL'])"
@@ -160,7 +160,7 @@
                       <div class="item-body">{{ formatDate(row.lastdate) }}</div>
                     </div>
                     <div class="content-item">
-                      <div class="item-title">反佣交易量</div>
+                      <div class="item-title">返佣交易量</div>
                       <div class="item-body">
                         <div v-for="(coin, coinIndex) in filterZeroCoin(row.userCoinModels)" :key="coinIndex" class="detail-coin-info">
                           <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />

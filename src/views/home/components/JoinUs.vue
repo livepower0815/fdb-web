@@ -20,7 +20,7 @@
         <div class="join-number">03</div>
         <div class="join-main">
           <div class="title">開始返佣</div>
-          <div class="info">您交易，我返佣<br />輸入收幣地址即可享受反佣</div>
+          <div class="info">您交易，我返佣<br />輸入收幣地址即可享受返佣</div>
         </div>
       </div>
     </div>

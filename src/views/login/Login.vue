@@ -41,12 +41,12 @@
       </router-link>
     </div>
 
-    <el-dialog title="登入失敗" :visible.sync="validateEmail.show" width="300px" :show-close="false" custom-class="fbd-dialog">
+    <el-dialog title="登入失敗" :visible.sync="validateEmail.show" width="310px" :show-close="false" custom-class="fbd-dialog">
       <div v-if="!validateEmail.hasSent">
-        <div style="color: #eb4664; margin-bottom: 12px; text-align: center;">信箱未驗證</div>
-        <div style="text-align: center;">請至信箱收取驗證信件或重新寄發驗證信</div>
+        <div style="color: #eb4664; margin-bottom: 12px; text-align: center;">帳號未確認</div>
+        <div style="text-align: center;">請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊</div>
       </div>
-      <div v-else style="text-align: center;">驗證信已重新寄發</div>
+      <div v-else style="text-align: center;">認證信已重新發送</div>
       <span slot="footer">
         <template v-if="!validateEmail.hasSent">
           <div
@@ -56,7 +56,7 @@
             style="padding: 0 12px; margin-right: 8px;"
             @click="reSentEmail"
           >
-            重新寄發驗證信
+            重新寄發認證信
           </div>
           <div class="fdb-btn-default" style="padding: 0 12px;" @click="validateEmail.show = false">取消</div>
         </template>

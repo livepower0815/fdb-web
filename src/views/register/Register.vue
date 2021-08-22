@@ -77,7 +77,7 @@
     </div>
     <el-dialog title="信箱驗證通知" :visible.sync="dialogVisible" width="300px" :show-close="false" custom-class="fbd-dialog">
       <div style="text-align: center;">
-        <span>提醒您：驗證電子郵件，開始反佣</span>
+        <span>提醒您：驗證電子郵件，開始返佣</span>
       </div>
       <span slot="footer">
         <div class="fdb-btn-primary" @click="dialogVisible = false">關閉</div>
