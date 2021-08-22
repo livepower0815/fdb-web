@@ -116,19 +116,19 @@ export default {
           password: this.formData.password,
           captchaCode: this.formData.captchaCode
         }
-        // result = 1 的時候是登入成功，2 信箱未驗證
+        // result = 1 的時候是登入成功
         const res = await this.$store.dispatch('user/login', postData)
-        if (res.result === 1) {
-          this.$store.commit('user/SET_TOKEN', res.data)
-          this.$message.success('登入成功')
-          this.$router.push({ name: 'Dashboard' }, () => {})
-        } else if (res.result === 2) {
-          this.validateEmail.show = true
-          this.validateEmail.hasSent = false
-        }
+        this.$store.commit('user/SET_TOKEN', res.data)
+        this.$message.success('登入成功')
+        this.$router.push({ name: 'Dashboard' }, () => {})
       } catch (error) {
         if (!error.isHttpError) {
           this.$message.error(error.message)
+        }
+        // result = 2 信箱未驗證
+        if (error.response.data && error.response.data.result === 2) {
+          this.validateEmail.show = true
+          this.validateEmail.hasSent = false
         }
         console.error(error)
       }

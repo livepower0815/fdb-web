@@ -52,8 +52,8 @@ service.interceptors.response.use(
         default:
           console.error(error)
       }
-      Message.error(error.response?.data?.resultMsg || '連線錯誤')
     }
+    Message.error(error.response?.data?.resultMsg || '連線錯誤')
     return Promise.reject(error)
   }
 )
