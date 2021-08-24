@@ -56,7 +56,6 @@ export default {
 
 <style lang="scss" scoped>
 .fdb-pager {
-  float: left;
   display: flex;
   justify-content: center;
   width: 100%;
