@@ -43,11 +43,15 @@
             </div>
             <div class="form-item">
               <div class="title">可出金數量</div>
-              <div class="value">{{ form.coinCount }}</div>
+              <div v-if="selectedCoin.coinCount" class="value">{{ selectedCoin.coinCount }}</div>
+              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
-              <div class="value">{{ adressData[currencyMap[form.currencySelect]] || '--' }}</div>
+              <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
+                {{ adressData[currencyMap[form.currencySelect]] }}
+              </div>
+              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
             </div>
             <div class="form-item" :class="{ 'click-disabled': !form.currencySelect }">
               <div class="title">出金數量</div>
@@ -75,7 +79,7 @@
             </div>
             <div class="form-item">
               <div class="title">可出金數量</div>
-              <div class="value">{{ form.coinCount }}</div>
+              <div class="value">{{ selectedCoin.coinCount }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
@@ -84,6 +88,10 @@
             <div class="form-item">
               <div class="title">出金數量</div>
               <div class="value">{{ form.withdrawAmount }}</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金手續費</div>
+              <div class="value">{{ selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
           <div class="red-text">
@@ -111,7 +119,7 @@
             </div>
             <div class="form-item">
               <div class="title">出金幣別</div>
-              <div class="value">{{ currencyMap[form.currencySelect] }}</div>
+              <div class="value">{{ selectedCoinName }}</div>
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
@@ -120,6 +128,10 @@
             <div class="form-item">
               <div class="title">出金數量</div>
               <div class="value">{{ form.withdrawAmount }}</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金手續費</div>
+              <div class="value">{{ selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
         </div>
@@ -134,7 +146,7 @@
 </template>
 
 <script>
-import { currencyIdMap, currencyMap } from '@/utils/map.js'
+import { currencyMap } from '@/utils/map.js'
 import StoreSelect from '@/components/StoreSelect'
 import CoinIcon from '@/components/common/CoinIcon'
 import { getAllWithdrawalAddress } from '@/apis/user.js'
@@ -153,10 +165,8 @@ export default {
       exchangeLoading: false,
       form: {
         currencySelect: '',
-        coinCount: '0',
         withdrawAmount: ''
       },
-      currencyIdMap: currencyIdMap,
       currencyMap: currencyMap,
       storeData: [],
       adressData: {},
@@ -169,6 +179,12 @@ export default {
     },
     canTrade() {
       return this.storeData.some(coin => coin.bindStatus > 0 && coin.coinCount > 0)
+    },
+    selectedCoin() {
+      return this.storeData.find(item => item.currencyType === this.form.currencySelect) || {}
+    },
+    selectedCoinName() {
+      return this.currencyMap[this.form.currencySelect]
     }
   },
   mounted() {
@@ -194,7 +210,6 @@ export default {
     },
     selectCoin(coinData) {
       this.form.currencySelect = coinData.currencyType
-      this.form.coinCount = coinData.coinCount
     },
     toStep2() {
       if (!this.form.currencySelect) {
@@ -213,12 +228,19 @@ export default {
         this.$message.error('超過可出金數量')
         return false
       }
+      // 的提示為
+      // 低於BTC最低出金數量 0.0005
+      // ....依據幣種不同呈現不同數量跟說明
+      if (this.form.withdrawAmount < this.selectedCoin.coinminiAmount) {
+        this.$message.error(`低於 ${this.selectedCoinName} 最低出金數量 ${this.selectedCoin.coinminiAmount}`)
+        return false
+      }
       this.step = 2
     },
     resetForm() {
       this.form.currencySelect = ''
-      this.form.coinCount = '0'
       this.form.withdrawAmount = ''
+      this.orderNumber = ''
     },
     async submit() {
       this.isLoading = true
