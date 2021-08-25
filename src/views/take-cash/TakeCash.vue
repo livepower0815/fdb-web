@@ -224,10 +224,10 @@ export default {
         this.$message.error('請輸入出金數量')
         return false
       }
-      // if (this.form.withdrawAmount > this.selectedCoin.coinCount) {
-      //   this.$message.error('超過可出金數量')
-      //   return false
-      // }
+      if (this.form.withdrawAmount > this.selectedCoin.coinCount) {
+        this.$message.error('超過可出金數量')
+        return false
+      }
       // 的提示為
       // 低於BTC最低出金數量 0.0005
       // ....依據幣種不同呈現不同數量跟說明
