@@ -11,7 +11,9 @@
           <img :src="item.img" alt="news" />
         </div>
         <div class="info-card-tag">
-          <div :class="`tag info-bg-${articleMap[item.tag].key}`">{{ articleMap[item.tag].name }}</div>
+          <div :class="`tag info-bg-${articleMap[item.tag] ? articleMap[item.tag].key : 'forum'}`">
+            {{ articleMap[item.tag] ? articleMap[item.tag].name : '未定義' }}
+          </div>
         </div>
         <div class="info-card-title">
           {{ item.title }}
