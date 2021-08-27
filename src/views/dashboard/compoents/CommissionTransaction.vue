@@ -56,7 +56,7 @@
             <td>{{ row.currency }}</td>
             <td>{{ formatChangeType(row.changeType) }}</td>
             <td>
-              <span :class="`${setNumColor(row.changeNum)}`">{{ row.changeNum > 0 ? '+' : '-' }}{{ row.changeNum }}</span>
+              <span :class="`${setNumColor(row.changeNum)}`">{{ row.changeNum > 0 ? '+' : '' }}{{ row.changeNum }}</span>
             </td>
             <td>{{ row.restNum }}</td>
           </tr>
@@ -91,7 +91,7 @@
           <div class="card-item">
             <div class="label">異動數量</div>
             <div class="content">
-              <span :class="`${setNumColor(row.changeNum)}`">{{ row.changeNum > 0 ? '+' : '-' }}{{ row.changeNum }}</span>
+              <span :class="`${setNumColor(row.changeNum)}`">{{ row.changeNum > 0 ? '+' : '' }}{{ row.changeNum }}</span>
             </div>
           </div>
           <div class="card-item">
@@ -206,7 +206,7 @@ import moment from 'moment'
 import Sort from '@/components/common/Sort'
 import TableFilter from '@/components/common/TableFilter'
 
-const changeTypeMap = ['個人', '推薦人', '出金']
+const changeTypeMap = ['個人', '推薦人', '出金', '活動贈點']
 
 export default {
   name: 'CommissionTransaction',
@@ -253,7 +253,8 @@ export default {
       changeTypeMap: [
         { name: '個人', key: 0 },
         { name: '推薦人', key: 1 },
-        { name: '出金', key: 2 }
+        { name: '出金', key: 2 },
+        { name: '活動贈點', key: 3 }
       ]
     }
   },

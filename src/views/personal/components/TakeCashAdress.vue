@@ -155,10 +155,11 @@ export default {
       if (this.formData.USDT && !/^[013].+$/.test(this.formData.USDT)) {
         throw new Error('USDT : 數字1＆3 & 0 開頭')
       }
+      // 8/26 EOS 不驗證
       // EOS : 12個字符英文大小寫+數字組成
-      if (this.formData.EOS && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{12}$/.test(this.formData.EOS)) {
-        throw new Error('EOS : 12個字符英文大小寫+數字組成')
-      }
+      // if (this.formData.EOS && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{12}$/.test(this.formData.EOS)) {
+      //   throw new Error('EOS : 12個字符英文大小寫+數字組成')
+      // }
       // ETH : 數字0 開頭，42位英文大小寫+數字組成
       if (this.formData.ETH && !/^[0](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{41}$/.test(this.formData.ETH)) {
         throw new Error('ETH : 數字0 開頭，42位英文大小寫+數字組成')
