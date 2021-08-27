@@ -124,9 +124,8 @@ export default {
       } catch (error) {
         if (!error.isHttpError) {
           this.$message.error(error.message)
-        }
-        // result = 2 信箱未驗證
-        if (error.response.data && error.response.data.result === 2) {
+        } else if (error.response?.data?.result === 2) {
+          // result = 2 信箱未驗證
           this.validateEmail.show = true
           this.validateEmail.hasSent = false
         }
