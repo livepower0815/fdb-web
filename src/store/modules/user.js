@@ -1,4 +1,4 @@
-import { login, getUserInfo, getBindCoinStores } from '@/apis/user'
+import { login, logout, getUserInfo, getBindCoinStores } from '@/apis/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const state = {
@@ -27,9 +27,8 @@ const mutations = {
 const actions = {
   // user login
   async login({ commit }, loginData) {
-    const { account, password, captchaCode } = loginData
     try {
-      const res = await login({ account, password, captchaCode })
+      const res = await login(loginData)
       return res
     } catch (error) {
       return Promise.reject(error)
@@ -58,6 +57,7 @@ const actions = {
   // user logout
   async logout({ dispatch }) {
     try {
+      await logout()
       dispatch('resetToken')
     } catch (error) {
       return Promise.reject(error)

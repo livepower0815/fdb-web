@@ -82,7 +82,8 @@ export default {
       formData: {
         account: '',
         password: '',
-        captchaCode: ''
+        captchaCode: '',
+        uuid: ''
       },
       captchaImg: '',
       validateEmail: {
@@ -99,9 +100,11 @@ export default {
     async init() {
       try {
         this.formData.captchaCode = ''
+        this.formData.uuid = ''
         this.captchaImg = ''
         const res = await getCaptchaImage()
         this.captchaImg = res.img
+        this.formData.uuid = res.uuid
       } catch (error) {
         console.error(error)
       }
@@ -114,7 +117,8 @@ export default {
         const postData = {
           account: this.formData.account,
           password: this.formData.password,
-          captchaCode: this.formData.captchaCode
+          captchaCode: this.formData.captchaCode,
+          uuid: this.formData.uuid
         }
         // result = 1 的時候是登入成功
         const res = await this.$store.dispatch('user/login', postData)

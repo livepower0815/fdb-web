@@ -8,6 +8,13 @@ export const login = data =>
     data
   })
 
+// 會員登出
+export const logout = () =>
+  request({
+    url: '/api/User/Logout',
+    method: 'POST'
+  })
+
 // 補發驗證信
 export const reSendCheckMail = data =>
   request({
