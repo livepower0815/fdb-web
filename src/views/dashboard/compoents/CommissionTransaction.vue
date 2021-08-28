@@ -206,8 +206,6 @@ import moment from 'moment'
 import Sort from '@/components/common/Sort'
 import TableFilter from '@/components/common/TableFilter'
 
-const changeTypeMap = ['個人', '推薦人', '出金', '活動贈點']
-
 export default {
   name: 'CommissionTransaction',
   components: {
@@ -254,7 +252,7 @@ export default {
         { name: '個人', key: 0 },
         { name: '推薦人', key: 1 },
         { name: '出金', key: 2 },
-        { name: '活動贈點', key: 3 }
+        { name: '活動異動', key: 3 }
       ]
     }
   },
@@ -349,7 +347,8 @@ export default {
       this.getCommissionTransaction(true)
     },
     formatChangeType(changeCode) {
-      return changeTypeMap[changeCode]
+      const findItem = this.changeTypeMap.find(item => item.key === changeCode)
+      return findItem ? findItem.name : '未定義'
     },
     setNumColor(num) {
       return num > 0 ? 'text-green' : 'text-red'
