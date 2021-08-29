@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
+import router from '@/router'
 import { Message } from 'element-ui'
 
 // create an axios instance
@@ -48,6 +49,8 @@ service.interceptors.response.use(
           break
         case 401:
           console.error(error)
+          store.dispatch('user/resetToken')
+          router.push({ name: 'Login' })
           break
         default:
           console.error(error)
