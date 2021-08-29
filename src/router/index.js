@@ -94,22 +94,24 @@ const routes = [
     name: 'Dashboard',
     component: () => import('@/views/dashboard/Dashboard.vue'),
     async beforeEnter(to, from, next) {
+      store.commit('app/SET_G_LOADING', true)
       // 沒有綁定交易所 不要讓她到 dashboard 讓它到 綁定交易所頁面並提示 (在提供綁定交易所提示文案)
       try {
-        store.commit('app/SET_G_LOADING', true)
         const stores = await store.dispatch('user/getBindStores')
-        store.commit('app/SET_G_LOADING', false)
         // 沒有綁定清單或是清單內沒有驗證完成的交易所
         if (stores.length === 0 || !stores.find(item => item.status === 1)) {
           next({ name: 'Personal' })
           Message.warning('交易所尚未綁定，無法查看交易總覽。')
+          store.commit('app/SET_G_LOADING', false)
           return
         }
       } catch (error) {
         console.error(error)
         next({ name: 'Personal' })
+        store.commit('app/SET_G_LOADING', false)
         return
       }
+      store.commit('app/SET_G_LOADING', false)
       next()
     }
   },
