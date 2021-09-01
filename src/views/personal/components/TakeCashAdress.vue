@@ -7,35 +7,35 @@
         <CoinIcon class="icon" coin-type="BTC" />
         <div class="title">BTC</div>
         <input v-if="isEdit" v-model="formData.BTC" type="text" class="main" placeholder="請填入 BTC 交易地址" />
-        <div v-else class="main">{{ formData.BTC || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.BTC ? '1' : '0.5' }">{{ formData.BTC || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="XRP" />
         <div class="title">XRP</div>
         <input v-if="isEdit" v-model="formData.XRP" type="text" class="main" placeholder="請填入 XRP 交易地址" />
-        <div v-else class="main">{{ formData.XRP || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.XRP ? '1' : '0.5' }">{{ formData.XRP || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="USDT" />
         <div class="title">USDT</div>
         <input v-if="isEdit" v-model="formData.USDT" type="text" class="main" placeholder="請填入 USDT 交易地址" />
-        <div v-else class="main">{{ formData.USDT || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.USDT ? '1' : '0.5' }">{{ formData.USDT || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="EOS" />
         <div class="title">EOS</div>
         <input v-if="isEdit" v-model="formData.EOS" type="text" class="main" placeholder="請填入 EOS 交易地址" />
-        <div v-else class="main">{{ formData.EOS || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.EOS ? '1' : '0.5' }">{{ formData.EOS || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="ETH" />
         <div class="title">ETH</div>
         <input v-if="isEdit" v-model="formData.ETH" type="text" class="main" placeholder="請填入 ETH 交易地址" />
-        <div v-else class="main">{{ formData.ETH || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.ETH ? '1' : '0.5' }">{{ formData.ETH || '未綁定' }}</div>
       </div>
     </div>
     <div class="btns-block personal-info">

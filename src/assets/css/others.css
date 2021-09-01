@@ -56,7 +56,7 @@ a.personal-main-btn{width:286px;height:41px;display:block;text-align:center;marg
 .personal-take-cash-adress-main>div.icon{width:50px;height:50px;float:left;background:#1E2433;border-radius:8px;margin-right:26px;}
 .personal-take-cash-adress-main>div.icon>img{position: relative;transform:translateY(-50%);top:50%;display:block;margin: 0 auto;}
 .personal-take-cash-adress-main>div.title{width:60px;height:auto;float: left;line-height:50px;margin-right:37px;font-size:22px;}
-.personal-take-cash-adress-main>div.main{width:auto;height:auto;float: left;line-height:63px;margin-right:37px;font-size:18px;color:#828282;}
+.personal-take-cash-adress-main>div.main{width:auto;height:auto;float: left;line-height:63px;margin-right:37px;font-size:18px;color:#ffffff;}
 .personal-take-cash-adress-main>input.main{width:600px;height:42px;float: left;line-height:42px;font-size:16px;color:#C4C4C4;margin:4px 0;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;padding-left:10px;}
 .personal-take-cash-adress-main>a.edit{width:auto;height:auto;float:right;}
 

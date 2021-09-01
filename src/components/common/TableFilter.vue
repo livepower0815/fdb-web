@@ -6,9 +6,9 @@
         v-if="activeKey === -1"
         src="@/assets/img/filter/filter.png"
         alt="filter-grid-solid"
-        style="width: 16px;transform: translateY(2px);"
+        style="width: 14px;transform: translateY(1px);"
       />
-      <img v-else src="@/assets/img/filter/filter-active.png" alt="filter-grid-solid" style="width: 16px;transform: translateY(2px);" />
+      <img v-else src="@/assets/img/filter/filter-active.png" alt="filter-grid-solid" style="width: 14px;transform: translateY(1px);" />
     </span>
     <el-dropdown-menu class="fdb-menu" slot="dropdown">
       <el-dropdown-item :class="{ active: activeKey === -1 }" :command="-1">全部</el-dropdown-item>

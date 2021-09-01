@@ -5,15 +5,15 @@
       v-if="sort === sortKey && order === 'asc'"
       src="@/assets/img/sort/asc.png"
       alt="sort-arrows"
-      style="width: 12px;transform: translateY(2px);"
+      style="width: 10px;transform: translateY(1px);"
     />
     <img
       v-else-if="sort === sortKey && order === 'desc'"
       src="@/assets/img/sort/desc.png"
       alt="sort-arrows"
-      style="width: 12px;transform: translateY(2px);"
+      style="width: 10px;transform: translateY(1px);"
     />
-    <img v-else src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 12px;transform: translateY(2px);" />
+    <img v-else src="@/assets/img/sort/sort-arrows.png" alt="sort-arrows" style="width: 10px;transform: translateY(1px);" />
   </span>
 </template>
 

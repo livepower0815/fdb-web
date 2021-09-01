@@ -304,6 +304,7 @@ export default {
       background-color: #151923;
       margin-right: 8px;
       padding: 18px;
+      border-radius: 6px;
       @media screen and (max-width: 960px) {
         width: 62%;
         padding: 12px;
