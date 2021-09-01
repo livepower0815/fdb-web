@@ -88,7 +88,7 @@ export default {
     async validate() {
       // 新密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
-        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+        return Promise.reject(new Error('密碼：請輸入6位數以上英數字'))
       }
       // 確認密碼：密碼要與新密碼一致
       if (this.formData.newPassword !== this.formData.doubleCheck) {

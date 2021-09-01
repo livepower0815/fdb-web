@@ -70,6 +70,7 @@ export default {
     }
     .el-pager {
       li {
+        font-family: 'Noto Sans CJK TC';
         background-color: unset;
         color: #c0c4cc;
         border-radius: 5px;

@@ -161,11 +161,11 @@ export default {
 
       // 行動電話：僅限數字不含特殊符號
       if (this.formData.phone && !/^\d+$/.test(this.formData.phone)) {
-        return this.$message.error('行動電話：僅限數字不含特殊符號')
+        return this.$message.error('行動電話：請輸入數字')
       }
       // 電子郵件：與範例一致 example@mail.com
       if (this.formData.email && !/\S+@\S+.\S+/.test(this.formData.email)) {
-        return this.$message.error('電子郵件：格式錯誤')
+        return this.$message.error('電子郵件：請輸入正確電子郵件')
       }
       // 再次確認
       // 為了提升資訊填寫的正確性，點擊綁定後，在呈現一次自己所寫的資訊，做再次確認

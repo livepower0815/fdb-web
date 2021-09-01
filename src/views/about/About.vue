@@ -24,20 +24,20 @@ export default {
 <style lang="scss" scoped>
 .about {
   background-image: url('../../assets/img/common/full.png');
-  background-position: 50% -36%;
+  background-position: 50% -30%;
   background-size: contain;
   background-repeat: no-repeat;
   @media screen and (max-width: 1500px) {
-    background-position: 50% -26%;
+    background-position: 50% -15%;
   }
   @media screen and (max-width: 1370px) {
     background-position: 50% -22%;
   }
   @media screen and (max-width: 960px) {
-    background-position: 50% -18%;
+    background-position: 50% -10%;
   }
   @media screen and (max-width: 700px) {
-    background-position: 50% 16%;
+    background-position: 50% 10%;
   }
   @media screen and (max-width: 500px) {
     background-position: 50% 6%;
@@ -57,7 +57,7 @@ export default {
       line-height: 30px;
     }
     @media screen and (max-width: 700px) {
-      font-size: 30px;
+      font-size: 28px;
       line-height: 46px;
       margin: 10% 4% 40% 4%;
     }

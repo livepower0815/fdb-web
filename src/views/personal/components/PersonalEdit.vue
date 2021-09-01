@@ -6,7 +6,7 @@
 
       <div class="personal-edit-info-block">
         <div class="pic-block">
-          <img :src="formData.imageUrl" alt="personal-pic" style="border-radius: 50%;" />
+          <div class="img" :style="`background-image: url('${formData.imageUrl}')`" alt="personal-pic" style="border-radius: 50%;"></div>
           <a v-if="isEdit" href="javascript:void(0)" class="btn" @click="changeImage">更改個人圖像</a>
           <input v-show="false" ref="upload" type="file" />
         </div>
@@ -167,18 +167,18 @@ export default {
       // }
       // 行動電話：僅限數字不含特殊符號
       if (!/^\d+$/.test(this.formData.phone)) {
-        return Promise.reject(new Error('行動電話：僅限數字不含特殊符號'))
+        return Promise.reject(new Error('行動電話：請輸入數字'))
       }
 
       // 三個密碼其中一隻不為空就驗證密碼
       if (this.formData.password || this.formData.newPassword || this.formData.doubleCheck) {
         // 密碼：6位數以上，含英數字，不含特殊符號
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-          return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+          return Promise.reject(new Error('密碼：請輸入6位數以上英數字'))
         }
         // 新密碼：6位數以上，含英數字，不含特殊符號
         if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
-          return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+          return Promise.reject(new Error('新密碼：請輸入6位數以上英數字'))
         }
         // 確認密碼：密碼要與新密碼一致
         if (this.formData.newPassword !== this.formData.doubleCheck) {

@@ -141,11 +141,11 @@ export default {
     async validate() {
       // 電子郵件：與範例一致 example@mail.com
       if (!/\S+@\S+.\S+/.test(this.formData.account)) {
-        return Promise.reject(new Error('電子郵件：格式錯誤'))
+        return Promise.reject(new Error('電子郵件：請輸入正確電子郵件'))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+        return Promise.reject(new Error('密碼：請輸入6位數以上英數字'))
       }
       // 圖形驗證碼必填
       if (!this.formData.captchaCode) {

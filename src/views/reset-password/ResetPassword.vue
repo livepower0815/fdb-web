@@ -63,7 +63,7 @@ export default {
     async validate() {
       // 電子郵件：與範例一致 example@mail.com
       if (!/\S+@\S+.\S+/.test(this.email)) {
-        return Promise.reject(new Error('電子郵件：格式錯誤'))
+        return Promise.reject(new Error('電子郵件：請輸入正確電子郵件'))
       }
       return 'done'
     }

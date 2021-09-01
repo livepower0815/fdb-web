@@ -81,6 +81,11 @@ export default {
     overflow-x: auto;
     margin-top: 4%;
     margin-bottom: 8%;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
     @media screen and (max-width: 960px) {
       justify-content: flex-start;
     }

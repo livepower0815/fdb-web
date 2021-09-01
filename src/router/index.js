@@ -101,8 +101,11 @@ const routes = [
         // 沒有綁定清單或是清單內沒有驗證完成的交易所
         if (stores.length === 0 || !stores.find(item => item.status === 1)) {
           next({ name: 'Personal' })
-          // TODO: 10秒
-          Message.warning('交易所尚未綁定，無法查看交易總覽。')
+          Message({
+            type: 'warning',
+            duration: 10 * 1000,
+            message: '交易所尚未綁定，無法查看交易總覽。'
+          })
           store.commit('app/SET_G_LOADING', false)
           return
         }

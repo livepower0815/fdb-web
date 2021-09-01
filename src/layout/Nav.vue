@@ -38,7 +38,7 @@
       </template>
       <template v-if="deviceWidth >= 768">
         <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>
-        <router-link :to="{ name: 'Home' }" style="margin: 0;">ZH</router-link>
+        <router-link :to="{ name: 'Home' }" style="margin: 0;font-family: 'Noto Sans CJK TC';">ZH</router-link>
       </template>
     </div>
 
@@ -179,6 +179,7 @@ export default {
       margin-right: 25px;
       color: #ccc;
       &.register {
+        font-family: 'Noto Sans CJK TC';
         line-height: 30px;
         margin-right: 25px;
         border: 1px solid;

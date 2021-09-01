@@ -6,7 +6,6 @@
     IG ：https://www.instagram.com/fundobit_official/
     TG ：https://t.me/fundobit
     -->
-    <!-- TODO: 補上新icon及連結 -->
     <a href="mailto: CS@fundobit.com" target="_blank" rel="noopener noreferrer">
       <img
         src="@/assets/img/common/email.png"

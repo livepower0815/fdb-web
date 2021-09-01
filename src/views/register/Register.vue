@@ -148,15 +148,15 @@ export default {
       // }
       // 電子郵件：與範例一致 example@mail.com
       if (!/\S+@\S+.\S+/.test(this.formData.email)) {
-        return Promise.reject(new Error('電子郵件：格式錯誤'))
+        return Promise.reject(new Error('電子郵件：請輸入正確電子郵件'))
       }
       // 行動電話：僅限數字不含特殊符號
       if (this.formData.phone !== '' && !/^\d+$/.test(this.formData.phone)) {
-        return Promise.reject(new Error('行動電話：僅限數字不含特殊符號'))
+        return Promise.reject(new Error('行動電話：請輸入數字'))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-        return Promise.reject(new Error('密碼：6位數以上，含英數字，不含特殊符號'))
+        return Promise.reject(new Error('密碼：請輸入6位數以上英數字'))
       }
       // 邀請碼：8位數，含英數字，不含特殊符號
       if (this.formData.invitCode && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8}$/.test(this.formData.invitCode)) {
