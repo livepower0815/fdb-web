@@ -151,7 +151,7 @@ export default {
         return Promise.reject(new Error('電子郵件：格式錯誤'))
       }
       // 行動電話：僅限數字不含特殊符號
-      if (!/^\d+$/.test(this.formData.phone)) {
+      if (this.formData.phone !== '' && !/^\d+$/.test(this.formData.phone)) {
         return Promise.reject(new Error('行動電話：僅限數字不含特殊符號'))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號

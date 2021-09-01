@@ -57,7 +57,7 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 4%;
   margin-bottom: 2%;
   min-height: 400px;

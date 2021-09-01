@@ -28,7 +28,7 @@
         <div class="personal-main-block">
           <div class="block">
             <div class="personal-main-pic">
-              <img :src="userInfo.imageUrl" alt="personal-pic" style="border-radius: 50%;" />
+              <img :src="userInfo.imageUrl" alt="personal-pic" style="border-radius: 50%; height: 100%;" />
               <!-- <img src="@/assets/img/personal/personal-pic.png" alt="personal-pic" style="border-radius: 50%;" /> -->
               <!-- 勾勾是有綁定交易所 目前先拔掉 7/15 -->
               <!-- <div class="personal-sign">
