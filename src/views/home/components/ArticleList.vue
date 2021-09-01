@@ -3,8 +3,8 @@
     <div class="info-title">最新活動與消息</div>
     <div class="info-list">
       <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="goToNews(item.id)">
-        <div class="info-card-img">
-          <img :src="item.img" alt="news" />
+        <div class="info-card-img" :style="`background-image: url('${item.img}')`">
+          <!-- <img :src="item.img" alt="news" /> -->
         </div>
         <div class="info-card-tag">
           <div :class="`tag info-bg-${articleMap[item.tag] ? articleMap[item.tag].key : 'forum'}`">
@@ -105,6 +105,9 @@ export default {
       }
       &-img {
         width: auto;
+        height: 240px;
+        background-position: center;
+        background-size: cover;
       }
       &-tag {
         .tag {
@@ -121,6 +124,11 @@ export default {
         font-size: 24px;
         line-height: 32px;
         margin-bottom: 12px;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         @media screen and (max-width: 1370px) {
           font-size: 22px;
         }

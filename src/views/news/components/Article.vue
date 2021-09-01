@@ -18,10 +18,11 @@
             <div :class="`item-tag info-bg-${articleMap[item.tag] ? articleMap[item.tag].key : 'forum'}`">
               {{ articleMap[item.tag] ? articleMap[item.tag].name : '未定義' }}
             </div>
-            <div class="item-title">{{ item.title }}</div>
+            <div class="item-title">{{ item.title }}{{ item.title }}{{ item.title }}{{ item.title }}</div>
             <div class="item-date">{{ item.createdate }}</div>
           </div>
-          <img class="img" :src="item.img" alt="pic" />
+          <div class="img" :style="`background-image: url('${item.img}')`"></div>
+          <!-- <img class="img" :src="item.img" alt="pic" /> -->
         </router-link>
       </template>
       <div v-else class="other-empty">
@@ -137,6 +138,7 @@ export default {
     box-sizing: border-box;
     @media screen and (max-width: 1370px) {
       width: 310px;
+      padding: 10px;
     }
     @media screen and (max-width: 960px) {
       display: none;
@@ -154,6 +156,7 @@ export default {
       cursor: pointer;
       .item {
         flex: 1;
+        margin-right: 8px;
         .item-tag {
           width: 100px;
           font-size: 14px;
@@ -166,6 +169,11 @@ export default {
           font-size: 16px;
           line-height: 22px;
           margin-bottom: 6px;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
         .item-date {
           font-size: 14px;
@@ -175,7 +183,12 @@ export default {
       }
       .img {
         width: 112px;
-        height: 100%;
+        height: 112px;
+        background-position: center;
+        background-size: cover;
+        @media screen and (max-width: 1370px) {
+          width: 97px;
+        }
       }
     }
     .other-empty {

@@ -1,8 +1,8 @@
 <template>
   <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="all-info">
     <router-link :to="{ query: { ...$route.query, mode: 'article', articleId: topList[0].id } }" v-if="topList[0]" class="info-main">
-      <div class="img">
-        <img :src="topList[0].img" alt="announced" />
+      <div class="img" :style="`background-image: url('${topList[0].img}')`">
+        <!-- <img :src="topList[0].img" alt="announced" /> -->
       </div>
       <div class="info-tag">
         <div :class="`info-tag-inside info-bg-${articleMap[topList[0].tag].key}`">{{ articleMap[topList[0].tag].name }}</div>
@@ -29,8 +29,8 @@
           <div class="list-title">{{ item.title }}</div>
           <div class="list-date">{{ item.createdate }}</div>
         </div>
-        <div class="list-img">
-          <img :src="item.img" alt="img" />
+        <div class="list-img" :style="`background-image: url('${topList[0].img}')`">
+          <!-- <img :src="item.img" alt="img" /> -->
         </div>
       </router-link>
     </div>
@@ -80,6 +80,9 @@ export default {
     }
     .img {
       width: auto;
+      height: 240px;
+      background-position: center;
+      background-size: cover;
     }
     .info-tag {
       display: flex;
@@ -98,6 +101,11 @@ export default {
       line-height: 32px;
       margin-bottom: 8px;
       letter-spacing: 0.03em;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       @media screen and (max-width: 1370px) {
         font-size: 22px;
       }
@@ -151,6 +159,11 @@ export default {
           line-height: 32px;
           margin-bottom: 4px;
           letter-spacing: 0.03em;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
           @media screen and (max-width: 1370px) {
             font-size: 22px;
           }
@@ -170,6 +183,9 @@ export default {
       }
       .list-img {
         width: 186px;
+        height: 118px;
+        background-position: center;
+        background-size: cover;
         @media screen and (max-width: 1370px) {
           width: 115px;
         }
