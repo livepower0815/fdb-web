@@ -132,6 +132,9 @@ export default {
           // result = 2 信箱未驗證
           this.validateEmail.show = true
           this.validateEmail.hasSent = false
+        } else if (error.response?.data?.result === 3) {
+          // result = 3 驗證碼錯誤 要重刷
+          this.init()
         }
         console.error(error)
       }
