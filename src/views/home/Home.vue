@@ -162,7 +162,7 @@ export default {
   }
 }
 /*768*/
-@media screen and (min-width: 750px) and (max-width: 999px) {
+@media screen and (min-width: 701px) and (max-width: 999px) {
   .home {
     background-size: contain;
     .banner-limit {
@@ -194,7 +194,7 @@ export default {
   }
 }
 /*540*/
-@media screen and (min-width: 500px) and (max-width: 749px) {
+@media screen and (min-width: 500px) and (max-width: 700px) {
   .home {
     background-size: contain;
     background-position: 50% 6%;
