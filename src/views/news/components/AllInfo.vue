@@ -29,7 +29,7 @@
           <div class="list-title">{{ item.title }}</div>
           <div class="list-date">{{ item.createdate }}</div>
         </div>
-        <div class="list-img" :style="`background-image: url('${topList[0].img}')`">
+        <div class="list-img" :style="`background-image: url('${item.img}')`">
           <!-- <img :src="item.img" alt="img" /> -->
         </div>
       </router-link>
