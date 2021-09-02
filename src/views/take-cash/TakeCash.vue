@@ -220,11 +220,11 @@ export default {
         this.$message.error('請輸入出金數量')
         return false
       }
-      if (!(this.form.withdrawAmount > 0)) {
+      if (!(Number(this.form.withdrawAmount) > 0)) {
         this.$message.error('請輸入出金數量')
         return false
       }
-      if (this.form.withdrawAmount > this.selectedCoin.coinCount) {
+      if (Number(this.form.withdrawAmount) > Number(this.selectedCoin.coinCount)) {
         this.$message.error('超過可出金數量')
         return false
       }
