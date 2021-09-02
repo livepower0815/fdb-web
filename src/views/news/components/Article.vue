@@ -207,6 +207,11 @@ export default {
 <style lang="scss">
 .article-main {
   .main-content {
+    img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
     h3 {
       margin-top: 36px;
       font-weight: bold;

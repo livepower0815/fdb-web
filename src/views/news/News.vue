@@ -157,7 +157,7 @@ export default {
       this.topLoading = false
     },
     changeActiveTag(type) {
-      if (type === this.activeTab) return
+      if (type === this.activeTab && this.mode === 'list') return
       this.$router.push({ query: { mode: 'list', activeTab: type } })
     },
     searchKeyWord() {
