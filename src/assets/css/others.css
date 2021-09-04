@@ -70,5 +70,5 @@ a.personal-main-btn{width:286px;height:41px;display:block;text-align:center;marg
 .personal-edit-info-block>div.info-input-block>div.main{width:100%;height:auto;float: left;margin-bottom:27px;}
 .personal-edit-info-block>div.info-input-block>div.main>div.title{width:100%;height:auto;float: left;line-height:42px;margin-right:5px;font-size:18px;}
 .personal-edit-info-block>div.info-input-block>div.main>input.input{width: 430px;height: 42px;float: left;border:none;background:#252c3d;box-sizing: border-box;border-radius: 8px;line-height:42px;padding-left: 10px;font-size:18px;color:#fff;}
-.personal-edit-info-block>div.info-input-block>div.main>div.info{width:auto;height:auto;float: left;font-size:18px;line-height:42px;}
+.personal-edit-info-block>div.info-input-block>div.main>div.info{position:relative;width:auto;height:auto;float: left;font-size:18px;line-height:42px;top:-8px;}
 /*Personal*/
