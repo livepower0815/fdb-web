@@ -19,6 +19,8 @@
 ## 測試帳號
 > 帳號： markweiwebdesign@gmail.com
 > 密碼： a135246
+> 帳號： fdb.test@protonmail.com
+> 密碼： fdb12345
 
 ## TODO List
 - 幣別排序全頁面統一前端排序

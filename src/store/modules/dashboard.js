@@ -6,7 +6,7 @@ const state = {
 
 const mutations = {
   SET_STORE_LIST(state, list) {
-    state.storeList = list
+    state.storeList = list.sort((a, b) => Number(a.currencyType) - Number(b.currencyType))
   }
 }
 
