@@ -45,7 +45,10 @@
         </div>
 
         <div class="register-main">
-          <input v-model="formData.checkContract" type="checkbox" class="check" />
+          <!-- <input v-model="formData.checkContract" type="checkbox" class="check" /> -->
+          <div class="check" @click="formData.checkContract = !formData.checkContract">
+            <i v-if="formData.checkContract" class="el-icon-check" style="color: #62ffff;"></i>
+          </div>
           <div class="check-title">
             我已閱讀並同意FDB的
             <router-link :to="{ name: 'Disclaimer' }" v-slot="{ navigate }" custom>
@@ -199,5 +202,13 @@ input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px #252c3d inset !important;
   -webkit-box-shadow: 0 0 0 30px #252c3d inset !important;
   -webkit-text-fill-color: #c4c4c4 !important;
+}
+
+.register-main {
+  .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
