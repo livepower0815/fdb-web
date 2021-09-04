@@ -3,21 +3,27 @@
     <div class="join-title">開始返佣旅程<br />只需要三個步驟</div>
     <div class="join-step">
       <div class="join-step-item">
-        <div class="join-number">01</div>
+        <div class="join-number">
+          <img src="@/assets/img/home/01.png" alt="number-01" />
+        </div>
         <div class="join-main">
           <div class="title">加入返多寶</div>
           <div class="info">快速註冊會員</div>
         </div>
       </div>
       <div class="join-step-item">
-        <div class="join-number">02</div>
+        <div class="join-number">
+          <img src="@/assets/img/home/02.png" alt="number-02" />
+        </div>
         <div class="join-main">
           <div class="title">綁定交易所</div>
           <div class="info">輸入交易所註冊資訊</div>
         </div>
       </div>
       <div class="join-step-item">
-        <div class="join-number">03</div>
+        <div class="join-number">
+          <img src="@/assets/img/home/03.png" alt="number-03" />
+        </div>
         <div class="join-main">
           <div class="title">開始返佣</div>
           <div class="info">您交易，我返佣<br />輸入收幣地址即可享受返佣</div>
@@ -60,12 +66,9 @@
       border-radius: 8px;
       .join-number {
         position: absolute;
-        font-family: 'Raleway';
-        font-weight: bold;
         left: 30px;
-        top: -34px;
-        font-size: 50px;
-        color: #62ffff;
+        top: -16px;
+        width: 53px;
       }
       .join-main {
         display: flex;
@@ -105,8 +108,8 @@
       &-item {
         .join-number {
           left: 16px;
-          top: -17px;
-          font-size: 28px;
+          top: -13px;
+          width: 43px;
         }
         .join-main {
           height: 144px;
@@ -132,8 +135,8 @@
       &-item {
         .join-number {
           left: 14px;
-          top: -14px;
-          font-size: 24px;
+          top: -9px;
+          width: 32px;
         }
         .join-main {
           height: 107px;
@@ -170,8 +173,7 @@
         margin-bottom: 50px;
         .join-number {
           left: 28px;
-          top: -28px;
-          font-size: 46px;
+          top: -20px;
         }
         .join-main {
           height: 107px;
@@ -208,8 +210,8 @@
         margin-bottom: 50px;
         .join-number {
           left: 20px;
-          top: -28px;
-          font-size: 38px;
+          top: -14px;
+          width: 44px;
         }
         .join-main {
           height: 92px;
