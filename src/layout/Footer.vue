@@ -83,7 +83,7 @@ export default {
         flex: 0 0 auto;
       }
       img {
-        width: auto;
+        width: 70px;
       }
     }
     .footer-menu {

@@ -34,7 +34,7 @@ input[type=number] {
 /*Register*/
 .register-bg{width:100%;height:100vh;float:left;}
 .register-kv-block{width:60%;height:100vh;float: left;background:url(../img/common/login-bg.png) no-repeat;background-position:center 50px;background-size: contain;}
-.register-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
+.register-kv-block>a.logo{width:70px;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
 .register-main-block{width:40%;height:100vh;float: right;}
 .register-main-block>div.main{width:75%;height:100%;display:block;margin:0 auto;position: relative;display: flex;flex-direction: column;justify-content: center;}
 .register-main-block>div.main>div.title{width:100%;height:auto;float: left;font-size:30px;font-weight:700;margin-bottom:19px;}
@@ -50,7 +50,7 @@ input[type=number] {
 /*login*/
 .login-bg{width:100%;height:100vh;float:left;}
 .login-kv-block{width:60%;height:100vh;float: left;background:url(../img/common/login-bg.png) no-repeat;background-position:center 50px;background-size: contain;}
-.login-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
+.login-kv-block>a.logo{width:70px;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
 .login-main-block{width:40%;height:100vh;float: right;}
 .login-main-block>div.main{width:75%;height:100%;display:block;margin:0 auto;position: relative;display: flex;flex-direction: column;justify-content: center;}
 .login-main-block>div.main>div.title{width:100%;height:auto;float: left;font-size:30px;font-weight:700;margin-bottom:19px;}
@@ -64,7 +64,7 @@ input[type=number] {
 /*reset*/
 .reset-bg{width:100%;height:100vh;float:left;}
 .reset-kv-block{width:60%;height:100vh;float: left;background:url(../img/common/login-bg.png) no-repeat;background-position:center 50px;background-size: contain;}
-.reset-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
+.reset-kv-block>a.logo{width:70px;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
 .reset-main-block{width:40%;height:100vh;float: right;}
 .reset-main-block>div.main{width:75%;height:100%;display:block;margin:0 auto;position: relative;display: flex;flex-direction: column;justify-content: center;}
 .reset-main-block>div.main>div.title{width:100%;height:auto;float: left;font-size:30px;font-weight:700;margin-bottom:19px;}
@@ -78,7 +78,7 @@ input[type=number] {
 /*newpwd*/
 .newpwd-bg{width:100%;height:100vh;float:left;}
 .newpwd-kv-block{width:60%;height:100vh;float: left;background:url(../img/common/login-bg.png) no-repeat;background-position:center 50px;background-size: contain;}
-.newpwd-kv-block>a.logo{width:auto;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
+.newpwd-kv-block>a.logo{width:70px;height:auto;float: left;position:absolute;margin:0 0 0 95px;top:80px;}
 .newpwd-main-block{width:40%;height:100vh;float: right;}
 .newpwd-main-block>div.main{width:75%;height:100%;display:block;margin:0 auto;position: relative;display: flex;flex-direction: column;justify-content: center;}
 .newpwd-main-block>div.main>div.title{width:100%;height:auto;float: left;font-size:30px;font-weight:700;margin-bottom:19px;}

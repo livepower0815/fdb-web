@@ -136,8 +136,9 @@ export default {
   }
   &-logo {
     flex: 1;
+    width: 70px;
     img {
-      width: auto;
+      width: 70px;
     }
     @media screen and (min-width: 300px) and (max-width: 499px) {
       flex: 0 1 auto;

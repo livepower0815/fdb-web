@@ -4,6 +4,11 @@
       <div class="main">
         <input v-show="false" type="text" name="username" />
         <input v-show="false" type="password" name="password" />
+        <div class="m-logo">
+          <router-link to="/">
+            <img src="@/assets/img/nav/logo.png" alt="m-logo-img" class="m-logo-img" />
+          </router-link>
+        </div>
         <div class="title">建立新的密碼</div>
         <div class="newpwd-sub">輸入新的密碼，完成後須以新密碼登入</div>
 

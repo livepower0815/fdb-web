@@ -243,3 +243,14 @@ button {
 .el-message {
   min-width: 300px;
 }
+
+.m-logo {
+  display: none;
+  margin-bottom: 19px;
+  .m-logo-img {
+    width: 92px;
+  }
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
+}

@@ -4,6 +4,11 @@
       <div class="main">
         <input v-show="false" type="text" name="username" />
         <input v-show="false" type="password" name="password" />
+        <div class="m-logo">
+          <router-link to="/">
+            <img src="@/assets/img/nav/logo.png" alt="m-logo-img" class="m-logo-img" />
+          </router-link>
+        </div>
         <div class="title">重置您的密碼</div>
         <div class="reset-sub">請輸入註冊時電子郵件，進行密碼重置</div>
         <div class="reset-main" style="margin-bottom: 64px;">

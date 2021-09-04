@@ -4,6 +4,11 @@
       <div class="main">
         <input v-show="false" type="text" name="username" />
         <input v-show="false" type="password" name="password" />
+        <div class="m-logo">
+          <router-link to="/">
+            <img src="@/assets/img/nav/logo.png" alt="m-logo-img" class="m-logo-img" />
+          </router-link>
+        </div>
         <div class="title">會員登入</div>
         <div class="login-main">
           <div class="title">電子郵箱</div>
