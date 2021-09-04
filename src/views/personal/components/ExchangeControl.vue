@@ -129,13 +129,23 @@ export default {
       return this.$store.state.user.bindStores
     }
   },
+  watch: {
+    csgList: {
+      immediate: true,
+      handler(val) {
+        if (val.length > 0) {
+          this.formData.csgid = val[0].csgid
+        }
+      }
+    }
+  },
   mounted() {
     this.getBindStores()
   },
   methods: {
     resetForm() {
       this.formData = {
-        csgid: '',
+        csgid: this.csgList[0] ? this.csgList[0].csgid : '',
         areaCode: '886',
         phone: '',
         fdB_UID: '',
