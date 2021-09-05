@@ -14,12 +14,20 @@
 
       <!-- menu -->
       <div class="detail-menu">
-        <div class="menu" :class="{ active: refundShow === 'CommissionTransaction' }" @click="refundShow = 'CommissionTransaction'">
+        <div
+          class="menu"
+          :class="{ active: refundShow === 'CommissionTransaction' }"
+          @click="refundChange('CommissionTransaction', 'left')"
+        >
           您的佣金異動紀錄
         </div>
-        <div class="menu" :class="{ active: refundShow === 'PersonalFeedback' }" @click="refundShow = 'PersonalFeedback'">個人返佣資訊</div>
-        <div class="menu" :class="{ active: refundShow === 'Recommender' }" @click="refundShow = 'Recommender'">推薦人返佣資訊</div>
-        <div class="menu" :class="{ active: refundShow === 'Withdrawal' }" @click="refundShow = 'Withdrawal'">出金申請紀錄</div>
+        <div class="menu" :class="{ active: refundShow === 'PersonalFeedback' }" @click="refundChange('PersonalFeedback', 'left')">
+          個人返佣資訊
+        </div>
+        <div class="menu" :class="{ active: refundShow === 'Recommender' }" @click="refundChange('Recommender', 'right')">
+          推薦人返佣資訊
+        </div>
+        <div class="menu" :class="{ active: refundShow === 'Withdrawal' }" @click="refundChange('Withdrawal', 'right')">出金申請紀錄</div>
       </div>
 
       <!-- filter & table -->
@@ -94,6 +102,26 @@ export default {
             .format('yyyy-MM-DD'),
           moment().format('yyyy-MM-DD')
         ]
+      },
+      menuDom: null
+    }
+  },
+  mounted() {
+    this.menuDom = document.querySelector('.detail-menu')
+  },
+  methods: {
+    refundChange(type, direction) {
+      this.refundShow = type
+      this.scorllMenu(direction)
+    },
+    scorllMenu(direction) {
+      switch (direction) {
+        case 'left':
+          this.menuDom.scrollLeft = 0
+          break
+        case 'right':
+          this.menuDom.scrollLeft = 1000
+          break
       }
     }
   }
