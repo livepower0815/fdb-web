@@ -17,9 +17,12 @@
           <div class="third" :class="{ finish: step > 2 }">3</div>
         </div>
         <div class="step-title">
-          <span v-if="step === 1" :class="{ 'text-red': !canTrade }">
-            {{ canTrade ? '填寫出金帳戶資訊' : '尚無可交易幣種 請取消出金' }}
+          <span v-if="step === 1 && canTrade">
+            填寫出金帳戶資訊
           </span>
+          <router-link v-if="step === 1 && !canTrade" :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
+            <span class="text-red" style="text-decoration: underline;">尚無可交易之幣種<br />請至出金申請地址進行設定</span>
+          </router-link>
           <span v-if="step === 2">再次確認出金資訊與金額</span>
           <span v-if="step === 3">操作成功</span>
         </div>
@@ -36,10 +39,24 @@
                   class="coin-icon"
                   :class="{ active: form.currencySelect === coin.currencyType }"
                   :coin-type="currencyMap[coin.currencyType]"
-                  :disabled="coin.bindStatus === 0 || !(coin.coinCount > 0)"
+                  :disabled="coin.bindStatus === 0 || !(Number(coin.coinCount) > Number(coin.coinminiAmount))"
                   @click="selectCoin(coin)"
                 />
               </div>
+            </div>
+            <div class="form-item">
+              <div class="title">手續費</div>
+              <div v-if="selectedCoin.coinfeeAmount" class="value">
+                {{ selectedCoin.coinfeeAmount }}
+              </div>
+              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金地址</div>
+              <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
+                {{ adressData[currencyMap[form.currencySelect]] }}
+              </div>
+              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
             </div>
             <div class="form-item">
               <div class="title">可出金數量</div>
@@ -47,9 +64,9 @@
               <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
             </div>
             <div class="form-item">
-              <div class="title">出金地址</div>
-              <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
-                {{ adressData[currencyMap[form.currencySelect]] }}
+              <div class="title">最低出金限制</div>
+              <div v-if="selectedCoin.coinminiAmount" class="value">
+                {{ selectedCoin.coinminiAmount }}
               </div>
               <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
             </div>
@@ -90,8 +107,12 @@
               <div class="value">{{ form.withdrawAmount }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金手續費</div>
+              <div class="title">手續費</div>
               <div class="value">{{ selectedCoin.coinfeeAmount }}</div>
+            </div>
+            <div class="form-item">
+              <div class="title">實拿數量</div>
+              <div class="value" style="color: #62ffff;">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
           <div class="red-text">
@@ -132,6 +153,10 @@
             <div class="form-item">
               <div class="title">出金手續費</div>
               <div class="value">{{ selectedCoin.coinfeeAmount }}</div>
+            </div>
+            <div class="form-item">
+              <div class="title">實拿數量</div>
+              <div class="value" style="color: #62ffff;">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
         </div>
@@ -178,7 +203,7 @@ export default {
       return this.$store.state.app.deviceWidth
     },
     canTrade() {
-      return this.storeData.some(coin => coin.bindStatus > 0 && coin.coinCount > 0)
+      return this.storeData.some(coin => coin.bindStatus > 0)
     },
     selectedCoin() {
       return this.storeData.find(item => item.currencyType === this.form.currencySelect) || {}
