@@ -50,7 +50,8 @@
       <div class="title">{{ index + 1 }}</div>
       <div>
         <img v-if="csgMap[bind.csgid]" :src="csgMap[bind.csgid].imageUrl" alt="bind-store-img" style="width: 60px;" />
-        <span v-else>無效圖檔</span>
+        <span class="uid" style="margin-left: 0;" v-else>無效圖檔</span>
+        <span class="uid">UID： {{ bind.fdB_UID }}</span>
       </div>
       <div :class="`status ${['red', 'green'][bind.status]}`">{{ ['驗證中', '驗證完畢'][bind.status] }}</div>
     </div>

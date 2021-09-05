@@ -166,7 +166,7 @@ export default {
       //   return Promise.reject(new Error('使用者名稱：僅限英文字母'))
       // }
       // 行動電話：僅限數字不含特殊符號
-      if (!/^\d+$/.test(this.formData.phone)) {
+      if (this.formData.phone && !/^\d+$/.test(this.formData.phone)) {
         return Promise.reject(new Error('行動電話：請輸入數字'))
       }
 

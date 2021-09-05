@@ -18,7 +18,7 @@
             <div :class="`item-tag info-bg-${articleMap[item.tag] ? articleMap[item.tag].key : 'forum'}`">
               {{ articleMap[item.tag] ? articleMap[item.tag].name : '未定義' }}
             </div>
-            <div class="item-title">{{ item.title }}{{ item.title }}{{ item.title }}{{ item.title }}</div>
+            <div class="item-title">{{ item.title }}</div>
             <div class="item-date">{{ item.createdate }}</div>
           </div>
           <div class="img" :style="`background-image: url('${item.img}')`"></div>
