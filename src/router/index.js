@@ -6,6 +6,12 @@ import { Message } from 'element-ui'
 Vue.use(VueRouter)
 
 const routes = [
+  // Test
+  {
+    path: '/test',
+    name: 'MailContent',
+    component: () => import('@/views/MailContent.vue')
+  },
   // 首頁
   {
     path: '/',
