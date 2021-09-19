@@ -17,11 +17,9 @@
           <div class="third" :class="{ finish: step > 2 }">3</div>
         </div>
         <div class="step-title">
-          <span v-if="step === 1 && canTrade">
-            填寫出金帳戶資訊
-          </span>
+          <span v-if="step === 1 && canTrade"> 填寫出金帳戶資訊 </span>
           <router-link v-if="step === 1 && !canTrade" :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
-            <span class="text-red" style="text-decoration: underline;">尚無可交易之幣種<br />請至出金申請地址進行設定</span>
+            <span class="text-red" style="text-decoration: underline">尚無可交易之幣種<br />請至出金申請地址進行設定</span>
           </router-link>
           <span v-if="step === 2">再次確認出金資訊與金額</span>
           <span v-if="step === 3">操作成功</span>
@@ -39,36 +37,35 @@
                   class="coin-icon"
                   :class="{ active: form.currencySelect === coin.currencyType }"
                   :coin-type="currencyMap[coin.currencyType]"
-                  :disabled="coin.bindStatus === 0 || !(Number(coin.coinCount) > Number(coin.coinminiAmount))"
                   @click="selectCoin(coin)"
                 />
               </div>
-            </div>
-            <div class="form-item">
-              <div class="title">手續費</div>
-              <div v-if="selectedCoin.coinfeeAmount" class="value">
-                {{ selectedCoin.coinfeeAmount }}
-              </div>
-              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
             </div>
             <div class="form-item">
               <div class="title">出金地址</div>
               <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
                 {{ adressData[currencyMap[form.currencySelect]] }}
               </div>
-              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
+              <div v-else class="value" style="opacity: 0.3">尚未選擇或未綁定</div>
             </div>
             <div class="form-item">
               <div class="title">可出金數量</div>
               <div v-if="selectedCoin.coinCount" class="value">{{ selectedCoin.coinCount }}</div>
-              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
+              <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
             </div>
             <div class="form-item">
               <div class="title">最低出金限制</div>
               <div v-if="selectedCoin.coinminiAmount" class="value">
                 {{ selectedCoin.coinminiAmount }}
               </div>
-              <div v-else class="value" style="opacity: 0.3;">尚未選擇</div>
+              <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
+            </div>
+            <div class="form-item">
+              <div class="title">出金手續費</div>
+              <div v-if="selectedCoin.coinfeeAmount" class="value">
+                {{ selectedCoin.coinfeeAmount }}
+              </div>
+              <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
             </div>
             <div class="form-item" :class="{ 'click-disabled': !form.currencySelect }">
               <div class="title">出金數量</div>
@@ -78,10 +75,21 @@
             </div>
           </div>
           <div class="operation">
-            <div class="fdb-btn-default" style="margin-right: 12px;line-height: 30px;" @click="$router.push({ name: 'Dashboard' })">
+            <div class="fdb-btn-default" style="margin-right: 12px; line-height: 30px" @click="$router.push({ name: 'Dashboard' })">
               取消出金
             </div>
-            <div class="fdb-btn-primary" :class="{ disabled: !form.currencySelect }" @click="toStep2">下一步</div>
+            <div
+              class="fdb-btn-primary"
+              :class="{
+                disabled:
+                  !form.currencySelect ||
+                  selectedCoin.bindStatus === 0 ||
+                  !(Number(selectedCoin.coinCount) > Number(selectedCoin.coinminiAmount))
+              }"
+              @click="toStep2"
+            >
+              下一步
+            </div>
           </div>
         </div>
 
@@ -112,14 +120,12 @@
             </div>
             <div class="form-item">
               <div class="title">實拿數量</div>
-              <div class="value" style="color: #62ffff;">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
+              <div class="value" style="color: #62ffff">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
-          <div class="red-text">
-            注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交
-          </div>
+          <div class="red-text">注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交</div>
           <div class="operation">
-            <div class="fdb-btn-default" style="margin-right: 12px;" @click="step = 1">上一步</div>
+            <div class="fdb-btn-default" style="margin-right: 12px" @click="step = 1">上一步</div>
             <div class="fdb-btn-primary" @click="submit">提出申請</div>
           </div>
         </div>
@@ -128,9 +134,7 @@
         <div v-if="step === 3" class="step-body">
           <div class="info-text">預計48 小時內完成出金<br />若有任何問題請聯繫返多寶客服中心</div>
           <div class="operation finish">
-            <div class="fdb-btn-default" style="margin-right: 12px;" @click="$router.push({ name: 'Dashboard' })">
-              回到列表
-            </div>
+            <div class="fdb-btn-default" style="margin-right: 12px" @click="$router.push({ name: 'Dashboard' })">回到列表</div>
             <div class="fdb-btn-primary" @click="tryAgain">再申請一筆</div>
           </div>
           <div class="form block">
@@ -156,7 +160,7 @@
             </div>
             <div class="form-item">
               <div class="title">實拿數量</div>
-              <div class="value" style="color: #62ffff;">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
+              <div class="value" style="color: #62ffff">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
         </div>
