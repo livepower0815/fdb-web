@@ -259,7 +259,7 @@ export default {
         pageSize: 10,
         totalCount: 0,
         sortKey: 'orderDate',
-        order: 'asc'
+        order: 'desc'
       },
       filterDialog: {
         show: false

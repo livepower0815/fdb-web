@@ -240,7 +240,7 @@ export default {
         pageSize: 10,
         totalCount: 0,
         sortKey: 'txDate',
-        order: 'asc'
+        order: 'desc'
       },
       filterDialog: {
         show: false

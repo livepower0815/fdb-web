@@ -303,7 +303,7 @@ export default {
         pageSize: 10,
         totalCount: 0,
         sortKey: 'createdate',
-        order: 'asc'
+        order: 'desc'
       },
       selectAll: false,
       selectIds: [],
