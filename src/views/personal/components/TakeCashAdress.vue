@@ -6,36 +6,48 @@
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="BTC" />
         <div class="title">BTC</div>
-        <input v-if="isEdit" v-model="formData.BTC" type="text" class="main" placeholder="請填入 BTC 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.BTC ? '1' : '0.5' }">{{ formData.BTC || '未綁定' }}</div>
+        <input v-if="isEdit" v-model="formData.BTC.adress" type="text" class="main" placeholder="請填入 BTC 交易地址" />
+        <div v-else class="main" :style="{ opacity: formData.BTC.adress ? '1' : '0.5' }">{{ formData.BTC.adress || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="ETH" />
         <div class="title">ETH</div>
-        <input v-if="isEdit" v-model="formData.ETH" type="text" class="main" placeholder="請填入 ETH 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.ETH ? '1' : '0.5' }">{{ formData.ETH || '未綁定' }}</div>
+        <input v-if="isEdit" v-model="formData.ETH.adress" type="text" class="main" placeholder="請填入 ETH 交易地址" />
+        <div v-else class="main" :style="{ opacity: formData.ETH.adress ? '1' : '0.5' }">{{ formData.ETH.adress || '未綁定' }}</div>
       </div>
 
-      <div class="personal-take-cash-adress-main">
+      <div class="personal-take-cash-adress-main" style="margin-bottom: 12px;">
         <CoinIcon class="icon" coin-type="XRP" />
         <div class="title">XRP</div>
-        <input v-if="isEdit" v-model="formData.XRP" type="text" class="main" placeholder="請填入 XRP 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.XRP ? '1' : '0.5' }">{{ formData.XRP || '未綁定' }}</div>
+        <input v-if="isEdit" v-model="formData.XRP.adress" type="text" class="main" placeholder="請填入 XRP 交易地址" />
+        <div v-else class="main" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || '未綁定' }}</div>
+      </div>
+      <div class="personal-take-cash-adress-main">
+        <CoinIcon class="icon" coin-type="XRP" style="opacity: 0;" />
+        <div class="title">TAG</div>
+        <input v-if="isEdit" v-model="formData.XRP.adress2" type="text" class="main" placeholder="請填入 XRP TAG" />
+        <div v-else class="main" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || '未綁定' }}</div>
       </div>
 
-      <div class="personal-take-cash-adress-main">
+      <div class="personal-take-cash-adress-main" style="margin-bottom: 8px;">
         <CoinIcon class="icon" coin-type="EOS" />
         <div class="title">EOS</div>
-        <input v-if="isEdit" v-model="formData.EOS" type="text" class="main" placeholder="請填入 EOS 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.EOS ? '1' : '0.5' }">{{ formData.EOS || '未綁定' }}</div>
+        <input v-if="isEdit" v-model="formData.EOS.adress" type="text" class="main" placeholder="請填入 EOS 交易地址" />
+        <div v-else class="main" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>
+      </div>
+      <div class="personal-take-cash-adress-main">
+        <CoinIcon class="icon" coin-type="EOS" style="opacity: 0;" />
+        <div class="title">MEMO</div>
+        <input v-if="isEdit" v-model="formData.EOS.adress2" type="text" class="main" placeholder="請填入 EOS MEMO" />
+        <div v-else class="main" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || '未綁定' }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="USDT" />
         <div class="title">USDT</div>
-        <input v-if="isEdit" v-model="formData.USDT" type="text" class="main" placeholder="請填入 USDT 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.USDT ? '1' : '0.5' }">{{ formData.USDT || '未綁定' }}</div>
+        <input v-if="isEdit" v-model="formData.USDT.adress" type="text" class="main" placeholder="請填入 USDT 交易地址" />
+        <div v-else class="main" :style="{ opacity: formData.USDT.adress ? '1' : '0.5' }">{{ formData.USDT.adress || '未綁定' }}</div>
       </div>
     </div>
     <div class="btns-block personal-info">
@@ -81,11 +93,11 @@ export default {
       isLoading: false,
       isEdit: false,
       formData: {
-        BTC: '',
-        XRP: '',
-        USDT: '',
-        EOS: '',
-        ETH: ''
+        BTC: { adress: '', adress2: '' },
+        XRP: { adress: '', adress2: '' },
+        USDT: { adress: '', adress2: '' },
+        EOS: { adress: '', adress2: '' },
+        ETH: { adress: '', adress2: '' }
       },
       checkDialog: {
         show: false
@@ -110,7 +122,8 @@ export default {
         const res = await getAllWithdrawalAddress()
         for (const item of res.data) {
           const key = currencyMap[item.cid]
-          this.formData[key] = item.coinAddress
+          this.formData[key].adress = item.coinAddress
+          this.formData[key].adress2 = item.adress2
         }
       } catch (error) {
         console.error(error)
@@ -128,7 +141,7 @@ export default {
         this.validateForm()
         const postData = []
         for (const key of Object.keys(this.formData)) {
-          postData.push({ cid: currencyIdMap[key], address: this.formData[key] })
+          postData.push({ cid: currencyIdMap[key], address: this.formData[key].adress, address2: this.formData[key].adress2 })
         }
         await withdrawalDataUpdate(postData)
         this.authCore = ''
@@ -144,24 +157,30 @@ export default {
     // 欄位內的規則，每次儲存時需要驗證
     validateForm() {
       // BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成
-      if (this.formData.BTC && !/^[13](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{25,36}$/.test(this.formData.BTC)) {
+      if (this.formData.BTC.adress && !/^[13](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{25,36}$/.test(this.formData.BTC.adress)) {
         throw new Error('BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成')
       }
       // XRP : r開頭
-      if (this.formData.XRP && !/^r.+/.test(this.formData.XRP)) {
+      if (this.formData.XRP.adress && !/^r.+/.test(this.formData.XRP.adress)) {
         throw new Error('XRP : r開頭')
       }
+      if (this.formData.XRP.adress && !this.formData.XRP.adress2) {
+        throw new Error('XRP : TAG 未填寫')
+      }
       // USDT : 數字1＆3 & 0 開頭
-      if (this.formData.USDT && !/^[013].+$/.test(this.formData.USDT)) {
+      if (this.formData.USDT.adress && !/^[013].+$/.test(this.formData.USDT.adress)) {
         throw new Error('USDT : 數字1＆3 & 0 開頭')
       }
       // 8/26 EOS 不驗證
       // EOS : 12個字符英文大小寫+數字組成
-      // if (this.formData.EOS && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{12}$/.test(this.formData.EOS)) {
+      // if (this.formData.EOS.adress && !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{12}$/.test(this.formData.EOS.adress)) {
       //   throw new Error('EOS : 12個字符英文大小寫+數字組成')
       // }
+      if (this.formData.EOS.adress && !this.formData.EOS.adress2) {
+        throw new Error('EOS : MEMO 未填寫')
+      }
       // ETH : 數字0 開頭，42位英文大小寫+數字組成
-      if (this.formData.ETH && !/^[0](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{41}$/.test(this.formData.ETH)) {
+      if (this.formData.ETH.adress && !/^[0](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{41}$/.test(this.formData.ETH.adress)) {
         throw new Error('ETH : 數字0 開頭，42位英文大小寫+數字組成')
       }
       return 'success'
