@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" style="float: left;">
+  <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" style="float: left">
     <div class="personal-function-main">
       <div class="title adress">為保障用戶權益和出金安全，修正出金地址須透過email驗證，變動地址需待一周後再次進行</div>
 
@@ -17,31 +17,67 @@
         <div v-else class="main" :style="{ opacity: formData.ETH.adress ? '1' : '0.5' }">{{ formData.ETH.adress || '未綁定' }}</div>
       </div>
 
-      <div class="personal-take-cash-adress-main" style="margin-bottom: 12px;">
+      <!-- 1024 以上 -->
+      <div v-if="deviceWidth >= 1000" class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="XRP" />
         <div class="title">XRP</div>
-        <input v-if="isEdit" v-model="formData.XRP.adress" type="text" class="main" placeholder="請填入 XRP 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || '未綁定' }}</div>
-      </div>
-      <div class="personal-take-cash-adress-main">
-        <CoinIcon class="icon" coin-type="XRP" style="opacity: 0;" />
-        <div class="title">TAG</div>
-        <input v-if="isEdit" v-model="formData.XRP.adress2" type="text" class="main" placeholder="請填入 XRP TAG" />
-        <div v-else class="main" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || '未綁定' }}</div>
+        <template v-if="isEdit">
+          <input v-model="formData.XRP.adress" type="text" class="main first" placeholder="請填入 XRP 交易地址" />
+          <input v-model="formData.XRP.adress2" type="text" class="second input" placeholder="請填入 XRP TAG" />
+        </template>
+        <template v-else>
+          <div class="main first" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || '未綁定' }}</div>
+          <div class="second title">TAG</div>
+          <div class="second content" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || '未綁定' }}</div>
+        </template>
       </div>
 
-      <div class="personal-take-cash-adress-main" style="margin-bottom: 8px;">
+      <!-- 未滿 1024 -->
+      <template v-else>
+        <div class="personal-take-cash-adress-main" style="margin-bottom: 4px;">
+          <CoinIcon class="icon" coin-type="XRP" />
+          <div class="title">XRP</div>
+          <input v-if="isEdit" v-model="formData.XRP.adress" type="text" class="main" placeholder="請填入 XRP 交易地址" />
+          <div v-else class="main" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || '未綁定' }}</div>
+        </div>
+        <div class="personal-take-cash-adress-main">
+          <CoinIcon class="icon" coin-type="XRP" style="opacity: 0" />
+          <div class="title">TAG</div>
+          <input v-if="isEdit" v-model="formData.XRP.adress2" type="text" class="main" placeholder="請填入 XRP TAG" />
+          <div v-else class="main" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || '未綁定' }}</div>
+        </div>
+      </template>
+
+      <!-- 1024 以上 -->
+      <div v-if="deviceWidth >= 1000" class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="EOS" />
         <div class="title">EOS</div>
-        <input v-if="isEdit" v-model="formData.EOS.adress" type="text" class="main" placeholder="請填入 EOS 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>
+        <template v-if="isEdit">
+          <input v-model="formData.EOS.adress" type="text" class="main first" placeholder="請填入 EOS 交易地址" />
+          <input v-model="formData.EOS.adress2" type="text" class="second input" placeholder="請填入 EOS TAG" />
+        </template>
+        <template v-else>
+          <div class="main first" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>
+          <div class="second title">MEMO</div>
+          <div class="second content" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || '未綁定' }}</div>
+        </template>
       </div>
-      <div class="personal-take-cash-adress-main">
-        <CoinIcon class="icon" coin-type="EOS" style="opacity: 0;" />
-        <div class="title">MEMO</div>
-        <input v-if="isEdit" v-model="formData.EOS.adress2" type="text" class="main" placeholder="請填入 EOS MEMO" />
-        <div v-else class="main" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || '未綁定' }}</div>
-      </div>
+
+      <!-- 未滿 1024 -->
+      <template v-else>
+        <div class="personal-take-cash-adress-main" style="margin-bottom: 4px">
+          <CoinIcon class="icon" coin-type="EOS" />
+          <div class="title">EOS</div>
+          <input v-if="isEdit" v-model="formData.EOS.adress" type="text" class="main" placeholder="請填入 EOS 交易地址" />
+          <div v-else class="main" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>
+        </div>
+        <div class="personal-take-cash-adress-main">
+          <CoinIcon class="icon" coin-type="EOS" style="opacity: 0" />
+          <div class="title">MEMO</div>
+          <input v-if="isEdit" v-model="formData.EOS.adress2" type="text" class="main" placeholder="請填入 EOS MEMO" />
+          <div v-else class="main" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || '未綁定' }}</div>
+        </div>
+      </template>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="USDT" />
@@ -71,7 +107,7 @@
         <input v-model="authCore" class="input" type="text" placeholder="輸入驗證碼" />
       </div>
       <span v-loading="isValidLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
-        <div class="fdb-btn-default" style="margin-right: 12px;" @click="checkDialog.show = false">取消</div>
+        <div class="fdb-btn-default" style="margin-right: 12px" @click="checkDialog.show = false">取消</div>
         <div class="fdb-btn-primary" @click="validAdress">確認</div>
       </span>
     </el-dialog>
@@ -203,6 +239,50 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.personal-take-cash-adress-main {
+  .main.first {
+    width: calc(100% - 400px);
+    margin-right: 8px;
+  }
+  .second {
+    width: 192px;
+    float: left;
+    font-size: 14px;
+    &.title {
+      position: relative;
+      width: 72px;
+      font-size: 20px;
+      margin-right: 0;
+      line-height: 50px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 20%;
+        width: 1px;
+        height: 34px;
+        background-color: #ffffff;
+      }
+    }
+    &.content {
+      width: 120px;
+      height: auto;
+      line-height: 63px;
+      color: #ffffff;
+    }
+    &.input {
+      height: 42px;
+      line-height: 42px;
+      color: #c4c4c4;
+      margin: 4px 0;
+      border: none;
+      background: #252c3d;
+      box-sizing: border-box;
+      border-radius: 8px;
+      padding-left: 10px;
+    }
+  }
+}
 .adress-site-dialog {
   .check-tip {
     text-align: center;
