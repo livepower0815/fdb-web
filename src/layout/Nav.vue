@@ -14,7 +14,14 @@
     <div class="navbar-setting" :class="{ 'is-mobile': deviceWidth < 768 }">
       <template v-if="deviceWidth < 1024">
         <img class="navbar-m-menu" src="@/assets/img/nav/menu.png" alt="menu" @click="mobileMenu.show = true" />
-        <img v-if="deviceWidth < 768" class="navbar-m-lang" src="@/assets/img/nav/mdi_web.png" alt="globel" />
+        <el-dropdown v-if="deviceWidth < 768" key="navbar-m-lang" trigger="click" @command="handleLang">
+          <img class="navbar-m-lang" src="@/assets/img/nav/mdi_web.png" alt="globel" />
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="TW">TW</el-dropdown-item>
+            <el-dropdown-item command="US">US</el-dropdown-item>
+            <el-dropdown-item command="CN">CN</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </template>
 
       <!-- 個人大頭貼工作區 -->
@@ -38,7 +45,14 @@
       </template>
       <template v-if="deviceWidth >= 768">
         <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>
-        <router-link :to="{ name: 'Home' }" style="margin: 0;font-family: 'Noto Sans CJK TC';">ZH</router-link>
+        <el-dropdown key="navbar-lang" trigger="click" @command="handleLang">
+          <span style="margin: 0;font-family: 'Noto Sans CJK TC'; color: #fff; cursor: pointer;">{{ lang }}</span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="TW">TW</el-dropdown-item>
+            <el-dropdown-item command="US">US</el-dropdown-item>
+            <el-dropdown-item command="CN">CN</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </template>
     </div>
 
@@ -76,6 +90,7 @@ export default {
   name: 'Nav',
   data() {
     return {
+      lang: localStorage.getItem('FDB-lang') || 'TW',
       mobileMenu: {
         show: false
       }
@@ -113,6 +128,11 @@ export default {
           }
           break
       }
+    },
+    handleLang(lang) {
+      localStorage.setItem('FDB-lang', lang)
+      this.lang = lang
+      location.reload()
     }
   }
 }

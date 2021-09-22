@@ -20,6 +20,21 @@ service.interceptors.request.use(
       // please modify it according to the actual situation
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
+
+    // 添加多語系參數
+    const langValue = localStorage.getItem('FDB-lang') || 'TW'
+    if (config.method === 'get') {
+      if (!config.params) {
+        config.params = {}
+      }
+      config.params.lang = langValue
+    } else {
+      if (!config.data) {
+        config.data = { lang: langValue }
+      } else {
+        config.data.lang = langValue
+      }
+    }
     return config
   },
   error => {
