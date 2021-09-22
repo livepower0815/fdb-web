@@ -159,7 +159,7 @@ export default {
         for (const item of res.data) {
           const key = currencyMap[item.cid]
           this.formData[key].adress = item.coinAddress
-          this.formData[key].adress2 = item.adress2
+          this.formData[key].adress2 = item.coinAddress2
         }
       } catch (error) {
         console.error(error)
