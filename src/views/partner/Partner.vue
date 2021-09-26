@@ -81,7 +81,7 @@
       </div>
       <div class="sub-item">
         <div class="label">交易支持</div>
-        <div class="value">期貸</div>
+        <div class="value">期貨</div>
       </div>
       <div class="sub-item">
         <div class="label">平均交易量</div>

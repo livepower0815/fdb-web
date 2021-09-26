@@ -1,7 +1,7 @@
 /*共用*/
 @font-face {
   font-family:'Noto Sans CJK TC';
-  src: url("../font/NotoSansCJKtc-Regular.otf") format("opentype");
+  src: url("../font/NotoSansTC-Medium.otf") format("opentype");
   /* unicode-range: U+4E00-9FFF; */
 }
 @font-face {

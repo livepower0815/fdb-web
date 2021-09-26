@@ -1,129 +1,200 @@
 <template>
   <div class="about">
-    <div class="about-title">
-      返多寶致力成為全球最大虛擬貨幣「返佣平台」及「論壇」<br />交易返佣、手續費返佣、推廣返佣<br />全方面的返佣方案、24小時專業客服團隊<br />只有返多寶
+    <div v-if="deviceWidth > 700" class="about-title">
+      首家企業化的「返佣平台」及「論壇」 提供全方位返佣方案 <br />「交易返佣、手續費返佣、推薦好友再返佣」
     </div>
-    <div class="about-mission">我們的使命</div>
-    <div class="about-detail">返多寶為幣圈第一間返佣平台</div>
-    <div class="about-detail">聯合創始人為中國、新加坡、台灣、日本幣圈知名人士</div>
-    <div class="about-mission">我們的願景</div>
-    <div class="about-detail">致力為幣圈帶來更透明的訊息、更健康生態、讓投資更簡單</div>
-    <div class="about-detail">並拓展為全球最專業返佣平台與論壇</div>
-    <div class="about-img">
-      <img src="@/assets/img/about/about-bitcoin-kv.jpg" alt="about-bitcoin-kv" />
+    <div v-else class="about-title">
+      首家企業化的「返佣平台」及「論壇」<br />
+      提供全方位返佣方案 <br />「交易返佣、手續費返佣、推薦好友再返佣」
+    </div>
+    <div class="step-title">返佣流程</div>
+    <div class="step-item">
+      <div class="image">
+        <img src="@/assets/img/about/step1.png" alt="step1" />
+      </div>
+      <div class="info">
+        <div class="info-title">加入返多寶</div>
+        <div class="info-content">申請返多寶會員<br />另外新增好友邀請碼可共同獲得返佣</div>
+      </div>
+    </div>
+    <div class="step-item" :class="{ reverse: deviceWidth > 700, 'reverse-m': deviceWidth <= 700 }">
+      <div class="image">
+        <img src="@/assets/img/about/step2.png" alt="step2" />
+      </div>
+      <div class="info">
+        <div class="info-title">綁定交易所</div>
+        <div class="info-content">透過返多寶鏈結註冊交易所<br />將交易所UID與返多寶會員綁定</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="image">
+        <img src="@/assets/img/about/step3.png" alt="step3" />
+      </div>
+      <div class="info">
+        <div class="info-title">領取返佣</div>
+        <div class="info-content">檢視返佣儀表板，輸入錢包地址，申請出金</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .about {
   background-image: url('../../assets/img/common/full.png');
-  background-position: 50% -30%;
+  background-position: 50% -15%;
   background-size: contain;
   background-repeat: no-repeat;
-  @media screen and (max-width: 1500px) {
-    background-position: 50% -15%;
-  }
+  max-width: 1440px;
+  margin: 0 auto;
   @media screen and (max-width: 1370px) {
     background-position: 50% -22%;
   }
   @media screen and (max-width: 960px) {
-    background-position: 50% -10%;
+    background-position: 50% -18%;
   }
   @media screen and (max-width: 700px) {
-    background-position: 50% 10%;
+    background-position: 50% 0%;
   }
   @media screen and (max-width: 500px) {
-    background-position: 50% 6%;
+    background-position: 50% 2%;
   }
   &-title {
     font-weight: bold;
     font-size: 36px;
     line-height: 53px;
-    margin: 10% 17% 40% 17%;
+    margin: 10% 14% 40% 14%;
     text-align: center;
     @media screen and (max-width: 1370px) {
       font-size: 24px;
       line-height: 36px;
+      margin: 10% 14% 33% 14%;
     }
     @media screen and (max-width: 960px) {
       font-size: 20px;
       line-height: 30px;
     }
     @media screen and (max-width: 700px) {
-      font-size: 28px;
+      // font-size: 28px;
       line-height: 46px;
       margin: 10% 4% 40% 4%;
     }
     @media screen and (max-width: 500px) {
       font-size: 16px;
       line-height: 24px;
+      margin: 10% 4% 50% 4%;
     }
   }
-  &-mission {
-    line-height: 64px;
-    margin-top: 10%;
-    margin-bottom: 4%;
+
+  .step-title {
     font-size: 48px;
     font-weight: bold;
     text-align: center;
+    margin: 40px;
     @media screen and (max-width: 1370px) {
-      font-size: 36px;
+      font-size: 32px;
+      margin: 20px;
     }
     @media screen and (max-width: 960px) {
-      font-size: 28px;
-    }
-    @media screen and (max-width: 700px) {
-      font-size: 36px;
-    }
-    @media screen and (max-width: 500px) {
-      font-size: 22px;
+      font-size: 26px;
     }
   }
-  &-detail {
-    font-size: 20px;
-    line-height: 40px;
-    text-align: center;
-    letter-spacing: 0.05em;
-    color: #e5e5e5;
-    @media screen and (max-width: 960px) {
-      font-size: 16px;
-      line-height: 28px;
-    }
-    @media screen and (max-width: 700px) {
-      font-size: 22px;
-      line-height: 34px;
-      margin: 0 3%;
-    }
-    @media screen and (max-width: 500px) {
-      font-size: 12px;
-      line-height: 20px;
-    }
-  }
-  &-img {
+  .step-item {
     display: flex;
-    justify-content: center;
-    margin-top: 10%;
-    margin-bottom: 20%;
-    img {
-      width: 1000px;
-      @media screen and (max-width: 1370px) {
-        width: 772px;
-      }
-      @media screen and (max-width: 960px) {
-        width: 600px;
-      }
+    justify-content: space-around;
+    padding: 6% 0;
+    background-image: url('../../assets/img/about/rectangle.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 0% 8%;
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+      background-size: 94%;
+      background-position: 0% 3%;
+      padding: 10% 0;
+    }
+    &:last-child {
+      margin-bottom: 200px;
       @media screen and (max-width: 700px) {
-        width: 470px;
+        margin-bottom: 100px;
       }
-      @media screen and (max-width: 500px) {
-        width: 291px;
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+      background-image: url('../../assets/img/about/reverse-eectangle.png');
+      background-position: 108% 8%;
+      .image {
+        text-align: start;
+      }
+      .info {
+        margin-left: 12%;
+      }
+    }
+    &.reverse-m {
+      background-image: url('../../assets/img/about/reverse-eectangle.png');
+      background-position: 100% 3%;
+    }
+    .image {
+      width: 60%;
+      text-align: center;
+      @media screen and (max-width: 700px) {
+        width: 100%;
+      }
+      img {
+        width: 76%;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
+      margin-left: 6%;
+      @media screen and (max-width: 700px) {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+        margin-top: 5%;
+      }
+      &-title {
+        font-size: 36px;
+        line-height: 53px;
+        font-weight: bold;
+        margin-bottom: 5%;
+        @media screen and (max-width: 1370px) {
+          font-size: 24px;
+          line-height: 36px;
+        }
+        @media screen and (max-width: 960px) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+        @media screen and (max-width: 700px) {
+          margin-bottom: 2%;
+        }
+      }
+      &-content {
+        font-size: 24px;
+        line-height: 36px;
+        color: #e5e5e5;
+        @media screen and (max-width: 1370px) {
+          font-size: 18px;
+          line-height: 24px;
+        }
+        @media screen and (max-width: 960px) {
+          font-size: 14px;
+          line-height: 24px;
+        }
       }
     }
   }

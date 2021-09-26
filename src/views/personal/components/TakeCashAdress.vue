@@ -54,7 +54,7 @@
         <div class="title">EOS</div>
         <template v-if="isEdit">
           <input v-model="formData.EOS.adress" type="text" class="main first" placeholder="請填入 EOS 交易地址" />
-          <input v-model="formData.EOS.adress2" type="text" class="second input" placeholder="請填入 EOS TAG" />
+          <input v-model="formData.EOS.adress2" type="text" class="second input" placeholder="請填入 EOS MEMO" />
         </template>
         <template v-else>
           <div class="main first" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>

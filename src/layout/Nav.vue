@@ -6,7 +6,7 @@
     </router-link>
     <div v-if="deviceWidth >= 1024" class="navbar-menu">
       <router-link to="/">FDB首頁</router-link>
-      <router-link to="/about">關於FDB</router-link>
+      <router-link to="/about">開始返佣</router-link>
       <router-link to="/partner">合作夥伴</router-link>
       <router-link to="/news">最新消息</router-link>
     </div>
@@ -66,7 +66,7 @@
         </router-link>
         <router-link to="/about" v-slot="{ navigate }" custom>
           <div class="menu-link" @click="navigate">
-            關於FDB
+            開始返佣
           </div>
         </router-link>
         <router-link to="/partner" v-slot="{ navigate }" custom>
@@ -146,7 +146,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  background-color: black;
+  background-color: #000000d6;
   padding: 0 3%;
   @media screen and (max-width: 1370px) {
     padding: 0 4%;
