@@ -116,7 +116,7 @@ export default {
     background-image: url('../../assets/img/about/rectangle.png');
     background-repeat: no-repeat;
     background-size: 60%;
-    background-position: 0% 8%;
+    background-position: -16% 8%;
     @media screen and (max-width: 700px) {
       flex-direction: column;
       background-size: 94%;

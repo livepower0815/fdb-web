@@ -3,12 +3,68 @@
     <!-- banner -->
     <div class="banner">
       <div class="banner-content">
-        <div class="title">Bybit</div>
+        <div class="title">返佣保證</div>
         <div class="info">
-          Bybit成立於2018年3月，註冊地英屬維京群島，總部位於新加坡，在香港、臺灣等地設有辦公室
-          用戶覆蓋北美、歐洲、俄羅斯、日本、韓國、東南亞等多個國家和地區
+          成為返多寶用戶，不需要任何交易條件，即有40%交易返佣<br />
+          返多寶邀請計畫，好友交易返佣再享10%推薦推薦
         </div>
         <div class="btn fdb-btn-primary">申請開戶</div>
+      </div>
+      <div v-if="deviceWidth > 700" class="banner-data">
+        <div class="data-item">
+          <img src="@/assets/img/partner/40-percent.png" class="percent" alt="40-percent" />
+          <div class="text">返多寶補貼比例</div>
+        </div>
+        <div class="data-item">
+          <img src="@/assets/img/partner/10-percent.png" class="percent" alt="10-percent" />
+          <div class="text">推薦好友返佣比例</div>
+        </div>
+        <div class="data-item">
+          <img src="@/assets/img/partner/30-percent.png" class="percent" alt="30-percent" />
+          <div class="text">官方代理返佣比例</div>
+        </div>
+      </div>
+    </div>
+    <div v-if="deviceWidth <= 700" class="banner-data-m">
+      <div class="data-item">
+        <img src="@/assets/img/partner/40-percent.png" class="percent" alt="40-percent" />
+        <div class="text">返多寶補貼比例</div>
+      </div>
+      <div class="data-item">
+        <img src="@/assets/img/partner/10-percent.png" class="percent" alt="10-percent" />
+        <div class="text">推薦好友返佣比例</div>
+      </div>
+      <div class="data-item">
+        <img src="@/assets/img/partner/30-percent.png" class="percent" alt="30-percent" />
+        <div class="text">官方代理返佣比例</div>
+      </div>
+    </div>
+
+    <!-- sub banner -->
+    <div class="sub-banner">
+      <div class="sub-item">
+        <div class="label">手續費</div>
+        <div class="value">0.075%</div>
+      </div>
+      <div class="sub-item">
+        <div class="label">槓桿</div>
+        <div class="value">100倍</div>
+      </div>
+      <div class="sub-item">
+        <div class="label">交易對</div>
+        <div class="value">13</div>
+      </div>
+      <div class="sub-item">
+        <div class="label">交易支持</div>
+        <div class="value">期貨</div>
+      </div>
+      <div class="sub-item">
+        <div class="label">平均交易量</div>
+        <div class="value">65.66億</div>
+      </div>
+      <div class="sub-item">
+        <div class="label">資產實力</div>
+        <div class="value">90.35億</div>
       </div>
     </div>
 
@@ -65,61 +121,6 @@
       </div>
     </div>
 
-    <!-- sub banner -->
-    <div class="sub-banner">
-      <div class="sub-item">
-        <div class="label">手續費</div>
-        <div class="value">0.075%</div>
-      </div>
-      <div class="sub-item">
-        <div class="label">槓桿</div>
-        <div class="value">100倍</div>
-      </div>
-      <div class="sub-item">
-        <div class="label">交易對</div>
-        <div class="value">13</div>
-      </div>
-      <div class="sub-item">
-        <div class="label">交易支持</div>
-        <div class="value">期貨</div>
-      </div>
-      <div class="sub-item">
-        <div class="label">平均交易量</div>
-        <div class="value">65.66億</div>
-      </div>
-      <div class="sub-item">
-        <div class="label">資產實力</div>
-        <div class="value">90.35億</div>
-      </div>
-    </div>
-
-    <!-- 返佣規則 -->
-    <div class="rule">
-      <div class="img">
-        <img src="@/assets/img/partner/cross.png" alt="cross" />
-      </div>
-      <div class="rule-body">
-        <div class="title">返佣規則</div>
-        <div class="content">
-          成為返多寶用戶，不需要任何交易條件，即有40%的返佣，邀請好友來返多寶交易，好友交易返佣的10%將成為您的推薦獎金。
-        </div>
-        <div class="rule-data">
-          <div class="data-item">
-            <div class="percent">30%</div>
-            <div class="text">官方代理返佣比例</div>
-          </div>
-          <div class="data-item">
-            <div class="percent">40%</div>
-            <div class="text">返多寶補貼比例</div>
-          </div>
-          <div class="data-item">
-            <div class="percent">10%</div>
-            <div class="text">推薦好友返佣比例</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- 成為返多寶會員 -->
     <div class="member">
       <div class="title">成為返多寶會員</div>
@@ -131,7 +132,12 @@
 
 <script>
 export default {
-  name: 'Partner'
+  name: 'Partner',
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  }
 }
 </script>
 
@@ -141,20 +147,31 @@ export default {
   .banner {
     position: relative;
     width: 100vw;
-    height: 58vw;
-    background-image: url('../../assets/img/partner/partner-banner.jpg');
+    height: 52vw;
+    background-image: url('../../assets/img/partner/partner-banner.png');
     background-size: cover;
+    @media screen and (max-width: 960px) {
+      background-position: 50px 0px;
+    }
     @media screen and (max-width: 700px) {
       height: 88vw;
-      background-position: 92% 50%;
+      background-image: url('../../assets/img/partner/partner-banner-m.png');
+      background-position: 0% 0%;
     }
     &-content {
       position: absolute;
       left: 5%;
-      top: 35%;
-      width: 337px;
+      top: 25%;
+      width: 486px;
+      @media screen and (max-width: 1370px) {
+        top: 22%;
+      }
+      @media screen and (max-width: 960px) {
+        top: 16%;
+        width: 42%;
+      }
       @media screen and (max-width: 700px) {
-        top: 20%;
+        top: 35%;
         width: 246px;
       }
       @media screen and (max-width: 500px) {
@@ -164,15 +181,16 @@ export default {
         font-family: 'Avenir';
         font-size: 48px;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 5%;
         @media screen and (max-width: 1370px) {
           font-size: 36px;
+          margin-bottom: 3%;
         }
         @media screen and (max-width: 960px) {
           font-size: 28px;
         }
         @media screen and (max-width: 700px) {
-          font-size: 48px;
+          // font-size: 28px;
         }
         @media screen and (max-width: 500px) {
           font-size: 22px;
@@ -181,8 +199,11 @@ export default {
       .info {
         font-size: 16px;
         line-height: 24px;
-        margin-bottom: 30px;
+        margin-bottom: 10%;
         color: #e5e5e5;
+        @media screen and (max-width: 1370px) {
+          margin-bottom: 5%;
+        }
         @media screen and (max-width: 960px) {
           font-size: 14px;
           line-height: 21px;
@@ -190,6 +211,7 @@ export default {
         @media screen and (max-width: 700px) {
           font-size: 16px;
           line-height: 24px;
+          margin-bottom: 12%;
         }
         @media screen and (max-width: 500px) {
           font-size: 12px;
@@ -207,6 +229,67 @@ export default {
         }
         @media screen and (max-width: 500px) {
           line-height: 26px;
+        }
+      }
+    }
+    &-data {
+      position: absolute;
+      left: 5%;
+      top: 68%;
+      display: flex;
+      justify-content: space-between;
+      width: 34%;
+      @media screen and (max-width: 1370px) {
+        top: 65%;
+        width: 40%;
+      }
+      @media screen and (max-width: 960px) {
+        width: 46%;
+      }
+      .data-item {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .percent {
+          width: 90%;
+          margin-bottom: 20%;
+        }
+        .text {
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 150%;
+          @media screen and (max-width: 1370px) {
+            font-size: 15px;
+          }
+          @media screen and (max-width: 960px) {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  .banner-data-m {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 6%;
+    margin-bottom: 10%;
+    .data-item {
+      width: 26%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .percent {
+        width: 90%;
+        margin-bottom: 20%;
+      }
+      .text {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        @media screen and (max-width: 500px) {
+          font-size: 14px;
         }
       }
     }
@@ -232,6 +315,7 @@ export default {
         line-height: 28px;
       }
       @media screen and (max-width: 700px) {
+        font-size: 28px;
         line-height: 50px;
       }
       @media screen and (max-width: 500px) {
@@ -358,108 +442,6 @@ export default {
       }
     }
   }
-  .rule {
-    max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
-    padding: 2%;
-    margin-bottom: 40px;
-    @media screen and (max-width: 1370px) {
-      margin-bottom: 0;
-    }
-    @media screen and (max-width: 700px) {
-      flex-direction: column-reverse;
-      padding: 4%;
-    }
-    .img {
-      flex: 0 0 50%;
-      @media screen and (max-width: 960px) {
-        margin-top: 52px;
-      }
-      // @media screen and (min-width: 600px) and (max-width: 800px) {
-      //   transform: translateX(70px) scale(1.2);
-      // }
-    }
-    &-body {
-      flex: 0 0 50%;
-      padding: 2% 8% 10% 6%;
-      box-sizing: border-box;
-      @media screen and (max-width: 1370px) {
-        padding: 2% 4% 10% 2%;
-      }
-      @media screen and (max-width: 960px) {
-        padding: 2% 4% 8% 2%;
-      }
-      @media screen and (max-width: 700px) {
-        padding: 0;
-      }
-      .title {
-        font-weight: bold;
-        font-size: 48px;
-        margin-bottom: 24px;
-        @media screen and (max-width: 1370px) {
-          font-size: 36px;
-        }
-        @media screen and (max-width: 960px) {
-          font-size: 28px;
-        }
-      }
-      .content {
-        font-size: 16px;
-        line-height: 26px;
-        color: #e5e5e5;
-        margin-bottom: 26px;
-        @media screen and (max-width: 960px) {
-          font-size: 14px;
-          margin-bottom: 12px;
-        }
-      }
-      .rule-data {
-        display: flex;
-        justify-content: space-between;
-        @media screen and (max-width: 500px) {
-          flex-wrap: wrap;
-        }
-        .data-item {
-          flex: 1;
-          @media screen and (max-width: 960px) {
-            flex: 0 0 30%;
-          }
-          @media screen and (max-width: 500px) {
-            flex: 0 0 48%;
-          }
-          .percent {
-            font-family: 'Raleway';
-            font-size: 64px;
-            font-weight: bold;
-            color: #62ffff;
-            margin-bottom: 12px;
-            @media screen and (max-width: 1370px) {
-              font-size: 54px;
-            }
-            @media screen and (max-width: 960px) {
-              font-size: 38px;
-              margin-bottom: 8px;
-            }
-            @media screen and (max-width: 700px) {
-              font-size: 50px;
-              margin-bottom: 6px;
-            }
-            @media screen and (max-width: 500px) {
-              font-size: 46px;
-            }
-          }
-          .text {
-            font-size: 16px;
-            color: #e5e5e5;
-            @media screen and (max-width: 1370px) {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
   .member {
     max-width: 1440px;
     margin: 0 auto;
@@ -479,6 +461,9 @@ export default {
       @media screen and (max-width: 960px) {
         font-size: 28px;
         margin-bottom: 10px;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 22px;
       }
     }
     .info {

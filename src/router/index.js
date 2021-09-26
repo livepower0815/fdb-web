@@ -18,13 +18,13 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/home/Home.vue')
   },
-  // 關於ＦＤＢ
+  // 開始返佣
   {
     path: '/about',
     name: 'About',
     component: () => import('@/views/about/About.vue')
   },
-  // 合作夥伴
+  // 合作幣商
   {
     path: '/partner',
     name: 'Partner',
