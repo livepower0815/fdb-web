@@ -6,12 +6,6 @@ import { Message } from 'element-ui'
 Vue.use(VueRouter)
 
 const routes = [
-  // Test
-  {
-    path: '/test',
-    name: 'MailContent',
-    component: () => import('@/views/MailContent.vue')
-  },
   // 首頁
   {
     path: '/',
@@ -130,6 +124,17 @@ const routes = [
     path: '/take-cash',
     name: 'TakeCash',
     component: () => import('@/views/take-cash/TakeCash.vue')
+  },
+  // 信箱 mail HTML
+  {
+    path: '/mail-1',
+    name: 'MailContent1',
+    component: () => import('@/views/mail/MailContent1.vue')
+  },
+  {
+    path: '/mail-2',
+    name: 'MailContent2',
+    component: () => import('@/views/mail/MailContent2.vue')
   }
 ]
 
