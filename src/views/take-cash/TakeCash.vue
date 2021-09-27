@@ -45,6 +45,7 @@
               <div class="title">出金地址</div>
               <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
                 {{ adressData[currencyMap[form.currencySelect]] }}
+                p
               </div>
               <div v-else class="value" style="opacity: 0.3">尚未選擇或未綁定</div>
             </div>
@@ -230,7 +231,7 @@ export default {
         const res = await getAllWithdrawalAddress()
         for (const item of res.data) {
           const key = currencyMap[item.cid]
-          this.adressData[key] = item.coinAddress
+          this.adressData[key] = item.coinAddress + (item.coinAddress2 ? ` | ${item.coinAddress2}` : '')
         }
       } catch (error) {
         console.error(error)
