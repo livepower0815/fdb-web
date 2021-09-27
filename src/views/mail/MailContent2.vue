@@ -1,20 +1,20 @@
 <template>
-  <div style="background-color: #ffffff; height: 606px; color: #616161; letter-spacing: 0.015em; font-family: Roboto">
+  <div style="background-color: #ffffff; color: #616161; letter-spacing: 0.015em; font-family: Roboto">
     <div style="width: 350px; margin: 0 auto; padding: 20px">
       <img
         src="https://fdb-web-api.azurewebsites.net/Upload/UserImage/202109270038122713/F20210927003812.png"
         alt="logo"
         style="color: #212838; font-size: 30px; font-weight: bold; text-align: center; width: 230px; margin: 26px auto; display: block"
       />
-      <div style="border-top: 2px #eeeeee solid; border-bottom: 2px #eeeeee solid; padding: 30px 20px">
-        <p style="margin-bottom: 20px">
+      <div style="border-top: 2px #eeeeee solid; border-bottom: 2px #eeeeee solid; padding: 20px">
+        <p style="margin-bottom: 20px; line-height: 24px">
           尊敬的會員您好： <br />
           我們已收到您地址修改通知<br />請輸入以下驗證碼或直接點擊按鈕複製驗證碼
         </p>
         <div style="display: flex">
           <div
             style="
-              font-size: 13px;
+              font-size: 15px;
               text-align: center;
               line-height: 40px;
               height: 40px;

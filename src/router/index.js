@@ -135,6 +135,31 @@ const routes = [
     path: '/mail-2',
     name: 'MailContent2',
     component: () => import('@/views/mail/MailContent2.vue')
+  },
+  {
+    path: '/mail-3',
+    name: 'MailContent3',
+    component: () => import('@/views/mail/MailContent3.vue')
+  },
+  {
+    path: '/mail-4',
+    name: 'MailContent4',
+    component: () => import('@/views/mail/MailContent4.vue')
+  },
+  {
+    path: '/mail-5',
+    name: 'MailContent5',
+    component: () => import('@/views/mail/MailContent5.vue')
+  },
+  {
+    path: '/mail-6',
+    name: 'MailContent6',
+    component: () => import('@/views/mail/MailContent6.vue')
+  },
+  {
+    path: '/mail-7',
+    name: 'MailContent7',
+    component: () => import('@/views/mail/MailContent7.vue')
   }
 ]
 

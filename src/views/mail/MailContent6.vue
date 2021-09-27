@@ -7,8 +7,11 @@
         style="color: #212838; font-size: 30px; font-weight: bold; text-align: center; width: 230px; margin: 26px auto; display: block"
       />
       <div style="border-top: 2px #eeeeee solid; border-bottom: 2px #eeeeee solid; padding: 20px">
-        <p style="margin-bottom: 40px; line-height: 24px">尊敬的會員您好： <br />恭喜您成為Fundobit會員</p>
-        <p style="margin-bottom: 10px;">請點選下方按鈕，進行信箱驗證</p>
+        <p style="margin-bottom: 20px; line-height: 24px">
+          尊敬的會員您好： <br />很抱歉，您的交易所UID綁定失敗，請前往會員頁面重新綁定交易所UID
+        </p>
+
+        <p style="margin-bottom: 10px">立即綁定開始享受返用旅程</p>
         <a
           href="https://www.google.com"
           target="_black"
@@ -25,7 +28,7 @@
             text-decoration: none;
           "
         >
-          驗證信箱
+          前往綁定交易所
         </a>
         <p style="font-size: 13px; font-weight: bold">
           請勿將信件轉發或給予任何人
@@ -68,6 +71,6 @@
 
 <script>
 export default {
-  name: 'MailContent1'
+  name: 'MailContent6'
 }
 </script>

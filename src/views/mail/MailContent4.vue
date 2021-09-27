@@ -1,37 +1,26 @@
 <template>
   <div style="background-color: #ffffff; color: #616161; letter-spacing: 0.015em; font-family: Roboto">
-    <div style="width: 350px; margin: 0 auto; padding: 28px">
+    <div style="width: 350px; margin: 0 auto; padding: 20px">
       <img
         src="https://fdb-web-api.azurewebsites.net/Upload/UserImage/202109270038122713/F20210927003812.png"
         alt="logo"
         style="color: #212838; font-size: 30px; font-weight: bold; text-align: center; width: 230px; margin: 26px auto; display: block"
       />
       <div style="border-top: 2px #eeeeee solid; border-bottom: 2px #eeeeee solid; padding: 20px">
-        <p style="margin-bottom: 40px; line-height: 24px">尊敬的會員您好： <br />恭喜您成為Fundobit會員</p>
-        <p style="margin-bottom: 10px;">請點選下方按鈕，進行信箱驗證</p>
-        <a
-          href="https://www.google.com"
-          target="_black"
-          style="
-            display: block;
-            margin-bottom: 30px;
-            font-size: 13px;
-            text-align: center;
-            line-height: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background-color: #212838;
-            color: #ffffff;
-            text-decoration: none;
-          "
-        >
-          驗證信箱
-        </a>
+        <p style="margin-bottom: 20px; line-height: 24px">
+          尊敬的會員您好：<br />
+          已收到您的出金申請，將於2~5個工作天到帳
+        </p>
+        <div style="border-radius: 8px; background-color: #e5e5e5; line-height: 24px; color: #364e6a; padding: 12px 20px">
+          申請時間：<span style="font-weight: bold;">14:30</span><br />
+          申請幣別：<span style="font-weight: bold;">BTC</span><br />
+          申請數量：<span style="font-weight: bold;">0.024</span><br />
+          申請單號：<span style="font-weight: bold;">FDB111111111</span>
+        </div>
+        <p style="line-height: 26px; margin: 34px 0px">您的帳戶正在登錄<br />IP 位置：190.190.190.190</p>
         <p style="font-size: 13px; font-weight: bold">
-          請勿將信件轉發或給予任何人
-          <br />
-          如有問題，
-          <a href="https://www.google.com" target="_blank" style="text-decoration: none; color: #364e6a">請與我們聯繫</a>
+          如您未申請出金，
+          <a href="https://www.google.com" target="_blank" style="text-decoration: none; color: #364e6a">請即時修改密碼</a>
         </p>
       </div>
       <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 16px">
@@ -68,6 +57,6 @@
 
 <script>
 export default {
-  name: 'MailContent1'
+  name: 'MailContent4'
 }
 </script>

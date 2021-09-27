@@ -7,8 +7,8 @@
         style="color: #212838; font-size: 30px; font-weight: bold; text-align: center; width: 230px; margin: 26px auto; display: block"
       />
       <div style="border-top: 2px #eeeeee solid; border-bottom: 2px #eeeeee solid; padding: 20px">
-        <p style="margin-bottom: 40px; line-height: 24px">尊敬的會員您好： <br />恭喜您成為Fundobit會員</p>
-        <p style="margin-bottom: 10px;">請點選下方按鈕，進行信箱驗證</p>
+        <p style="margin-bottom: 30px; line-height: 24px">尊敬的會員您好：<br />我們了解您無法登錄在線服務</p>
+        <p style="margin-bottom: 10px">請點選下方按鈕，進行重置密碼</p>
         <a
           href="https://www.google.com"
           target="_black"
@@ -25,8 +25,12 @@
             text-decoration: none;
           "
         >
-          驗證信箱
+          重置密碼
         </a>
+        <p style="margin-bottom: 30px">
+          如果您忘記了註冊時使用的電子郵箱，我們建議您在不同郵箱中查找來自Fundobit的電子郵件，
+          因為在您註冊之後，您應該會收到我們的電子郵件。 請確保查看您的垃圾郵件，因為在某些情況下我們的電子郵件可能也會被認定為垃圾郵件。
+        </p>
         <p style="font-size: 13px; font-weight: bold">
           請勿將信件轉發或給予任何人
           <br />
@@ -68,6 +72,6 @@
 
 <script>
 export default {
-  name: 'MailContent1'
+  name: 'MailContent3'
 }
 </script>
