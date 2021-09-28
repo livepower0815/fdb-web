@@ -14,10 +14,12 @@
       <!-- menu bar -->
       <div class="menu-bar" id="news-menu-bar">
         <div class="menu-left">
-          <div class="menu-item" :class="{ active: activeTab === 'all' }" @click="changeActiveTag('all')">全部</div>
-          <div class="menu-item" :class="{ active: activeTab === 'forum' }" @click="changeActiveTag('forum')">論壇</div>
-          <div class="menu-item" :class="{ active: activeTab === 'bulletin' }" @click="changeActiveTag('bulletin')">公告</div>
-          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="changeActiveTag('activity')">活動</div>
+          <div class="menu-item" :class="{ active: activeTab === 'all' }" @click="changeActiveTag('all')">{{ $t('all') }}</div>
+          <div class="menu-item" :class="{ active: activeTab === 'forum' }" @click="changeActiveTag('forum')">{{ $t('forum') }}</div>
+          <div class="menu-item" :class="{ active: activeTab === 'bulletin' }" @click="changeActiveTag('bulletin')">
+            {{ $t('announcement') }}
+          </div>
+          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="changeActiveTag('activity')">$t('activity')</div>
         </div>
         <div class="menu-right">
           <img @click="showSearch = !showSearch" class="icon-search" src="@/assets/img/common/icon-search.png" alt="search" />

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
 import { Message } from 'element-ui'
+import i18n from '@/plugins/i18n'
 
 Vue.use(VueRouter)
 
@@ -104,7 +105,7 @@ const routes = [
           Message({
             type: 'warning',
             duration: 10 * 1000,
-            message: '交易所尚未綁定，無法查看交易總覽。'
+            message: i18n.$t('exchange_not_yet_bound')
           })
           store.commit('app/SET_G_LOADING', false)
           return

@@ -2,7 +2,7 @@
   <!-- 交易所開始 -->
   <div class="store">
     <div class="store-select">
-      <div class="title">交易所</div>
+      <div class="title">{{ $t('exchange') }}</div>
       <div class="select">
         <img src="@/assets/img/footer/bybit.png" alt="bybit" />
         <!-- <i class="el-icon-caret-bottom bottom-icon"></i> -->
@@ -10,9 +10,9 @@
     </div>
     <div v-if="!hideInfo" v-loading="exchangeLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="store-info">
       <div class="info-header">
-        <div class="title">您的盈利</div>
+        <div class="title">{{ $t('your_profit') }}</div>
         <div class="link">
-          <el-tooltip effect="dark" content="前往出金地址" placement="top">
+          <el-tooltip effect="dark" :content="$t('go_to__withdrawal_address')" placement="top">
             <router-link :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
               <img src="@/assets/img/common/arrow-right.png" alt="arrow-right" />
             </router-link>
@@ -32,8 +32,8 @@
             >
               未綁定
             </router-link> -->
-            <div v-if="coinData.bindStatus === 0" class="coin-status unbind">未綁定</div>
-            <div v-if="coinData.bindStatus === 1" class="coin-status bind">已綁定</div>
+            <div v-if="coinData.bindStatus === 0" class="coin-status unbind">{{ $t('unbind') }}</div>
+            <div v-if="coinData.bindStatus === 1" class="coin-status bind">{{ $t('bound') }}</div>
           </template>
           <template v-else>
             <!-- <router-link :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">

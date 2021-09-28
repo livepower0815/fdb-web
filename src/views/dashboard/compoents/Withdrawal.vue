@@ -167,7 +167,7 @@
         <div class="label">申請狀態：</div>
         <div class="content">
           <el-select v-model="queryForm.rebateStatus" class="fdb-select" style="width: 100%;" popper-class="fdb-select">
-            <el-option label="全部" :value="-1" />
+            <el-option :label="$t('all')" :value="-1" />
             <el-option v-for="item in rebateStatusMap" :key="item.key" :label="item.name" :value="item.key" />
           </el-select>
         </div>

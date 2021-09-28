@@ -41,7 +41,7 @@
               :class="{ active: dashboardChart.chartSelect === 'all' }"
               @click.prevent="dashboardChart.chartSelect = 'all'"
             >
-              全部
+              {{ $t('all') }}
             </span>
             <span
               class="filter-item"

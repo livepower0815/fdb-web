@@ -6,17 +6,17 @@
         <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
       </div>
       <div class="footer-menu">
-        <router-link to="/">FDB首頁</router-link>
+        <router-link to="/">{{ $t('fdb_home') }}</router-link>
         <router-link to="/about">開始返佣</router-link>
         <router-link to="/partner">合作幣商</router-link>
-        <router-link to="/news">最新消息</router-link>
+        <router-link to="/news">{{ $t('latest_news') }}</router-link>
       </div>
       <div class="footer-connect">
         <!-- 
         IG ：https://www.instagram.com/fundobit_official/
         TG：https://t.me/fundobit
         -->
-        <div>聯絡我們</div>
+        <div>{{ $t('contact_us') }}</div>
         <a href="https://t.me/fundobit" target="_blank" rel="noopener noreferrer">
           <img src="@/assets/img/footer/telegram.png" alt="connect-icon" class="connect-icon" />
         </a>
@@ -32,9 +32,9 @@
       <div class="bottom-left">
         <div class="footer-copy-right">Copyright © 2020 FDB.</div>
         <div class="links">
-          <router-link :to="{ name: 'Disclaimer' }">免責聲明</router-link>
+          <router-link :to="{ name: 'Disclaimer' }">{{ $t('disclaimer') }}</router-link>
           <div style="width: 0.5px;height: 20px;background-color: #ccc;margin-right: 20px;"></div>
-          <router-link :to="{ name: 'PrivacyPolicy' }">隱私條款</router-link>
+          <router-link :to="{ name: 'PrivacyPolicy' }">{{ $t('privacy_policy') }}</router-link>
         </div>
       </div>
       <div class="bottom-right">

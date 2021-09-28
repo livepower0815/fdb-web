@@ -7,14 +7,14 @@
         <CoinIcon class="icon" coin-type="BTC" />
         <div class="title">BTC</div>
         <input v-if="isEdit" v-model="formData.BTC.adress" type="text" class="main" placeholder="請填入 BTC 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.BTC.adress ? '1' : '0.5' }">{{ formData.BTC.adress || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.BTC.adress ? '1' : '0.5' }">{{ formData.BTC.adress || $t('unbind') }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="ETH" />
         <div class="title">ETH</div>
         <input v-if="isEdit" v-model="formData.ETH.adress" type="text" class="main" placeholder="請填入 ETH 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.ETH.adress ? '1' : '0.5' }">{{ formData.ETH.adress || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.ETH.adress ? '1' : '0.5' }">{{ formData.ETH.adress || $t('unbind') }}</div>
       </div>
 
       <!-- 1024 以上 -->
@@ -26,25 +26,27 @@
           <input v-model="formData.XRP.adress2" type="text" class="second input" placeholder="請填入 XRP TAG" />
         </template>
         <template v-else>
-          <div class="main first" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || '未綁定' }}</div>
+          <div class="main first" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || $t('unbind') }}</div>
           <div class="second title">TAG</div>
-          <div class="second content" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || '未綁定' }}</div>
+          <div class="second content" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">
+            {{ formData.XRP.adress2 || $t('unbind') }}
+          </div>
         </template>
       </div>
 
       <!-- 未滿 1024 -->
       <template v-else>
-        <div class="personal-take-cash-adress-main" style="margin-bottom: 4px;">
+        <div class="personal-take-cash-adress-main" style="margin-bottom: 4px">
           <CoinIcon class="icon" coin-type="XRP" />
           <div class="title">XRP</div>
           <input v-if="isEdit" v-model="formData.XRP.adress" type="text" class="main" placeholder="請填入 XRP 交易地址" />
-          <div v-else class="main" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || '未綁定' }}</div>
+          <div v-else class="main" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || $t('unbind') }}</div>
         </div>
         <div class="personal-take-cash-adress-main">
           <CoinIcon class="icon" coin-type="XRP" style="opacity: 0" />
           <div class="title">TAG</div>
           <input v-if="isEdit" v-model="formData.XRP.adress2" type="text" class="main" placeholder="請填入 XRP TAG" />
-          <div v-else class="main" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || '未綁定' }}</div>
+          <div v-else class="main" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || $t('unbind') }}</div>
         </div>
       </template>
 
@@ -57,9 +59,11 @@
           <input v-model="formData.EOS.adress2" type="text" class="second input" placeholder="請填入 EOS MEMO" />
         </template>
         <template v-else>
-          <div class="main first" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>
+          <div class="main first" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || $t('unbind') }}</div>
           <div class="second title">MEMO</div>
-          <div class="second content" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || '未綁定' }}</div>
+          <div class="second content" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">
+            {{ formData.EOS.adress2 || $t('unbind') }}
+          </div>
         </template>
       </div>
 
@@ -69,13 +73,13 @@
           <CoinIcon class="icon" coin-type="EOS" />
           <div class="title">EOS</div>
           <input v-if="isEdit" v-model="formData.EOS.adress" type="text" class="main" placeholder="請填入 EOS 交易地址" />
-          <div v-else class="main" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || '未綁定' }}</div>
+          <div v-else class="main" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || $t('unbind') }}</div>
         </div>
         <div class="personal-take-cash-adress-main">
           <CoinIcon class="icon" coin-type="EOS" style="opacity: 0" />
           <div class="title">MEMO</div>
           <input v-if="isEdit" v-model="formData.EOS.adress2" type="text" class="main" placeholder="請填入 EOS MEMO" />
-          <div v-else class="main" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || '未綁定' }}</div>
+          <div v-else class="main" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || $t('unbind') }}</div>
         </div>
       </template>
 
@@ -83,7 +87,7 @@
         <CoinIcon class="icon" coin-type="USDT" />
         <div class="title">USDT</div>
         <input v-if="isEdit" v-model="formData.USDT.adress" type="text" class="main" placeholder="請填入 USDT 交易地址" />
-        <div v-else class="main" :style="{ opacity: formData.USDT.adress ? '1' : '0.5' }">{{ formData.USDT.adress || '未綁定' }}</div>
+        <div v-else class="main" :style="{ opacity: formData.USDT.adress ? '1' : '0.5' }">{{ formData.USDT.adress || $t('unbind') }}</div>
       </div>
     </div>
     <div class="btns-block personal-info">

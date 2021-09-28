@@ -2,6 +2,7 @@ import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
 import { Message } from 'element-ui'
+import i18n from '@/plugins/i18n'
 
 // create an axios instance
 const service = axios.create({
@@ -71,7 +72,7 @@ service.interceptors.response.use(
           console.error(error)
       }
     }
-    Message.error(error.response?.data?.resultMsg || '連線錯誤')
+    Message.error(error.response?.data?.resultMsg || i18n.$t('connection_error'))
     return Promise.reject(error)
   }
 )

@@ -5,10 +5,10 @@
       <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
     </router-link>
     <div v-if="deviceWidth >= 1024" class="navbar-menu">
-      <router-link to="/">FDB首頁</router-link>
+      <router-link to="/">{{ $t('fdb_home') }}</router-link>
       <router-link to="/about">開始返佣</router-link>
       <router-link to="/partner">合作幣商</router-link>
-      <router-link to="/news">最新消息</router-link>
+      <router-link to="/news">{{ $t('latest_news') }}</router-link>
     </div>
 
     <div class="navbar-setting" :class="{ 'is-mobile': deviceWidth < 768 }">
@@ -20,6 +20,8 @@
             <el-dropdown-item command="TW">TW</el-dropdown-item>
             <el-dropdown-item command="US">US</el-dropdown-item>
             <el-dropdown-item command="CN">CN</el-dropdown-item>
+            <el-dropdown-item command="JP">JP</el-dropdown-item>
+            <el-dropdown-item command="KR">KR</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </template>
@@ -33,15 +35,17 @@
           style="margin-right: 20px; cursor: pointer;"
         ></el-avatar>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="personal">個人資訊管理</el-dropdown-item>
-          <el-dropdown-item command="dashboard">返佣交易總覽</el-dropdown-item>
-          <el-dropdown-item command="logout">登出</el-dropdown-item>
+          <el-dropdown-item command="personal">{{ $t('personal_information') }}</el-dropdown-item>
+          <el-dropdown-item command="dashboard">{{ $t('overview_rebate') }}</el-dropdown-item>
+          <el-dropdown-item command="logout">{{ $t('logout') }}</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
 
       <template v-if="!hasInfo">
-        <router-link to="/login" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '10px' }">登入</router-link>
-        <router-link to="/register" class="register" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '0' }">註冊</router-link>
+        <router-link to="/login" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '10px' }">{{ $t('login') }}</router-link>
+        <router-link to="/register" class="register" :style="{ 'margin-right': deviceWidth >= 768 ? '20px' : '0' }">
+          {{ $t('register') }}
+        </router-link>
       </template>
       <template v-if="deviceWidth >= 768">
         <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>
@@ -51,6 +55,8 @@
             <el-dropdown-item command="TW">TW</el-dropdown-item>
             <el-dropdown-item command="US">US</el-dropdown-item>
             <el-dropdown-item command="CN">CN</el-dropdown-item>
+            <el-dropdown-item command="JP">JP</el-dropdown-item>
+            <el-dropdown-item command="KR">KR</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </template>
@@ -61,7 +67,7 @@
       <div class="drawer-menu">
         <router-link to="/" v-slot="{ navigate }" custom>
           <div class="menu-link" @click="navigate">
-            FDB首頁
+            {{ $t('fdb_home') }}
           </div>
         </router-link>
         <router-link to="/about" v-slot="{ navigate }" custom>
@@ -76,7 +82,7 @@
         </router-link>
         <router-link to="/news" v-slot="{ navigate }" custom>
           <div class="menu-link" @click="navigate">
-            最新消息
+            {{ $t('latest_news') }}
           </div>
         </router-link>
       </div>
@@ -86,6 +92,8 @@
 </template>
 
 <script>
+import i18n from '@/plugins/i18n'
+
 export default {
   name: 'Nav',
   data() {
@@ -131,6 +139,7 @@ export default {
     },
     handleLang(lang) {
       localStorage.setItem('FDB-lang', lang)
+      i18n.locale = lang
       this.lang = lang
       location.reload()
     }

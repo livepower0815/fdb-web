@@ -35,7 +35,7 @@
           <span class="text-link" @click="$router.push('/reset-password')">忘記密碼，請重設密碼</span>
         </div>
 
-        <a href="javascript:void(0)" class="fdb-btn-primary-hover login-main-btn" @click="doLogin">登入</a>
+        <a href="javascript:void(0)" class="fdb-btn-primary-hover login-main-btn" @click="doLogin">{{ $t('login') }}</a>
         <div class="login-main-tips">還沒創建過帳戶？請 <span class="text-link" @click="$router.push('/register')">註冊</span></div>
       </div>
     </div>

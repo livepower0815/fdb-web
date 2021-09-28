@@ -43,7 +43,7 @@
           <div class="item-title">所在組別：</div>
           <div class="item-body">
             <el-select v-model="sreachForm.rgid" class="fdb-select" popper-class="fdb-select">
-              <el-option label="全部" :value="-1" />
+              <el-option :label="$t('all')" :value="-1" />
               <el-option v-for="group in availableGroups" :key="group.rgid" :label="group.name" :value="group.rgid"></el-option>
             </el-select>
           </div>
