@@ -38,26 +38,26 @@
           <a href="https://www.google.com" target="_blank" style="text-decoration: none; color: #364e6a">請與我們聯繫</a>
         </p>
       </div>
-      <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 16px">
-        <a href="mailto: CS@fundobit.com" target="_blank">
+      <div style="margin-top: 30px; margin-bottom: 16px; text-align: center;">
+        <a href="mailto: CS@fundobit.com" target="_blank" style="display: inline-block; margin: 0 12px;">
           <img
             src="https://fdb-web-api.azurewebsites.net/Upload/UserImage/202109270038322965/F20210927003832.png"
             alt="mail"
-            style="width: 26px; height: 26px; background-color: #212838; margin: 0 12px; border-radius: 50%"
+            style="width: 26px; height: 26px; background-color: #212838; border-radius: 50%"
           />
         </a>
-        <a href="https://t.me/fundobit" target="_blank">
+        <a href="https://t.me/fundobit" target="_blank" style="display: inline-block; margin: 0 12px;">
           <img
             src="https://fdb-web-api.azurewebsites.net/Upload/UserImage/202109270039036270/F20210927003903.png"
             alt="tg"
-            style="width: 26px; height: 26px; background-color: #212838; margin: 0 12px; border-radius: 50%"
+            style="width: 26px; height: 26px; background-color: #212838; border-radius: 50%"
           />
         </a>
-        <a href="https://www.instagram.com/fundobit_official" target="_blank">
+        <a href="https://www.instagram.com/fundobit_official" target="_blank" style="display: inline-block; margin: 0 12px;">
           <img
             src="https://fdb-web-api.azurewebsites.net/Upload/UserImage/202109270038489338/F20210927003848.png"
             alt="ig"
-            style="width: 26px; height: 26px; background-color: #212838; margin: 0 12px; border-radius: 50%"
+            style="width: 26px; height: 26px; background-color: #212838; border-radius: 50%"
           />
         </a>
       </div>
