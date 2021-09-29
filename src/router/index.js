@@ -105,7 +105,7 @@ const routes = [
           Message({
             type: 'warning',
             duration: 10 * 1000,
-            message: i18n.$t('exchange_not_yet_bound')
+            message: i18n.t('exchange_not_yet_bound')
           })
           store.commit('app/SET_G_LOADING', false)
           return

@@ -72,7 +72,7 @@ service.interceptors.response.use(
           console.error(error)
       }
     }
-    Message.error(error.response?.data?.resultMsg || i18n.$t('connection_error'))
+    Message.error(error.response?.data?.resultMsg || i18n.t('connection_error'))
     return Promise.reject(error)
   }
 )
