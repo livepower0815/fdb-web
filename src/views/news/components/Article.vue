@@ -16,7 +16,7 @@
         >
           <div class="item">
             <div :class="`item-tag info-bg-${articleMap[item.tag] ? articleMap[item.tag].key : 'forum'}`">
-              {{ articleMap[item.tag] ? articleMap[item.tag].name : '未定義' }}
+              {{ articleMap[item.tag] ? articleMap[item.tag].name : $t('undefined') }}
             </div>
             <div class="item-title">{{ item.title }}</div>
             <div class="item-date">{{ item.createdate }}</div>

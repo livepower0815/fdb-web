@@ -69,7 +69,7 @@
               <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
             </div>
             <div class="form-item" :class="{ 'click-disabled': !form.currencySelect }">
-              <div class="title">出金數量</div>
+              <div class="title">{{ $t('withdrawal_quantity') }}</div>
               <div class="value">
                 <input v-model="form.withdrawAmount" class="input" type="number" placeholder="請輸入出金金額" />
               </div>
@@ -112,7 +112,7 @@
               <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金數量</div>
+              <div class="title">{{ $t('withdrawal_quantity') }}</div>
               <div class="value">{{ form.withdrawAmount }}</div>
             </div>
             <div class="form-item">
@@ -152,7 +152,7 @@
               <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金數量</div>
+              <div class="title">{{ $t('withdrawal_quantity') }}</div>
               <div class="value">{{ form.withdrawAmount }}</div>
             </div>
             <div class="form-item">

@@ -33,7 +33,7 @@
         <span>請去電子郵箱收取連結信件。</span>
       </div>
       <span slot="footer">
-        <div class="fdb-btn-primary" @click="dialogVisible = false">關閉</div>
+        <div class="fdb-btn-primary" @click="dialogVisible = false">{{ $t('close') }}</div>
       </span>
     </el-dialog>
   </div>

@@ -8,7 +8,7 @@
         </div>
         <div class="info-card-tag">
           <div :class="`tag info-bg-${articleMap[item.tag] ? articleMap[item.tag].key : 'forum'}`">
-            {{ articleMap[item.tag] ? articleMap[item.tag].name : '未定義' }}
+            {{ articleMap[item.tag] ? articleMap[item.tag].name : $t('undefined') }}
           </div>
         </div>
         <div class="info-card-title">{{ item.title }}</div>

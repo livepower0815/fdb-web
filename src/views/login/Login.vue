@@ -65,7 +65,7 @@
           </div>
           <div class="fdb-btn-default" style="padding: 0 12px;" @click="validateEmail.show = false">取消</div>
         </template>
-        <div v-else class="fdb-btn-default" @click="validateEmail.show = false">關閉</div>
+        <div v-else class="fdb-btn-default" @click="validateEmail.show = false">{{ $t('close') }}</div>
       </span>
     </el-dialog>
   </div>

@@ -16,7 +16,7 @@
             style="margin-right: 8px;"
             @click="setControlMode('sort')"
           >
-            排序
+            {{ $t('sort') }}
           </div>
           <div
             v-if="widthWithiIn(['L', 'M', 'S'])"
@@ -25,7 +25,7 @@
             style="margin-right: 8px;"
             @click="setControlMode('filter')"
           >
-            篩選
+            {{ $t('filter') }}
           </div>
           <div
             class="fdb-btn-info btn"
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div v-if="controllerMode === 'sort'" class="m-item">
-          <div class="item-title">排序欄位：</div>
+          <div class="item-title">{{ $t('sort_field') }}：</div>
           <div class="item-body">
             <el-select v-model="pager.sortKey" class="fdb-select" popper-class="fdb-select" @change="getRecommend(true)">
               <el-option label="加入日期" value="createdate" />
@@ -58,11 +58,11 @@
           </div>
         </div>
         <div v-if="controllerMode === 'sort'" class="m-item">
-          <div class="item-title">排序方式：</div>
+          <div class="item-title">{{ $t('sort_by') }}：</div>
           <div class="item-body">
             <el-select v-model="pager.order" class="fdb-select" popper-class="fdb-select" @change="getRecommend(true)">
-              <el-option label="正序" value="asc" />
-              <el-option label="倒序" value="desc" />
+              <el-option :label="$t('positive_order')" value="asc" />
+              <el-option :label="$t('reverse_order')" value="desc" />
             </el-select>
           </div>
         </div>
@@ -74,7 +74,7 @@
               <th><input v-model="selectAllCheckBox" type="checkbox" class="check" /></th>
               <th>會員名稱</th>
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">聯絡資訊</th>
-              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">交易幣別</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">{{ $t('trade_coin_type') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">返佣交易量</th>
               <th style="text-align: center;">
                 <TableFilter

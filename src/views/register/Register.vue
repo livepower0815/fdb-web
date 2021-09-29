@@ -88,7 +88,7 @@
         <span>提醒您：驗證電子郵件，開始返佣</span>
       </div>
       <span slot="footer">
-        <div class="fdb-btn-primary" @click="dialogVisible = false">關閉</div>
+        <div class="fdb-btn-primary" @click="dialogVisible = false">{{ $t('close') }}</div>
       </span>
     </el-dialog>
   </div>

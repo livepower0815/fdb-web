@@ -12,7 +12,7 @@
           <div class="title-item">
             <div class="title">
               <img class="icon" src="@/assets/img/dashboard/person.png" alt="person" style="width: 24px;" />
-              <div class="word">個人返佣數量</div>
+              <div class="word">{{ $t('personal_rebate_number') }}</div>
             </div>
             <div class="sub green">{{ dashboardChart.personValue }}</div>
           </div>
@@ -20,7 +20,7 @@
           <div class="title-item">
             <div class="title">
               <img class="icon" src="@/assets/img/dashboard/recommender.png" alt="recommender" style="width: 24px;" />
-              <div class="word">推薦人返佣數量</div>
+              <div class="word">{{ $t('referrer_rebate_number') }}</div>
             </div>
             <div class="sub orange">{{ dashboardChart.recommenderValue }}</div>
           </div>
@@ -28,7 +28,7 @@
           <div class="title-item">
             <div class="title">
               <img class="icon" src="@/assets/img/dashboard/withdraw.png" alt="withdraw" style="width: 24px;" />
-              <div class="word">出金數量</div>
+              <div class="word">{{ $t('withdrawal_quantity') }}</div>
             </div>
             <div class="sub red">{{ dashboardChart.withdrawValue }}</div>
           </div>
@@ -48,28 +48,28 @@
               :class="{ active: dashboardChart.chartSelect === 'person' }"
               @click.prevent="dashboardChart.chartSelect = 'person'"
             >
-              個人返佣數量
+              {{ $t('personal_rebate_number') }}
             </span>
             <span
               class="filter-item"
               :class="{ active: dashboardChart.chartSelect === 'recommender' }"
               @click.prevent="dashboardChart.chartSelect = 'recommender'"
             >
-              推薦人返佣數量
+              {{ $t('referrer_rebate_number') }}
             </span>
             <span
               class="filter-item"
               :class="{ active: dashboardChart.chartSelect === 'withdraw' }"
               @click.prevent="dashboardChart.chartSelect = 'withdraw'"
             >
-              出金數量
+              {{ $t('withdrawal_quantity') }}
             </span>
           </div>
           <div class="chart-filter-select">
             <el-select v-model="dashboardChart.dateRange" class="fdb-select select" popper-class="fdb-select">
-              <el-option label="一週" :value="'week'" />
-              <el-option label="一月" :value="'mouth'" />
-              <el-option label="一季" :value="'quarter'" />
+              <el-option :label="$t('week')" :value="'week'" />
+              <el-option :label="$t('month')" :value="'mouth'" />
+              <el-option :label="$t('season')" :value="'quarter'" />
             </el-select>
             <el-select v-model="dashboardChart.currencyType" class="fdb-select select" popper-class="fdb-select">
               <el-option label="BTC" :value="1" />
@@ -178,7 +178,7 @@ export default {
       },
       seriesData: [
         {
-          name: '個人返佣數量',
+          name: this.$t('personal_rebate_number'),
           type: 'line',
           // stack: '总量',
           smooth: true,
@@ -186,7 +186,7 @@ export default {
           data: []
         },
         {
-          name: '推薦人返佣數量',
+          name: this.$t('referrer_rebate_number'),
           type: 'line',
           // stack: '总量',
           smooth: true,
@@ -194,7 +194,7 @@ export default {
           data: []
         },
         {
-          name: '出金數量',
+          name: this.$t('withdrawal_quantity'),
           type: 'line',
           // stack: '总量',
           smooth: true,
@@ -255,17 +255,17 @@ export default {
           break
         case 'person':
           this.lineChartOptions.series = this.seriesData.filter(item => {
-            return item.name === '個人返佣數量'
+            return item.name === this.$t('personal_rebate_number')
           })
           break
         case 'recommender':
           this.lineChartOptions.series = this.seriesData.filter(item => {
-            return item.name === '推薦人返佣數量'
+            return item.name === this.$t('referrer_rebate_number')
           })
           break
         case 'withdraw':
           this.lineChartOptions.series = this.seriesData.filter(item => {
-            return item.name === '出金數量'
+            return item.name === this.$t('withdrawal_quantity')
           })
           break
         default:
