@@ -9,34 +9,37 @@
             <img src="@/assets/img/nav/logo.png" alt="m-logo-img" class="m-logo-img" />
           </router-link>
         </div>
-        <div class="title">會員登入</div>
+        <div class="title">{{ $t('member_login') }}</div>
         <div class="login-main">
-          <div class="title">電子郵箱</div>
+          <div class="title">{{ $t('email') }}</div>
           <input v-model="formData.account" type="text" class="input" placeholder="example@mail.com" autocomplete="off" />
         </div>
 
         <div class="login-main">
-          <div class="title">密碼</div>
+          <div class="title">{{ $t('password') }}</div>
+          <!-- TODO: i18n -->
           <input v-model="formData.password" :type="passwordType" class="input" placeholder="輸入6位數以上，含英數字" autocomplete="off" />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
 
         <div class="login-main">
           <div class="title flex-center" style="justify-content: flex-start;">
-            圖形驗證碼：
+            {{ $t('captcha') }}：
             <img v-if="captchaImg" :src="`data:image\/(png|jpg);base64,${captchaImg}`" alt="captchaImg" style="width: 80px;" />
             <div v-else v-loading="true" style="height: 35px; width: 80px;" element-loading-background="rgba(0, 0, 0, 0.5)"></div>
             <i class="el-icon-refresh-right captcha-refresh" @click="init"></i>
           </div>
-          <input v-model="formData.captchaCode" type="text" class="input" placeholder="請輸入圖形驗證碼" />
+          <input v-model="formData.captchaCode" type="text" class="input" :placeholder="$t('please_enter_captcha')" />
         </div>
 
         <div class="login-main flex-center">
-          <span class="text-link" @click="$router.push('/reset-password')">忘記密碼，請重設密碼</span>
+          <span class="text-link" @click="$router.push('/reset-password')">{{ $t('forget_password') }} {{ $t('reset_password') }}</span>
         </div>
 
         <a href="javascript:void(0)" class="fdb-btn-primary-hover login-main-btn" @click="doLogin">{{ $t('login') }}</a>
-        <div class="login-main-tips">還沒創建過帳戶？請 <span class="text-link" @click="$router.push('/register')">註冊</span></div>
+        <div class="login-main-tips">
+          {{ $t('havent_created_account') }}？ <span class="text-link" @click="$router.push('/register')">{{ $t('register') }}</span>
+        </div>
       </div>
     </div>
 
@@ -46,12 +49,13 @@
       </router-link>
     </div>
 
-    <el-dialog title="登入失敗" :visible.sync="validateEmail.show" width="310px" :show-close="false" custom-class="fbd-dialog">
+    <el-dialog :title="$t('login_fail')" :visible.sync="validateEmail.show" width="310px" :show-close="false" custom-class="fbd-dialog">
       <div v-if="!validateEmail.hasSent">
-        <div style="color: #eb4664; margin-bottom: 12px; text-align: center;">帳號未確認</div>
+        <div style="color: #eb4664; margin-bottom: 12px; text-align: center;">{{ $t('unconfirmed_account') }}</div>
+        <!-- TODO: i18n -->
         <div style="text-align: center;">請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊</div>
       </div>
-      <div v-else style="text-align: center;">認證信已重新發送</div>
+      <div v-else style="text-align: center;">{{ $t('certification_letter_resent') }}</div>
       <span slot="footer">
         <template v-if="!validateEmail.hasSent">
           <div
@@ -61,9 +65,9 @@
             style="padding: 0 12px; margin-right: 8px;"
             @click="reSentEmail"
           >
-            重新寄發認證信
+            {{ $t('re_send_certification_letter') }}
           </div>
-          <div class="fdb-btn-default" style="padding: 0 12px;" @click="validateEmail.show = false">取消</div>
+          <div class="fdb-btn-default" style="padding: 0 12px;" @click="validateEmail.show = false">{{ $t('cancel') }}</div>
         </template>
         <div v-else class="fdb-btn-default" @click="validateEmail.show = false">{{ $t('close') }}</div>
       </span>
@@ -128,7 +132,7 @@ export default {
         // result = 1 的時候是登入成功
         const res = await this.$store.dispatch('user/login', postData)
         this.$store.commit('user/SET_TOKEN', res.data)
-        this.$message.success('登入成功')
+        this.$message.success(this.$t('login_success'))
         this.$router.push({ name: 'Dashboard' }, () => {})
       } catch (error) {
         if (!error.isHttpError) {
@@ -149,15 +153,16 @@ export default {
     async validate() {
       // 電子郵件：與範例一致 example@mail.com
       if (!/\S+@\S+.\S+/.test(this.formData.account)) {
-        return Promise.reject(new Error('電子郵件：請輸入正確電子郵件'))
+        return Promise.reject(new Error(`${this.$t('email')}：${this.$t('enter_correct_email')}`))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-        return Promise.reject(new Error('密碼：請輸入6位數以上英數字'))
+        // TODO: i18n
+        return Promise.reject(new Error(`${this.$t('password')}：請輸入6位數以上英數字`))
       }
       // 圖形驗證碼必填
       if (!this.formData.captchaCode) {
-        return Promise.reject(new Error('請輸入圖形驗證碼'))
+        return Promise.reject(new Error(this.$t('please_enter_captcha')))
       }
       return 'done'
     },

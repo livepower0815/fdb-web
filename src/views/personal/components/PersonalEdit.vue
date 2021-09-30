@@ -59,7 +59,7 @@
 
     <div class="btns-block personal-info">
       <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="isEdit = true">編輯內容</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">取消</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">{{ $t('cancel') }}</a>
       <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="saveUserData">儲存</a>
     </div>
   </div>

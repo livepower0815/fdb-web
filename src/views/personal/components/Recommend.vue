@@ -233,7 +233,7 @@
         </div>
       </div>
       <span v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
-        <div class="fdb-btn-default" style="margin-right: 12px;" @click="setGroupDialog.show = false">取消</div>
+        <div class="fdb-btn-default" style="margin-right: 12px;" @click="setGroupDialog.show = false">{{ $t('cancel') }}</div>
         <div class="fdb-btn-primary" :class="{ disabled: !setGroupDialog.groupSelect && !setGroupDialog.newGroupName }" @click="bindGroup">
           綁定
         </div>

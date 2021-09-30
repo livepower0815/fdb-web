@@ -92,7 +92,7 @@
     </div>
     <div class="btns-block personal-info">
       <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="isEdit = true">編輯地址</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">取消</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">{{ $t('cancel') }}</a>
       <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="saveAdress">儲存並驗證</a>
     </div>
 
@@ -111,7 +111,7 @@
         <input v-model="authCore" class="input" type="text" placeholder="輸入驗證碼" />
       </div>
       <span v-loading="isValidLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
-        <div class="fdb-btn-default" style="margin-right: 12px" @click="checkDialog.show = false">取消</div>
+        <div class="fdb-btn-default" style="margin-right: 12px" @click="checkDialog.show = false">{{ $t('cancel') }}</div>
         <div class="fdb-btn-primary" @click="validAdress">確認</div>
       </span>
     </el-dialog>
