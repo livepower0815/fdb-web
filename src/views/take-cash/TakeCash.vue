@@ -140,7 +140,7 @@
           </div>
           <div class="form block">
             <div class="form-item">
-              <div class="title">申請單號</div>
+              <div class="title">{{ $t('application_number') }}</div>
               <div class="value">{{ orderNumber }}</div>
             </div>
             <div class="form-item">

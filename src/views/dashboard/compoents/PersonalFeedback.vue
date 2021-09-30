@@ -7,7 +7,7 @@
 
       <!-- 日期選擇器 -->
       <div class="date-picker">
-        <div class="title">篩選時間：</div>
+        <div class="title">{{ $t('filter_time') }}：</div>
         <el-date-picker
           v-model="dateRange"
           type="daterange"
@@ -33,17 +33,17 @@
       <thead>
         <tr>
           <th>
-            <TableFilter v-model="queryForm.rebateStatus" title="返佣狀態" :items="rebateStatusMap" />
+            <TableFilter v-model="queryForm.rebateStatus" :title="$t('rebate_status')" :items="rebateStatusMap" />
           </th>
           <th @click="sortData('txDate')">
             <Sort :title="$t('trade_date')" sort="txDate" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th>{{ $t('trade_coin_type') }}</th>
           <th @click="sortData('canRebatePoint')">
-            <Sort title="可返佣交易量" sort="canRebatePoint" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('rebate_trading_volume')" sort="canRebatePoint" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('canRebatValue')">
-            <Sort title="可返佣數量" sort="canRebatValue" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('rebate_quantity')" sort="canRebatValue" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -52,7 +52,7 @@
           <tr v-for="(row, index) in tableData" :key="index">
             <td>
               <div class="status" :class="{ yet: row.rebateStatus === 0, already: row.rebateStatus === 1 }"></div>
-              <span>{{ row.rebateStatus === 0 ? '未返佣' : '已返佣' }}</span>
+              <span>{{ row.rebateStatus === 0 ? $t('no_rebate') : $t('be_rebate') }}</span>
             </td>
             <td>{{ formatDate(row.txDate) }}</td>
             <td>{{ currencyMap[row.currency] }}</td>
@@ -75,10 +75,10 @@
       <template v-if="tableData.length > 0">
         <div v-for="(row, index) in tableData" :key="index" class="info-card">
           <div class="card-item">
-            <div class="label">返佣狀態</div>
+            <div class="label">{{ $t('rebate_status') }}</div>
             <div class="content">
               <div class="status" :class="{ yet: row.rebateStatus === 0, already: row.rebateStatus === 1 }"></div>
-              <span>{{ row.rebateStatus === 0 ? '未返佣' : '已返佣' }}</span>
+              <span>{{ row.rebateStatus === 0 ? $t('no_rebate') : $t('be_rebate') }}</span>
             </div>
           </div>
           <div class="card-item">
@@ -90,11 +90,11 @@
             <div class="content">{{ currencyMap[row.currency] }}</div>
           </div>
           <div class="card-item">
-            <div class="label">可返佣交易量</div>
+            <div class="label">{{ $t('rebate_trading_volume') }}</div>
             <div class="content">{{ row.canRebatePoint }}</div>
           </div>
           <div class="card-item">
-            <div class="label">可返佣數量</div>
+            <div class="label">{{ $t('rebate_quantity') }}</div>
             <div class="content">{{ row.canRebatValue }}</div>
           </div>
         </div>
@@ -144,7 +144,7 @@
         </div>
       </div>
       <div class="form-item">
-        <div class="label">返佣狀態：</div>
+        <div class="label">{{ $t('rebate_status') }}：</div>
         <div class="content">
           <el-select v-model="queryForm.rebateStatus" class="fdb-select" style="width: 100%" popper-class="fdb-select">
             <el-option :label="$t('all')" :value="-1" />
@@ -176,8 +176,8 @@
             @change="getPersonalFeedback(true)"
           >
             <el-option :label="$t('trade_date')" value="txDate" />
-            <el-option label="可返佣交易量" value="canRebatePoint" />
-            <el-option label="可返佣數量" value="canRebatValue" />
+            <el-option :label="$t('rebate_trading_volume')" value="canRebatePoint" />
+            <el-option :label="$t('rebate_quantity')" value="canRebatValue" />
           </el-select>
         </div>
       </div>
@@ -260,8 +260,8 @@ export default {
         show: false
       },
       rebateStatusMap: [
-        { name: '未返佣', key: 0 },
-        { name: '已返佣', key: 1 }
+        { name: this.$t('no_rebate'), key: 0 },
+        { name: this.$t('be_rebate'), key: 1 }
       ]
     }
   },

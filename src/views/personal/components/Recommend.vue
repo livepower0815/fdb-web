@@ -35,7 +35,7 @@
           >
             編輯組別
           </div>
-          <div class="fdb-btn-primary btn" @click="editGroup">管理組別</div>
+          <div class="fdb-btn-primary btn" @click="editGroup">{{ $t('manage_group') }}</div>
         </div>
       </div>
       <div v-if="widthWithiIn(['L', 'M', 'S'])" class="controller-m" :class="{ show: controllerMode !== 'none' }">
@@ -72,7 +72,7 @@
           <thead>
             <tr>
               <th><input v-model="selectAllCheckBox" type="checkbox" class="check" /></th>
-              <th>會員名稱</th>
+              <th>{{ $t('member_name') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">聯絡資訊</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">{{ $t('trade_coin_type') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">返佣交易量</th>

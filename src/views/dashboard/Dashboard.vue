@@ -8,8 +8,8 @@
       <!--佣金明細 開始-->
       <!-- 標題 -->
       <div class="detail-title">
-        <span class="title">佣金明細</span>
-        <router-link to="/take-cash" class="withdraw-btn fdb-btn-primary-hover">出金申請</router-link>
+        <span class="title">{{ $t('commission_detail') }}</span>
+        <router-link to="/take-cash" class="withdraw-btn fdb-btn-primary-hover">{{ $t('withdrawal_apply') }}</router-link>
       </div>
 
       <!-- menu -->
@@ -19,15 +19,17 @@
           :class="{ active: refundShow === 'CommissionTransaction' }"
           @click="refundChange('CommissionTransaction', 'left')"
         >
-          您的佣金異動紀錄
+          {{ $t('your_commission_change_record') }}
         </div>
         <div class="menu" :class="{ active: refundShow === 'PersonalFeedback' }" @click="refundChange('PersonalFeedback', 'left')">
-          個人返佣資訊
+          {{ $t('personal_rebate_information') }}
         </div>
         <div class="menu" :class="{ active: refundShow === 'Recommender' }" @click="refundChange('Recommender', 'right')">
-          推薦人返佣資訊
+          {{ $t('referrer_rebate_information') }}
         </div>
-        <div class="menu" :class="{ active: refundShow === 'Withdrawal' }" @click="refundChange('Withdrawal', 'right')">出金申請紀錄</div>
+        <div class="menu" :class="{ active: refundShow === 'Withdrawal' }" @click="refundChange('Withdrawal', 'right')">
+          {{ $t('withdrawal_apply_record') }}
+        </div>
       </div>
 
       <!-- filter & table -->

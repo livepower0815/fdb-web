@@ -7,7 +7,7 @@
 
       <!-- 日期選擇器 -->
       <div class="date-picker">
-        <div class="title">篩選時間：</div>
+        <div class="title">{{ $t('filter_time') }}：</div>
         <el-date-picker
           v-model="dateRange"
           type="daterange"
@@ -33,18 +33,18 @@
       <thead>
         <tr>
           <th>
-            <TableFilter v-model="queryForm.rebateStatus" title="申請狀態" :items="rebateStatusMap" />
+            <TableFilter v-model="queryForm.rebateStatus" :title="$t('application_status')" :items="rebateStatusMap" />
           </th>
-          <th>申請單號</th>
+          <th>{{ $t('application_number') }}</th>
           <th @click="sortData('orderDate')">
-            <Sort title="申請出金時間" sort="orderDate" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('apply_withdrawal_time')" sort="orderDate" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
-          <th>申請幣別</th>
+          <th>{{ $t('apply_coin_type') }}</th>
           <th @click="sortData('orderValue')">
-            <Sort title="申請數量" sort="orderValue" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('apply_number')" sort="orderValue" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('finishDate')">
-            <Sort title="完成出金日期" sort="finishDate" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('completed_withdrawal_date')" sort="finishDate" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -54,15 +54,15 @@
             <td>
               <template v-if="row.rebateStatus === 0">
                 <div class="status yet"></div>
-                申請中
+                {{ $t('applying') }}
               </template>
               <template v-if="row.rebateStatus === 1">
                 <div class="status progress"></div>
-                出金中
+                {{ $t('withdrawal') }}
               </template>
               <template v-if="row.rebateStatus === 2">
                 <div class="status already"></div>
-                已完成
+                {{ $t('completed') }}
               </template>
             </td>
             <td>{{ row.orderNum }}</td>
@@ -87,24 +87,24 @@
       <template v-if="tableData.length > 0">
         <div v-for="(row, index) in tableData" :key="index" class="info-card">
           <div class="card-item">
-            <div class="label">返佣狀態</div>
+            <div class="label">{{ $t('rebate_status') }}</div>
             <div class="content">
               <template v-if="row.rebateStatus === 0">
                 <div class="status yet"></div>
-                申請中
+                {{ $t('applying') }}
               </template>
               <template v-if="row.rebateStatus === 1">
                 <div class="status progress"></div>
-                出金中
+                {{ $t('withdrawal') }}
               </template>
               <template v-if="row.rebateStatus === 2">
                 <div class="status already"></div>
-                已完成
+                {{ $t('completed') }}
               </template>
             </div>
           </div>
           <div class="card-item">
-            <div class="label">申請單號</div>
+            <div class="label">{{ $t('application_number') }}</div>
             <div class="content">{{ row.orderNum }}</div>
           </div>
           <div class="card-item">
@@ -116,11 +116,11 @@
             <div class="content">{{ currencyMap[row.currency] }}</div>
           </div>
           <div class="card-item">
-            <div class="label">申請數量</div>
+            <div class="label">{{ $t('apply_number') }}</div>
             <div class="content">{{ row.orderValue }}</div>
           </div>
           <div class="card-item">
-            <div class="label">完成出金日期</div>
+            <div class="label">{{ $t('completed_withdrawal_date') }}</div>
             <div class="content">{{ formatDate(row.finishDate) }}</div>
           </div>
         </div>
@@ -170,7 +170,7 @@
         </div>
       </div>
       <div class="form-item">
-        <div class="label">申請狀態：</div>
+        <div class="label">{{ $t('application_status') }}：</div>
         <div class="content">
           <el-select v-model="queryForm.rebateStatus" class="fdb-select" style="width: 100%" popper-class="fdb-select">
             <el-option :label="$t('all')" :value="-1" />
@@ -195,9 +195,9 @@
         <div class="label">{{ $t('sort_field') }}：</div>
         <div class="content">
           <el-select v-model="pager.sortKey" class="fdb-select" style="width: 100%" popper-class="fdb-select" @change="getWithdrawal(true)">
-            <el-option label="申請出金時間" value="orderDate" />
-            <el-option label="申請數量" value="orderValue" />
-            <el-option label="完成出金日期" value="finishDate" />
+            <el-option :label="$t('apply_withdrawal_time')" value="orderDate" />
+            <el-option :label="$t('apply_number')" value="orderValue" />
+            <el-option :label="$t('completed_withdrawal_date')" value="finishDate" />
           </el-select>
         </div>
       </div>
@@ -274,9 +274,9 @@ export default {
         show: false
       },
       rebateStatusMap: [
-        { name: '申請中', key: 0 },
-        { name: '出金中', key: 1 },
-        { name: '已完成', key: 2 }
+        { name: this.$t('applying'), key: 0 },
+        { name: this.$t('withdrawal'), key: 1 },
+        { name: this.$t('completed'), key: 2 }
       ]
     }
   },

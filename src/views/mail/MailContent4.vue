@@ -13,9 +13,9 @@
         </p>
         <div style="border-radius: 8px; background-color: #e5e5e5; line-height: 24px; color: #364e6a; padding: 12px 20px">
           申請時間：<span style="font-weight: bold;">14:30</span><br />
-          申請幣別：<span style="font-weight: bold;">BTC</span><br />
-          申請數量：<span style="font-weight: bold;">0.024</span><br />
-          申請單號：<span style="font-weight: bold;">FDB111111111</span>
+          {{ $t('apply_coin_type') }}：<span style="font-weight: bold;">BTC</span><br />
+          {{ $t('apply_number') }}：<span style="font-weight: bold;">0.024</span><br />
+          {{ $t('application_number') }}：<span style="font-weight: bold;">FDB111111111</span>
         </div>
         <p style="line-height: 26px; margin: 34px 0px">您的帳戶正在登錄<br />IP 位置：190.190.190.190</p>
         <p style="font-size: 13px; font-weight: bold">

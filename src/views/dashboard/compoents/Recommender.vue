@@ -7,7 +7,7 @@
 
       <!-- 日期選擇器 -->
       <div class="date-picker">
-        <div class="title">篩選時間：</div>
+        <div class="title">{{ $t('filter_time') }}：</div>
         <el-date-picker
           v-model="dateRange"
           type="daterange"
@@ -23,11 +23,13 @@
       <!-- 輸入會員名稱關鍵字 -->
       <div class="key-search">
         <img src="@/assets/img/common/icon-search.png" alt="search" />
-        <input v-model="memberName" type="text" placeholder="輸入會員名稱關鍵字" @keyup.enter="getRecommender(true)" />
+        <input v-model="memberName" type="text" :placeholder="$t('enter_member_keyword')" @keyup.enter="getRecommender(true)" />
       </div>
       <!-- 管理組別 -->
       <div style="flex: 1; text-align: end">
-        <router-link :to="{ name: 'Personal', query: { tab: 'recommend-management' } }" class="btn fdb-btn-default">管理組別</router-link>
+        <router-link :to="{ name: 'Personal', query: { tab: 'recommend-management' } }" class="btn fdb-btn-default">
+          {{ $t('manage_group') }}
+        </router-link>
       </div>
     </div>
 
@@ -36,7 +38,7 @@
       <div class="fdb-btn-info" style="margin-right: 6px" @click="filterDialog.show = true">{{ $t('filter') }}</div>
       <div class="fdb-btn-info" style="margin-right: 6px" @click="sortDialog.show = true">{{ $t('sort') }}</div>
       <router-link :to="{ name: 'Personal', query: { tab: 'recommend-management' } }" style="margin-left: auto" class="fdb-btn-default">
-        管理組別
+        {{ $t('manage_group') }}
       </router-link>
     </div>
     <!-- 控制器手機版 結束 -->
@@ -45,25 +47,25 @@
       <thead>
         <tr>
           <th>
-            <TableFilter v-model="queryForm.rebateStatus" title="返佣狀態" :items="rebateStatusMap" />
+            <TableFilter v-model="queryForm.rebateStatus" :title="$t('rebate_status')" :items="rebateStatusMap" />
           </th>
           <th @click="sortData('txDate')">
             <Sort :title="$t('trade_date')" sort="txDate" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th>{{ $t('trade_coin_type') }}</th>
-          <th>會員名稱</th>
+          <th>{{ $t('member_name') }}</th>
           <th>
             <TableFilter
               v-model="queryForm.rgid"
-              title="推薦人分組"
+              :title="$t('referrer_group')"
               :items="availableGroups.map(item => ({ name: item.name, key: item.rgid, color: item.color }))"
             />
           </th>
           <th @click="sortData('canRebatePoint')">
-            <Sort title="可返佣交易量" sort="canRebatePoint" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('rebate_trading_volume')" sort="canRebatePoint" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
           <th @click="sortData('canRebatValue')">
-            <Sort title="可返佣數量" sort="canRebatValue" :sort-key="pager.sortKey" :order="pager.order" />
+            <Sort :title="$t('rebate_quantity')" sort="canRebatValue" :sort-key="pager.sortKey" :order="pager.order" />
           </th>
         </tr>
       </thead>
@@ -73,11 +75,11 @@
             <td>
               <template v-if="row.rebateStatus === 0">
                 <div class="status yet"></div>
-                未返佣
+                {{ $t('no_rebate') }}
               </template>
               <template v-if="row.rebateStatus === 1">
                 <div class="status already"></div>
-                已返佣
+                {{ $t('be_rebate') }}
               </template>
             </td>
             <td>{{ formatDate(row.txDate) }}</td>
@@ -85,7 +87,7 @@
             <td>{{ row.memberName }}</td>
             <td>
               <div :class="`group group-color-${(groupMap[row.rgid] && groupMap[row.rgid].color) || 0}`">
-                {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分組' }}
+                {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || $t('no_group') }}
               </div>
             </td>
             <td>{{ row.canRebatePoint }}</td>
@@ -107,15 +109,15 @@
       <template v-if="tableData.length > 0">
         <div v-for="(row, index) in tableData" :key="index" class="info-card">
           <div class="card-item">
-            <div class="label">返佣狀態</div>
+            <div class="label">{{ $t('rebate_status') }}</div>
             <div class="content">
               <template v-if="row.rebateStatus === 0">
                 <div class="status yet"></div>
-                未返佣
+                {{ $t('no_rebate') }}
               </template>
               <template v-if="row.rebateStatus === 1">
                 <div class="status already"></div>
-                已返佣
+                {{ $t('be_rebate') }}
               </template>
             </div>
           </div>
@@ -128,23 +130,23 @@
             <div class="content">{{ currencyMap[row.currency] }}</div>
           </div>
           <div class="card-item">
-            <div class="label">會員名稱</div>
+            <div class="label">{{ $t('member_name') }}</div>
             <div class="content">{{ row.memberName }}</div>
           </div>
           <div class="card-item" style="margin: 14px 0">
-            <div class="label">推薦人組別</div>
+            <div class="label">{{ $t('referrer_group') }}</div>
             <div class="content">
               <div :class="`group group-color-${(groupMap[row.rgid] && groupMap[row.rgid].color) || 0}`">
-                {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分組' }}
+                {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || $t('no_group') }}
               </div>
             </div>
           </div>
           <div class="card-item">
-            <div class="label">可返佣交易量</div>
+            <div class="label">{{ $t('rebate_trading_volume') }}</div>
             <div class="content">{{ row.canRebatePoint }}</div>
           </div>
           <div class="card-item">
-            <div class="label">可返佣數量</div>
+            <div class="label">{{ $t('rebate_quantity') }}</div>
             <div class="content">{{ row.canRebatValue }}</div>
           </div>
         </div>
@@ -198,16 +200,16 @@
         </div>
       </div>
       <div class="form-item">
-        <div class="label">會員名稱：</div>
+        <div class="label">{{ $t('member_name') }}：</div>
         <div class="content">
           <div class="key-search" style="width: 100%">
             <img src="@/assets/img/common/icon-search.png" alt="search" />
-            <input v-model="memberName" type="text" placeholder="輸入會員名稱關鍵字" @keyup.enter="getRecommender(true)" />
+            <input v-model="memberName" type="text" :placeholder="$t('enter_member_keyword')" @keyup.enter="getRecommender(true)" />
           </div>
         </div>
       </div>
       <div class="form-item">
-        <div class="label">返佣狀態：</div>
+        <div class="label">{{ $t('rebate_status') }}：</div>
         <div class="content">
           <el-select v-model="queryForm.rebateStatus" class="fdb-select" style="width: 100%" popper-class="fdb-select">
             <el-option :label="$t('all')" :value="-1" />
@@ -216,7 +218,7 @@
         </div>
       </div>
       <div class="form-item">
-        <div class="label">推薦人分組：</div>
+        <div class="label">{{ $t('referrer_group') }}：</div>
         <div class="content">
           <el-select v-model="queryForm.rgid" class="fdb-select" style="width: 100%" popper-class="fdb-select">
             <el-option :label="$t('all')" :value="-1" />
@@ -253,8 +255,8 @@
             @change="getRecommender(true)"
           >
             <el-option :label="$t('trade_date')" value="txDate" />
-            <el-option label="可返佣交易量" value="canRebatePoint" />
-            <el-option label="可返佣數量" value="canRebatValue" />
+            <el-option :label="$t('rebate_trading_volume')" value="canRebatePoint" />
+            <el-option :label="$t('rebate_quantity')" value="canRebatValue" />
           </el-select>
         </div>
       </div>
@@ -329,8 +331,8 @@ export default {
         show: false
       },
       rebateStatusMap: [
-        { name: '未返佣', key: 0 },
-        { name: '已返佣', key: 1 }
+        { name: this.$t('no_rebate'), key: 0 },
+        { name: this.$t('be_rebate'), key: 1 }
       ]
     }
   },
