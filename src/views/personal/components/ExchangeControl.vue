@@ -1,6 +1,6 @@
 <template>
   <div v-loading="isBindLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="personal-function-main exchange-site">
-    <div class="title">綁定交易所</div>
+    <div class="title">{{ $t('bound_exchange') }}</div>
     <div class="sub">為保護帳號安全，交易所綁定後將無法編輯或刪除（*未綁定將無法查看您的返佣資訊）</div>
     <div class="exchange-block">
       <div class="main">
@@ -67,7 +67,7 @@
       <div class="check-tip">為保障各位交易安全，交易所若綁定三次都失敗，將會鎖定該交易所綁定之權限，因此請確定資料正確性</div>
       <div class="check-content">
         <div class="check-content-item">
-          <div class="title">綁定交易所</div>
+          <div class="title">{{ $t('bound_exchange') }}</div>
           <div class="value">{{ csgMap[formData.csgid] && csgMap[formData.csgid].csgName }}</div>
         </div>
         <div class="check-content-item">

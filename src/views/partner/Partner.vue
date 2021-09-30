@@ -125,7 +125,7 @@
     <div class="member">
       <div class="title">成為返多寶會員</div>
       <div class="info">返多寶再補貼給您交易手續費<br />為您降低交易成本的只有「返多寶」</div>
-      <router-link to="/register" class="btn fdb-btn-primary">加入返多寶</router-link>
+      <router-link to="/register" class="btn fdb-btn-primary">{{ $t('join_fdb') }}</router-link>
     </div>
   </div>
 </template>

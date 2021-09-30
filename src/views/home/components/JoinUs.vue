@@ -1,14 +1,14 @@
 <template>
   <div class="join">
-    <div class="join-title">開始返佣旅程<br />只需要三個步驟</div>
+    <div class="join-title">{{ $t('start_rebate_journey') }}<br />{{ $t('three_steps') }}</div>
     <div class="join-step">
       <div class="join-step-item">
         <div class="join-number">
           <img src="@/assets/img/home/01.png" alt="number-01" />
         </div>
         <div class="join-main">
-          <div class="title">加入返多寶</div>
-          <div class="info">快速註冊會員</div>
+          <div class="title">{{ $t('join_fdb') }}</div>
+          <div class="info">{{ $t('quick_member_registration') }}</div>
         </div>
       </div>
       <div class="join-step-item">
@@ -16,8 +16,8 @@
           <img src="@/assets/img/home/02.png" alt="number-02" />
         </div>
         <div class="join-main">
-          <div class="title">綁定交易所</div>
-          <div class="info">輸入交易所註冊資訊</div>
+          <div class="title">{{ $t('bound_exchange') }}</div>
+          <div class="info">{{ $t('enter_exchange_information') }}</div>
         </div>
       </div>
       <div class="join-step-item">
@@ -25,8 +25,8 @@
           <img src="@/assets/img/home/03.png" alt="number-03" />
         </div>
         <div class="join-main">
-          <div class="title">開始返佣</div>
-          <div class="info">您交易，我返佣<br />輸入收幣地址即可享受返佣</div>
+          <div class="title">{{ $t('start_rebate') }}</div>
+          <div class="info">{{ $t('you_trade_i_rebate') }}<br />{{ $t('enjoy_rebate') }}</div>
         </div>
       </div>
     </div>

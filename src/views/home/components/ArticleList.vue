@@ -1,6 +1,6 @@
 <template>
   <div class="info">
-    <div class="info-title">最新活動與消息</div>
+    <div class="info-title">{{ $t('latest_events_news') }}</div>
     <div class="info-list">
       <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="goToNews(item.id)">
         <div class="info-card-img" :style="`background-image: url('${item.img}')`">

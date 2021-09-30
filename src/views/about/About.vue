@@ -13,7 +13,7 @@
         <img src="@/assets/img/about/step1.png" alt="step1" />
       </div>
       <div class="info">
-        <div class="info-title">加入返多寶</div>
+        <div class="info-title">{{ $t('join_fdb') }}</div>
         <div class="info-content">申請返多寶會員<br />另外新增好友邀請碼可共同獲得返佣</div>
       </div>
     </div>
@@ -22,7 +22,7 @@
         <img src="@/assets/img/about/step2.png" alt="step2" />
       </div>
       <div class="info">
-        <div class="info-title">綁定交易所</div>
+        <div class="info-title">{{ $t('bound_exchange') }}</div>
         <div class="info-content">透過返多寶鏈結註冊交易所<br />將交易所UID與返多寶會員綁定</div>
       </div>
     </div>
