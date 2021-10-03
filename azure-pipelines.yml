@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+  
+pool:
+  vmImage: vs2017-win2016
+
+steps:
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+    workingDir: '$(Build.SourcesDirectory)/src'
+
+- task: Npm@1
+  displayName: 'npm build'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run build'
+    workingDir: '$(Build.SourcesDirectory)/src'
+
+- task: ArchiveFiles@2
+  displayName: Archive
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)/dist'
+    includeRootFolder: false
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.SourceVersion)_$(Build.BuildId).zip'
+
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: build'
+  inputs:
+    ArtifactName: build
