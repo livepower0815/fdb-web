@@ -4,7 +4,7 @@
     <div class="outline banner-block personal">
       <div class="outblock">
         <div class="title">
-          您的好友邀請碼{{ isMobile ? '' : '：' }}<br v-if="isMobile" />
+          {{ $t('friend_invitation_code') }}{{ isMobile ? '' : '：' }}<br v-if="isMobile" />
           <span ref="copy">{{ userInfo.myInviteCore }}</span>
         </div>
 
@@ -44,22 +44,24 @@
               class="fdb-btn-primary-hover personal-main-btn"
               @click.prevent="$router.push({ name: 'Dashboard' })"
             >
-              返回返佣數量總覽
+              {{ $t('return_amount_rebates') }}
             </a>
           </div>
         </div>
 
         <div class="personal-function-block">
           <div class="menu-block">
-            <a href="" :class="{ active: activedTag === 'exchange-control' }" @click.prevent="switchTag('exchange-control')">交易所管理</a>
+            <a href="" :class="{ active: activedTag === 'exchange-control' }" @click.prevent="switchTag('exchange-control')">
+              {{ $t('exchange_management') }}
+            </a>
             <a href="" :class="{ active: activedTag === 'take-cash-adress' }" @click.prevent="switchTag('take-cash-adress')">
-              出金地址管理
+              {{ $t('withdrawal_address_management') }}
             </a>
             <a href="" :class="{ active: activedTag === 'recommend-management' }" @click.prevent="switchTag('recommend-management')">
-              推薦人管理
+              {{ $t('referrer_management') }}
             </a>
             <a href="javascript:vod(0)" :class="{ active: activedTag === 'personal-edit' }" @click.prevent="switchTag('personal-edit')">
-              編輯個人檔案
+              {{ $t('edit_profile') }}
             </a>
           </div>
           <transition name="fade-transform" mode="out-in">
@@ -128,7 +130,7 @@ export default {
       sel.addRange(range)
       document.execCommand('copy')
       sel.removeAllRanges()
-      this.$message.success(refKey === 'copy' ? '邀請碼複製成功' : '邀請連結複製成功')
+      this.$message.success(refKey === 'copy' ? this.$t('invite_code_copy') : this.$t('invite_connect_copy'))
     }
   }
 }

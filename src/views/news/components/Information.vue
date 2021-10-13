@@ -24,7 +24,7 @@
     </template>
     <div v-else-if="!isLoading" class="info-empty">
       <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />
-      <div>無相關文章</div>
+      <div>{{ $t('no_relative_article') }}</div>
     </div>
   </div>
 </template>

@@ -9,34 +9,34 @@
             <img src="@/assets/img/nav/logo.png" alt="m-logo-img" class="m-logo-img" />
           </router-link>
         </div>
-        <div class="title">建立新的密碼</div>
-        <div class="newpwd-sub">輸入新的密碼，完成後須以新密碼登入</div>
+        <div class="title">{{ $t('build_password') }}</div>
+        <div class="newpwd-sub">{{ $t('enter_new_password') }}</div>
 
         <div class="newpwd-main">
-          <div class="title">密碼</div>
+          <div class="title">{{ $t('password') }}</div>
           <input
             v-model="formData.newPassword"
             :type="passwordType"
             class="input"
-            placeholder="輸入6位數以上，含英數字"
+            :placeholder="$t('enter_en_number')"
             autocomplete="off"
           />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
 
         <div class="newpwd-main" style="margin-bottom: 60px;">
-          <div class="title">再次確認</div>
+          <div class="title">{{ $t('check_again') }}</div>
           <input
             v-model="formData.doubleCheck"
             :type="checkPasswordType"
             class="input"
-            placeholder="輸入6位數以上，含英數字"
+            :placeholder="$t('enter_en_number')"
             autocomplete="off"
           />
           <PasswordIcon :pwd-type.sync="checkPasswordType" />
         </div>
 
-        <a href="javascript:void(0)" class="fdb-btn-primary-hover newpwd-main-btn" @click="resetPassword">儲存密碼</a>
+        <a href="javascript:void(0)" class="fdb-btn-primary-hover newpwd-main-btn" @click="resetPassword">{{ $t('save_password') }}</a>
       </div>
     </div>
 
@@ -70,7 +70,7 @@ export default {
   },
   mounted() {
     if (!this.$route.query.AuthCore) {
-      this.$message.error('無效頁面，倒轉回到首頁')
+      this.$message.error(this.$t('useless_pages'))
       this.$router.push({ name: 'Home' })
     }
   },
@@ -80,7 +80,7 @@ export default {
       try {
         await this.validate()
         await setNewPassword({ core: this.$route.query.AuthCore, newPassword: this.formData.newPassword })
-        this.$message.success('設定成功')
+        this.$message.success(this.$t('setting_success'))
         this.$router.push({ name: 'Login' })
       } catch (error) {
         if (!error.isHttpError) {
@@ -93,11 +93,11 @@ export default {
     async validate() {
       // 新密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
-        return Promise.reject(new Error('密碼：請輸入6位數以上英數字'))
+        return Promise.reject(new Error(`${this.$t('password')}：${this.$t('enter_en_number')}`))
       }
       // 確認密碼：密碼要與新密碼一致
       if (this.formData.newPassword !== this.formData.doubleCheck) {
-        return Promise.reject(new Error('確認密碼：密碼要與新密碼一致'))
+        return Promise.reject(new Error(this.$t('check_password_unanimous')))
       }
       return 'done'
     }

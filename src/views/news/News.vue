@@ -3,7 +3,7 @@
     <!--Banner開始-->
     <div class="news-banner">
       <div class="banner-content">
-        <div class="banner-title">返多寶社群</div>
+        <div class="banner-title">{{ $t('fdb_community') }}</div>
         <!-- <div class="banner-info">逐步發展虛擬貨幣須知，發展成獨立的虛擬貨幣自媒體</div> -->
       </div>
     </div>

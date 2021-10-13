@@ -6,7 +6,7 @@
       <div class="main-content" v-html="articleData.content"></div>
     </div>
     <div class="article-other" v-loading="otherLoading" element-loading-background="rgba(0, 0, 0, 0.5)">
-      <div class="other-title">其他相關文章</div>
+      <div class="other-title">{{ $t('other_relative_article') }}</div>
       <template v-if="newsList.length > 0">
         <router-link
           :to="{ query: { ...$route.query, articleId: item.id } }"
@@ -27,7 +27,7 @@
       </template>
       <div v-else class="other-empty">
         <img style="width: 100px;" src="@/assets/img/common/empty.png" alt="empty" />
-        <div>無相關文章</div>
+        <div>{{ $t('no_relative_article') }}</div>
       </div>
     </div>
   </div>

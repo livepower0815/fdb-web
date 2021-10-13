@@ -3,7 +3,7 @@
     <div class="recommend-body">
       <div class="controller">
         <div class="controller-store">
-          <div class="label">選擇交易所：</div>
+          <div class="label">{{ $t('select_exchange') }}：</div>
           <el-select v-model="storeSelect" class="fdb-select" popper-class="fdb-select">
             <el-option label="bybit" :value="'bybit'" />
           </el-select>
@@ -33,14 +33,14 @@
             style="margin-right: 8px;"
             @click="setGroupDialog.show = true"
           >
-            編輯組別
+            {{ $t('edit_group') }}
           </div>
           <div class="fdb-btn-primary btn" @click="editGroup">{{ $t('manage_group') }}</div>
         </div>
       </div>
       <div v-if="widthWithiIn(['L', 'M', 'S'])" class="controller-m" :class="{ show: controllerMode !== 'none' }">
         <div v-if="controllerMode === 'filter'" class="m-item">
-          <div class="item-title">所在組別：</div>
+          <div class="item-title">{{ $t('belong_group') }}：</div>
           <div class="item-body">
             <el-select v-model="sreachForm.rgid" class="fdb-select" popper-class="fdb-select">
               <el-option :label="$t('all')" :value="-1" />
@@ -52,8 +52,8 @@
           <div class="item-title">{{ $t('sort_field') }}：</div>
           <div class="item-body">
             <el-select v-model="pager.sortKey" class="fdb-select" popper-class="fdb-select" @change="getRecommend(true)">
-              <el-option label="加入日期" value="createdate" />
-              <el-option label="最後交易日" value="lastdate" />
+              <el-option :label="$t('join_date')" value="createdate" />
+              <el-option :label="$t('last_trade_date')" value="lastdate" />
             </el-select>
           </div>
         </div>
@@ -73,23 +73,23 @@
             <tr>
               <th><input v-model="selectAllCheckBox" type="checkbox" class="check" /></th>
               <th>{{ $t('member_name') }}</th>
-              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">聯絡資訊</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center;">{{ $t('connect_info') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">{{ $t('trade_coin_type') }}</th>
-              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">返佣交易量</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">{{ $t('rebate_trade_value') }}</th>
               <th style="text-align: center;">
                 <TableFilter
                   v-if="widthWithiIn(['MAX', 'XXL', 'XL'])"
                   v-model="sreachForm.rgid"
-                  title="所在組別"
+                  :title="$t('belong_group')"
                   :items="availableGroups.map(item => ({ name: item.name, key: item.rgid, color: item.color }))"
                 />
-                <span v-else>所在組別</span>
+                <span v-else>{{ $t('belong_group') }}</span>
               </th>
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;" @click="sortData('createdate')">
-                <Sort title="加入日期" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
+                <Sort :title="$t('join_date')" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;" @click="sortData('lastdate')">
-                <Sort title="最後交易日" sort="lastdate" :sort-key="pager.sortKey" :order="pager.order" />
+                <Sort :title="$t('last_trade_date')" sort="lastdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
               <th v-if="widthWithiIn(['XL', 'L', 'M', 'S'])" style="width: 30px;"></th>
             </tr>
@@ -126,11 +126,13 @@
                   />
                 </td>
                 <td v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">
-                  <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">檢視資訊</span>
+                  <span class="text-link" style="font-family: 'Avenir';" @click="row.showInfo = !row.showInfo">
+                    {{ $t('view_information') }}
+                  </span>
                 </td>
                 <td style="text-align: center;">
                   <div :class="`group group-color-${(groupMap[row.rgid] && groupMap[row.rgid].color) || 0}`">
-                    {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || '未分類' }}
+                    {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || $t('uncategorized') }}
                   </div>
                 </td>
                 <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">{{ formatDate(row.createdate) }}</td>
@@ -152,15 +154,15 @@
                   </div>
                   <div v-else class="detail-content">
                     <div v-if="widthWithiIn(['L', 'M', 'S'])" class="content-item">
-                      <div class="item-title">加入日期</div>
+                      <div class="item-title">{{ $t('join_date') }}</div>
                       <div class="item-body">{{ formatDate(row.createdate) }}</div>
                     </div>
                     <div v-if="widthWithiIn(['L', 'M', 'S'])" class="content-item">
-                      <div class="item-title">最後交易日</div>
+                      <div class="item-title">{{ $t('last_trade_date') }}</div>
                       <div class="item-body">{{ formatDate(row.lastdate) }}</div>
                     </div>
                     <div class="content-item">
-                      <div class="item-title">返佣交易量</div>
+                      <div class="item-title">{{ $t('rebate_trade_value') }}</div>
                       <div class="item-body">
                         <div v-for="(coin, coinIndex) in filterZeroCoin(row.userCoinModels)" :key="coinIndex" class="detail-coin-info">
                           <CoinIcon class="coin" :coin-type="currencyMap[coin.currencyType]" />
@@ -177,7 +179,7 @@
             <tr>
               <td style="padding: 10vw 0;" colspan="12">
                 <img src="@/assets/img/common/empty.png" alt="empty" style="width: 60px;" />
-                <div style="color: #dddddd;">暫無數據</div>
+                <div style="color: #dddddd;">{{ $t('empty_data') }}</div>
               </td>
             </tr>
           </tbody>
@@ -190,7 +192,7 @@
 
     <!-- 編輯推薦人組別彈窗 -->
     <el-dialog
-      title="編輯推薦人組別"
+      :title="$t('edit_recommender_group')"
       :visible.sync="setGroupDialog.show"
       :width="deviceWidth > 500 ? '488px' : '95vw'"
       :show-close="false"
@@ -198,13 +200,13 @@
     >
       <div v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="dialog-body">
         <div class="group-select" :class="{ 'click-disabled': setGroupDialog.newGroupName || availableGroups.length === 0 }">
-          <div class="label">選擇組別</div>
+          <div class="label">{{ $t('select_group') }}</div>
           <el-select
             v-model="setGroupDialog.groupSelect"
             class="fdb-select select-L"
             popper-class="fdb-select"
             :style="`${widthWithiIn(['S']) ? 'width: 100%;' : ''}`"
-            placeholder="請選擇現有組別"
+            :placeholder="$t('please_select_current_group')"
             clearable
           >
             <el-option v-for="(group, index) in availableGroups" :key="index" :label="group.name" :value="group.rgid">
@@ -216,11 +218,11 @@
         <div class="line">or</div>
         <div class="new-group" :class="{ 'click-disabled': setGroupDialog.groupSelect || availableGroups.length > 9 }">
           <div class="item">
-            <div class="label">建立新組別</div>
-            <input v-model="setGroupDialog.newGroupName" type="text" placeholder="輸入新組別名稱" />
+            <div class="label">{{ $t('build_group') }}</div>
+            <input v-model="setGroupDialog.newGroupName" type="text" :placeholder="$t('enter_group_name')" />
           </div>
           <div class="item">
-            <div class="label">選擇顏色</div>
+            <div class="label">{{ $t('select_color') }}</div>
             <div class="color-picker">
               <div
                 v-for="(item, index) in 10"
@@ -235,14 +237,14 @@
       <span v-loading="setGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px;" @click="setGroupDialog.show = false">{{ $t('cancel') }}</div>
         <div class="fdb-btn-primary" :class="{ disabled: !setGroupDialog.groupSelect && !setGroupDialog.newGroupName }" @click="bindGroup">
-          綁定
+          {{ $t('bind') }}
         </div>
       </span>
     </el-dialog>
 
     <!-- 管理推薦人組別彈窗 -->
     <el-dialog
-      title="管理推薦人組別"
+      :title="$t('manage_recommender_group')"
       :visible.sync="editGroupDialog.show"
       :width="deviceWidth > 500 ? '488px' : '95vw'"
       :show-close="false"
@@ -250,7 +252,7 @@
     >
       <div v-loading="editGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="dialog-body">
         <div v-for="(group, gIndex) in editGroupDialog.groups" :key="gIndex" class="group-item">
-          <input v-model="group.name" type="text" placeholder="請輸入群組名稱" />
+          <input v-model="group.name" type="text" :placeholder="$t('please_enter_group_name')" />
           <el-dropdown trigger="click" placement="right-start" @command="handleCommand">
             <div class="color-picker">
               <div :class="`color-item group-color-${group.color}`"></div>
@@ -265,8 +267,8 @@
         </div>
       </div>
       <span v-loading="editGroupDialog.isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
-        <div class="fdb-btn-default" style="margin-right: 12px;" @click="editGroupDialog.show = false">全部取消</div>
-        <div class="fdb-btn-primary" @click="saveGroup">全部儲存</div>
+        <div class="fdb-btn-default" style="margin-right: 12px;" @click="editGroupDialog.show = false">{{ $t('cancel_all') }}</div>
+        <div class="fdb-btn-primary" @click="saveGroup">{{ $t('save_all') }}</div>
       </span>
     </el-dialog>
   </div>
@@ -488,7 +490,7 @@ export default {
         await insertGroup(reqBody)
         await this.$store.dispatch('group/getRecGroup')
         this.setGroupDialog.show = false
-        this.$message.success('綁定群組成功')
+        this.$message.success(this.$t('bind_group_success'))
         this.getRecommend()
       } catch (error) {
         console.error(error)
@@ -501,7 +503,7 @@ export default {
         await editGroup(this.editGroupDialog.groups)
         await this.$store.dispatch('group/getRecGroup')
         this.editGroupDialog.show = false
-        this.$message.success('保存成功')
+        this.$message.success(this.$t('save_success'))
         this.getRecommend()
       } catch (error) {
         console.error(error)

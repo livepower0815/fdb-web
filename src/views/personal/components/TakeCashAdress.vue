@@ -1,19 +1,19 @@
 <template>
   <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" style="float: left">
     <div class="personal-function-main">
-      <div class="title adress">為保障用戶權益和出金安全，修正出金地址須透過email驗證，變動地址需待一周後再次進行</div>
+      <div class="title adress">{{ $t('change_address_takes_one_week') }}</div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="BTC" />
         <div class="title">BTC</div>
-        <input v-if="isEdit" v-model="formData.BTC.adress" type="text" class="main" placeholder="請填入 BTC 交易地址" />
+        <input v-if="isEdit" v-model="formData.BTC.adress" type="text" class="main" :placeholder="$t('coin_adress', { coin: 'BTC' })" />
         <div v-else class="main" :style="{ opacity: formData.BTC.adress ? '1' : '0.5' }">{{ formData.BTC.adress || $t('unbind') }}</div>
       </div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="ETH" />
         <div class="title">ETH</div>
-        <input v-if="isEdit" v-model="formData.ETH.adress" type="text" class="main" placeholder="請填入 ETH 交易地址" />
+        <input v-if="isEdit" v-model="formData.ETH.adress" type="text" class="main" :placeholder="$t('coin_adress', { coin: 'ETH' })" />
         <div v-else class="main" :style="{ opacity: formData.ETH.adress ? '1' : '0.5' }">{{ formData.ETH.adress || $t('unbind') }}</div>
       </div>
 
@@ -22,8 +22,13 @@
         <CoinIcon class="icon" coin-type="XRP" />
         <div class="title">XRP</div>
         <template v-if="isEdit">
-          <input v-model="formData.XRP.adress" type="text" class="main first" placeholder="請填入 XRP 交易地址" />
-          <input v-model="formData.XRP.adress2" type="text" class="second input" placeholder="請填入 XRP TAG" />
+          <input v-model="formData.XRP.adress" type="text" class="main first" :placeholder="$t('coin_adress', { coin: 'XRP' })" />
+          <input
+            v-model="formData.XRP.adress2"
+            type="text"
+            class="second input"
+            :placeholder="$t('coin_adress2', { coinAdress2: 'XRP TAG' })"
+          />
         </template>
         <template v-else>
           <div class="main first" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || $t('unbind') }}</div>
@@ -39,13 +44,19 @@
         <div class="personal-take-cash-adress-main" style="margin-bottom: 4px">
           <CoinIcon class="icon" coin-type="XRP" />
           <div class="title">XRP</div>
-          <input v-if="isEdit" v-model="formData.XRP.adress" type="text" class="main" placeholder="請填入 XRP 交易地址" />
+          <input v-if="isEdit" v-model="formData.XRP.adress" type="text" class="main" :placeholder="$t('coin_adress', { coin: 'XRP' })" />
           <div v-else class="main" :style="{ opacity: formData.XRP.adress ? '1' : '0.5' }">{{ formData.XRP.adress || $t('unbind') }}</div>
         </div>
         <div class="personal-take-cash-adress-main">
           <CoinIcon class="icon" coin-type="XRP" style="opacity: 0" />
           <div class="title">TAG</div>
-          <input v-if="isEdit" v-model="formData.XRP.adress2" type="text" class="main" placeholder="請填入 XRP TAG" />
+          <input
+            v-if="isEdit"
+            v-model="formData.XRP.adress2"
+            type="text"
+            class="main"
+            :placeholder="$t('coin_adress2', { coinAdress2: 'XRP TAG' })"
+          />
           <div v-else class="main" :style="{ opacity: formData.XRP.adress2 ? '1' : '0.5' }">{{ formData.XRP.adress2 || $t('unbind') }}</div>
         </div>
       </template>
@@ -55,8 +66,13 @@
         <CoinIcon class="icon" coin-type="EOS" />
         <div class="title">EOS</div>
         <template v-if="isEdit">
-          <input v-model="formData.EOS.adress" type="text" class="main first" placeholder="請填入 EOS 交易地址" />
-          <input v-model="formData.EOS.adress2" type="text" class="second input" placeholder="請填入 EOS MEMO" />
+          <input v-model="formData.EOS.adress" type="text" class="main first" :placeholder="$t('coin_adress', { coin: 'EOS' })" />
+          <input
+            v-model="formData.EOS.adress2"
+            type="text"
+            class="second input"
+            :placeholder="$t('coin_adress2', { coinAdress2: 'EOS MEMO' })"
+          />
         </template>
         <template v-else>
           <div class="main first" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || $t('unbind') }}</div>
@@ -72,13 +88,19 @@
         <div class="personal-take-cash-adress-main" style="margin-bottom: 4px">
           <CoinIcon class="icon" coin-type="EOS" />
           <div class="title">EOS</div>
-          <input v-if="isEdit" v-model="formData.EOS.adress" type="text" class="main" placeholder="請填入 EOS 交易地址" />
+          <input v-if="isEdit" v-model="formData.EOS.adress" type="text" class="main" :placeholder="$t('coin_adress', { coin: 'EOS' })" />
           <div v-else class="main" :style="{ opacity: formData.EOS.adress ? '1' : '0.5' }">{{ formData.EOS.adress || $t('unbind') }}</div>
         </div>
         <div class="personal-take-cash-adress-main">
           <CoinIcon class="icon" coin-type="EOS" style="opacity: 0" />
           <div class="title">MEMO</div>
-          <input v-if="isEdit" v-model="formData.EOS.adress2" type="text" class="main" placeholder="請填入 EOS MEMO" />
+          <input
+            v-if="isEdit"
+            v-model="formData.EOS.adress2"
+            type="text"
+            class="main"
+            :placeholder="$t('coin_adress2', { coinAdress2: 'EOS MEMO' })"
+          />
           <div v-else class="main" :style="{ opacity: formData.EOS.adress2 ? '1' : '0.5' }">{{ formData.EOS.adress2 || $t('unbind') }}</div>
         </div>
       </template>
@@ -86,33 +108,33 @@
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="USDT" />
         <div class="title">USDT</div>
-        <input v-if="isEdit" v-model="formData.USDT.adress" type="text" class="main" placeholder="請填入 USDT 交易地址" />
+        <input v-if="isEdit" v-model="formData.USDT.adress" type="text" class="main" :placeholder="$t('coin_adress', { coin: 'USDT' })" />
         <div v-else class="main" :style="{ opacity: formData.USDT.adress ? '1' : '0.5' }">{{ formData.USDT.adress || $t('unbind') }}</div>
       </div>
     </div>
     <div class="btns-block personal-info">
-      <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="isEdit = true">編輯地址</a>
+      <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="isEdit = true">{{ $t('edit_adress') }}</a>
       <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">{{ $t('cancel') }}</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="saveAdress">儲存並驗證</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="saveAdress">{{ $t('save_and_verify') }}</a>
     </div>
 
     <!-- 信箱驗證碼彈窗 -->
     <el-dialog
-      title="請至返多寶會員郵箱驗證"
+      :title="$t('goto_fdb_email_verify')"
       :visible.sync="checkDialog.show"
       :width="deviceWidth > 500 ? '360px' : '300px'"
       :show-close="false"
       custom-class="fbd-dialog adress-site-dialog"
       top="30vh"
     >
-      <div class="check-tip">請於10分鐘內輸入驗證碼，未如驗證將無法更新此次提交</div>
+      <div class="check-tip">{{ $t('enter_verification_code_in_ten') }}</div>
       <div class="check-content">
-        <div class="title">驗證碼</div>
-        <input v-model="authCore" class="input" type="text" placeholder="輸入驗證碼" />
+        <div class="title">{{ $t('verification_code') }}</div>
+        <input v-model="authCore" class="input" type="text" :placeholder="$t('enter_verification_code')" />
       </div>
       <span v-loading="isValidLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
         <div class="fdb-btn-default" style="margin-right: 12px" @click="checkDialog.show = false">{{ $t('cancel') }}</div>
-        <div class="fdb-btn-primary" @click="validAdress">確認</div>
+        <div class="fdb-btn-primary" @click="validAdress">{{ $t('check') }}</div>
       </span>
     </el-dialog>
   </div>
@@ -198,18 +220,18 @@ export default {
     validateForm() {
       // BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成
       if (this.formData.BTC.adress && !/^[13](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{25,36}$/.test(this.formData.BTC.adress)) {
-        throw new Error('BTC : 數字1＆3 開頭，26至37位區間英文大小寫+數字組成')
+        throw new Error(this.$t('btc_verify'))
       }
       // XRP : r開頭
       if (this.formData.XRP.adress && !/^r.+/.test(this.formData.XRP.adress)) {
-        throw new Error('XRP : r開頭')
+        throw new Error(this.$t('xrp_verify'))
       }
       if (this.formData.XRP.adress && !this.formData.XRP.adress2) {
-        throw new Error('XRP : TAG 未填寫')
+        throw new Error('XRP : TAG ' + this.$t('unfilled'))
       }
       // USDT : 數字1＆3 & 0 開頭
       if (this.formData.USDT.adress && !/^[013].+$/.test(this.formData.USDT.adress)) {
-        throw new Error('USDT : 數字1＆3 & 0 開頭')
+        throw new Error(this.$t('usdt_verify'))
       }
       // 8/26 EOS 不驗證
       // EOS : 12個字符英文大小寫+數字組成
@@ -217,11 +239,11 @@ export default {
       //   throw new Error('EOS : 12個字符英文大小寫+數字組成')
       // }
       if (this.formData.EOS.adress && !this.formData.EOS.adress2) {
-        throw new Error('EOS : MEMO 未填寫')
+        throw new Error('EOS : MEMO ' + this.$t('unfilled'))
       }
       // ETH : 數字0 開頭，42位英文大小寫+數字組成
       if (this.formData.ETH.adress && !/^[0](?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{41}$/.test(this.formData.ETH.adress)) {
-        throw new Error('ETH : 數字0 開頭，42位英文大小寫+數字組成')
+        throw new Error(this.$t('eth_verify'))
       }
       return 'success'
     },
@@ -230,7 +252,7 @@ export default {
       this.isValidLoading = true
       try {
         await validWithdrawalData({ authCore: this.authCore })
-        this.$message.success('綁定成功')
+        this.$message.success(this.$t('bind_success'))
         this.checkDialog.show = false
         this.cancelEdit()
       } catch (error) {

@@ -1,93 +1,100 @@
 <template>
   <div v-loading="isBindLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="personal-function-main exchange-site">
     <div class="title">{{ $t('bound_exchange') }}</div>
-    <div class="sub">為保護帳號安全，交易所綁定後將無法編輯或刪除（*未綁定將無法查看您的返佣資訊）</div>
+    <div class="sub">{{ $t('to_protect_account_security') }}</div>
     <div class="exchange-block">
       <div class="main">
         <div>
-          <div class="title">*選擇交易所</div>
-          <el-select v-model="formData.csgid" class="fdb-select input select-M" popper-class="fdb-select" style="padding-left: 0px;">
+          <div class="title">*{{ $t('select_exchange') }}</div>
+          <el-select v-model="formData.csgid" class="fdb-select input select-M" popper-class="fdb-select" style="padding-left: 0px">
             <el-option v-for="(csg, index) in csgList" :key="index" :label="csg.csgName" :value="csg.csgid" />
           </el-select>
         </div>
         <div>
-          <div class="title">*交易所UID</div>
-          <input v-model="formData.fdB_UID" type="text" class="input" placeholder="請輸入該交易所UID" />
+          <div class="title">*{{ $t('exchange_uid') }}</div>
+          <input v-model="formData.fdB_UID" type="text" class="input" :placeholder="$t('enter_exchange_uid')" />
         </div>
       </div>
       <div class="main">
         <div>
-          <div class="title">行動電話</div>
+          <div class="title">{{ $t('mobile_phone') }}</div>
           <div class="split-input">
             <el-select
               v-model="formData.areaCode"
               class="fdb-select input select-M"
               popper-class="fdb-select"
-              style="width: 80px; margin-right: 8px;"
+              style="width: 80px; margin-right: 8px"
             >
               <el-option v-for="(phoneArea, index) in phoneAreaCode" :key="index" :label="phoneArea.code" :value="phoneArea.code">
-                <span style="float: left; color: #cccccc; margin-right: 26px;">{{ phoneArea.country }}</span>
-                <span style="float: right;">{{ phoneArea.code }}</span>
+                <span style="float: left; color: #cccccc; margin-right: 26px">{{ phoneArea.country }}</span>
+                <span style="float: right">{{ phoneArea.code }}</span>
               </el-option>
             </el-select>
-            <input v-model="formData.phone" type="text" class="input" style="flex: 1" placeholder="請輸入行動電話" autocomplete="off" />
+            <input
+              v-model="formData.phone"
+              type="text"
+              class="input"
+              style="flex: 1"
+              :placeholder="$t('please_enter_phone')"
+              autocomplete="off"
+            />
           </div>
         </div>
         <div>
-          <div class="title">電子郵件</div>
-          <input v-model="formData.email" type="text" class="input" placeholder="請輸入該交易所會員郵件" />
+          <div class="title">{{ $t('email') }}</div>
+          <input v-model="formData.email" type="text" class="input" :placeholder="$t('please_enter_email')" />
         </div>
       </div>
     </div>
     <div class="btns-block personal">
-      <a href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="resetForm">清空</a>
-      <a href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="validate">綁定</a>
+      <a href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="resetForm">{{ $t('clear') }}</a>
+      <a href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="validate">{{ $t('bind') }}</a>
     </div>
 
     <div class="personal-function-line"></div>
-    <div class="personal-function-tips">交易所驗證時間需1-3日工作天，無論驗證成功與否都將由系統寄出“驗證通知書”郵件通知會員</div>
+    <div class="personal-function-tips">{{ $t('exchange_verification_time') }}</div>
     <div v-for="(bind, index) in bindList" :key="index" class="personal-function-exchange-block">
       <div class="title">{{ index + 1 }}</div>
       <div>
-        <img v-if="csgMap[bind.csgid]" :src="csgMap[bind.csgid].imageUrl" alt="bind-store-img" style="width: 60px;" />
-        <span class="uid" style="margin-left: 0;" v-else>無效圖檔</span>
+        <img v-if="csgMap[bind.csgid]" :src="csgMap[bind.csgid].imageUrl" alt="bind-store-img" style="width: 60px" />
+        <span class="uid" style="margin-left: 0" v-else>{{ $t('invalid_drawing') }}</span>
         <span class="uid">UID： {{ bind.fdB_UID }}</span>
       </div>
-      <div :class="`status ${['red', 'green'][bind.status]}`">{{ ['驗證中', '驗證完畢'][bind.status] }}</div>
+      <div :class="`status ${['red', 'green'][bind.status]}`">{{ [$t('verifying'), $t('verified')][bind.status] }}</div>
     </div>
 
     <!-- 再次確認彈窗 -->
     <el-dialog
-      title="再次確認交易所綁定資訊"
+      :title="$t('check_again_exchange_info')"
       :visible.sync="checkDialog.show"
       :width="deviceWidth > 500 ? '500px' : '300px'"
       :show-close="false"
       custom-class="fbd-dialog exchange-site-dialog"
     >
-      <div class="check-tip">為保障各位交易安全，交易所若綁定三次都失敗，將會鎖定該交易所綁定之權限，因此請確定資料正確性</div>
+      <div class="check-tip">{{ $t('to_ensure_transaction_security') }}</div>
       <div class="check-content">
         <div class="check-content-item">
           <div class="title">{{ $t('bound_exchange') }}</div>
           <div class="value">{{ csgMap[formData.csgid] && csgMap[formData.csgid].csgName }}</div>
         </div>
         <div class="check-content-item">
-          <div class="title">交易所UID</div>
+          <div class="title">{{ $t('exchange_uid') }}</div>
           <div class="value">{{ formData.fdB_UID }}</div>
         </div>
         <div class="check-content-item">
-          <div class="title">行動電話</div>
+          <div class="title">{{ $t('mobile_phone') }}</div>
           <div v-if="formData.phone" class="value">{{ formData.areaCode }} {{ formData.phone }}</div>
-          <div v-else class="value" style="opacity: 0.6;">未填寫</div>
+          <div v-else class="value" style="opacity: 0.6">{{ $t('unfilled') }}</div>
         </div>
         <div class="check-content-item">
-          <div class="title">電子郵件</div>
+          <div class="title">{{ $t('email') }}</div>
           <div v-if="formData.email" class="value">{{ formData.email }}</div>
-          <div v-else class="value" style="opacity: 0.6;">未填寫</div>
+          <div v-else class="value" style="opacity: 0.6">{{ $t('unfilled') }}</div>
         </div>
       </div>
       <span v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" slot="footer">
-        <div class="fdb-btn-default" style="margin-right: 12px;" @click="checkDialog.show = false">返回</div>
-        <div class="fdb-btn-primary" @click="bindCSG">綁定</div>
+        <div class="fdb-btn-default" style="margin-right: 12px" @click="checkDialog.show = false">{{ $t('return') }}</div>
+        <div class="fdb-btn-primary" @click="bindCSG">{{ $t('bind') }}</div>
       </span>
     </el-dialog>
   </div>
@@ -160,23 +167,23 @@ export default {
       // 欄位內的規則
       // 選擇交易所：只顯示與fdb合作的交易所，文字即可
       if (!this.formData.csgid) {
-        return this.$message.error('請選擇交易所')
+        return this.$message.error(this.$t('please_select_exchange'))
       }
       // 交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號
       // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{3,10}$/.test(this.formData.fdB_UID)) {
       //   return this.$message.error('交易所 ID ：英文＋數字十位數以內(bybit) ，不含特殊符號')
       // }
       if (!this.formData.fdB_UID) {
-        return this.$message.error('請輸入交易所ID')
+        return this.$message.error(this.$t('please_enter_exchange_id'))
       }
 
       // 行動電話：僅限數字不含特殊符號
       if (this.formData.phone && !/^\d+$/.test(this.formData.phone)) {
-        return this.$message.error('行動電話：請輸入數字')
+        return this.$message.error(this.$t('m_phone_enter_number'))
       }
       // 電子郵件：與範例一致 example@mail.com
       if (this.formData.email && !/\S+@\S+.\S+/.test(this.formData.email)) {
-        return this.$message.error('電子郵件：請輸入正確電子郵件')
+        return this.$message.error(this.$t('email_enter_correct'))
       }
       // 再次確認
       // 為了提升資訊填寫的正確性，點擊綁定後，在呈現一次自己所寫的資訊，做再次確認

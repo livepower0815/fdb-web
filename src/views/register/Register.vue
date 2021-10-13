@@ -11,7 +11,7 @@
         </div>
         <div class="title">創建帳戶</div>
         <div class="register-main">
-          <div class="title">*使用者名稱</div>
+          <div class="title">*{{ $t('user_name') }}</div>
           <input v-model="formData.name" type="text" class="input" placeholder="請輸入使用者名稱" />
         </div>
 
@@ -21,7 +21,7 @@
         </div>
 
         <div class="register-main">
-          <div class="title">行動電話</div>
+          <div class="title">{{ $t('mobile_phone') }}</div>
           <div class="split-input">
             <el-select
               v-model="formData.areaCode"
@@ -39,7 +39,7 @@
         </div>
 
         <div class="register-main">
-          <div class="title">*密碼</div>
+          <div class="title">*{{ $t('password') }}</div>
           <input v-model="formData.password" :type="passwordType" class="input" placeholder="輸入6位數以上，含英數字" autocomplete="off" />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
@@ -160,7 +160,7 @@ export default {
       }
       // 行動電話：僅限數字不含特殊符號
       if (this.formData.phone !== '' && !/^\d+$/.test(this.formData.phone)) {
-        return Promise.reject(new Error('行動電話：請輸入數字'))
+        return Promise.reject(new Error(this.$t('m_phone_enter_number')))
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
