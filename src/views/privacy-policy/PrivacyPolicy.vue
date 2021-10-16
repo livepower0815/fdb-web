@@ -1,7 +1,7 @@
 <template>
   <div class="privacy">
     <div class="banner">
-      <div class="banner-title">隱私條款</div>
+      <div class="banner-title">{{ $t('privacy_policy') }}</div>
     </div>
     <div class="body">
       <div class="content-title">條款內容</div>

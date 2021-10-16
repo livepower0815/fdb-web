@@ -19,7 +19,9 @@
           <div class="menu-item" :class="{ active: activeTab === 'bulletin' }" @click="changeActiveTag('bulletin')">
             {{ $t('announcement') }}
           </div>
-          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="changeActiveTag('activity')">$t('activity')</div>
+          <div class="menu-item" :class="{ active: activeTab === 'activity' }" @click="changeActiveTag('activity')">
+            {{ $t('activity') }}
+          </div>
         </div>
         <div class="menu-right">
           <img @click="showSearch = !showSearch" class="icon-search" src="@/assets/img/common/icon-search.png" alt="search" />
@@ -34,13 +36,13 @@
         v-if="activeTab === 'all' && mode === 'list' && deviceWidth <= 700"
         :is-loading="topLoading"
         :info-list="topList"
-        style="border-bottom: 1px #ffffff solid;"
+        style="border-bottom: 1px #ffffff solid"
       />
 
       <!-- 文章列表 -->
       <Information v-if="mode === 'list'" :is-loading="infoLoading" :info-list="newsList" />
       <!--Pages-->
-      <Pager v-if="mode === 'list' && newsList.length > 0" :get-data="getNews" :pager="pager" style="margin-bottom: 8%;" />
+      <Pager v-if="mode === 'list' && newsList.length > 0" :get-data="getNews" :pager="pager" style="margin-bottom: 8%" />
 
       <!-- 文章內容 -->
       <Article v-if="mode === 'article'" />

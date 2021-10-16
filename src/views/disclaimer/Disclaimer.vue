@@ -1,7 +1,7 @@
 <template>
   <div class="disclaimer">
     <div class="banner">
-      <div class="banner-title">免責聲明</div>
+      <div class="banner-title">{{ $t('disclaimer') }}</div>
     </div>
     <div class="body">
       <div class="content-title">風險聲明</div>

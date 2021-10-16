@@ -47,8 +47,8 @@
         </a>
       </div>
       <p style="text-align: center; font-size: 12px; margin-bottom: 10px">
-        <a href="https://www.google.com" target="_blank" style="text-decoration: none">免責聲明</a> |
-        <a href="https://www.google.com" target="_blank" style="text-decoration: none">隱私條款</a>
+        <a href="https://www.google.com" target="_blank" style="text-decoration: none">{{ $t('disclaimer') }}</a> |
+        <a href="https://www.google.com" target="_blank" style="text-decoration: none">{{ $t('privacy_policy') }}</a>
       </p>
       <p style="text-align: center; font-size: 12px">Copyright © 2021 FDB.</p>
     </div>

@@ -9,15 +9,17 @@
             <img src="@/assets/img/nav/logo.png" alt="m-logo-img" class="m-logo-img" />
           </router-link>
         </div>
-        <div class="title">重置您的密碼</div>
-        <div class="reset-sub">請輸入註冊時電子郵件，進行密碼重置</div>
-        <div class="reset-main" style="margin-bottom: 64px;">
-          <div class="title">*電子郵箱</div>
+        <div class="title">{{ $t('reset_password') }}</div>
+        <div class="reset-sub">{{ $t('enter_email_to_set_password') }}</div>
+        <div class="reset-main" style="margin-bottom: 64px">
+          <div class="title">*{{ $t('email') }}</div>
           <input v-model="email" type="text" class="input" placeholder="example@mail.com" autocomplete="off" />
         </div>
 
-        <a href="javascript:void(0)" class="fdb-btn-primary-hover reset-main-btn" @click="submitReq">發送密碼重置連結</a>
-        <div class="reset-main-tips"><span class="text-link" @click="$router.push('/login')">回到登入畫面</span></div>
+        <a href="javascript:void(0)" class="fdb-btn-primary-hover reset-main-btn" @click="submitReq">{{ $t('send_password_link') }}</a>
+        <div class="reset-main-tips">
+          <span class="text-link" @click="$router.push('/login')">{{ $t('return_login_page') }}</span>
+        </div>
       </div>
     </div>
 
@@ -28,9 +30,9 @@
     </div>
 
     <!-- 提示訊息彈窗 -->
-    <el-dialog title="電子郵箱通知" :visible.sync="dialogVisible" width="300px" :show-close="false" custom-class="fbd-dialog">
-      <div style="text-align: center;">
-        <span>請去電子郵箱收取連結信件。</span>
+    <el-dialog :title="$t('email_notify')" :visible.sync="dialogVisible" width="300px" :show-close="false" custom-class="fbd-dialog">
+      <div style="text-align: center">
+        <span>{{ $t('receiving_linked_letters') }}</span>
       </div>
       <span slot="footer">
         <div class="fdb-btn-primary" @click="dialogVisible = false">{{ $t('close') }}</div>
@@ -68,7 +70,7 @@ export default {
     async validate() {
       // 電子郵件：與範例一致 example@mail.com
       if (!/\S+@\S+.\S+/.test(this.email)) {
-        return Promise.reject(new Error('電子郵件：請輸入正確電子郵件'))
+        return Promise.reject(new Error(this.$t('please_enter_correct_email')))
       }
       return 'done'
     }

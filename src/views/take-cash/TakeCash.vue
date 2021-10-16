@@ -1,6 +1,6 @@
 <template>
   <div class="take-cash">
-    <div class="page-title">會員出金申請</div>
+    <div class="page-title">{{ $t('member_withdraw_application') }}</div>
     <div class="page-main">
       <!-- 流程開始 -->
       <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="step">
@@ -17,19 +17,21 @@
           <div class="third" :class="{ finish: step > 2 }">3</div>
         </div>
         <div class="step-title">
-          <span v-if="step === 1 && canTrade"> 填寫出金帳戶資訊 </span>
+          <span v-if="step === 1 && canTrade">{{ $t('fill_withdrawal_account_information') }}</span>
           <router-link v-if="step === 1 && !canTrade" :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
-            <span class="text-red" style="text-decoration: underline">尚無可交易之幣種<br />請至出金申請地址進行設定</span>
+            <span class="text-red" style="text-decoration: underline"
+              >{{ $t('no_tradable_currency') }}<br />{{ $t('go_to_withdrawal_application_address') }}</span
+            >
           </router-link>
-          <span v-if="step === 2">再次確認出金資訊與金額</span>
-          <span v-if="step === 3">操作成功</span>
+          <span v-if="step === 2">{{ $t('reconfirm_withdrawal_information_amount') }}</span>
+          <span v-if="step === 3">{{ $t('operation_success') }}</span>
         </div>
 
         <!-- 第一步 -->
         <div v-if="step === 1" class="step-body">
           <div class="form">
             <div class="form-item">
-              <div class="title">選擇出金幣別</div>
+              <div class="title">{{ $t('select_withdraw_coin_type') }}</div>
               <div class="value">
                 <CoinIcon
                   v-for="(coin, index) in storeData"
@@ -42,42 +44,41 @@
               </div>
             </div>
             <div class="form-item">
-              <div class="title">出金地址</div>
+              <div class="title">{{ $t('withdraw_adress') }}</div>
               <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
                 {{ adressData[currencyMap[form.currencySelect]] }}
-                p
               </div>
               <div v-else class="value" style="opacity: 0.3">尚未選擇或未綁定</div>
             </div>
             <div class="form-item">
-              <div class="title">可出金數量</div>
+              <div class="title">{{ $t('amount_can_be_withdrawn') }}</div>
               <div v-if="selectedCoin.coinCount" class="value">{{ selectedCoin.coinCount }}</div>
-              <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
+              <div v-else class="value" style="opacity: 0.3">{{ $t('not_yet_selected') }}</div>
             </div>
             <div class="form-item">
-              <div class="title">最低出金限制</div>
+              <div class="title">{{ $t('min_withdraw') }}</div>
               <div v-if="selectedCoin.coinminiAmount" class="value">
                 {{ selectedCoin.coinminiAmount }}
               </div>
-              <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
+              <div v-else class="value" style="opacity: 0.3">{{ $t('not_yet_selected') }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金手續費</div>
+              <div class="title">{{ $t('handling_fee') }}</div>
               <div v-if="selectedCoin.coinfeeAmount" class="value">
                 {{ selectedCoin.coinfeeAmount }}
               </div>
-              <div v-else class="value" style="opacity: 0.3">尚未選擇</div>
+              <div v-else class="value" style="opacity: 0.3">{{ $t('not_yet_selected') }}</div>
             </div>
             <div class="form-item" :class="{ 'click-disabled': !form.currencySelect }">
               <div class="title">{{ $t('withdrawal_quantity') }}</div>
               <div class="value">
-                <input v-model="form.withdrawAmount" class="input" type="number" placeholder="請輸入出金金額" />
+                <input v-model="form.withdrawAmount" class="input" type="number" :placeholder="$t('please_enter_withdrawal_amount')" />
               </div>
             </div>
           </div>
           <div class="operation">
             <div class="fdb-btn-default" style="margin-right: 12px; line-height: 30px" @click="$router.push({ name: 'Dashboard' })">
-              取消出金
+              {{ $t('cancel_withdraw') }}
             </div>
             <div
               class="fdb-btn-primary"
@@ -89,7 +90,7 @@
               }"
               @click="toStep2"
             >
-              下一步
+              {{ $t('next_step') }}
             </div>
           </div>
         </div>
@@ -98,17 +99,17 @@
         <div v-if="step === 2" class="step-body">
           <div class="form">
             <div class="form-item">
-              <div class="title">選擇出金幣別</div>
+              <div class="title">{{ $t('select_withdraw_coin_type') }}</div>
               <div class="value">
                 <CoinIcon :coin-type="currencyMap[form.currencySelect]" class="coin-icon active" />
               </div>
             </div>
             <div class="form-item">
-              <div class="title">可出金數量</div>
+              <div class="title">{{ $t('amount_can_be_withdrawn') }}</div>
               <div class="value">{{ selectedCoin.coinCount }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金地址</div>
+              <div class="title">{{ $t('withdraw_adress') }}</div>
               <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
@@ -116,27 +117,29 @@
               <div class="value">{{ form.withdrawAmount }}</div>
             </div>
             <div class="form-item">
-              <div class="title">手續費</div>
+              <div class="title">{{ $t('handling_fee') }}</div>
               <div class="value">{{ selectedCoin.coinfeeAmount }}</div>
             </div>
             <div class="form-item">
-              <div class="title">實拿數量</div>
+              <div class="title">{{ $t('actual_quantity') }}</div>
               <div class="value" style="color: #62ffff">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
-          <div class="red-text">注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交</div>
+          <div class="red-text">{{ $t('submit_withdrawal_application') }}</div>
           <div class="operation">
-            <div class="fdb-btn-default" style="margin-right: 12px" @click="step = 1">上一步</div>
-            <div class="fdb-btn-primary" @click="submit">提出申請</div>
+            <div class="fdb-btn-default" style="margin-right: 12px" @click="step = 1">{{ $t('previous') }}</div>
+            <div class="fdb-btn-primary" @click="submit">{{ $t('submit_application') }}</div>
           </div>
         </div>
 
         <!-- 第三步 -->
         <div v-if="step === 3" class="step-body">
-          <div class="info-text">預計48 小時內完成出金<br />若有任何問題請聯繫返多寶客服中心</div>
+          <div class="info-text">{{ $t('expected_complete_withdrawal') }}<br />{{ $t('if_any_problem') }}</div>
           <div class="operation finish">
-            <div class="fdb-btn-default" style="margin-right: 12px" @click="$router.push({ name: 'Dashboard' })">回到列表</div>
-            <div class="fdb-btn-primary" @click="tryAgain">再申請一筆</div>
+            <div class="fdb-btn-default" style="margin-right: 12px" @click="$router.push({ name: 'Dashboard' })">
+              {{ $t('back_to_list') }}
+            </div>
+            <div class="fdb-btn-primary" @click="tryAgain">{{ $t('application_again') }}</div>
           </div>
           <div class="form block">
             <div class="form-item">
@@ -144,11 +147,11 @@
               <div class="value">{{ orderNumber }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金幣別</div>
+              <div class="title">{{ $t('withdraw_coin_type') }}</div>
               <div class="value">{{ selectedCoinName }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金地址</div>
+              <div class="title">{{ $t('withdraw_adress') }}</div>
               <div class="value">{{ adressData[currencyMap[form.currencySelect]] }}</div>
             </div>
             <div class="form-item">
@@ -156,11 +159,11 @@
               <div class="value">{{ form.withdrawAmount }}</div>
             </div>
             <div class="form-item">
-              <div class="title">出金手續費</div>
+              <div class="title">{{ $t('handling_fee') }}</div>
               <div class="value">{{ selectedCoin.coinfeeAmount }}</div>
             </div>
             <div class="form-item">
-              <div class="title">實拿數量</div>
+              <div class="title">{{ $t('actual_quantity') }}</div>
               <div class="value" style="color: #62ffff">{{ form.withdrawAmount - selectedCoin.coinfeeAmount }}</div>
             </div>
           </div>
@@ -243,26 +246,28 @@ export default {
     },
     toStep2() {
       if (!this.form.currencySelect) {
-        this.$message.error('請輸入出金幣別')
+        this.$message.error(this.$t('enter_withdraw_coin_type'))
         return false
       }
       if (!this.form.withdrawAmount) {
-        this.$message.error('請輸入出金數量')
+        this.$message.error(this.$t('enter_withdraw_amount'))
         return false
       }
       if (!(Number(this.form.withdrawAmount) > 0)) {
-        this.$message.error('請輸入出金數量')
+        this.$message.error(this.$t('enter_withdraw_amount'))
         return false
       }
       if (Number(this.form.withdrawAmount) > Number(this.selectedCoin.coinCount)) {
-        this.$message.error('超過可出金數量')
+        this.$message.error(this.$t('exceeds_amount_withdrawn'))
         return false
       }
       // 的提示為
       // 低於BTC最低出金數量 0.0005
       // ....依據幣種不同呈現不同數量跟說明
       if (Number(this.form.withdrawAmount) < Number(this.selectedCoin.coinminiAmount)) {
-        this.$message.error(`低於 ${this.selectedCoinName} 最低出金數量 ${this.selectedCoin.coinminiAmount}`)
+        this.$message.error(
+          this.$t('less_min_withdraw', { selectedCoinName: this.selectedCoinName, coinminiAmount: this.selectedCoin.coinminiAmount })
+        )
         return false
       }
       this.step = 2
@@ -281,7 +286,7 @@ export default {
         }
         const res = await withdrawalOrder(postData)
         this.orderNumber = res.data.bwoOrderID
-        this.$message.success('申請成功')
+        this.$message.success(this.$t('application_success'))
         this.step = 3
         this.$refs.storeRef.getExchangeInfo()
       } catch (error) {

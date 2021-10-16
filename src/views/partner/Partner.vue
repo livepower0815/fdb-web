@@ -3,95 +3,95 @@
     <!-- banner -->
     <div class="banner">
       <div class="banner-content">
-        <div class="title">返佣保證</div>
+        <div class="title">{{ $t('rebate_guarantee') }}</div>
         <div class="info">
-          成為返多寶用戶，不需要任何交易條件，即有40%交易返佣<br />
-          返多寶邀請計畫，好友交易返佣再享10%推薦推薦
+          {{ $t('no_trading_conditions_required') }}<br />
+          {{ $t('enjoy_another_ten_recommendation') }}
         </div>
-        <div class="btn fdb-btn-primary">申請開戶</div>
+        <div class="btn fdb-btn-primary">{{ $t('apply_account') }}</div>
       </div>
       <div v-if="deviceWidth > 700" class="banner-data">
         <div class="data-item">
           <img src="@/assets/img/partner/40-percent.png" class="percent" alt="40-percent" />
-          <div class="text">返多寶補貼比例</div>
+          <div class="text">{{ $t('rebate_subsidy_ratio') }}</div>
         </div>
         <div class="data-item">
           <img src="@/assets/img/partner/10-percent.png" class="percent" alt="10-percent" />
-          <div class="text">推薦好友返佣比例</div>
+          <div class="text">{{ $t('refer_friends_rebate_ratio') }}</div>
         </div>
         <div class="data-item">
           <img src="@/assets/img/partner/30-percent.png" class="percent" alt="30-percent" />
-          <div class="text">官方代理返佣比例</div>
+          <div class="text">{{ $t('official_agent_rebate_ratio') }}</div>
         </div>
       </div>
     </div>
     <div v-if="deviceWidth <= 700" class="banner-data-m">
       <div class="data-item">
         <img src="@/assets/img/partner/40-percent.png" class="percent" alt="40-percent" />
-        <div class="text">返多寶補貼比例</div>
+        <div class="text">{{ $t('rebate_subsidy_ratio') }}</div>
       </div>
       <div class="data-item">
         <img src="@/assets/img/partner/10-percent.png" class="percent" alt="10-percent" />
-        <div class="text">推薦好友返佣比例</div>
+        <div class="text">{{ $t('refer_friends_rebate_ratio') }}</div>
       </div>
       <div class="data-item">
         <img src="@/assets/img/partner/30-percent.png" class="percent" alt="30-percent" />
-        <div class="text">官方代理返佣比例</div>
+        <div class="text">{{ $t('official_agent_rebate_ratio') }}</div>
       </div>
     </div>
 
     <!-- sub banner -->
     <div class="sub-banner">
       <div class="sub-item">
-        <div class="label">手續費</div>
+        <div class="label">{{ $t('handling_fee') }}</div>
         <div class="value">0.075%</div>
       </div>
       <div class="sub-item">
-        <div class="label">槓桿</div>
+        <div class="label">{{ $t('lever') }}</div>
         <div class="value">100倍</div>
       </div>
       <div class="sub-item">
-        <div class="label">交易對</div>
+        <div class="label">{{ $t('trading_pair') }}</div>
         <div class="value">13</div>
       </div>
       <div class="sub-item">
-        <div class="label">交易支持</div>
-        <div class="value">期貨</div>
+        <div class="label">{{ $t('transaction_support') }}</div>
+        <div class="value">{{ $t('futures') }}</div>
       </div>
       <div class="sub-item">
-        <div class="label">平均交易量</div>
-        <div class="value">65.66億</div>
+        <div class="label">{{ $t('average_transaction_volume') }}</div>
+        <div class="value">{{ $t('number_billion', { number: '65.66' }) }}</div>
       </div>
       <div class="sub-item">
-        <div class="label">資產實力</div>
-        <div class="value">90.35億</div>
+        <div class="label">{{ $t('asset_strength') }}</div>
+        <div class="value">{{ $t('number_billion', { number: '90.35' }) }}</div>
       </div>
     </div>
 
     <!-- 優勢 -->
     <div class="advantage">
-      <div class="advantage-title">Bybit 優勢</div>
+      <div class="advantage-title">{{ $t('bybit_advantage') }}</div>
       <div class="list">
         <div class="between">
           <div class="list-item">
             <img class="icon" src="@/assets/img/partner/balance.png" alt="balance" />
             <div class="info">
-              <div class="title">公平透明</div>
-              <div class="content">標記價格選取 Coinbase、Bitstamp、Kraken（三大受美國證監會監管交易所）的實時成交價</div>
+              <div class="title">{{ $t('fair_transparent') }}</div>
+              <div class="content">{{ $t('mark_price_selects_real_time') }}</div>
             </div>
           </div>
           <div class="list-item">
             <img class="icon" src="@/assets/img/partner/one.png" alt="one" />
             <div class="info">
-              <div class="title">市場深度中國第一</div>
-              <div class="content">根據最新統計數據，Bybit的平均前三個檔位盤口深度已遠超中國市場平均深度水準</div>
+              <div class="title">{{ $t('market_depth_no_one') }}</div>
+              <div class="content">{{ $t('according_latest_statistics') }}</div>
             </div>
           </div>
           <div class="list-item">
             <img class="icon" src="@/assets/img/partner/lever.png" alt="lever" />
             <div class="info">
-              <div class="title">彈性槓桿</div>
-              <div class="content">提供1至100倍槓桿，且為永續合約，可長線投資</div>
+              <div class="title">{{ $t('flexible_leverage') }}</div>
+              <div class="content">{{ $t('which_long_term_investment') }}</div>
             </div>
           </div>
         </div>
@@ -99,22 +99,22 @@
           <div class="list-item">
             <img class="icon" src="@/assets/img/partner/verified.png" alt="verified" />
             <div class="info">
-              <div class="title">頂配的資金安全體系</div>
-              <div class="content">平台自建業內最領先的分層確定性冷錢包體系</div>
+              <div class="title">{{ $t('top_allocation_fund_security_system') }}</div>
+              <div class="content">{{ $t('platform_builds_industry_advanced') }}</div>
             </div>
           </div>
           <div class="list-item">
             <img class="icon" src="@/assets/img/partner/intelligence.png" alt="intelligence" />
             <div class="info">
-              <div class="title">智能下單系統支持</div>
-              <div class="content">入場時直接設置止盈/止損及追踪止損，無需時刻盯盤</div>
+              <div class="title">{{ $t('intelligent_ordering_system_support') }}</div>
+              <div class="content">{{ $t('set_profit_stop_loss_trailing') }}</div>
             </div>
           </div>
           <div class="list-item">
             <img class="icon" src="@/assets/img/partner/money.png" alt="money" />
             <div class="info">
-              <div class="title">資金調配靈活</div>
-              <div class="content">無交易金額下限，即使資金不足也有機會投資</div>
+              <div class="title">{{ $t('flexible_fund_allocation') }}</div>
+              <div class="content">{{ $t('no_minimum_transaction_amount') }}</div>
             </div>
           </div>
         </div>
@@ -123,8 +123,8 @@
 
     <!-- 成為返多寶會員 -->
     <div class="member">
-      <div class="title">成為返多寶會員</div>
-      <div class="info">返多寶再補貼給您交易手續費<br />為您降低交易成本的只有「返多寶」</div>
+      <div class="title">{{ $t('become_member_fdb') }}</div>
+      <div class="info">{{ $t('return_fdb_subsidize') }}<br />{{ $t('only_thing_reduce_transaction_costs') }}</div>
       <router-link to="/register" class="btn fdb-btn-primary">{{ $t('join_fdb') }}</router-link>
     </div>
   </div>

@@ -1,20 +1,18 @@
 <template>
   <div class="about">
     <div v-if="deviceWidth > 700" class="about-title">
-      首家企業化的「返佣平台」及「論壇」 提供全方位返佣方案 <br />「交易返佣、手續費返佣、推薦好友再返佣」
+      {{ $t('first_corporate') }} <br />
+      {{ $t('trade_rebate') }}
     </div>
-    <div v-else class="about-title">
-      首家企業化的「返佣平台」及「論壇」<br />
-      提供全方位返佣方案 <br />「交易返佣、手續費返佣、推薦好友再返佣」
-    </div>
-    <div class="step-title">返佣流程</div>
+    <div v-else class="about-title">{{ $t('first_corporate') }}<br />{{ $t('trade_rebate') }}</div>
+    <div class="step-title">{{ $t('rebate_process') }}</div>
     <div class="step-item">
       <div class="image">
         <img src="@/assets/img/about/step1.png" alt="step1" />
       </div>
       <div class="info">
         <div class="info-title">{{ $t('join_fdb') }}</div>
-        <div class="info-content">申請返多寶會員<br />另外新增好友邀請碼可共同獲得返佣</div>
+        <div class="info-content">{{ $t('application_fdb_member') }}<br />{{ $t('friends_invitation_code_commission') }}</div>
       </div>
     </div>
     <div class="step-item" :class="{ reverse: deviceWidth > 700, 'reverse-m': deviceWidth <= 700 }">
@@ -23,7 +21,7 @@
       </div>
       <div class="info">
         <div class="info-title">{{ $t('bound_exchange') }}</div>
-        <div class="info-content">透過返多寶鏈結註冊交易所<br />將交易所UID與返多寶會員綁定</div>
+        <div class="info-content">{{ $t('register_exchange_through_rebate_link') }}<br />{{ $t('exchange_uid_bind_member') }}</div>
       </div>
     </div>
     <div class="step-item">
@@ -31,8 +29,8 @@
         <img src="@/assets/img/about/step3.png" alt="step3" />
       </div>
       <div class="info">
-        <div class="info-title">領取返佣</div>
-        <div class="info-content">檢視返佣儀表板，輸入錢包地址，申請出金</div>
+        <div class="info-title">{{ $t('receive_rebate') }}</div>
+        <div class="info-content">{{ $t('view_commission_rebate_dashboard') }}</div>
       </div>
     </div>
   </div>
