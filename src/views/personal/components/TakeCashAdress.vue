@@ -203,9 +203,13 @@ export default {
         this.validateForm()
         const postData = []
         for (const key of Object.keys(this.formData)) {
-          postData.push({ cid: currencyIdMap[key], address: this.formData[key].adress, address2: this.formData[key].adress2 })
+          postData.push({
+            cid: currencyIdMap[key],
+            address: this.formData[key].adress,
+            address2: this.formData[key].adress2,
+            lang: localStorage.getItem('FDB-lang') || 'TW'
+          })
         }
-        // TODO: 要調整接收格式
         await withdrawalDataUpdate(postData)
         this.authCore = ''
         this.checkDialog.show = true

@@ -17,16 +17,21 @@
 
         <div class="login-main">
           <div class="title">{{ $t('password') }}</div>
-          <!-- TODO: i18n -->
-          <input v-model="formData.password" :type="passwordType" class="input" placeholder="輸入6位數以上，含英數字" autocomplete="off" />
+          <input
+            v-model="formData.password"
+            :type="passwordType"
+            class="input"
+            :placeholder="$t('enter_en_number', { number: '6' })"
+            autocomplete="off"
+          />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
 
         <div class="login-main">
-          <div class="title flex-center" style="justify-content: flex-start;">
+          <div class="title flex-center" style="justify-content: flex-start">
             {{ $t('captcha') }}：
-            <img v-if="captchaImg" :src="`data:image\/(png|jpg);base64,${captchaImg}`" alt="captchaImg" style="width: 80px;" />
-            <div v-else v-loading="true" style="height: 35px; width: 80px;" element-loading-background="rgba(0, 0, 0, 0.5)"></div>
+            <img v-if="captchaImg" :src="`data:image\/(png|jpg);base64,${captchaImg}`" alt="captchaImg" style="width: 80px" />
+            <div v-else v-loading="true" style="height: 35px; width: 80px" element-loading-background="rgba(0, 0, 0, 0.5)"></div>
             <i class="el-icon-refresh-right captcha-refresh" @click="init"></i>
           </div>
           <input v-model="formData.captchaCode" type="text" class="input" :placeholder="$t('please_enter_captcha')" />
@@ -51,23 +56,23 @@
 
     <el-dialog :title="$t('login_fail')" :visible.sync="validateEmail.show" width="310px" :show-close="false" custom-class="fbd-dialog">
       <div v-if="!validateEmail.hasSent">
-        <div style="color: #eb4664; margin-bottom: 12px; text-align: center;">{{ $t('unconfirmed_account') }}</div>
+        <div style="color: #eb4664; margin-bottom: 12px; text-align: center">{{ $t('unconfirmed_account') }}</div>
         <!-- TODO: i18n -->
-        <div style="text-align: center;">請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊</div>
+        <div style="text-align: center">請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊</div>
       </div>
-      <div v-else style="text-align: center;">{{ $t('certification_letter_resent') }}</div>
+      <div v-else style="text-align: center">{{ $t('certification_letter_resent') }}</div>
       <span slot="footer">
         <template v-if="!validateEmail.hasSent">
           <div
             v-loading="validateEmail.loading"
             element-loading-background="rgba(0, 0, 0, 0.5)"
             class="fdb-btn-primary"
-            style="padding: 0 12px; margin-right: 8px;"
+            style="padding: 0 12px; margin-right: 8px"
             @click="reSentEmail"
           >
             {{ $t('re_send_certification_letter') }}
           </div>
-          <div class="fdb-btn-default" style="padding: 0 12px;" @click="validateEmail.show = false">{{ $t('cancel') }}</div>
+          <div class="fdb-btn-default" style="padding: 0 12px" @click="validateEmail.show = false">{{ $t('cancel') }}</div>
         </template>
         <div v-else class="fdb-btn-default" @click="validateEmail.show = false">{{ $t('close') }}</div>
       </span>
@@ -158,7 +163,7 @@ export default {
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
         // TODO: i18n
-        return Promise.reject(new Error(`${this.$t('password')}：請輸入6位數以上英數字`))
+        return Promise.reject(new Error(`${this.$t('password')}：${this.$t('enter_number_slot', { number: '6' })}`))
       }
       // 圖形驗證碼必填
       if (!this.formData.captchaCode) {
