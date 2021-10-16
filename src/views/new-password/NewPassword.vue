@@ -18,7 +18,7 @@
             v-model="formData.newPassword"
             :type="passwordType"
             class="input"
-            :placeholder="$t('enter_en_number')"
+            :placeholder="$t('enter_en_number', { number: '6' })"
             autocomplete="off"
           />
           <PasswordIcon :pwd-type.sync="passwordType" />
@@ -30,7 +30,7 @@
             v-model="formData.doubleCheck"
             :type="checkPasswordType"
             class="input"
-            :placeholder="$t('enter_en_number')"
+            :placeholder="$t('enter_en_number', { number: '6' })"
             autocomplete="off"
           />
           <PasswordIcon :pwd-type.sync="checkPasswordType" />
@@ -93,7 +93,7 @@ export default {
     async validate() {
       // 新密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.newPassword)) {
-        return Promise.reject(new Error(`${this.$t('password')}：${this.$t('enter_en_number')}`))
+        return Promise.reject(new Error(`${this.$t('password')}：${this.$t('enter_en_number', { number: '6' })}`))
       }
       // 確認密碼：密碼要與新密碼一致
       if (this.formData.newPassword !== this.formData.doubleCheck) {

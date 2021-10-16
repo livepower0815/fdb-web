@@ -40,7 +40,13 @@
 
         <div class="register-main">
           <div class="title">*{{ $t('password') }}</div>
-          <input v-model="formData.password" :type="passwordType" class="input" :placeholder="$t('enter_en_number')" autocomplete="off" />
+          <input
+            v-model="formData.password"
+            :type="passwordType"
+            class="input"
+            :placeholder="$t('enter_en_number', { number: '6' })"
+            autocomplete="off"
+          />
           <PasswordIcon :pwd-type.sync="passwordType" />
         </div>
 
