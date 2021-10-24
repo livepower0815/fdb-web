@@ -18,7 +18,7 @@
 .personal-main-name{font-size:24px;}
 .personal-main-sub{font-size:14px;}
 .personal-main-email{font-size:14px;}
-a.personal-main-btn{width:150px;height:auto;padding:15px 50px;line-height:14px;font-size:14px;}
+a.personal-main-btn{width:160px;height:auto;padding:15px 50px;line-height:14px;font-size:14px;}
 .personal-function-block{max-width:calc(70% - 8.5px);}
 .personal-function-block>div.menu-block{transform:none;left:0%;}
 .personal-function-main>div.title{font-size: 14px;}
@@ -193,8 +193,8 @@ a.personal-main-btn{width:250px;height:auto;padding:15px 30px;line-height:14px;f
 .personal-main-email{font-size:14px;}
 a.personal-main-btn{width:193px;height:auto;padding:15px 30px;line-height:14px;font-size:14px;}
 .personal-function-block{max-width:100%;margin-bottom:15px;}
-.personal-function-block>div.menu-block{transform:none;left:0%;margin:0 0 15px 0;line-height:30px;display: flex;overflow-x: auto;}
-.personal-function-block>div.menu-block>a{font-size:14px;margin-right:25px;flex: 0 0 auto;}
+.personal-function-block>div.menu-block{transform:none;left:0%;margin:0 0 15px 0;line-height:30px;}
+.personal-function-block>div.menu-block>a{font-size:14px;margin-right:25px;}
 .personal-function-main>div.title{font-size: 14px;}
 .personal-function-main>div.exchange-block>div.main{width:100%;margin-right:0px;}
 .personal-function-main>div.exchange-block>div.main>div{height:auto;}

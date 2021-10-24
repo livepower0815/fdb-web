@@ -12,7 +12,7 @@
         <div class="title">{{ $t('build_account') }}</div>
         <div class="register-main">
           <div class="title">*{{ $t('user_name') }}</div>
-          <input v-model="formData.name" type="text" class="input" placeholder="請輸入使用者名稱" />
+          <input v-model="formData.name" type="text" class="input" :placeholder="$t('please_enter_user_name')" />
         </div>
 
         <div class="register-main">

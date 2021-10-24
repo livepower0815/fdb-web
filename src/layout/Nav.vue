@@ -141,7 +141,7 @@ export default {
       localStorage.setItem('FDB-lang', lang)
       i18n.locale = lang
       this.lang = lang
-      location.reload()
+      // location.reload()
     }
   }
 }

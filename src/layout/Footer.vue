@@ -78,10 +78,7 @@ export default {
       align-items: unset;
     }
     .footer-img {
-      flex: 1;
-      @media screen and (max-width: 960px) {
-        flex: 0 0 auto;
-      }
+      flex: 0 0 auto;
       img {
         width: 70px;
       }
@@ -90,7 +87,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex: 2;
+      flex: 1;
       @media screen and (max-width: 700px) {
         justify-content: space-between;
         margin: 12px 0;
@@ -115,13 +112,10 @@ export default {
       }
     }
     .footer-connect {
-      flex: 1;
+      flex: 0 0 auto;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      @media screen and (max-width: 960px) {
-        flex: 0 0 auto;
-      }
       .connect-icon {
         margin-left: 12px;
         width: 34px;
