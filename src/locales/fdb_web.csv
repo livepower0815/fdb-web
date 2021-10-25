@@ -203,102 +203,102 @@ xrp_verify,XRP : r開頭,Please enter the correct Ripple address,XRP : r시작,X
 usdt_verify,USDT : 數字1＆3 & 0 開頭,Please enter the correct USDT address,USDT : 숫자 1&3&0 시작,USDT:数字1.3.0から始まる,USDT : 数字1＆3 & 0 开头
 eth_verify,ETH : 數字0 開頭，42位英文大小寫+數字組成,Please enter the correct Ether address,"ETH 숫자 0 시작, 42자리 영문 대소문자 + 숫자 구성",ETH:数字0から始まる、42文字の半角英大文字半角英小文字+数字の組み合わせ,ETH : 数字0 开头，42位英文大小写+数字组成
 bind_success,綁定成功,Connect Successful,바인딩 성공,バインディング完了,绑定成功
-friend_invitation_code,您的好友邀請碼,,레퍼럴 코드,友達の招待コード,您的好友邀请码
-return_amount_rebates,返回返佣數量總覽,,수수료 리베이트,リベート数の一覧へ戻る,返回返佣数量总览
-exchange_management,交易所管理,,거래소 관리,取引所を管理する,交易所管理
-withdrawal_address_management,出金地址管理,,출금주소 관리,出金メールアドレスを管理する,出金地址管理
-referrer_management,推薦人管理,,레퍼럴 관리,紹介者を管理する,推荐人管理
-edit_profile,編輯個人檔案,,파일 편집,プロファイルを編集する,编辑个人档案
-invite_code_copy,邀請碼複製成功,,레퍼럴 코드 복사하기,招待コードをコピーした,邀请码複制成功
-invite_connect_copy,邀請連結複製成功,,레퍼럴 코드 복사성공,招待リングをコピーした,邀请连结複制成功
-build_account,創建帳戶,,계정 생성,ユーザーの作成,创建帐户
-invite_code,邀請碼,,레퍼럴 코드,招待コード,邀请码
-enter_recommender_invite,輸入推薦人邀請碼,,레퍼럴 코드 입력,紹介者の招待コードを入力してください,输入推荐人邀请码
-service_terms,服務,,서비스,利用規約,服务
-has_account,已經有帳號？,,이미 계정이,アカウントをお持ちの方？,已经有帐号？
-mail_verification_notice,信箱驗證通知,,이메일 인증을 확인하세요,メールアドレス検証のお知らせ,信箱验证通知
-verification_email,提醒您：驗證電子郵件，開始返佣,,알림 : 이메일 인증이 되어야만 수수료 반환이 가능합니다.,リマインド：メールアドレスを検証してリベート開始,提醒您：验证电子邮件，开始返佣
-please_enter_correct_email,電子郵件：請輸入正確電子郵件,,이메일 : 올바른 이메일 주소를 입력하세요,メールアドレス：正しいメールアドレスを入力してください,电子邮件：请输入正确电子邮件
-password_en_number,密碼：請輸入6位數以上英數字,,"비밀번호 : 영문, 숫자를 포함한 6자리 이상 숫자 입력",パスワード : ６文字以上半角英数字を入力してください,密码：请输入6位数以上英数字
-invite_code_validate,邀請碼：8位數，含英數字，不含特殊符號,,레퍼럴 번호 : 8자리 숫자로만 기입,招待コード：記号を含まない８文字以上半角英数字,邀请码：8位数，含英数字，不含特殊符号
-privacy_conditions_need_checked,隱私條件需勾選，才可以點擊註冊,,개인정보보호는 체크표시를 해야지만 등록이 가능합니다.,プライバシー条件を同意してから、申し込みをクリック,隐私条件需勾选，才可以点击注册
-reset_password,重置您的密碼,,비밀번호 초기화,パスワード再設定,重置您的密码
-enter_email_to_set_password,請輸入註冊時電子郵件，進行密碼重置,,가입 시 입력했던 이메일 주소를 입력하여 비밀번호 재설정을 진행합니다.,登録したメールアドレスをご入力してパスワードの再設定を行います,请输入注册时电子邮件，进行密码重置
-send_password_link,發送密碼重置連結,,암호 초기화,パスワード再設定のURLを発送します,发送密码重置连结
-return_login_page,回到登入畫面,,로그인 화면으로 되돌아가기,登録画面に戻る,回到登入画面
-email_notify,電子郵箱通知,,이메일로 발송됩니다.,メールアドレスのお知らせ,电子邮箱通知
-receiving_linked_letters,請去電子郵箱收取連結信件,,이메일 수신함을 확인하세요.,メールアドレスにURLを受信してください,请去电子邮箱收取连结信件
-member_withdraw_application,會員出金申請,,회원 출금신청,会員出金の申請,会员出金申请
-fill_withdrawal_account_information,填寫出金帳戶資訊,,출금주소 입력,出金口座情報を入力してください,填写出金帐户资讯
-no_tradable_currency,尚無可交易之幣種,,거래가 불가능한,取引可能な通貨はありません,尚无可交易之币种
-go_to_withdrawal_application_address,請至出金申請地址進行設定,,입니다. 출금 신청주소를 설정합니다.,出金申請アドレスへ設定してください,请至出金申请地址进行设定
-reconfirm_withdrawal_information_amount,再次確認出金資訊與金額,,출금관리,出金情報と金額再確認,再次确认出金资讯与金额
-operation_success,操作成功,,처리완료,操作成功,操作成功
-select_withdraw_coin_type,選擇出金幣別,,종목 선택,出金通貨を選ぶ,选择出金币别
-handling_fee,手續費,,수수료,手数料,手续费
-not_yet_selected,尚未選擇,,완료되지 않은 항목,未選択,尚未选择
-withdraw_adress,出金地址,,출금주소,出金アドレス,出金地址
-amount_can_be_withdrawn,可出金數量,,출금수량,出金可能数,可出金数量
-min_withdraw,最低出金限制,,최저출금제한,最低出金制限,最低出金限制
-please_enter_withdrawal_amount,請輸入出金金額,,출금금액을 입력합니다,出金金額を入力してください,请输入出金金额
-cancel_withdraw,取消出金,,출금취소,出金をキャンセル,取消出金
-next_step,下一步,,다음,次へ,下一步
-actual_quantity,實拿數量,,실제수량,実際数,实拿数量
-submit_withdrawal_application,注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交,,,注意：会員様へ取引先のアドレスが正しいかどうかを再確認して、間違いがなければ出金申請を提出されます,注意：亲爱的会员您好，请再次确认您的交易地址是否正确，若无误将进行出金申请提交
-previous,上一步,,이전페이지,戻る,上一步
-submit_application,提出申請,,승인 신청하기,申請を提出,提出申请
-expected_complete_withdrawal,預計48 小時內完成出金,,출금은 48시간 정도 소요됩니다.,４８時間内出金完了予定,预计48 小时内完成出金
-if_any_problem,若有任何問題請聯繫返多寶客服中心,," 관련된 문제가 발생할 경우 고객센터로 문의바랍니다.",ご不明な点がございましたら、FDBカスタマーサービスセンターまでお問い合わせください,若有任何问题请联繫返多宝客服中心
-back_to_list,回到列表,,목록으로 되돌아가기,リストへ戻る,回到列表
-application_again,再申請一筆,,다시 신청하기,再申請,再申请一笔
-withdraw_coin_type,出金幣別,,출금 종목,出金通貨,出金币别
-enter_withdraw_coin_type,請輸入出金幣別,,출금 종목을 입력하세요,ご出金通貨を入力してください,请输入出金币别
-enter_withdraw_amount,請輸入出金數量,,수량 입력하기,ご出金数を入力してください,请输入出金数量
-exceeds_amount_withdrawn,超過可出金數量,,출금 수량 초과,ご出金できる数を超え,超过可出金数量
+friend_invitation_code,您的好友邀請碼,Referral Code,레퍼럴 코드,友達の招待コード,您的好友邀请码
+return_amount_rebates,返回返佣數量總覽,Return to the overview of the amount of rebates,수수료 리베이트,リベート数の一覧へ戻る,返回返佣数量总览
+exchange_management,交易所管理,Exchange Management,거래소 관리,取引所を管理する,交易所管理
+withdrawal_address_management,出金地址管理,Address Management,출금주소 관리,出金メールアドレスを管理する,出金地址管理
+referrer_management,推薦人管理,Refferral Management,레퍼럴 관리,紹介者を管理する,推荐人管理
+edit_profile,編輯個人檔案,Edit Profile,파일 편집,プロファイルを編集する,编辑个人档案
+invite_code_copy,邀請碼複製成功,Copy successfully,레퍼럴 코드 복사하기,招待コードをコピーした,邀请码複制成功
+invite_connect_copy,邀請連結複製成功,Copy successfully,레퍼럴 코드 복사성공,招待リングをコピーした,邀请连结複制成功
+build_account,創建帳戶,Register,계정 생성,ユーザーの作成,创建帐户
+invite_code,邀請碼,Referral Code,레퍼럴 코드,招待コード,邀请码
+enter_recommender_invite,輸入推薦人邀請碼,Enter Referral Code,레퍼럴 코드 입력,紹介者の招待コードを入力してください,输入推荐人邀请码
+service_terms,服務,Service,서비스,利用規約,服务
+has_account,已經有帳號？,Already have an account?,이미 계정이,アカウントをお持ちの方？,已经有帐号？
+mail_verification_notice,信箱驗證通知,Email verification notice,이메일 인증을 확인하세요,メールアドレス検証のお知らせ,信箱验证通知
+verification_email,提醒您：驗證電子郵件，開始返佣,Verify email and start rebate,알림 : 이메일 인증이 되어야만 수수료 반환이 가능합니다.,リマインド：メールアドレスを検証してリベート開始,提醒您：验证电子邮件，开始返佣
+please_enter_correct_email,電子郵件：請輸入正確電子郵件,Email: Please enter the correct email,이메일 : 올바른 이메일 주소를 입력하세요,メールアドレス：正しいメールアドレスを入力してください,电子邮件：请输入正确电子邮件
+password_en_number,密碼：請輸入6位數以上英數字,Password: Please enter more than 6 digits alphanumeric,"비밀번호 : 영문, 숫자를 포함한 6자리 이상 숫자 입력",パスワード : ６文字以上半角英数字を入力してください,密码：请输入6位数以上英数字
+invite_code_validate,邀請碼：8位數，含英數字，不含特殊符號,Referral Code,레퍼럴 번호 : 8자리 숫자로만 기입,招待コード：記号を含まない８文字以上半角英数字,邀请码：8位数，含英数字，不含特殊符号
+privacy_conditions_need_checked,隱私條件需勾選，才可以點擊註冊,Accept,개인정보보호는 체크표시를 해야지만 등록이 가능합니다.,プライバシー条件を同意してから、申し込みをクリック,隐私条件需勾选，才可以点击注册
+reset_password,重置您的密碼,Reset Password,비밀번호 초기화,パスワード再設定,重置您的密码
+enter_email_to_set_password,請輸入註冊時電子郵件，進行密碼重置,"Enter Email , Reset New Password",가입 시 입력했던 이메일 주소를 입력하여 비밀번호 재설정을 진행합니다.,登録したメールアドレスをご入力してパスワードの再設定を行います,请输入注册时电子邮件，进行密码重置
+send_password_link,發送密碼重置連結,Send password reset link,암호 초기화,パスワード再設定のURLを発送します,发送密码重置连结
+return_login_page,回到登入畫面,Back to menu,로그인 화면으로 되돌아가기,登録画面に戻る,回到登入画面
+email_notify,電子郵箱通知,Email notification,이메일로 발송됩니다.,メールアドレスのお知らせ,电子邮箱通知
+receiving_linked_letters,請去電子郵箱收取連結信件,Check Email with link,이메일 수신함을 확인하세요.,メールアドレスにURLを受信してください,请去电子邮箱收取连结信件
+member_withdraw_application,會員出金申請,Withdraw,회원 출금신청,会員出金の申請,会员出金申请
+fill_withdrawal_account_information,填寫出金帳戶資訊,Enter Withdraw Address,출금주소 입력,出金口座情報を入力してください,填写出金帐户资讯
+no_tradable_currency,尚無可交易之幣種,There is no tradable currency,거래가 불가능한,取引可能な通貨はありません,尚无可交易之币种
+go_to_withdrawal_application_address,請至出金申請地址進行設定,Please go to the withdrawal application address to set,입니다. 출금 신청주소를 설정합니다.,出金申請アドレスへ設定してください,请至出金申请地址进行设定
+reconfirm_withdrawal_information_amount,再次確認出金資訊與金額,Reconfirm the withdrawal information and amount,출금관리,出金情報と金額再確認,再次确认出金资讯与金额
+operation_success,操作成功,Successful,처리완료,操作成功,操作成功
+select_withdraw_coin_type,選擇出金幣別,Select Withdraw Type,종목 선택,出金通貨を選ぶ,选择出金币别
+handling_fee,手續費,Gas Fee,수수료,手数料,手续费
+not_yet_selected,尚未選擇,Not yet selected,완료되지 않은 항목,未選択,尚未选择
+withdraw_adress,出金地址,Address,출금주소,出金アドレス,出金地址
+amount_can_be_withdrawn,可出金數量,Available Amount,출금수량,出金可能数,可出金数量
+min_withdraw,最低出金限制,Minimum withdrawal limit,최저출금제한,最低出金制限,最低出金限制
+please_enter_withdrawal_amount,請輸入出金金額,Withdrawal Amount,출금금액을 입력합니다,出金金額を入力してください,请输入出金金额
+cancel_withdraw,取消出金,Cancel Withdraw,출금취소,出金をキャンセル,取消出金
+next_step,下一步,Next,다음,次へ,下一步
+actual_quantity,實拿數量,Amount,실제수량,実際数,实拿数量
+submit_withdrawal_application,注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交,"Note: Hello, dear members, please confirm whether your transaction address is correct, and if it is correct, the withdrawal application will be submitted",,注意：会員様へ取引先のアドレスが正しいかどうかを再確認して、間違いがなければ出金申請を提出されます,注意：亲爱的会员您好，请再次确认您的交易地址是否正确，若无误将进行出金申请提交
+previous,上一步,Previous,이전페이지,戻る,上一步
+submit_application,提出申請,Apply,승인 신청하기,申請を提出,提出申请
+expected_complete_withdrawal,預計48 小時內完成出金,It is estimated that the withdrawal will be completed within 48 hours.,출금은 48시간 정도 소요됩니다.,４８時間内出金完了予定,预计48 小时内完成出金
+if_any_problem,若有任何問題請聯繫返多寶客服中心,"If you have any questions, please contact Fundobit Customer Service Center"," 관련된 문제가 발생할 경우 고객센터로 문의바랍니다.",ご不明な点がございましたら、FDBカスタマーサービスセンターまでお問い合わせください,若有任何问题请联繫返多宝客服中心
+back_to_list,回到列表,Menu,목록으로 되돌아가기,リストへ戻る,回到列表
+application_again,再申請一筆,Next Apply,다시 신청하기,再申請,再申请一笔
+withdraw_coin_type,出金幣別,Type Of Currency,출금 종목,出金通貨,出金币别
+enter_withdraw_coin_type,請輸入出金幣別,Please enter withdraw type of currency,출금 종목을 입력하세요,ご出金通貨を入力してください,请输入出金币别
+enter_withdraw_amount,請輸入出金數量,Please enter withdraw amount,수량 입력하기,ご出金数を入力してください,请输入出金数量
+exceeds_amount_withdrawn,超過可出金數量,Exceeds the amount of currency that can be withdrawn,출금 수량 초과,ご出金できる数を超え,超过可出金数量
 less_min_withdraw,低於 {selectedCoinName} 最低出金數量 {coinminiAmount},,{selectedCoinName}최소출금수량 {coinminiAmount},より下 {selectedCoinName} 最低出金数 {coinminiAmount},低于 {selectedCoinName} 最低出金数量 {coinminiAmount}
-application_success,申請成功,,신청완료,申請完了,申请成功
-first_corporate,首家企業化的「返佣平台」及「論壇」 提供全方位返佣方案,,자사는 리베이트 플랫폼으로 독자적인 우호협력 모든 파트너들과 합리적인 방법으로 솔루션을 공급하고자 설립되었습니다.,実業家において第一社である「リベートシステム」、「フォーラム」をオールラウンドリベートプランを提供します,首家企业化的「返佣平台」及「论坛」提供全方位返佣方案
-trade_rebate,「交易返佣、手續費返佣、推薦好友再返佣」,,"거래량 리베이트, 수수료 리베이트, 레퍼럴 리베이트",「取引リベート、手数料リベート、友達を招待したらまたリベート」,「交易返佣、手续费返佣、推荐好友再返佣」
-rebate_process,返佣流程,,리베이트 절차관련,リベートの流れ,返佣流程
-application_fdb_member,申請返多寶會員,,회원신청,FDBの会員を申請する,申请返多宝会员
+application_success,申請成功,Apply Successful,신청완료,申請完了,申请成功
+first_corporate,首家企業化的「返佣平台」及「論壇」 提供全方位返佣方案,"The first corporate to provide a full range of rebate solutions of ""Rebate Platform"" and ""Forum""",자사는 리베이트 플랫폼으로 독자적인 우호협력 모든 파트너들과 합리적인 방법으로 솔루션을 공급하고자 설립되었습니다.,実業家において第一社である「リベートシステム」、「フォーラム」をオールラウンドリベートプランを提供します,首家企业化的「返佣平台」及「论坛」提供全方位返佣方案
+trade_rebate,「交易返佣、手續費返佣、推薦好友再返佣」,"Trade rebates, Commission rebates, Referral rebates","거래량 리베이트, 수수료 리베이트, 레퍼럴 리베이트",「取引リベート、手数料リベート、友達を招待したらまたリベート」,「交易返佣、手续费返佣、推荐好友再返佣」
+rebate_process,返佣流程,Rebate Process,리베이트 절차관련,リベートの流れ,返佣流程
+application_fdb_member,申請返多寶會員,Apply for Fundobit membership,회원신청,FDBの会員を申請する,申请返多宝会员
 friends_invitation_code_commission,另外新增好友邀請碼可共同獲得反佣,,함께 가입하고 함께 혜택받는 폭넓은 기회제공,友達の招待コードを追加、自分とお友達の両方ともリベートを貰える,另外新增好友邀请码可共同获得反佣
-register_exchange_through_rebate_link,透過返多寶鏈結註冊交易所,,거래소 가입절차 필요없이 단번에 해결하는 올인원플랫폼,FDBのリングを通して取引所を申し込み,透过返多宝链结注册交易所
-exchange_uid_bind_member,將交易所UID與返多寶會員綁定,,귀하의 거래소 UID는 플랫폼 API와 상시 연동되어 있습니다.,UID取引所とFDB会員をバインディングします,将交易所UID与返多宝会员绑定
-receive_rebate,領取返佣,,리베이트 회수하기,リベートを受け取る,领取返佣
-view_commission_rebate_dashboard,檢視返佣儀表板，輸入錢包地址，申請出金,,"리베이트 도표, 도식화 그래프 산출, 출금신청",リベートダッシュボードを検視、口座を入力して出金を申し込み,检视返佣仪表板，输入钱包地址，申请出金
-rebate_guarantee,返佣保證,,리베이트 보증,リベート保証,返佣保证
+register_exchange_through_rebate_link,透過返多寶鏈結註冊交易所,Register the exchange through the Fundobit rebate link,거래소 가입절차 필요없이 단번에 해결하는 올인원플랫폼,FDBのリングを通して取引所を申し込み,透过返多宝链结注册交易所
+exchange_uid_bind_member,將交易所UID與返多寶會員綁定,Connecting exchange UID with Fundobit member,귀하의 거래소 UID는 플랫폼 API와 상시 연동되어 있습니다.,UID取引所とFDB会員をバインディングします,将交易所UID与返多宝会员绑定
+receive_rebate,領取返佣,Receive commission,리베이트 회수하기,リベートを受け取る,领取返佣
+view_commission_rebate_dashboard,檢視返佣儀表板，輸入錢包地址，申請出金,"View the commission rebate dashboard, enter the wallet address, and apply for withdrawal","리베이트 도표, 도식화 그래프 산출, 출금신청",リベートダッシュボードを検視、口座を入力して出金を申し込み,检视返佣仪表板，输入钱包地址，申请出金
+rebate_guarantee,返佣保證,Rebate Promise,리베이트 보증,リベート保証,返佣保证
 no_trading_conditions_required,成為返多寶用戶，不需要任何交易條件，即有40%交易返佣。,,거래수수료 40%로 업계 최상위 리베이트 혜택을 제공하며.,FDBの会員になったら取引条件は必要ありません。すぐ40%の取引リベートを貰える。,成为返多宝用户，不需要任何交易条件，即有40%交易返佣。
 enjoy_another_ten_recommendation,返多寶邀請計畫，好友交易返佣再享10%推薦推薦。,,이와 같은 레퍼럴 혜택 10%가 제공됩니다.,FDBの招待企画は友達の取引リベート更に10%還元,返多宝邀请计画，好友交易返佣再享10%推荐推荐。
-apply_account,申請開戶,,계정 생성하기,口座開設の申請,申请开户
-rebate_subsidy_ratio,返多寶補貼比例,,가입 보너스,FDBの補助比率,返多宝补贴比例
-refer_friends_rebate_ratio,推薦好友返佣比例,,레퍼럴 수수수료,友達紹介のリベート比率,推荐好友返佣比例
-official_agent_rebate_ratio,官方代理返佣比例,,파트너 리베이트,公式代理リベート比率,官方代理返佣比例
-lever,槓桿,,레버리지,レバレッジ,槓杆
-trading_pair,交易對,,거래대비,通貨,交易对
-transaction_support,交易支持,,거래지원,取引を支える,交易支持
-futures,期貨,,담보대출,先物取引,期货
-average_transaction_volume,平均交易量,,평균 거래량,平均取引量,平均交易量
-asset_strength,資產實力,,자산,資産実力,资产实力
-number_billion,{number}億,,{number}억,{number}億,{number}亿
-bybit_advantage,Bybit 優勢,,바이비트 우세,Bybit優勢,Bybit 优势
-fair_transparent,公平透明,,거래안정성,公正透明,公平透明
+apply_account,申請開戶,Register,계정 생성하기,口座開設の申請,申请开户
+rebate_subsidy_ratio,返多寶補貼比例,FUNDOBIT commission rebate ratio,가입 보너스,FDBの補助比率,返多宝补贴比例
+refer_friends_rebate_ratio,推薦好友返佣比例,Referral rebate ratio,레퍼럴 수수수료,友達紹介のリベート比率,推荐好友返佣比例
+official_agent_rebate_ratio,官方代理返佣比例,Official agent rebate ratio,파트너 리베이트,公式代理リベート比率,官方代理返佣比例
+lever,槓桿,Leverage,레버리지,レバレッジ,槓杆
+trading_pair,交易對,Market,거래대비,通貨,交易对
+transaction_support,交易支持,Trade Support,거래지원,取引を支える,交易支持
+futures,期貨,Futures,담보대출,先物取引,期货
+average_transaction_volume,平均交易量,Volume,평균 거래량,平均取引量,平均交易量
+asset_strength,資產實力,Asset,자산,資産実力,资产实力
+number_billion,{number}億,{number} Billion,{number}억,{number}億,{number}亿
+bybit_advantage,Bybit 優勢,Bybit advantage,바이비트 우세,Bybit優勢,Bybit 优势
+fair_transparent,公平透明,Openness and Transparency,거래안정성,公正透明,公平透明
 mark_price_selects_real_time,標記價格選取 Coinbase、Bitstamp、Kraken（三大受美國證監會監管交易所）的實時成交價,,"코인베이스, 비트스탬프, 크라켄 거래평균시세",標記価額コインベース、ビットスタンプ、クラーケンを選ぶ(米国証券取引委員会SEC),标记价格选取 Coinbase、Bitstamp、Kraken（三大受美国证监会监管交易所）的实时成交价
-market_depth_no_one,市場深度中國第一,,마켓뎁스 사용량 1위,マーケットの深みは中国ナンバーワン,市场深度中国第一
-according_latest_statistics,根據最新統計數據，Bybit的平均前三個檔位盤口深度已遠超中國市場平均深度水準,,최근 측정된 데이터에서 바이빗은 가상자산 마켓뎁스가 순위권 3위안에 등재되었다.,最新の統計によるとBybitは最初三ヶ月の平均ハンディキャップが中国マーケット平均レベルを超えました,根据最新统计数据，Bybit的平均前三个档位盘口深度已远超中国市场平均深度水准
-flexible_leverage,彈性槓桿,,격리마진,弾力レバレッジ,弹性槓杆
-which_long_term_investment,提供1至100倍槓桿，且為永續合約，可長線投資,,"100배 레버리지 제공, 무기한 계약을 통한 거래지속성",1から100倍までのレバレッジを提供し、協力は永続的なので長期投資ができます,提供1至100倍槓杆，且为永续合约，可长线投资
-top_allocation_fund_security_system,頂配的資金安全體系,,안전성호환모듈,最高のセキュリティエコシステム,顶配的资金安全体系
-platform_builds_industry_advanced,平台自建業內最領先的分層確定性冷錢包體系,,플랫폼 레이어 구축,業界で最も先進的な階層化されたコールドウォレットシステム,平台自建业内最领先的分层确定性冷钱包体系
-intelligent_ordering_system_support,智能下單系統支持,,스마트컨트랙 전송시스템,知能注文システムを支え,智能下单系统支持
-set_profit_stop_loss_trailing,入場時直接設置止盈/止損及追踪止損，無需時刻盯盤,,인터페이스 없이 자동 포지션 지정가 손절/역지정 설정가능,寄り付き前に利益確保/損切りと損切りの追跡を直接設置できるので板をじっと見なくでも安心,入场时直接设置止盈/止损及追踪止损，无需时刻盯盘
-flexible_fund_allocation,資金調配靈活,,풍부한 자금유동성,資金移動をスムーズ,资金调配灵活
-no_minimum_transaction_amount,無交易金額下限，即使資金不足也有機會投資,,최소한도금액 없이 투자가능,取引の最少額がありませんので、資金不足にも投資なチャンスがあります,无交易金额下限，即使资金不足也有机会投资
-become_member_fdb,成為返多寶會員,,FDB 유저 등록 시,FDBの会員になる,成为返多宝会员
-return_fdb_subsidize,返多寶再補貼給您交易手續費,,FDB 가입보너스 및 수수료 절감가능,FDBがまた取引手数料を補助してくれます,返多宝再补贴给您交易手续费
-only_thing_reduce_transaction_costs,為您降低交易成本的只有「返多寶」,,FDB를 통해 절감된 거래수수료 제공,お客様の取引コストを減らすのはFDBだけ,为您降低交易成本的只有「返多宝」
-enter_number_slot,請輸入{number}位數以上英數字,,{number}자리 이상의 영문 및 숫자를 입력하세요,{number}文字以上半角英数字を入力してください,请输入{number}位数以上英数字
-enter_en_number,輸入{number}位數以上，含英數字,,영문과 숫자를 포함하여 {number}자리 이상이여야 합니다,{number}文字以上半角英数字を入力してください,输入{number}位数以上，含英数字
-please_enter_user_name,請輸入使用者名稱,,사용자명 입력,ユーザー名を入力してください,请输入使用者名称
+market_depth_no_one,市場深度中國第一,Market Depth No. 1 in China,마켓뎁스 사용량 1위,マーケットの深みは中国ナンバーワン,市场深度中国第一
+according_latest_statistics,根據最新統計數據，Bybit的平均前三個檔位盤口深度已遠超中國市場平均深度水準,"The mark price selects the real-time transaction prices of Coinbase, Bitstamp, and Kraken (the three major exchanges regulated by the US Securities Regulatory Commission)",최근 측정된 데이터에서 바이빗은 가상자산 마켓뎁스가 순위권 3위안에 등재되었다.,最新の統計によるとBybitは最初三ヶ月の平均ハンディキャップが中国マーケット平均レベルを超えました,根据最新统计数据，Bybit的平均前三个档位盘口深度已远超中国市场平均深度水准
+flexible_leverage,彈性槓桿,Flexible leverage,격리마진,弾力レバレッジ,弹性槓杆
+which_long_term_investment,提供1至100倍槓桿，且為永續合約，可長線投資,"Provide 1-100 times leverage, perpetual contract, long-term investment","100배 레버리지 제공, 무기한 계약을 통한 거래지속성",1から100倍までのレバレッジを提供し、協力は永続的なので長期投資ができます,提供1至100倍槓杆，且为永续合约，可长线投资
+top_allocation_fund_security_system,頂配的資金安全體系,High-standard assets security system,안전성호환모듈,最高のセキュリティエコシステム,顶配的资金安全体系
+platform_builds_industry_advanced,平台自建業內最領先的分層確定性冷錢包體系,The platform builds the industry's most advanced layered deterministic cold wallet system,플랫폼 레이어 구축,業界で最も先進的な階層化されたコールドウォレットシステム,平台自建业内最领先的分层确定性冷钱包体系
+intelligent_ordering_system_support,智能下單系統支持,Intelligent ordering system support,스마트컨트랙 전송시스템,知能注文システムを支え,智能下单系统支持
+set_profit_stop_loss_trailing,入場時直接設置止盈/止損及追踪止損，無需時刻盯盤,"Set profit/stop loss and trailing stop loss directly when entering the market, no need to watch the market all the time",인터페이스 없이 자동 포지션 지정가 손절/역지정 설정가능,寄り付き前に利益確保/損切りと損切りの追跡を直接設置できるので板をじっと見なくでも安心,入场时直接设置止盈/止损及追踪止损，无需时刻盯盘
+flexible_fund_allocation,資金調配靈活,Flexible fund allocation,풍부한 자금유동성,資金移動をスムーズ,资金调配灵活
+no_minimum_transaction_amount,無交易金額下限，即使資金不足也有機會投資,"There is no minimum transaction amount, even if the funds are insufficient, there is a chance to invest",최소한도금액 없이 투자가능,取引の最少額がありませんので、資金不足にも投資なチャンスがあります,无交易金额下限，即使资金不足也有机会投资
+become_member_fdb,成為返多寶會員,Register Fundobit member,FDB 유저 등록 시,FDBの会員になる,成为返多宝会员
+return_fdb_subsidize,返多寶再補貼給您交易手續費,Fundobit subsidizes you transaction fees,FDB 가입보너스 및 수수료 절감가능,FDBがまた取引手数料を補助してくれます,返多宝再补贴给您交易手续费
+only_thing_reduce_transaction_costs,為您降低交易成本的只有「返多寶」,"The only thing that can reduce your transaction costs is ""Fundobit""",FDB를 통해 절감된 거래수수료 제공,お客様の取引コストを減らすのはFDBだけ,为您降低交易成本的只有「返多宝」
+enter_number_slot,請輸入{number}位數以上英數字,Please enter more than {number} digits alphanumeric,{number}자리 이상의 영문 및 숫자를 입력하세요,{number}文字以上半角英数字を入力してください,请输入{number}位数以上英数字
+enter_en_number,輸入{number}位數以上，含英數字,"Enter more than {number} digits, including alphanumerics",영문과 숫자를 포함하여 {number}자리 이상이여야 합니다,{number}文字以上半角英数字を入力してください,输入{number}位数以上，含英数字
+please_enter_user_name,請輸入使用者名稱,Please enter username,사용자명 입력,ユーザー名を入力してください,请输入使用者名称
 ,,,,,
 ,,,,,
 ,,,,,
