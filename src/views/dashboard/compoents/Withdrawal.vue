@@ -64,6 +64,10 @@
                 <div class="status already"></div>
                 {{ $t('completed') }}
               </template>
+              <template v-if="row.rebateStatus === 3">
+                <div class="status already"></div>
+                {{ $t('cancelled') }}
+              </template>
             </td>
             <td>{{ row.orderNum }}</td>
             <td>{{ formatDate(row.orderDate) }}</td>
@@ -100,6 +104,10 @@
               <template v-if="row.rebateStatus === 2">
                 <div class="status already"></div>
                 {{ $t('completed') }}
+              </template>
+              <template v-if="row.rebateStatus === 3">
+                <div class="status already"></div>
+                {{ $t('cancelled') }}
               </template>
             </div>
           </div>
@@ -276,7 +284,8 @@ export default {
       rebateStatusMap: [
         { name: this.$t('applying'), key: 0 },
         { name: this.$t('withdrawal'), key: 1 },
-        { name: this.$t('completed'), key: 2 }
+        { name: this.$t('completed'), key: 2 },
+        { name: this.$t('cancelled'), key: 3 }
       ]
     }
   },
