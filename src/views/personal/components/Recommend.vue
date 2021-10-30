@@ -132,7 +132,7 @@
                 </td>
                 <td style="text-align: center;">
                   <div :class="`group group-color-${(groupMap[row.rgid] && groupMap[row.rgid].color) || 0}`">
-                    {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || $t('uncategorized') }}
+                    {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || $t('no_group') }}
                   </div>
                 </td>
                 <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">{{ formatDate(row.createdate) }}</td>

@@ -5,7 +5,7 @@ your_profit,您的盈利,Profits,수익현황,お客様の収益,您的盈利
 go_to__withdrawal_address,前往出金地址,Withdraw,이전 출금주소,出金先アドレス,前往出金地址
 unbind,未綁定,Unconnect,미연동,バインディングされていない,未绑定
 bound,已綁定,Connect successfully,연동완료,バインディングされている,已绑定
-fdb_home,FDB首頁,Home,메인페이지,FDBホームページ,FDB首页
+fdb_home,FDB首頁,Home,메인페이지,ホームページ,FDB首页
 latest_news,最新消息,News,최신소식,最新ニュース,最新消息
 contact_us,聯絡我們,Contact Customer Service,관련문의,お問い合わせ,联络我们
 disclaimer,免責聲明,Disclaimer,이용약관,免責声明,免责声明
@@ -53,18 +53,18 @@ referrer,推薦人,Referral,클라이언트,紹介者,推荐人
 withdrawal,出金,Withdraw,출금하기,出金,出金
 activity_change,活動異動,Variation,위치이동,イベント異動,活动异动
 undefined,未定義,Undefined,미확정,未定義,未定义
-personal_rebate_number,個人返佣數量,Personal Rebate,나의 리베이트,個人リベート数,个人返佣数量
-referrer_rebate_number,推薦人返佣數量,Referral rebate,클라이언트 리베이트,紹介者リベート数,推荐人返佣数量
+personal_rebate_number,個人返佣數量,Personal Rebate,나의 리베이트,個人報酬,个人返佣数量
+referrer_rebate_number,推薦人返佣數量,Referral rebate,클라이언트 리베이트,紹介者報酬,推荐人返佣数量
 withdrawal_quantity,出金數量,Amount Of Cash Out,출금수량,出金数,出金数量
 week,一週,Week,일주일,一週間,一週
 month,一月,Month,한달,一か月,一月
 season,一季,Season,시즌,ワンシーズン,一季
 filter_time,篩選時間,Filiter Time,시간선택,時間枠を選択する,筛选时间
 rebate_status,返佣狀態,Condition,상태창,リベート状態,返佣状态
-rebate_trading_volume,可返佣交易量,Rebate trading volume,리베이트 거래량,リベートを取引できる数量,可返佣交易量
-rebate_quantity,可返佣數量,Rebate quantity,리베이트 수량,リベートできる数量,可返佣数量
-no_rebate,未返佣,Surplus,진행중,リベートまだされていません,未返佣
-be_rebate,已返佣,Completing Rebate,완료,リベートをされました,已返佣
+rebate_trading_volume,可返佣交易量,Rebate trading volume,리베이트 거래량,テイカー取引高,可返佣交易量
+rebate_quantity,可返佣數量,Rebate quantity,리베이트 수량,報酬,可返佣数量
+no_rebate,未返佣,Surplus,진행중,保留中報酬,未返佣
+be_rebate,已返佣,Completing Rebate,완료,支払済報酬,已返佣
 enter_member_keyword,輸入會員名稱關鍵字,"Search ",선택,会員ネームの関連キーワードを入力してください,输入会员名称关键字
 manage_group,管理組別,Management group,정렬,グループを管理する,管理组别
 member_name,會員名稱,User Name,회원명,会員ネーム,会员名称
@@ -155,7 +155,7 @@ m_phone_enter_number,行動電話：請輸入數字,Phone: Please Enter Number,�
 email_enter_correct,電子郵件：請輸入正確電子郵件,Email: Please enter the correct email,이메일 : 도메인을 포함한 전체 주소를 입력하세요,メールアドレス：正しいメールアドレスを入力してください,电子邮件：请输入正确电子邮件
 personal_information,基本個人資料,Profile,기본 인적사항,基本個人情報,基本个人资料
 only_fields_can_be_modified,為保障各位資訊安全，僅限欄位可以修改,"To protect your information security, only fields can be modified",개인정보 보호를 위해 카테고리 별 수정만 가능합니다,情報安全を保証のため修正できる欄は限られています,为保障各位资讯安全，仅限栏位可以修改
-change_personal_image,更改個人圖像,Edit,이미지 변경,プロフィール写真を変更,更改个人图像
+change_personal_image,更改個人圖像,Edit,이미지 변경,写真を変更する,更改个人图像
 user_name,使用者名稱,Username,사용자 이름,コーザーネーム,使用者名称
 user_email,使用者信箱,User Email,사용자 이메일,コーザーメールアドレス,使用者信箱
 old_password,原密碼,Your Password,기존 비밀번호,元のパスワード,原密码
@@ -174,7 +174,6 @@ last_trade_date,最後交易日,Last trading day,최신거래일자,最後の引
 connect_info,聯絡資訊,Info,연락처 정보,連絡先,联络资讯
 rebate_trade_value,返佣交易量,Rebate trading volume,거래량 리베이트,リベートを取引できる数量,返佣交易量
 view_information,檢視資訊,Veiw,정보 검증,情報を検視する,检视资讯
-uncategorized,未分類,Uncategorized,미분류,分別していない,未分类
 empty_data,暫無數據,No Result,데이터 없음,該当のデータがありません,暂无数据
 edit_recommender_group,編輯推薦人組別,Edit Referral Group,레퍼럴 그룹 편집,紹介者組を編集する,编辑推荐人组别
 select_group,選擇組別,Select Group,그룹 선택,グループを選択する,选择组别
