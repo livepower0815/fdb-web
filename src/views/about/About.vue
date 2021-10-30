@@ -135,7 +135,8 @@ export default {
         text-align: start;
       }
       .info {
-        margin-left: 12%;
+        margin-left: 9%;
+        margin-right: 3%;
       }
     }
     &.reverse-m {
@@ -157,7 +158,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       width: 40%;
-      margin-left: 6%;
+      margin: 0 3%;
       @media screen and (max-width: 700px) {
         width: 100%;
         margin-left: 0;
@@ -178,6 +179,7 @@ export default {
           line-height: 30px;
         }
         @media screen and (max-width: 700px) {
+          padding: 0 6%;
           margin-bottom: 2%;
         }
       }
@@ -192,6 +194,9 @@ export default {
         @media screen and (max-width: 960px) {
           font-size: 14px;
           line-height: 24px;
+        }
+        @media screen and (max-width: 700px) {
+          padding: 0 6%;
         }
       }
     }
