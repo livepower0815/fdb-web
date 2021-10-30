@@ -49,6 +49,7 @@
     margin: 0px 3% 12vw 3%;
   }
   &-title {
+    width: 22%;
     font-size: 40px;
     font-weight: bold;
     padding: 45px 0;
@@ -73,22 +74,18 @@
       .join-main {
         display: flex;
         flex-direction: column;
-        height: 166px;
         padding: 0px 30px;
         .title {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding-bottom: 10px;
+          padding: 8% 0;
           font-weight: bold;
           font-size: 24px;
         }
         .info {
-          flex: 1;
+          // flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
+          padding-bottom: 20px;
           font-size: 16px;
           line-height: 150%;
         }
@@ -112,9 +109,7 @@
           width: 43px;
         }
         .join-main {
-          height: 144px;
           padding: 0px 18px;
-          // .title {}
           .info {
             font-size: 14px;
           }
@@ -139,12 +134,9 @@
           width: 32px;
         }
         .join-main {
-          height: 107px;
-          padding-left: 10px;
-          padding-right: 4px;
           .title {
+            padding: 16% 0;
             font-size: 18px;
-            padding-bottom: 6px;
           }
           .info {
             font-size: 12px;
@@ -161,6 +153,7 @@
     flex-direction: column;
     margin: 0px 5% 12vw 5%;
     &-title {
+      width: auto;
       font-size: 30px;
       margin-right: 0px;
       margin-bottom: 36px;
@@ -176,12 +169,8 @@
           top: -20px;
         }
         .join-main {
-          height: 107px;
-          padding: 46px;
-          height: 106px;
           .title {
             font-size: 30px;
-            padding-bottom: 6px;
           }
           .info {
             font-size: 22px;
@@ -198,6 +187,7 @@
     flex-direction: column;
     margin: 0px 5% 12vw 5%;
     &-title {
+      width: auto;
       font-size: 20px;
       margin-right: 0px;
       margin-bottom: 36px;
@@ -214,11 +204,9 @@
           width: 44px;
         }
         .join-main {
-          height: 92px;
           padding: 10px 42px 14px 12px;
           .title {
             font-size: 20px;
-            padding-bottom: 6px;
           }
           .info {
             font-size: 14px;
