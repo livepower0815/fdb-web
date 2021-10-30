@@ -179,7 +179,7 @@ export default {
           border-radius: 8px;
           width: calc(50% - 44px);
           margin: 6px;
-          height: 180px;
+          min-height: 180px;
           padding: 0 12px 0 20px;
           cursor: pointer;
           &.actived,
@@ -205,11 +205,12 @@ export default {
             font-weight: bold;
             font-size: 24px;
             line-height: 32px;
-            margin-bottom: 16px;
+            padding: 8% 0;
           }
           .sub {
             font-size: 16px;
             line-height: 150%;
+            padding-bottom: 8%;
           }
         }
       }
@@ -271,7 +272,7 @@ export default {
             border-radius: 8px;
             width: calc(50% - 38px);
             margin: 6px;
-            height: 124px;
+            min-height: 124px;
             padding: 0 12px 0 12px;
             .title {
               font-size: 20px;
@@ -339,7 +340,7 @@ export default {
             border-radius: 8px;
             width: calc(50% - 38px);
             margin: 6px;
-            height: 124px;
+            min-height: 124px;
             padding: 0 12px 0 12px;
             .title {
               font-size: 16px;
@@ -414,7 +415,7 @@ export default {
         background-image: linear-gradient(to left top, #5ad5d5, #3ea9cc);
         border-radius: 8px;
         margin: 16px;
-        height: 136px;
+        min-height: 136px;
         padding: 36px;
         display: flex;
         flex-direction: column;
@@ -429,6 +430,7 @@ export default {
           line-height: 150%;
         }
         .start {
+          margin-top: 5%;
           text-align: end;
           font-size: 22px;
           font-weight: bold;
@@ -492,7 +494,7 @@ export default {
         background-image: linear-gradient(to left top, #5ad5d5, #3ea9cc);
         border-radius: 8px;
         margin: 10px;
-        height: 100px;
+        min-height: 100px;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -507,7 +509,7 @@ export default {
           line-height: 150%;
         }
         .start {
-          margin-top: 10px;
+          margin-top: 5%;
           text-align: end;
           font-size: 16px;
           font-weight: bold;

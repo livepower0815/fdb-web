@@ -76,12 +76,11 @@
         flex-direction: column;
         padding: 0px 30px;
         .title {
-          padding: 8% 0;
+          padding: 18% 0 8% 0;
           font-weight: bold;
           font-size: 24px;
         }
         .info {
-          // flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -135,7 +134,7 @@
         }
         .join-main {
           .title {
-            padding: 16% 0;
+            padding: 26% 0 16% 0;
             font-size: 18px;
           }
           .info {
@@ -174,6 +173,7 @@
           }
           .info {
             font-size: 22px;
+            padding-bottom: 50px;
           }
         }
       }
