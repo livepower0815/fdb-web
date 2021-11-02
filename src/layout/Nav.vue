@@ -18,7 +18,7 @@
           <img class="navbar-m-lang" src="@/assets/img/nav/mdi_web.png" alt="globel" />
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="TW">TW</el-dropdown-item>
-            <el-dropdown-item command="US">US</el-dropdown-item>
+            <el-dropdown-item command="EN">EN</el-dropdown-item>
             <el-dropdown-item command="CN">CN</el-dropdown-item>
             <el-dropdown-item command="JP">JP</el-dropdown-item>
             <el-dropdown-item command="KR">KR</el-dropdown-item>
@@ -53,7 +53,7 @@
           <span style="margin: 0;font-family: 'Noto Sans CJK TC'; color: #fff; cursor: pointer;">{{ lang }}</span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="TW">TW</el-dropdown-item>
-            <el-dropdown-item command="US">US</el-dropdown-item>
+            <el-dropdown-item command="EN">EN</el-dropdown-item>
             <el-dropdown-item command="CN">CN</el-dropdown-item>
             <el-dropdown-item command="JP">JP</el-dropdown-item>
             <el-dropdown-item command="KR">KR</el-dropdown-item>

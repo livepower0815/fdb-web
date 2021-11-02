@@ -57,8 +57,7 @@
     <el-dialog :title="$t('login_fail')" :visible.sync="validateEmail.show" width="310px" :show-close="false" custom-class="fbd-dialog">
       <div v-if="!validateEmail.hasSent">
         <div style="color: #eb4664; margin-bottom: 12px; text-align: center">{{ $t('unconfirmed_account') }}</div>
-        <!-- TODO: i18n -->
-        <div style="text-align: center">請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊</div>
+        <div style="text-align: center">{{ $t('please_check_your_email_receive') }}</div>
       </div>
       <div v-else style="text-align: center">{{ $t('certification_letter_resent') }}</div>
       <span slot="footer">

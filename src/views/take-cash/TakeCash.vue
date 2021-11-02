@@ -48,7 +48,7 @@
               <div v-if="adressData[currencyMap[form.currencySelect]]" class="value">
                 {{ adressData[currencyMap[form.currencySelect]] }}
               </div>
-              <div v-else class="value" style="opacity: 0.3">尚未選擇或未綁定</div>
+              <div v-else class="value" style="opacity: 0.3">{{ $t('not_yet_selected_unbound') }}</div>
             </div>
             <div class="form-item">
               <div class="title">{{ $t('amount_can_be_withdrawn') }}</div>

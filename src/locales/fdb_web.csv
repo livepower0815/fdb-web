@@ -1,10 +1,10 @@
-i18n=>,TW,US,KR,JP,CN
+i18n=>,TW,EN,KR,JP,CN
 all,全部,All,전체보기,全部,全部
 exchange,交易所,Exchange,거래소,取引所,交易所
 your_profit,您的盈利,Profits,수익현황,お客様の収益,您的盈利
 go_to__withdrawal_address,前往出金地址,Withdraw,이전 출금주소,出金先アドレス,前往出金地址
 unbind,未綁定,Unconnect,미연동,バインディングされていない,未绑定
-bound,已綁定,Connect successfully,연동완료,バインディングされている,已绑定
+bound,已綁定,Bound,연동완료,バインディングされている,已绑定
 fdb_home,FDB首頁,Home,메인페이지,ホームページ,FDB首页
 latest_news,最新消息,News,최신소식,最新ニュース,最新消息
 contact_us,聯絡我們,Contact Customer Service,관련문의,お問い合わせ,联络我们
@@ -300,8 +300,8 @@ enter_number_slot,請輸入{number}位數以上英數字,Please enter more than 
 enter_en_number,輸入{number}位數以上，含英數字,"Enter more than {number} digits, including alphanumerics",영문과 숫자를 포함하여 {number}자리 이상이여야 합니다,{number}文字以上半角英数字を入力してください,输入{number}位数以上，含英数字
 please_enter_user_name,請輸入使用者名稱,Please enter username,사용자명 입력,ユーザー名を入力してください,请输入使用者名称
 cancelled,已取消,Cancelled,,,已取消
-,,,,,
-,,,,,
+not_yet_selected_unbound,尚未選擇或未綁定,Not yet selected or unbound,,,尚未选择或未绑定
+please_check_your_email_receive,請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊,"Please check your email to receive the certification letter or resend the certification letter. If there is still an abnormality, please contact the customer service team",,,请至信箱收取认证信件或重新发送认证信，如仍有异常请联系客服团队
 ,,,,,
 ,,,,,
 ,,,,,

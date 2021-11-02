@@ -8,7 +8,7 @@
           {{ $t('no_trading_conditions_required') }}<br />
           {{ $t('enjoy_another_ten_recommendation') }}
         </div>
-        <div class="btn fdb-btn-primary">{{ $t('apply_account') }}</div>
+        <a class="btn fdb-btn-primary" href="https://partner.bybit.com/b/fundobit" target="_blank">{{ $t('apply_account') }}</a>
       </div>
       <div v-if="deviceWidth > 700" class="banner-data">
         <div class="data-item">

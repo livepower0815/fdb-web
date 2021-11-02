@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
 import TW from '@/locales/TW.json'
-import US from '@/locales/US.json'
+import EN from '@/locales/EN.json'
 import CN from '@/locales/CN.json'
 import JP from '@/locales/JP.json'
 import KR from '@/locales/KR.json'
@@ -25,7 +25,7 @@ const i18n = new VueI18n({
   // set locale
   locale: localStorage.getItem('FDB-lang') || 'TW',
   // set locale messages
-  messages: { TW, US, CN, JP, KR },
+  messages: { TW, EN, CN, JP, KR },
   fallbackLocale: 'TW'
 })
 

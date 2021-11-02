@@ -537,44 +537,28 @@ export default {
 <style lang="scss" scoped>
 .set-group-dialog {
   .dialog-body {
-    padding: 0 20px;
-    @media screen and (max-width: 500px) {
-      padding: 0;
-    }
+    padding: 0;
     .group-select {
       display: flex;
-      align-items: center;
-      padding-left: 20px;
-      @media screen and (max-width: 500px) {
-        flex-direction: column;
-        padding-left: 0px;
-      }
+      flex-direction: column;
+      padding-left: 0px;
       .label {
-        font-size: 18px;
-        padding-right: 20px;
-        @media screen and (max-width: 500px) {
-          width: 100%;
-          font-size: 16px;
-          padding-right: 0;
-          margin-bottom: 8px;
-        }
+        width: 100%;
+        font-size: 16px;
+        padding-right: 0;
+        margin-bottom: 8px;
       }
       select {
-        flex: 1;
-        height: 42px;
-        font-size: 16px;
+        flex: 0 0 auto;
+        height: 38px;
+        font-size: 14px;
+        width: 100%;
         color: #c4c4c4;
         border: none;
         background: #252c3d;
         box-sizing: border-box;
         border-radius: 8px;
         padding-left: 14px;
-        @media screen and (max-width: 500px) {
-          flex: 0 0 auto;
-          height: 38px;
-          font-size: 14px;
-          width: 100%;
-        }
       }
     }
     .line {
@@ -582,10 +566,7 @@ export default {
       text-align: center;
       font-size: 16px;
       width: 100%;
-      line-height: 70px;
-      @media screen and (max-width: 500px) {
-        line-height: 52px;
-      }
+      line-height: 52px;
       &::before {
         position: absolute;
         left: 0;
@@ -608,56 +589,37 @@ export default {
     .new-group {
       .item {
         display: flex;
-        margin-bottom: 30px;
         align-items: center;
-        @media screen and (max-width: 500px) {
-          margin-bottom: 14px;
-        }
-        @media screen and (max-width: 500px) {
-          flex-direction: column;
-        }
+        margin-bottom: 14px;
+        flex-direction: column;
         &:last-child {
           margin-bottom: 0px;
         }
         .label {
-          width: 100px;
-          text-align: end;
-          font-size: 18px;
-          padding-right: 20px;
-          @media screen and (max-width: 500px) {
-            width: 100%;
-            font-size: 16px;
-            padding-right: 0;
-            text-align: start;
-            margin-bottom: 8px;
-          }
+          width: 100%;
+          font-size: 16px;
+          padding-right: 0;
+          text-align: start;
+          margin-bottom: 8px;
         }
         input {
-          flex: 1;
-          height: 42px;
+          flex: 0 0 auto;
+          height: 38px;
+          width: 100%;
+          font-size: 14px;
           border: none;
           box-sizing: border-box;
           border-radius: 8px;
           color: #c4c4c4;
           padding-left: 10px;
           background-color: #252c3d;
-          font-size: 16px;
-          @media screen and (max-width: 500px) {
-            flex: 0 0 auto;
-            height: 38px;
-            width: 100%;
-            font-size: 14px;
-          }
         }
         .color-picker {
-          flex: 1;
+          margin-top: 10px;
+          width: 100%;
+          flex: 0 0 auto;
           display: flex;
           justify-content: space-around;
-          @media screen and (max-width: 500px) {
-            margin-top: 10px;
-            width: 100%;
-            flex: 0 0 auto;
-          }
           .color-item {
             width: 16px;
             height: 16px;
