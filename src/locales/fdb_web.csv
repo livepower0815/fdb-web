@@ -55,7 +55,8 @@ activity_change,活動異動,Variation,위치이동,イベント異動,活动异
 undefined,未定義,Undefined,미확정,未定義,未定义
 personal_rebate_number,個人返佣數量,Personal Rebate,나의 리베이트,個人報酬,个人返佣数量
 referrer_rebate_number,推薦人返佣數量,Referral rebate,클라이언트 리베이트,紹介者報酬,推荐人返佣数量
-withdrawal_quantity,出金數量,Amount Of Cash Out,출금수량,出金数,出金数量
+withdrawal_quantity_1,出金數量,Amount Of Cash Out,출금수량,出金数,出金数量
+withdrawal_quantity_2,出金數量,Withdrawal Amount,출금수량,出金数,出金数量
 week,一週,Week,일주일,一週間,一週
 month,一月,Month,한달,一か月,一月
 season,一季,Season,시즌,ワンシーズン,一季
@@ -132,7 +133,8 @@ check_password_unanimous,確認密碼：密碼要與新密碼一致,Confirm pass
 other_relative_article,其他相關文章,Other articles,관련 참조글,他の関連記事,其他相关文章
 no_relative_article,無相關文章,Can't find article,연관된 기사내용,他の関連記事がありません,无相关文章
 fdb_community,返多寶社群,Fundobit Community,FDB 기사내용,FDBコミュニティサイト,返多宝社群
-to_protect_account_security,為保護帳號安全，交易所綁定後將無法編輯或刪除（*未綁定將無法查看您的返佣資訊）,"To protect the security of your account, you cannot edit or delete it after the exchange is bound (*You will not be able to view your rebate information if it is not bound)",계정 보안설정을 위해 연동된 거래소를 지우거나 수정할수 없습니다.(연동하지 않을 경우 리베이트 내역 확인이 불가능),アカウントの安全のために取引所をバインディングされたら編集と削除ができません（*バインディングされていない状態リベートを調べられません）,为保护帐号安全，交易所绑定后将无法编辑或删除（*未绑定将无法查看您的返佣资讯）
+to_protect_account_security_1,為保護帳號安全，交易所綁定後將無法編輯或刪除,"To protect the security of your account, you cannot edit or delete it after the exchange is bound",계정 보안설정을 위해 연동된 거래소를 지우거나 수정할수 없습니다.,アカウントの安全のために取引所をバインディングされたら編集と削除ができません,为保护帐号安全，交易所绑定后将无法编辑或删除
+to_protect_account_security_2,（*未綁定將無法查看您的返佣資訊）," (*You will not be able to view your rebate information if it is not bound)",(연동하지 않을 경우 리베이트 내역 확인이 불가능),（*バインディングされていない状態リベートを調べられません）,（*未绑定将无法查看您的返佣资讯）
 select_exchange,選擇交易所,Select Exchang,지정된 거래소,取引所を選ぶ,选择交易所
 exchange_uid,交易所UID,Exange UID,거래소UID,取引所UID,交易所UID
 enter_exchange_uid,請輸入該交易所UID,Please enter the UID of the exchange,거래소 UID 입력하기,取引所UIDを入力してください,请输入该交易所UID
@@ -140,7 +142,7 @@ mobile_phone,行動電話,Phone Number,연락처,携帯番号,行动电话
 please_enter_phone,請輸入行動電話,Please enter the Phone Number,연락처를 입력하세요,携帯番号を入力してください,请输入行动电话
 please_enter_email,請輸入該交易所會員郵件,Please enter the exchange member’s email,해당 거래소 이메일을 입력하세요,取引所の会員メールアドレスを入力してください,请输入该交易所会员邮件
 clear,清空,Empty,지우기,クリア,清空
-bind,綁定,Connect,연동하기,バインディング,绑定
+bind,綁定,Next,연동하기,バインディング,绑定
 exchange_verification_time,交易所驗證時間需1-3日工作天，無論驗證成功與否都將由系統寄出“驗證通知書”郵件通知會員,"The verification time of the exchange takes 1-3 working days. Regardless of whether the verification is successful or not, the system will send a ""Verification Notice"" email to notify members",거래소 연동 인증을 위한 확인절차는 근무일 기준으로 3일정도 소요됩니다. 처리가 완료된 후 이메일로 확인내역을 전송합니다.,取引所の検証時間は１日から三日程度をかかりますので検証完了するかどうかに関わらず“検証のお知らせ”をシステムからメールにお送りします,交易所验证时间需1-3日工作天，无论验证成功与否都将由系统寄出“验证通知书”邮件通知会员
 invalid_drawing,無效圖檔,Invalid,잘못된 이미지,図データが無効,无效图档
 verifying,驗證中,Processing,확인 진행중,検証中,验证中
@@ -148,7 +150,7 @@ verified,驗證完畢,Complete,확인 완료,検証完了,验证完毕
 check_again_exchange_info,再次確認交易所綁定資訊,Reconfirm the information connecting d to the exchange,거래소 연동정보,取引所をバインディングされた情報をもう一度確認してください,再次确认交易所绑定资讯
 to_ensure_transaction_security,為保障各位交易安全，交易所若綁定三次都失敗，將會鎖定該交易所綁定之權限，因此請確定資料正確性,"Due to ensure the transaction safety, if the exchange binding fails three times, the binding authority of the exchange will be locked. Please, make sure the information is correct.",거래 안정화를 위해 3가지 인증절차를 확인부탁드립니다.,取引の安全を確保するため、3回バインディングに失敗した場合、取引所にバインディングされた権限がロックされますので正しい情報を確認してください,为保障各位交易安全，交易所若绑定三次都失败，将会锁定该交易所绑定之权限，因此请确定资料正确性
 unfilled,未填寫,Unfilled,유효하지 않은 계정,未記入,未填写
-return,返回,Retunr,되돌아가기,戻る,返回
+return,返回,Back,되돌아가기,戻る,返回
 please_select_exchange,請選擇交易所,Select Exchange,거래소 선택하기,取引所を選ぶ,请选择交易所
 please_enter_exchange_id,請輸入交易所ID,Enter Exchange UID,거래소 ID 입력,取引所のIDを入力してください,请输入交易所ID
 m_phone_enter_number,行動電話：請輸入數字,Phone: Please Enter Number,연락처 : 휴대번호를 입력하세요,携帯電話：数字を入力してください,行动电话：请输入数字

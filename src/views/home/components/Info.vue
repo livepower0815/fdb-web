@@ -203,12 +203,12 @@ export default {
           }
           .title {
             font-weight: bold;
-            font-size: 24px;
-            line-height: 32px;
+            font-size: 18px;
+            line-height: 28px;
             padding: 8% 0;
           }
           .sub {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 150%;
             padding-bottom: 8%;
           }
@@ -275,8 +275,6 @@ export default {
             min-height: 124px;
             padding: 0 12px 0 12px;
             .title {
-              font-size: 20px;
-              line-height: 32px;
               margin-bottom: 6px;
             }
             .sub {
@@ -344,7 +342,6 @@ export default {
             padding: 0 12px 0 12px;
             .title {
               font-size: 16px;
-              line-height: 32px;
               margin-bottom: 6px;
             }
             .sub {

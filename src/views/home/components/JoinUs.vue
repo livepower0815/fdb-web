@@ -74,6 +74,8 @@
       .join-main {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
         padding: 0px 30px;
         .title {
           padding: 18% 0 8% 0;

@@ -28,7 +28,7 @@
           <div class="title-item">
             <div class="title">
               <img class="icon" src="@/assets/img/dashboard/withdraw.png" alt="withdraw" style="width: 24px;" />
-              <div class="word">{{ $t('withdrawal_quantity') }}</div>
+              <div class="word">{{ $t('withdrawal_quantity_1') }}</div>
             </div>
             <div class="sub red">{{ dashboardChart.withdrawValue }}</div>
           </div>
@@ -62,7 +62,7 @@
               :class="{ active: dashboardChart.chartSelect === 'withdraw' }"
               @click.prevent="dashboardChart.chartSelect = 'withdraw'"
             >
-              {{ $t('withdrawal_quantity') }}
+              {{ $t('withdrawal_quantity_1') }}
             </span>
           </div>
           <div class="chart-filter-select">
@@ -194,7 +194,7 @@ export default {
           data: []
         },
         {
-          name: this.$t('withdrawal_quantity'),
+          name: this.$t('withdrawal_quantity_1'),
           type: 'line',
           // stack: '总量',
           smooth: true,
@@ -265,7 +265,7 @@ export default {
           break
         case 'withdraw':
           this.lineChartOptions.series = this.seriesData.filter(item => {
-            return item.name === this.$t('withdrawal_quantity')
+            return item.name === this.$t('withdrawal_quantity_1')
           })
           break
         default:

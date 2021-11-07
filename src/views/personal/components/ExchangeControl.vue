@@ -1,7 +1,10 @@
 <template>
   <div v-loading="isBindLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="personal-function-main exchange-site">
     <div class="title">{{ $t('bound_exchange') }}</div>
-    <div class="sub">{{ $t('to_protect_account_security') }}</div>
+    <div class="sub">
+      {{ $t('to_protect_account_security_1') }}<br />
+      {{ $t('to_protect_account_security_2') }}
+    </div>
     <div class="exchange-block">
       <div class="main">
         <div>
@@ -266,17 +269,19 @@ export default {
       color: #e5e5e5;
       display: flex;
       width: 100%;
-      height: 36px;
+      margin: 8px 0;
       .title {
         width: 30%;
-        display: flex;
-        justify-content: flex-end;
-        line-height: 36px;
+        line-height: 26px;
+        text-align: end;
+        word-break: break-word;
       }
       .value {
-        margin-left: 20px;
         flex: 1;
-        line-height: 36px;
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        line-height: 26px;
       }
     }
   }
