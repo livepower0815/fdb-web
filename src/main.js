@@ -15,14 +15,13 @@ import '@/assets/css/rwd-set.css'
 // Element UI
 import ElementUI from 'element-ui'
 import '@/style/element-variables.scss'
-import locale from 'element-ui/lib/locale/lang/zh-TW' // lang i18n
 
 import '@/style/index.scss'
 
 // route gateway
 import '@/permission'
 
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
