@@ -19,9 +19,9 @@
         <div class="step-title">
           <span v-if="step === 1 && canTrade">{{ $t('fill_withdrawal_account_information') }}</span>
           <router-link v-if="step === 1 && !canTrade" :to="{ name: 'Personal', query: { tab: 'take-cash-adress' } }">
-            <span class="text-red" style="text-decoration: underline"
-              >{{ $t('no_tradable_currency') }}<br />{{ $t('go_to_withdrawal_application_address') }}</span
-            >
+            <span class="text-red" style="text-decoration: underline">
+              {{ $t('no_tradable_currency') }}<br />{{ $t('go_to_withdrawal_application_address') }}
+            </span>
           </router-link>
           <span v-if="step === 2">{{ $t('reconfirm_withdrawal_information_amount') }}</span>
           <span v-if="step === 3">{{ $t('operation_success') }}</span>

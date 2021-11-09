@@ -161,7 +161,6 @@ export default {
       }
       // 密碼：6位數以上，含英數字，不含特殊符號
       if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(this.formData.password)) {
-        // TODO: i18n
         return Promise.reject(new Error(`${this.$t('password')}：${this.$t('enter_number_slot', { number: '6' })}`))
       }
       // 圖形驗證碼必填

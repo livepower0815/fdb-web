@@ -54,7 +54,7 @@ withdrawal,出金,Withdraw,출금하기,出金,出金
 activity_change,活動異動,Variation,위치이동,イベント異動,活动异动
 undefined,未定義,Undefined,미확정,未定義,未定义
 personal_rebate_number,個人返佣數量,Personal Rebate,나의 리베이트,個人報酬,个人返佣数量
-referrer_rebate_number,推薦人返佣數量,Referral rebate,클라이언트 리베이트,紹介者報酬,推荐人返佣数量
+referrer_rebate_number,推薦人返佣數量,Referral Rebate,클라이언트 리베이트,紹介者報酬,推荐人返佣数量
 withdrawal_quantity_1,出金數量,Amount Of Cash Out,출금수량,出金数,出金数量
 withdrawal_quantity_2,出金數量,Withdrawal Amount,출금수량,出金数,出金数量
 week,一週,Week,일주일,一週間,一週
@@ -63,7 +63,7 @@ season,一季,Season,시즌,ワンシーズン,一季
 filter_time,篩選時間,Filiter Time,시간선택,時間枠を選択する,筛选时间
 rebate_status,返佣狀態,Condition,상태창,リベート状態,返佣状态
 rebate_trading_volume,可返佣交易量,Trading Volume,리베이트 거래량,テイカー取引高,可返佣交易量
-rebate_quantity,可返佣數量,Rebate quantity,리베이트 수량,報酬,可返佣数量
+rebate_quantity,可返佣數量,Rebate Quantity,리베이트 수량,報酬,可返佣数量
 no_rebate,未返佣,Surplus,진행중,保留中報酬,未返佣
 be_rebate,已返佣,Completing Rebate,완료,支払済報酬,已返佣
 enter_member_keyword,輸入會員名稱關鍵字,Search,선택,会員ネームの関連キーワードを入力してください,输入会员名称关键字
@@ -172,9 +172,9 @@ check_new_password,確認密碼：密碼要與新密碼一致,Reconfirm password
 edit_group,編輯組別,Edit Group,그룹 수정,グループを編集する,编辑组别
 belong_group,所在組別,Group,그룹 지정,所属グループ,所在组别
 join_date,加入日期,Join Date,가입일자,参加日,加入日期
-last_trade_date,最後交易日,Last Rrading Day,최신거래일자,最後の引取日,最后交易日
+last_trade_date,最後交易日,Last Tradeing Day,최신거래일자,最後の引取日,最后交易日
 connect_info,聯絡資訊,Info,연락처 정보,連絡先,联络资讯
-rebate_trade_value,返佣交易量,Rebate trading volume,거래량 리베이트,リベートを取引できる数量,返佣交易量
+rebate_trade_value,返佣交易量,Rebate Trading Volume,거래량 리베이트,リベートを取引できる数量,返佣交易量
 view_information,檢視資訊,Veiw,정보 검증,情報を検視する,检视资讯
 empty_data,暫無數據,No Result,데이터 없음,該当のデータがありません,暂无数据
 edit_recommender_group,編輯推薦人組別,Edit Referral Group,레퍼럴 그룹 편집,紹介者組を編集する,编辑推荐人组别
@@ -205,7 +205,7 @@ usdt_verify,USDT : 數字1＆3 & 0 開頭,Please enter the correct USDT address,
 eth_verify,ETH : 數字0 開頭，42位英文大小寫+數字組成,Please enter the correct Ether address,"ETH 숫자 0 시작, 42자리 영문 대소문자 + 숫자 구성",ETH:数字0から始まる、42文字の半角英大文字半角英小文字+数字の組み合わせ,ETH : 数字0 开头，42位英文大小写+数字组成
 bind_success,綁定成功,Connect Successful,바인딩 성공,バインディング完了,绑定成功
 friend_invitation_code,您的好友邀請碼,Referral Code,레퍼럴 코드,友達の招待コード,您的好友邀请码
-return_amount_rebates,返回返佣數量總覽,Return to DashboardE,수수료 리베이트,リベート数の一覧へ戻る,返回返佣数量总览
+return_amount_rebates,返回返佣數量總覽,Return to Dashboard,수수료 리베이트,リベート数の一覧へ戻る,返回返佣数量总览
 exchange_management,交易所管理,Exchange Management,거래소 관리,取引所を管理する,交易所管理
 withdrawal_address_management,出金地址管理,Address Management,출금주소 관리,出金メールアドレスを管理する,出金地址管理
 referrer_management,推薦人管理,Refferral Management,레퍼럴 관리,紹介者を管理する,推荐人管理
@@ -240,7 +240,7 @@ handling_fee,手續費,Gas Fee,수수료,手数料,手续费
 not_yet_selected,尚未選擇,Please select withdrawal of the currency type,완료되지 않은 항목,未選択,尚未选择
 withdraw_adress,出金地址,Address,출금주소,出金アドレス,出金地址
 amount_can_be_withdrawn,可出金數量,Available,출금수량,出金可能数,可出金数量
-min_withdraw,最低出金限制,Minimum limit,최저출금제한,最低出金制限,最低出金限制
+min_withdraw,最低出金限制,Minimum Limit,최저출금제한,最低出金制限,最低出金限制
 please_enter_withdrawal_amount,請輸入出金金額,Amount,출금금액을 입력합니다,出金金額を入力してください,请输入出金金额
 cancel_withdraw,取消出金,Cancel,출금취소,出金をキャンセル,取消出金
 next_step,下一步,Next,다음,次へ,下一步
@@ -256,7 +256,7 @@ withdraw_coin_type,出金幣別,Type Of Currency,출금 종목,出金通貨,出�
 enter_withdraw_coin_type,請輸入出金幣別,Please enter withdraw type of currency,출금 종목을 입력하세요,ご出金通貨を入力してください,请输入出金币别
 enter_withdraw_amount,請輸入出金數量,Please enter withdraw amount,수량 입력하기,ご出金数を入力してください,请输入出金数量
 exceeds_amount_withdrawn,超過可出金數量,Exceeds the amount of currency that can be withdrawn,출금 수량 초과,ご出金できる数を超え,超过可出金数量
-less_min_withdraw,低於 {selectedCoinName} 最低出金數量 {coinminiAmount},,{selectedCoinName}최소출금수량 {coinminiAmount},より下 {selectedCoinName} 最低出金数 {coinminiAmount},低于 {selectedCoinName} 最低出金数量 {coinminiAmount}
+less_min_withdraw,低於 {selectedCoinName} 最低出金數量 {coinminiAmount},Less than {selectedCoinName} minimum withdrawal amount {coinminiAmount},{selectedCoinName}최소출금수량 {coinminiAmount},より下 {selectedCoinName} 最低出金数 {coinminiAmount},低于 {selectedCoinName} 最低出金数量 {coinminiAmount}
 application_success,申請成功,Apply Successful,신청완료,申請完了,申请成功
 first_corporate,首家企業化的「返佣平台」及「論壇」 提供全方位返佣方案,"The first corporate to provide a full range of rebate solutions of ""Rebate Platform"" and ""Forum""",자사는 리베이트 플랫폼으로 독자적인 우호협력 모든 파트너들과 합리적인 방법으로 솔루션을 공급하고자 설립되었습니다.,実業家において第一社である「リベートシステム」、「フォーラム」をオールラウンドリベートプランを提供します,首家企业化的「返佣平台」及「论坛」提供全方位返佣方案
 trade_rebate,「交易返佣、手續費返佣、推薦好友再返佣」,"Trade rebates, Commission rebates, Referral rebates","거래량 리베이트, 수수료 리베이트, 레퍼럴 리베이트",「取引リベート、手数料リベート、友達を招待したらまたリベート」,「交易返佣、手续费返佣、推荐好友再返佣」

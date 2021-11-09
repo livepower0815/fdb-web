@@ -78,7 +78,7 @@
         height: 100%;
         padding: 0px 30px;
         .title {
-          padding: 18% 0 8% 0;
+          padding: 10% 0 8% 0;
           font-weight: bold;
           font-size: 24px;
         }
