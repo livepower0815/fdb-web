@@ -48,7 +48,7 @@
       </div>
       <div class="sub-item">
         <div class="label">{{ $t('lever') }}</div>
-        <div class="value">100倍</div>
+        <div class="value">100</div>
       </div>
       <div class="sub-item">
         <div class="label">{{ $t('trading_pair') }}</div>
@@ -60,11 +60,11 @@
       </div>
       <div class="sub-item">
         <div class="label">{{ $t('average_transaction_volume') }}</div>
-        <div class="value">{{ $t('number_billion', { number: '65.66' }) }}</div>
+        <div class="value">{{ $t('billion_1') }}</div>
       </div>
       <div class="sub-item">
         <div class="label">{{ $t('asset_strength') }}</div>
-        <div class="value">{{ $t('number_billion', { number: '90.35' }) }}</div>
+        <div class="value">{{ $t('billion_2') }}</div>
       </div>
     </div>
 
@@ -175,7 +175,7 @@ export default {
         width: 246px;
       }
       @media screen and (max-width: 500px) {
-        width: 160px;
+        width: 168px;
       }
       .title {
         font-family: 'Avenir';
@@ -335,7 +335,7 @@ export default {
         flex: 1;
         padding: 4% 4%;
         @media screen and (max-width: 1370px) {
-          height: 400px;
+          height: 460px;
         }
         @media screen and (max-width: 960px) {
           padding: 2%;
@@ -345,7 +345,7 @@ export default {
           padding: 0;
         }
         @media screen and (max-width: 700px) {
-          height: 340px;
+          height: 400px;
         }
         .list-item {
           flex: 1;
@@ -474,6 +474,7 @@ export default {
       @media screen and (max-width: 960px) {
         font-size: 14px;
         margin-bottom: 30px;
+        padding: 0 3%;
       }
     }
     .btn {

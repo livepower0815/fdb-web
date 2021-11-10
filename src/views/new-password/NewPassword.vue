@@ -69,10 +69,10 @@ export default {
     }
   },
   mounted() {
-    if (!this.$route.query.AuthCore) {
-      this.$message.error(this.$t('useless_pages'))
-      this.$router.push({ name: 'Home' })
-    }
+    // if (!this.$route.query.AuthCore) {
+    //   this.$message.error(this.$t('useless_pages'))
+    //   this.$router.push({ name: 'Home' })
+    // }
   },
   methods: {
     async resetPassword() {

@@ -23,7 +23,9 @@ service.interceptors.request.use(
     }
 
     // 添加多語系參數
-    const langValue = localStorage.getItem('FDB-lang') || 'TW'
+    let langValue = localStorage.getItem('FDB-lang') || 'TW'
+    // 後端英文使用US
+    langValue = langValue === 'EN' ? 'US' : langValue
     if (config.method === 'get') {
       if (!config.params) {
         config.params = {}

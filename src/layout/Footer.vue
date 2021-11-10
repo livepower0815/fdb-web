@@ -7,8 +7,8 @@
       </div>
       <div class="footer-menu">
         <router-link to="/">{{ $t('fdb_home') }}</router-link>
-        <router-link to="/about">開始返佣</router-link>
-        <router-link to="/partner">合作幣商</router-link>
+        <router-link to="/about">{{ $t('start_rebate') }}</router-link>
+        <router-link to="/partner">{{ $t('coopertion_bis') }}</router-link>
         <router-link to="/news">{{ $t('latest_news') }}</router-link>
       </div>
       <div class="footer-connect">

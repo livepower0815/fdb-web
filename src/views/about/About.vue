@@ -69,7 +69,7 @@ export default {
   }
   &-title {
     font-weight: bold;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 53px;
     margin: 10% 14% 40% 14%;
     text-align: center;

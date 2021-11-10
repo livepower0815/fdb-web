@@ -234,7 +234,7 @@ export default {
     .input {
       height: 38px;
       float: left;
-      font-size: 14px;
+      font-size: 12px;
       color: #c4c4c4;
       border: none;
       background: #252c3d;

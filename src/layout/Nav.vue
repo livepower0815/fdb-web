@@ -6,8 +6,8 @@
     </router-link>
     <div v-if="deviceWidth >= 1024" class="navbar-menu">
       <router-link to="/">{{ $t('fdb_home') }}</router-link>
-      <router-link to="/about">開始返佣</router-link>
-      <router-link to="/partner">合作幣商</router-link>
+      <router-link to="/about">{{ $t('start_rebate') }}</router-link>
+      <router-link to="/partner">{{ $t('coopertion_bis') }}</router-link>
       <router-link to="/news">{{ $t('latest_news') }}</router-link>
     </div>
 
@@ -72,12 +72,12 @@
         </router-link>
         <router-link to="/about" v-slot="{ navigate }" custom>
           <div class="menu-link" @click="navigate">
-            開始返佣
+            {{ $t('start_rebate') }}
           </div>
         </router-link>
         <router-link to="/partner" v-slot="{ navigate }" custom>
           <div class="menu-link" @click="navigate">
-            合作幣商
+            {{ $t('coopertion_bis') }}
           </div>
         </router-link>
         <router-link to="/news" v-slot="{ navigate }" custom>
