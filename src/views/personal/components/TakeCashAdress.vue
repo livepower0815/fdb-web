@@ -1,7 +1,7 @@
 <template>
   <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" style="float: left">
     <div class="personal-function-main">
-      <div class="title adress">{{ $t('change_address_takes_one_week') }}</div>
+      <div class="title adress">{{ $t('change_address_takes_one_week_1') }}<br />{{ $t('change_address_takes_one_week_2') }}</div>
 
       <div class="personal-take-cash-adress-main">
         <CoinIcon class="icon" coin-type="BTC" />

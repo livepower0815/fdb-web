@@ -10,7 +10,7 @@
           </router-link>
         </div>
         <div class="title">{{ $t('build_password') }}</div>
-        <div class="newpwd-sub">{{ $t('enter_new_password') }}</div>
+        <div class="newpwd-sub">{{ $t('enter_new_password_1') }}<br />{{ $t('enter_new_password_2') }}</div>
 
         <div class="newpwd-main">
           <div class="title">{{ $t('password') }}</div>
@@ -69,10 +69,10 @@ export default {
     }
   },
   mounted() {
-    // if (!this.$route.query.AuthCore) {
-    //   this.$message.error(this.$t('useless_pages'))
-    //   this.$router.push({ name: 'Home' })
-    // }
+    if (!this.$route.query.AuthCore) {
+      this.$message.error(this.$t('useless_pages'))
+      this.$router.push({ name: 'Home' })
+    }
   },
   methods: {
     async resetPassword() {

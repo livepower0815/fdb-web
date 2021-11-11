@@ -124,7 +124,8 @@ login_success,登入成功,Success,로그인 성공,ログインしました,登
 enter_correct_email,請輸入正確電子郵件,Please enter the correct email,올바른 이메일 계정을 입력하세요,正しいメールアドレスを入力してください,请输入正确电子邮件
 please_enter_captcha,請輸入圖形驗證碼,Please Enter Verification Code,순환인증코드를 입력하세요,画像に表示されている文字を入力してください,请输入图形验证码
 build_password,建立新的密碼,Create a new password,새로운 비밀번호 만들기,新しいパスワードを作成します,建立新的密码
-enter_new_password,輸入新的密碼，完成後須以新密碼登入,"Enter the new password, and log in with the new password after completion",새로운 비밀번호를 입력하고 다시 로그인하세요,新しいパスワードをご入力したら、新しいパスワードをログインしてください,输入新的密码，完成后须以新密码登入
+enter_new_password_1,輸入新的密碼,Enter the new password,새로운 비밀번호를,新しいパスワードをご入力したら,输入新的密码
+enter_new_password_2,完成後須以新密碼登入,and log in with the new password after completion,입력하고 다시 로그인하세요,新しいパスワードをログインしてください,完成后须以新密码登入
 check_again,再次確認,Confirm,비밀번호 설정을 위해 다시 한번 입력하세요,もう一度ご確認してください,再次确认
 save_password,儲存密碼,Save,비밀번호 저장,パスワードを保存,储存密码
 useless_pages,無效頁面，倒轉回到首頁,"Invalid page, return to homepage",잘못된 페이지입니다. 처음 화면으로 돌아갑니다.,エラーが発生しました、ホームページに戻す,无效页面，倒转回到首页
@@ -189,7 +190,8 @@ cancel_all,全部取消,Cancel,전체취소,全部取り消し,全部取消
 save_all,全部儲存,Save,저장하기,全部保存,全部储存
 bind_group_success,綁定群組成功,Group set successfully,그룹연동하기,グループのバインディングが完了,绑定群组成功
 save_success,保存成功,Save Successful,저장성공,保存が完了,保存成功
-change_address_takes_one_week,為保障用戶權益和出金安全，修正出金地址須透過email驗證，變動地址需待一周後再次進行,"In order to protect the rights of users and the security of withdrawals, the correction of the withdrawal address must be verified by email, and the change of the address needs to be carried out again after a week",사용자 권익보장과 출금안전을 위하여 출금주소 수정은 이메일을 통해 확인이 가능합니다. 주소변경은 일주일 후에 변경이 가능합니다.,ユーザー権利と出金安全のため出金アドレスを修正する場合はメールを検証して、アドレス変更はまた一週間後に行ってください,为保障用户权益和出金安全，修正出金地址须透过email验证，变动地址需待一周后再次进行
+change_address_takes_one_week_1,為保障用戶權益和出金安全,In order to protect the rights of users and the security of withdrawals,사용자 권익보장과 출금안전을 위하여 출금주소 수정은 이메일을 통해 확인이 가능합니다.,ユーザー権利と出金安全のため出金アドレスを修正する場合はメールを検証して,为保障用户权益和出金安全
+change_address_takes_one_week_2,修正出金地址須透過email驗證，變動地址需待一周後再次進行,"the correction of the withdrawal address must be verified by email, and the change of the address needs to be carried out again after a week",주소변경은 일주일 후에 변경이 가능합니다.,アドレス変更はまた一週間後に行ってください,修正出金地址须透过email验证，变动地址需待一周后再次进行
 coin_adress,請填入 {coin} 交易地址,Enter {coin} address,{coin}출금주소를 입력하세요.,{coin} 取引先のアドレスを入力してください,请填入 {coin} 交易地址
 coin_adress2,請填入 {coinAdress2},Enter {coinAdress2},{coinAdress2}를 입력하세요.,{coinAdress2}を入力してください,请填入 {coinAdress2}
 edit_adress,編輯地址,Edit Address,주소편집,アドレスを編集,编辑地址
@@ -270,7 +272,7 @@ view_commission_rebate_dashboard,檢視返佣儀表板，輸入錢包地址，�
 rebate_guarantee,返佣保證,Rebate Promise,리베이트 보증,リベート保証,返佣保证
 no_trading_conditions_required,成為返多寶用戶，不需要任何交易條件，即有40%交易返佣。,"Fundobit members ONLY !!!
 Trading can get  40% commission rebate",거래수수료 40%로 업계 최상위 리베이트 혜택을 제공하며.,Fundobitの会員になったら取引条件は必要ありません。すぐ40%の取引リベートを貰える。,成为返多宝用户，不需要任何交易条件，即有40%交易返佣。
-enjoy_another_ten_recommendation,返多寶邀請計畫，好友交易返佣再享10%推薦推薦。,Fundobit Referral Plan，10% trading rebates.,이와 같은 레퍼럴 혜택 10%가 제공됩니다.,Fundobitの招待企画は友達の取引リベート更に10%還元,返多宝邀请计画，好友交易返佣再享10%推荐推荐。
+enjoy_another_ten_recommendation,返多寶邀請計畫，好友交易返佣再享10%推薦。,Fundobit Referral Plan，10% trading rebates.,이와 같은 레퍼럴 혜택 10%가 제공됩니다.,Fundobitの招待企画は友達の取引リベート更に10%還元,返多宝邀请计画，好友交易返佣再享10%推荐。
 apply_account,申請開戶,Register,계정 생성하기,口座開設の申請,申请开户
 rebate_subsidy_ratio,返多寶補貼比例,FUNDOBIT commission rebate ratio,가입 보너스,Fundobitの補助比率,返多宝补贴比例
 refer_friends_rebate_ratio,推薦好友返佣比例,Referral rebate ratio,레퍼럴 수수수료,友達紹介のリベート比率,推荐好友返佣比例
@@ -301,9 +303,9 @@ only_thing_reduce_transaction_costs,為您降低交易成本的只有「返多�
 enter_number_slot,請輸入{number}位數以上英數字,Please enter more than {number} digits alphanumeric,{number}자리 이상의 영문 및 숫자를 입력하세요,{number}文字以上半角英数字を入力してください,请输入{number}位数以上英数字
 enter_en_number,輸入{number}位數以上，含英數字,"Enter more than {number} digits, including alphanumerics",영문과 숫자를 포함하여 {number}자리 이상이여야 합니다,{number}文字以上半角英数字を入力してください,输入{number}位数以上，含英数字
 please_enter_user_name,請輸入使用者名稱,Please enter username,사용자명 입력,ユーザー名を入力してください,请输入使用者名称
-cancelled,已取消,Cancelled,,,已取消
-not_yet_selected_unbound,尚未選擇或未綁定,Enter withdraw address,,,尚未选择或未绑定
-please_check_your_email_receive,請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊,"Please check your email to receive the certification letter or resend the certification letter. If there is still an abnormality, please contact the customer service team",,,请至信箱收取认证信件或重新发送认证信，如仍有异常请联系客服团队
-start_rebate,開始返佣,Register,리베이트 적용하기,,开始返佣
-coopertion_bis,合作幣商,Exchange,파트너쉽 명단,,合作币商
+cancelled,已取消,Cancelled,취소됨,キャンセルが完了,已取消
+not_yet_selected_unbound,尚未選擇或未綁定,Enter withdraw address,이미 계정생성이 완료되었습니다.,まだ選択されていない、またはバインディングされていません,尚未选择或未绑定
+please_check_your_email_receive,請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊,"Please check your email to receive the certification letter or resend the certification letter. If there is still an abnormality, please contact the customer service team",우편함으로 인증메일을 확인하시고 문제가 있을 경우 고객지원팀으로 연락 주시기 바랍니다.,メールアドレスで確認コードを受信または確認コードを再発送する。もし何が異常かあるなら、サービスセンターにご聯絡ください,请至信箱收取认证信件或重新发送认证信，如仍有异常请联系客服团队
+start_rebate,開始返佣,Register,리베이트 적용하기,リベート開始,开始返佣
+coopertion_bis,合作幣商,Exchange,파트너쉽 명단,コインディーラーとの提携,合作币商
 billion_2,90.35 億,9 Billion,90.35 억,90.35 億,90.35 亿

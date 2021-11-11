@@ -74,11 +74,11 @@
       .join-main {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         height: 100%;
         padding: 0px 30px;
         .title {
-          padding: 10% 0 8% 0;
+          padding: 14% 0 8% 0;
           font-weight: bold;
           font-size: 24px;
         }

@@ -3,7 +3,8 @@
   <div class="footer">
     <div class="footer-top">
       <div class="footer-img">
-        <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
+        <img v-if="deviceWidth > 900" src="@/assets/img/nav/logo.png" alt="nav-icon" />
+        <img v-else src="@/assets/img/nav/logo-m.png" alt="nav-icon" />
       </div>
       <div class="footer-menu">
         <router-link to="/">{{ $t('fdb_home') }}</router-link>
@@ -12,10 +13,6 @@
         <router-link to="/news">{{ $t('latest_news') }}</router-link>
       </div>
       <div class="footer-connect">
-        <!-- 
-        IG ：https://www.instagram.com/fundobit_official/
-        TG：https://t.me/fundobit
-        -->
         <div>{{ $t('contact_us') }}</div>
         <a href="https://t.me/fundobit" target="_blank" rel="noopener noreferrer">
           <img src="@/assets/img/footer/telegram.png" alt="connect-icon" class="connect-icon" />
@@ -80,7 +77,10 @@ export default {
     .footer-img {
       flex: 0 0 auto;
       img {
-        width: 70px;
+        width: 240px;
+        @media screen and (max-width: 900px) {
+          width: 70px;
+        }
       }
     }
     .footer-menu {
@@ -98,13 +98,14 @@ export default {
         @media screen and (max-width: 960px) {
           margin-left: 25px;
           margin-right: 0px;
+          font-size: 14px;
         }
         @media screen and (max-width: 700px) {
           margin-left: 0px;
-          font-size: 18px;
+          font-size: 12px;
         }
         @media screen and (max-width: 500px) {
-          font-size: 15px;
+          font-size: 12px;
         }
         &:hover {
           color: #fff;
@@ -150,6 +151,9 @@ export default {
         a {
           margin-right: 20px;
           color: #ccc;
+          @media screen and (max-width: 700px) {
+            font-size: 12px;
+          }
           &:hover {
             color: #fff;
           }

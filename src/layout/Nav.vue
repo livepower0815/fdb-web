@@ -2,7 +2,8 @@
   <!--Header開始-->
   <div class="navbar" :style="{ zIndex: mobileMenu.show ? '3000' : '300' }">
     <router-link to="/" class="navbar-logo">
-      <img src="@/assets/img/nav/logo.png" alt="nav-icon" />
+      <img v-if="deviceWidth > 545" src="@/assets/img/nav/logo.png" alt="nav-icon" />
+      <img v-else src="@/assets/img/nav/logo-m.png" alt="nav-icon" />
     </router-link>
     <div v-if="deviceWidth >= 1024" class="navbar-menu">
       <router-link to="/">{{ $t('fdb_home') }}</router-link>
@@ -32,7 +33,7 @@
           size="small"
           :icon="userInfo.imageUrl ? '' : 'el-icon-user-solid'"
           :src="userInfo.imageUrl || ''"
-          style="margin-right: 20px; cursor: pointer;"
+          style="margin-right: 20px; cursor: pointer"
         ></el-avatar>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="personal">{{ $t('personal_information') }}</el-dropdown-item>
@@ -48,9 +49,9 @@
         </router-link>
       </template>
       <template v-if="deviceWidth >= 768">
-        <div style="width: 0.5px;height: 20px;background-color: #fff;margin-right: 20px;"></div>
+        <div style="width: 0.5px; height: 20px; background-color: #fff; margin-right: 20px"></div>
         <el-dropdown key="navbar-lang" trigger="click" @command="handleLang">
-          <span style="margin: 0;font-family: 'Noto Sans CJK TC'; color: #fff; cursor: pointer;">{{ lang }}</span>
+          <span style="margin: 0; font-family: 'Noto Sans CJK TC'; color: #fff; cursor: pointer">{{ lang }}</span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="TW">TW</el-dropdown-item>
             <el-dropdown-item command="EN">EN</el-dropdown-item>
@@ -165,9 +166,15 @@ export default {
   }
   &-logo {
     flex: 1;
-    width: 70px;
-    img {
+    width: 240px;
+    @media screen and (max-width: 540px) {
       width: 70px;
+    }
+    img {
+      width: 240px;
+      @media screen and (max-width: 540px) {
+        width: 70px;
+      }
     }
     @media screen and (min-width: 300px) and (max-width: 499px) {
       flex: 0 1 auto;

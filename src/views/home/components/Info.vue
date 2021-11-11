@@ -175,7 +175,7 @@ export default {
           position: relative;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           border-radius: 8px;
           width: calc(50% - 44px);
           margin: 6px;
@@ -215,6 +215,7 @@ export default {
         }
       }
       .info-btn {
+        margin-left: 2%;
         display: flex;
         align-items: center;
         font-weight: bold;
@@ -379,6 +380,7 @@ export default {
       .sub {
         font-size: 18px;
         line-height: 24px;
+        padding: 0 2%;
       }
     }
     &-pic {
@@ -458,6 +460,7 @@ export default {
       .sub {
         font-size: 12px;
         line-height: 24px;
+        padding: 0 2%;
       }
     }
     &-pic {

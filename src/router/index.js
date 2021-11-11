@@ -86,7 +86,7 @@ const routes = [
     component: () => import('@/views/new-password/NewPassword.vue'),
     meta: {
       // 隱藏導航欄及頁尾
-      hideNavFooter: true
+      hideNavFooter: false // TODO: for dev
     }
   },
   // 後台儀錶板
