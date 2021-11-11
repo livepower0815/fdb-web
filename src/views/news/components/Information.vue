@@ -7,7 +7,7 @@
         :key="index"
         class="info-card"
       >
-        <div class="info-card-img" :style="`background-image: url('${item.img}')`">
+        <div ref="articleImg" class="info-card-img" :style="`background-image: url('${item.img}'); height: ${imageHeight}px;`">
           <!-- <img :src="item.img" alt="news" /> -->
         </div>
         <div class="info-card-tag">
@@ -46,7 +46,32 @@ export default {
   },
   data() {
     return {
-      articleMap
+      articleMap,
+      imageHeight: 300
+    }
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  },
+  watch: {
+    deviceWidth() {
+      this.setImageHeight()
+    },
+    infoList() {
+      this.setImageHeight()
+    }
+  },
+  mounted() {
+    this.setImageHeight()
+  },
+  methods: {
+    setImageHeight() {
+      setTimeout(() => {
+        const imageDom = this.$refs.articleImg
+        this.imageHeight = (imageDom[0] && Number.parseInt(imageDom[0].offsetWidth * 0.6)) || 260
+      }, 200)
     }
   }
 }

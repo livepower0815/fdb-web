@@ -1,7 +1,7 @@
 <template>
   <div v-loading="isLoading" element-loading-background="rgba(0, 0, 0, 0.5)" class="all-info">
     <router-link :to="{ query: { ...$route.query, mode: 'article', articleId: topList[0].id } }" v-if="topList[0]" class="info-main">
-      <div class="img" :style="`background-image: url('${topList[0].img}')`">
+      <div ref="topImg" class="img" :style="`background-image: url('${topList[0].img}'); height: ${topImageHeight}px;`">
         <!-- <img :src="topList[0].img" alt="announced" /> -->
       </div>
       <div class="info-tag">
@@ -29,7 +29,7 @@
           <div class="list-title">{{ item.title }}</div>
           <div class="list-date">{{ item.createdate }}</div>
         </div>
-        <div class="list-img" :style="`background-image: url('${item.img}')`">
+        <div ref="restImg" class="list-img" :style="`background-image: url('${item.img}'); height: ${restImageHeight}px;`">
           <!-- <img :src="item.img" alt="img" /> -->
         </div>
       </router-link>
@@ -54,7 +54,35 @@ export default {
   },
   data() {
     return {
-      articleMap
+      articleMap,
+      topImageHeight: 300,
+      restImageHeight: 150
+    }
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  },
+  watch: {
+    deviceWidth() {
+      this.setImageHeight()
+    },
+    topList() {
+      this.setImageHeight()
+    }
+  },
+  mounted() {
+    this.setImageHeight()
+  },
+  methods: {
+    setImageHeight() {
+      setTimeout(() => {
+        const topDom = this.$refs.topImg
+        const restDoms = this.$refs.restImg
+        this.topImageHeight = (topDom && Number.parseInt(topDom.offsetWidth * 0.6)) || 300
+        this.restImageHeight = (restDoms[0] && Number.parseInt(restDoms[0].offsetWidth * 0.6)) || 150
+      }, 200)
     }
   }
 }
@@ -80,7 +108,6 @@ export default {
     }
     .img {
       width: auto;
-      height: 240px;
       background-position: center;
       background-size: cover;
     }
@@ -183,7 +210,6 @@ export default {
       }
       .list-img {
         width: 186px;
-        height: 118px;
         background-position: center;
         background-size: cover;
         @media screen and (max-width: 1370px) {

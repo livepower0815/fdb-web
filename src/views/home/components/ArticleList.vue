@@ -3,7 +3,7 @@
     <div class="info-title">{{ $t('latest_events_news') }}</div>
     <div class="info-list">
       <div v-for="(item, index) in infoList" :key="index" class="info-card" @click="goToNews(item.id)">
-        <div class="info-card-img" :style="`background-image: url('${item.img}')`">
+        <div ref="articleImg" class="info-card-img" :style="`background-image: url('${item.img}');height: ${imageHeight}px;`">
           <!-- <img :src="item.img" alt="news" /> -->
         </div>
         <div class="info-card-tag">
@@ -27,11 +27,26 @@ export default {
   data() {
     return {
       articleMap,
-      infoList: [{ tag: 0 }, { tag: 0 }, { tag: 0 }]
+      infoList: [{ tag: 0 }, { tag: 0 }, { tag: 0 }],
+      imageHeight: 300
+    }
+  },
+  computed: {
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
+    }
+  },
+  watch: {
+    deviceWidth() {
+      this.setImageHeight()
+    },
+    infoList() {
+      this.setImageHeight()
     }
   },
   mounted() {
     this.getTopNews()
+    this.setImageHeight()
   },
   methods: {
     async getTopNews() {
@@ -45,6 +60,12 @@ export default {
     },
     goToNews(articleId) {
       this.$router.push({ name: 'News', query: { mode: 'article', tab: 'all', articleId } })
+    },
+    setImageHeight() {
+      setTimeout(() => {
+        const imageDom = this.$refs.articleImg
+        this.imageHeight = (imageDom[0] && Number.parseInt(imageDom[0].offsetWidth * 0.6)) || 260
+      }, 200)
     }
   }
 }
