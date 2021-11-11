@@ -227,7 +227,7 @@ a.personal-main-btn{width:193px;height:auto;padding:15px 30px;line-height:14px;f
 .register-main-block{width:100%;height:auto;padding:50px 0 0 0;}
 .register-main-block>div.main{width: 88%;}
 .register-main>.check{width: 16px;height: 16px;margin-top: 29px;}
-.register-main>div.check-title{font-size: 14px;margin-top: 26px;}
+.register-main>div.check-title{margin-top: 26px;}
 /* .register-kv-block{width:100%;height:300px;background-size: cover;} */
 .register-kv-block{display:none!important;}
 .register-kv-block>a.logo{display:none!important;}

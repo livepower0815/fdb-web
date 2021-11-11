@@ -169,6 +169,7 @@ export default {
     width: 240px;
     @media screen and (max-width: 540px) {
       width: 70px;
+      flex: 0 1 auto;
     }
     img {
       width: 240px;
@@ -176,9 +177,9 @@ export default {
         width: 70px;
       }
     }
-    @media screen and (min-width: 300px) and (max-width: 499px) {
-      flex: 0 1 auto;
-    }
+    // @media screen and (min-width: 300px) and (max-width: 499px) {
+    //   flex: 0 1 auto;
+    // }
   }
   &-menu {
     flex: 2;

@@ -56,7 +56,7 @@ const routes = [
     component: () => import('@/views/register/Register.vue'),
     meta: {
       // 隱藏導航欄及頁尾
-      hideNavFooter: true
+      hideNavFooter: false // TODO:
     }
   },
   // 登入

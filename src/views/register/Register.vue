@@ -55,20 +55,20 @@
           <input v-model="formData.invitCode" type="text" class="input" :placeholder="$t('enter_recommender_invite')" />
         </div>
 
-        <div class="register-main">
+        <div class="register-main" style="display: flex;">
           <!-- <input v-model="formData.checkContract" type="checkbox" class="check" /> -->
           <div class="check" @click="formData.checkContract = !formData.checkContract">
             <i v-if="formData.checkContract" class="el-icon-check" style="color: #62ffff"></i>
           </div>
           <div class="check-title">
-            我已閱讀並同意FDB的
-            <router-link :to="{ name: 'Disclaimer' }" v-slot="{ navigate }" custom>
-              <span class="text-link" @click="navigate">{{ $t('service_terms') }}</span>
-            </router-link>
-            與
-            <router-link :to="{ name: 'PrivacyPolicy' }" v-slot="{ navigate }" custom>
-              <span class="text-link" @click="navigate">{{ $t('privacy_policy') }}</span>
-            </router-link>
+            <i18n path="i_have_read_and_agree">
+              <router-link place="service" :to="{ name: 'Disclaimer' }" v-slot="{ navigate }" custom>
+                <span class="text-link" @click="navigate">{{ $t('service') }}</span>
+              </router-link>
+              <router-link place="privacy_policy" :to="{ name: 'PrivacyPolicy' }" v-slot="{ navigate }" custom>
+                <span class="text-link" @click="navigate">{{ $t('privacy_policy') }}</span>
+              </router-link>
+            </i18n>
           </div>
         </div>
 
@@ -81,7 +81,9 @@
         點擊信箱url請導入登入畫面 -->
         <a href="javascript:void(0)" class="register-main-btn fdb-btn-primary-hover" @click="doRegister">{{ $t('register') }}</a>
         <div class="register-main-tips">
-          {{ $t('has_account') }}請 <span class="text-link" @click="$router.push('/login')">{{ $t('login') }}</span>
+          <i18n path="has_account" for="login">
+            <span class="text-link" @click="$router.push('/login')">{{ $t('login') }}</span>
+          </i18n>
         </div>
       </div>
     </div>

@@ -76,7 +76,7 @@
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center; width: 85px;">{{ $t('connect_info') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">{{ $t('trade_coin_type') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">{{ $t('rebate_trade_value') }}</th>
-              <th style="text-align: center;">
+              <th style="text-align: center;width: 120px;">
                 <TableFilter
                   v-if="widthWithiIn(['MAX', 'XXL', 'XL'])"
                   v-model="sreachForm.rgid"
@@ -85,10 +85,10 @@
                 />
                 <span v-else>{{ $t('belong_group') }}</span>
               </th>
-              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;" @click="sortData('createdate')">
+              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;text-align: center;" @click="sortData('createdate')">
                 <Sort :title="$t('join_date')" sort="createdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
-              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;" @click="sortData('lastdate')">
+              <th v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="width: 142px;text-align: center;" @click="sortData('lastdate')">
                 <Sort :title="$t('last_trade_date')" sort="lastdate" :sort-key="pager.sortKey" :order="pager.order" />
               </th>
               <th v-if="widthWithiIn(['XL', 'L', 'M', 'S'])" style="width: 30px;"></th>
@@ -100,7 +100,7 @@
                 <td><input v-model="selectIdsCheckBox" type="checkbox" class="check" :value="row.fdb_id" /></td>
                 <td>
                   <span>{{ row.name }}</span>
-                  <span v-if="widthWithiIn(['S'])" style="margin-left: 12px;">
+                  <span v-if="widthWithiIn(['S'])" style="margin-left: 12px;float: right;">
                     <el-tooltip effect="dark" :content="row.email" placement="top">
                       <img class="connect-icon" src="@/assets/img/personal/email.png" alt="email" />
                     </el-tooltip>
@@ -135,8 +135,8 @@
                     {{ (groupMap[row.rgid] && groupMap[row.rgid].name) || $t('no_group') }}
                   </div>
                 </td>
-                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">{{ formatDate(row.createdate) }}</td>
-                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])">
+                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="text-align: center;">{{ formatDate(row.createdate) }}</td>
+                <td v-if="widthWithiIn(['MAX', 'XXL', 'XL'])" style="text-align: center;">
                   {{ formatDate(row.lastdate) }}
                   <span></span>
                 </td>
@@ -754,6 +754,9 @@ export default {
         .btn {
           padding: 0px 26px;
           font-size: 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           @media screen and (max-width: 960px) {
             flex: 1;
           }

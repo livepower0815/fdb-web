@@ -218,7 +218,7 @@ build_account,創建帳戶,Register,계정 생성,ユーザーの作成,创建�
 invite_code,邀請碼,Referral Code,레퍼럴 코드,招待コード,邀请码
 enter_recommender_invite,輸入推薦人邀請碼,Enter Referral Code,레퍼럴 코드 입력,紹介者の招待コードを入力してください,输入推荐人邀请码
 service_terms,服務,Service,서비스,利用規約,服务
-has_account,已經有帳號？,Already have an account?,이미 계정이,アカウントをお持ちの方？,已经有帐号？
+has_account,已經有帳號？請 {0},Already have an account? Please {0},이미 계정이 있습니까? {0} 해 주십시오.,あなたはすでにメンバーですか？{0},已经有帐号？请 {0}
 mail_verification_notice,信箱驗證通知,Email verification notice,이메일 인증을 확인하세요,メールアドレス検証のお知らせ,信箱验证通知
 verification_email,提醒您：驗證電子郵件，開始返佣,Verify email and start rebate,알림 : 이메일 인증이 되어야만 수수료 반환이 가능합니다.,リマインド：メールアドレスを検証してリベート開始,提醒您：验证电子邮件，开始返佣
 please_enter_correct_email,電子郵件：請輸入正確電子郵件,Email: Please enter the correct email,이메일 : 올바른 이메일 주소를 입력하세요,メールアドレス：正しいメールアドレスを入力してください,电子邮件：请输入正确电子邮件
@@ -309,3 +309,6 @@ please_check_your_email_receive,請至信箱收取認證信件或重新發送認
 start_rebate,開始返佣,Register,리베이트 적용하기,リベート開始,开始返佣
 coopertion_bis,合作幣商,Exchange,파트너쉽 명단,コインディーラーとの提携,合作币商
 billion_2,90.35 億,9 Billion,90.35 억,90.35 億,90.35 亿
+i_have_read_and_agree,我已閱讀並同意FDB的 {service} 與 {privacy_policy},I have read and agree to FDB's {service} and {privacy_policy},나는 이미 FDB의 {service} 와 {privacy_policy} 을 읽고 동의했습니다.,FDB の {service} 及び {privacy_policy} に同意します,我已阅读并同意FDB的 {service} 与 {privacy_policy}
+service,服務,Service,서비스,利用規約,服务
+,,,,,
