@@ -64,7 +64,7 @@
         <tr v-else>
           <td colspan="5">
             <div class="empty-container">
-              <div>
+              <div class="flex-c-center">
                 <img src="@/assets/img/common/empty.png" alt="empty" />
                 <div style="text-align: center;line-height: 0px;font-size: 18px;letter-spacing: 0.1em;">{{ $t('empty_data') }}</div>
               </div>
@@ -104,7 +104,7 @@
         </div>
       </template>
       <div v-else style="margin: 0 auto" class="empty-container">
-        <div>
+        <div class="flex-c-center">
           <img src="@/assets/img/common/empty.png" alt="empty" />
           <div style="text-align: center;line-height: 0px;font-size: 18px;letter-spacing: 0.1em;">{{ $t('empty_data') }}</div>
         </div>

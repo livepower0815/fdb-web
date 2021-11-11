@@ -81,7 +81,7 @@ applying,申請中,Applying,신청중,申請中,申请中
 withdrawal,出金中,Processing,출금중,出金中,出金中
 completed,已完成,Complete,출금완료,完了しました,已完成
 commission_detail,佣金明細,Commission Details,세부내역,コミッション明細,佣金明细
-withdrawal_apply,出金申請,Apply for Withdraw,출금신청,出金申請,出金申请
+withdrawal_apply,出金申請,Withdraw,출금신청,出金申請,出金申请
 your_commission_change_record,您的佣金異動紀錄,Total Records,커미션 내역,お客様の手数料異動記録,您的佣金异动纪录
 personal_rebate_information,個人返佣資訊,Personal Rebate Information,나의 리베이트 내역,個人リベート情報,个人返佣资讯
 referrer_rebate_information,推薦人返佣資訊,Referral Rebate Information,레퍼럴 리베이트 내역,紹介者リベート情報,推荐人返佣资讯
@@ -270,8 +270,7 @@ exchange_uid_bind_member,將交易所UID與返多寶會員綁定,Connecting exch
 receive_rebate,領取返佣,Receive commission,리베이트 회수하기,リベートを受け取る,领取返佣
 view_commission_rebate_dashboard,檢視返佣儀表板，輸入錢包地址，申請出金,"View the commission rebate dashboard, enter the wallet address, and apply for withdrawal","리베이트 도표, 도식화 그래프 산출, 출금신청",リベートダッシュボードを検視、口座を入力して出金を申し込み,检视返佣仪表板，输入钱包地址，申请出金
 rebate_guarantee,返佣保證,Rebate Promise,리베이트 보증,リベート保証,返佣保证
-no_trading_conditions_required,成為返多寶用戶，不需要任何交易條件，即有40%交易返佣。,"Fundobit members ONLY !!!
-Trading can get  40% commission rebate",거래수수료 40%로 업계 최상위 리베이트 혜택을 제공하며.,Fundobitの会員になったら取引条件は必要ありません。すぐ40%の取引リベートを貰える。,成为返多宝用户，不需要任何交易条件，即有40%交易返佣。
+no_trading_conditions_required,成為返多寶用戶，不需要任何交易條件，即有40%交易返佣。,"Fundobit members ONLY !!! Trading can get  40% commission rebate",거래수수료 40%로 업계 최상위 리베이트 혜택을 제공하며.,Fundobitの会員になったら取引条件は必要ありません。すぐ40%の取引リベートを貰える。,成为返多宝用户，不需要任何交易条件，即有40%交易返佣。
 enjoy_another_ten_recommendation,返多寶邀請計畫，好友交易返佣再享10%推薦。,Fundobit Referral Plan，10% trading rebates.,이와 같은 레퍼럴 혜택 10%가 제공됩니다.,Fundobitの招待企画は友達の取引リベート更に10%還元,返多宝邀请计画，好友交易返佣再享10%推荐。
 apply_account,申請開戶,Register,계정 생성하기,口座開設の申請,申请开户
 rebate_subsidy_ratio,返多寶補貼比例,FUNDOBIT commission rebate ratio,가입 보너스,Fundobitの補助比率,返多宝补贴比例

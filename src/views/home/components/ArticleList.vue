@@ -64,7 +64,7 @@ export default {
     setImageHeight() {
       setTimeout(() => {
         const imageDom = this.$refs.articleImg
-        this.imageHeight = (imageDom[0] && Number.parseInt(imageDom[0].offsetWidth * 0.6)) || 260
+        this.imageHeight = (imageDom && imageDom[0] && Number.parseInt(imageDom[0].offsetWidth * 0.6)) || 260
       }, 200)
     }
   }

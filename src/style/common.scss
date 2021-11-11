@@ -254,3 +254,9 @@ button {
     display: block;
   }
 }
+
+.flex-c-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

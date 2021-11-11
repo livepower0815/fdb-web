@@ -81,7 +81,7 @@ export default {
         const topDom = this.$refs.topImg
         const restDoms = this.$refs.restImg
         this.topImageHeight = (topDom && Number.parseInt(topDom.offsetWidth * 0.6)) || 300
-        this.restImageHeight = (restDoms[0] && Number.parseInt(restDoms[0].offsetWidth * 0.6)) || 150
+        this.restImageHeight = (restDoms && restDoms[0] && Number.parseInt(restDoms[0].offsetWidth * 0.6)) || 150
       }, 200)
     }
   }
