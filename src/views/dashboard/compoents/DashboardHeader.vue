@@ -362,11 +362,11 @@ export default {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        @media screen and (max-width: 960px) {
+        @media screen and (max-width: 1346px) {
           flex-direction: column;
         }
         &-menu {
-          @media screen and (max-width: 960px) {
+          @media screen and (max-width: 1346px) {
             display: flex;
             overflow: auto;
             margin-bottom: 12px;
@@ -402,12 +402,12 @@ export default {
           }
         }
         &-select {
-          @media screen and (max-width: 960px) {
+          @media screen and (max-width: 1346px) {
             text-align: end;
             margin-bottom: 12px;
           }
           .select {
-            width: 79px;
+            width: 130px;
             margin-right: 10px;
           }
         }

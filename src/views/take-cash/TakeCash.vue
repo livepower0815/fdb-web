@@ -417,7 +417,7 @@ export default {
         margin-bottom: 3%;
         letter-spacing: 0.05em;
         @media screen and (max-width: 960px) {
-          font-size: 20px;
+          font-size: 22px;
         }
       }
       &-body {
@@ -439,17 +439,17 @@ export default {
             align-items: center;
             margin: 40px 0;
             @media screen and (max-width: 1370px) {
-              margin: 34px 0;
+              margin: 30px 0;
             }
             @media screen and (max-width: 960px) {
-              margin: 30px 0;
+              margin: 24px 0;
             }
             @media screen and (max-width: 500px) {
               flex-direction: column;
               align-items: flex-start;
             }
             .title {
-              width: 24%;
+              width: 30%;
               text-align: end;
               font-size: 18px;
               line-height: 27px;
@@ -460,15 +460,18 @@ export default {
                 font-size: 14px;
               }
               @media screen and (max-width: 500px) {
-                width: 50%;
+                width: 80%;
                 text-align: start;
-                padding-bottom: 12px;
+                padding-bottom: 6px;
+                font-size: 16px;
               }
             }
             .value {
               flex: 1;
               margin-left: 20px;
               font-size: 18px;
+              word-break: break-word;
+              color: #62ffff;
               @media screen and (max-width: 1370px) {
                 font-size: 16px;
               }
@@ -478,6 +481,7 @@ export default {
               @media screen and (max-width: 500px) {
                 width: 100%;
                 margin-left: 0px;
+                margin-bottom: 10px;
               }
               .coin-icon {
                 width: 34px;

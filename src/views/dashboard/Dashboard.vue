@@ -152,7 +152,7 @@ export default {
         font-weight: bold;
         font-size: 30px;
         @media screen and (max-width: 500px) {
-          font-size: 26px;
+          font-size: 22px;
         }
       }
       .withdraw-btn {

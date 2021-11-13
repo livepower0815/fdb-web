@@ -74,7 +74,7 @@
               <th><input v-model="selectAllCheckBox" type="checkbox" class="check" /></th>
               <th>{{ $t('member_name') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL', 'XL', 'L', 'M'])" style="text-align: center; width: 85px;">{{ $t('connect_info') }}</th>
-              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px;">{{ $t('trade_coin_type') }}</th>
+              <th v-if="widthWithiIn(['MAX', 'XXL'])" style="width: 156px; text-align: center;">{{ $t('trade_coin_type') }}</th>
               <th v-if="widthWithiIn(['MAX', 'XXL'])" style="text-align: center;">{{ $t('rebate_trade_value') }}</th>
               <th style="text-align: center;width: 120px;">
                 <TableFilter
@@ -606,7 +606,7 @@ export default {
           flex: 0 0 auto;
           height: 38px;
           width: 100%;
-          font-size: 14px;
+          font-size: 12px;
           border: none;
           box-sizing: border-box;
           border-radius: 8px;
@@ -662,7 +662,7 @@ export default {
         font-size: 16px;
         @media screen and (max-width: 500px) {
           height: 38px;
-          font-size: 14px;
+          font-size: 12px;
         }
       }
       .color-picker {

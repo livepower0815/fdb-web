@@ -228,10 +228,7 @@ export default {
         .coin-status {
           flex: 1;
           text-align: end;
-          font-size: 18px;
-          @media screen and (max-width: 960px) {
-            font-size: 16px;
-          }
+          font-size: 15px;
           &.bind {
             color: #62ffffb3;
           }

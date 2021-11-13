@@ -173,7 +173,7 @@ check_new_password,確認密碼：密碼要與新密碼一致,Reconfirm password
 edit_group,編輯組別,Edit Group,그룹 수정,グループを編集する,编辑组别
 belong_group,所在組別,Group,그룹 지정,所属グループ,所在组别
 join_date,加入日期,Join Date,가입일자,参加日,加入日期
-last_trade_date,最後交易日,Last Tradeing Day,최신거래일자,最後の引取日,最后交易日
+last_trade_date,最後交易日,Last Trading Day,최신거래일자,最後の引取日,最后交易日
 connect_info,聯絡資訊,Info,연락처 정보,連絡先,联络资讯
 rebate_trade_value,返佣交易量,Rebate Trading Volume,거래량 리베이트,リベートを取引できる数量,返佣交易量
 view_information,檢視資訊,Veiw,정보 검증,情報を検視する,检视资讯
@@ -247,7 +247,7 @@ please_enter_withdrawal_amount,請輸入出金金額,Amount,출금금액을 입�
 cancel_withdraw,取消出金,Cancel,출금취소,出金をキャンセル,取消出金
 next_step,下一步,Next,다음,次へ,下一步
 actual_quantity,實拿數量,Amount,실제수량,実際数,实拿数量
-submit_withdrawal_application,注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交,"Note: Hello, dear members, please confirm whether your transaction address is correct, and if it is correct, the withdrawal application will be submitted",,注意：会員様へ取引先のアドレスが正しいかどうかを再確認して、間違いがなければ出金申請を提出されます,注意：亲爱的会员您好，请再次确认您的交易地址是否正确，若无误将进行出金申请提交
+submit_withdrawal_application,注意：親愛的會員您好，請再次確認您的交易地址是否正確，若無誤將進行出金申請提交,"Note: Hello, dear members, please confirm whether your transaction address is correct, and if it is correct, the withdrawal application will be submitted","힌트: 친애하는 회원 거래 주소가 정확한지 확인하시고, 주소가 맞으면 출금 신청서가 접수됩니다.",注意：会員様へ取引先のアドレスが正しいかどうかを再確認して、間違いがなければ出金申請を提出されます,注意：亲爱的会员您好，请再次确认您的交易地址是否正确，若无误将进行出金申请提交
 previous,上一步,Previous,이전페이지,戻る,上一步
 submit_application,提出申請,Apply,승인 신청하기,申請を提出,提出申请
 expected_complete_withdrawal,預計48 小時內完成出金,It is estimated that the withdrawal will be completed within 48 hours.,출금은 48시간 정도 소요됩니다.,４８時間内出金完了予定,预计48 小时内完成出金
@@ -270,7 +270,7 @@ exchange_uid_bind_member,將交易所UID與返多寶會員綁定,Connecting exch
 receive_rebate,領取返佣,Receive commission,리베이트 회수하기,リベートを受け取る,领取返佣
 view_commission_rebate_dashboard,檢視返佣儀表板，輸入錢包地址，申請出金,"View the commission rebate dashboard, enter the wallet address, and apply for withdrawal","리베이트 도표, 도식화 그래프 산출, 출금신청",リベートダッシュボードを検視、口座を入力して出金を申し込み,检视返佣仪表板，输入钱包地址，申请出金
 rebate_guarantee,返佣保證,Rebate Promise,리베이트 보증,リベート保証,返佣保证
-no_trading_conditions_required,成為返多寶用戶，不需要任何交易條件，即有40%交易返佣。,"Fundobit members ONLY !!! Trading can get  40% commission rebate",거래수수료 40%로 업계 최상위 리베이트 혜택을 제공하며.,Fundobitの会員になったら取引条件は必要ありません。すぐ40%の取引リベートを貰える。,成为返多宝用户，不需要任何交易条件，即有40%交易返佣。
+no_trading_conditions_required,成為返多寶用戶，不需要任何交易條件，即有40%交易返佣。,Fundobit members ONLY !!! Trading can get  40% commission rebate,거래수수료 40%로 업계 최상위 리베이트 혜택을 제공하며.,Fundobitの会員になったら取引条件は必要ありません。すぐ40%の取引リベートを貰える。,成为返多宝用户，不需要任何交易条件，即有40%交易返佣。
 enjoy_another_ten_recommendation,返多寶邀請計畫，好友交易返佣再享10%推薦。,Fundobit Referral Plan，10% trading rebates.,이와 같은 레퍼럴 혜택 10%가 제공됩니다.,Fundobitの招待企画は友達の取引リベート更に10%還元,返多宝邀请计画，好友交易返佣再享10%推荐。
 apply_account,申請開戶,Register,계정 생성하기,口座開設の申請,申请开户
 rebate_subsidy_ratio,返多寶補貼比例,FUNDOBIT commission rebate ratio,가입 보너스,Fundobitの補助比率,返多宝补贴比例
@@ -305,8 +305,8 @@ please_enter_user_name,請輸入使用者名稱,Please enter username,사용자�
 cancelled,已取消,Cancelled,취소됨,キャンセルが完了,已取消
 not_yet_selected_unbound,尚未選擇或未綁定,Enter withdraw address,이미 계정생성이 완료되었습니다.,まだ選択されていない、またはバインディングされていません,尚未选择或未绑定
 please_check_your_email_receive,請至信箱收取認證信件或重新發送認證信，如仍有異常請聯繫客服團隊,"Please check your email to receive the certification letter or resend the certification letter. If there is still an abnormality, please contact the customer service team",우편함으로 인증메일을 확인하시고 문제가 있을 경우 고객지원팀으로 연락 주시기 바랍니다.,メールアドレスで確認コードを受信または確認コードを再発送する。もし何が異常かあるなら、サービスセンターにご聯絡ください,请至信箱收取认证信件或重新发送认证信，如仍有异常请联系客服团队
-start_rebate,開始返佣,Register,리베이트 적용하기,リベート開始,开始返佣
-coopertion_bis,合作幣商,Exchange,파트너쉽 명단,コインディーラーとの提携,合作币商
+start_rebate,開始返佣,Referral Program,리베이트 적용하기,リベート開始,开始返佣
+coopertion_bis,合作幣商,Industry Partners,파트너쉽 명단,コインディーラーとの提携,合作币商
 billion_2,90.35 億,9 Billion,90.35 억,90.35 億,90.35 亿
 i_have_read_and_agree,我已閱讀並同意FDB的 {service} 與 {privacy_policy},I have read and agree to FDB's {service} and {privacy_policy},나는 이미 FDB의 {service} 와 {privacy_policy} 을 읽고 동의했습니다.,FDB の {service} 及び {privacy_policy} に同意します,我已阅读并同意FDB的 {service} 与 {privacy_policy}
 service,服務,Service,서비스,利用規約,服务

@@ -50,10 +50,10 @@
   }
   &-title {
     width: 22%;
-    font-size: 40px;
+    font-size: 26px;
     font-weight: bold;
     padding: 45px 0;
-    margin-right: 53px;
+    margin-right: 26px;
     color: white;
   }
   &-step {
@@ -98,10 +98,9 @@
 @media screen and (min-width: 1000px) and (max-width: 1346px) {
   .join {
     padding: 16px;
-    &-title {
-      font-size: 28px;
-      margin-right: 26px;
-    }
+    // &-title {
+    //   font-size: 28px;
+    // }
     &-step {
       &-item {
         .join-number {
