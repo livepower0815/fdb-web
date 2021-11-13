@@ -21,7 +21,7 @@
             <div class="item-title">{{ item.title }}</div>
             <div class="item-date">{{ item.createdate }}</div>
           </div>
-          <div class="img" :style="`background-image: url('${item.img}')`"></div>
+          <div ref="relativeImg" class="img" :style="`background-image: url('${item.img}'); height: ${imageHeight}px;`"></div>
           <!-- <img class="img" :src="item.img" alt="pic" /> -->
         </router-link>
       </template>
@@ -45,21 +45,32 @@ export default {
       newsList: [],
       articleMap,
       mainLoading: false,
-      otherLoading: false
+      otherLoading: false,
+      imageHeight: 160
     }
   },
   computed: {
     articleId() {
       return Number(this.$route.query.articleId)
+    },
+    deviceWidth() {
+      return this.$store.state.app.deviceWidth
     }
   },
   watch: {
     articleId() {
       this.getNewsDetail()
+    },
+    deviceWidth() {
+      this.setImageHeight()
+    },
+    newsList() {
+      this.setImageHeight()
     }
   },
   mounted() {
     this.getNewsDetail()
+    this.setImageHeight()
   },
   methods: {
     async getNewsDetail() {
@@ -94,6 +105,12 @@ export default {
         console.error(e)
       }
       this.otherLoading = false
+    },
+    setImageHeight() {
+      setTimeout(() => {
+        const imageDom = this.$refs.relativeImg
+        this.imageHeight = (imageDom && imageDom[0] && Number.parseInt(imageDom[0].offsetWidth * 0.6)) || 150
+      }, 200)
     }
   }
 }
@@ -131,13 +148,12 @@ export default {
     }
   }
   &-other {
-    width: 416px;
+    width: 35%;
     height: 100%;
     background: #151923;
     padding: 20px;
     box-sizing: border-box;
     @media screen and (max-width: 1370px) {
-      width: 310px;
       padding: 10px;
     }
     @media screen and (max-width: 960px) {
@@ -182,13 +198,9 @@ export default {
         }
       }
       .img {
-        width: 112px;
-        height: 112px;
+        width: 40%;
         background-position: center;
         background-size: cover;
-        @media screen and (max-width: 1370px) {
-          width: 97px;
-        }
       }
     }
     .other-empty {
