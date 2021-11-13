@@ -165,11 +165,10 @@ export default {
     padding: 0 6%;
   }
   &-logo {
-    flex: 1;
+    flex: 0 1 auto;
     width: 240px;
     @media screen and (max-width: 540px) {
       width: 70px;
-      flex: 0 1 auto;
     }
     img {
       width: 240px;
@@ -182,11 +181,13 @@ export default {
     // }
   }
   &-menu {
-    flex: 2;
+    flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    @media screen and (max-width: 1370px) {
+      font-size: 12px;
+    }
     a {
-      margin-right: 45px;
       color: #ccc;
       &:hover {
         color: #fff;
@@ -194,7 +195,7 @@ export default {
     }
   }
   &-setting {
-    flex: 1;
+    flex: 0 1 auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;

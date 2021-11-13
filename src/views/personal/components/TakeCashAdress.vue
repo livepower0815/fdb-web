@@ -113,9 +113,13 @@
       </div>
     </div>
     <div class="btns-block personal-info">
-      <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="isEdit = true">{{ $t('edit_adress') }}</a>
+      <a v-if="!isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click=";(isEdit = true), (hadChanged = false)">
+        {{ $t('edit_adress') }}
+      </a>
       <a v-if="isEdit" href="javascript:void(0)" class="cancel fdb-btn-default-hover" @click="cancelEdit">{{ $t('cancel') }}</a>
-      <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" @click="saveAdress">{{ $t('save_and_verify') }}</a>
+      <a v-if="isEdit" href="javascript:void(0)" class="next fdb-btn-primary-hover" :class="{ disabled: !hadChanged }" @click="saveAdress">
+        {{ $t('save_and_verify') }}
+      </a>
     </div>
 
     <!-- 信箱驗證碼彈窗 -->
@@ -154,6 +158,7 @@ export default {
     return {
       isLoading: false,
       isEdit: false,
+      hadChanged: false,
       formData: {
         BTC: { adress: '', adress2: '' },
         XRP: { adress: '', adress2: '' },
@@ -171,6 +176,14 @@ export default {
   computed: {
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    }
+  },
+  watch: {
+    formData: {
+      handler: function(val) {
+        this.hadChanged = true
+      },
+      deep: true
     }
   },
   mounted() {
@@ -345,5 +358,10 @@ export default {
       padding-left: 10px;
     }
   }
+}
+
+.disabled {
+  filter: opacity(0.3);
+  pointer-events: none;
 }
 </style>

@@ -6,7 +6,8 @@
         <img v-if="deviceWidth > 900" src="@/assets/img/nav/logo.png" alt="nav-icon" />
         <img v-else src="@/assets/img/nav/logo-m.png" alt="nav-icon" />
       </div>
-      <div class="footer-menu">
+      <!-- 日文手機版有做特殊排版 -->
+      <div class="footer-menu" :class="{ 'is-jp': appLang === 'JP' }">
         <router-link to="/">{{ $t('fdb_home') }}</router-link>
         <router-link to="/about">{{ $t('start_rebate') }}</router-link>
         <router-link to="/partner">{{ $t('coopertion_bis') }}</router-link>
@@ -30,7 +31,7 @@
         <div class="footer-copy-right">Copyright © 2020 FDB.</div>
         <div class="links">
           <router-link :to="{ name: 'Disclaimer' }">{{ $t('disclaimer') }}</router-link>
-          <div style="width: 0.5px;height: 20px;background-color: #ccc;margin-right: 20px;"></div>
+          <div style="width: 0.5px; height: 20px; background-color: #ccc; margin-right: 20px"></div>
           <router-link :to="{ name: 'PrivacyPolicy' }">{{ $t('privacy_policy') }}</router-link>
         </div>
       </div>
@@ -48,6 +49,9 @@ export default {
   computed: {
     deviceWidth() {
       return this.$store.state.app.deviceWidth
+    },
+    appLang() {
+      return localStorage.getItem('FDB-lang')
     }
   }
 }
@@ -85,7 +89,7 @@ export default {
     }
     .footer-menu {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
       flex: 1;
       @media screen and (max-width: 700px) {
@@ -93,22 +97,20 @@ export default {
         margin: 12px 0;
       }
       a {
-        margin-right: 45px;
         color: #ccc;
-        @media screen and (max-width: 960px) {
-          margin-left: 25px;
-          margin-right: 0px;
-          font-size: 14px;
-        }
-        @media screen and (max-width: 700px) {
-          margin-left: 0px;
-          font-size: 12px;
-        }
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 1340px) {
           font-size: 12px;
         }
         &:hover {
           color: #fff;
+        }
+      }
+      &.is-jp {
+        flex-wrap: wrap;
+        a {
+          flex: 0 0 50%;
+          text-align: center;
+          padding: 6px 0;
         }
       }
     }
