@@ -183,12 +183,16 @@ export default {
   &-menu {
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     @media screen and (max-width: 1370px) {
       font-size: 12px;
     }
     a {
       color: #ccc;
+      margin: 0 3%;
+      @media screen and (max-width: 1100px) {
+        margin: 0 1%;
+      }
       &:hover {
         color: #fff;
       }

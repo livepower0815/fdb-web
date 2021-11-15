@@ -89,7 +89,7 @@ export default {
     }
     .footer-menu {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
       flex: 1;
       @media screen and (max-width: 700px) {
@@ -98,6 +98,7 @@ export default {
       }
       a {
         color: #ccc;
+        padding: 0 3%;
         @media screen and (max-width: 1340px) {
           font-size: 12px;
         }
@@ -106,11 +107,13 @@ export default {
         }
       }
       &.is-jp {
-        flex-wrap: wrap;
-        a {
-          flex: 0 0 50%;
-          text-align: center;
-          padding: 6px 0;
+        @media screen and (max-width: 700px) {
+          flex-wrap: wrap;
+          a {
+            flex: 0 0 50%;
+            text-align: center;
+            padding: 6px 0;
+          }
         }
       }
     }
