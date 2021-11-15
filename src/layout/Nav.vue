@@ -190,7 +190,7 @@ export default {
     a {
       color: #ccc;
       margin: 0 3%;
-      @media screen and (max-width: 1100px) {
+      @media screen and (max-width: 1040px) {
         margin: 0 1%;
       }
       &:hover {

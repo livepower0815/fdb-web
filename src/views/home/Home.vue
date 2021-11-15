@@ -5,6 +5,7 @@
       <el-carousel
         :arrow="bannerList.length > 1 ? 'always' : ''"
         :height="`${deviceWidth > 700 ? '60vw' : '88vw'}`"
+        :interval="6000"
         indicator-position="none"
         class="banner"
       >

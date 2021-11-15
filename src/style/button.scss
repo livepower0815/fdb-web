@@ -21,10 +21,12 @@
     filter: opacity(0.3);
     pointer-events: none;
   }
-  /*540-320*/
-  @media screen and (min-width: 300px) and (max-width: 749px) {
-    padding: 0px 6px;
+  @media screen and (max-width: 749px) {
+    padding: 0px 22px;
     font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0px 6px;
   }
 }
 
@@ -50,10 +52,12 @@
     filter: opacity(0.3);
     pointer-events: none;
   }
-  /*540-320*/
-  @media screen and (min-width: 300px) and (max-width: 749px) {
+  @media screen and (max-width: 749px) {
     padding: 0px 22px;
     font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0px 6px;
   }
 }
 
@@ -77,10 +81,12 @@
     filter: opacity(0.3);
     pointer-events: none;
   }
-  /*540-320*/
-  @media screen and (min-width: 300px) and (max-width: 749px) {
+  @media screen and (max-width: 749px) {
     padding: 0px 22px;
     font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0px 6px;
   }
 }
 

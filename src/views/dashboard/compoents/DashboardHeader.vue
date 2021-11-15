@@ -376,13 +376,12 @@ export default {
             justify-content: flex-start;
           }
           .filter-item {
-            font-size: 16px;
+            font-size: 14px;
             color: #cccccc;
             margin-right: 16px;
             transition: color 0.4s;
             cursor: pointer;
             @media screen and (max-width: 1346px) {
-              font-size: 14px;
               margin-right: 10px;
             }
             @media screen and (max-width: 960px) {

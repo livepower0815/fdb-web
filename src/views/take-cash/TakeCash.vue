@@ -340,17 +340,18 @@ export default {
       flex-direction: column-reverse;
     }
     .step {
-      width: 50%;
+      box-sizing: border-box;
+      width: 56%;
       background-color: #151923;
       margin-right: 8px;
-      padding: 4% 5%;
+      padding: 4% 2%;
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 6px;
-      @media screen and (max-width: 1370px) {
-        width: 52%;
-      }
+      // @media screen and (max-width: 1370px) {
+      //   width: 54%;
+      // }
       @media screen and (max-width: 960px) {
         width: 59%;
         padding: 4% 3%;

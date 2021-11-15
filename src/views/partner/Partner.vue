@@ -162,20 +162,15 @@ export default {
       position: absolute;
       left: 5%;
       top: 25%;
-      width: 486px;
+      width: 40%;
       @media screen and (max-width: 1370px) {
         top: 22%;
       }
       @media screen and (max-width: 960px) {
         top: 16%;
-        width: 42%;
       }
       @media screen and (max-width: 700px) {
         top: 35%;
-        width: 246px;
-      }
-      @media screen and (max-width: 500px) {
-        width: 168px;
       }
       .title {
         font-family: 'Avenir';
