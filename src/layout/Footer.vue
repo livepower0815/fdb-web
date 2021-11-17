@@ -51,7 +51,7 @@ export default {
       return this.$store.state.app.deviceWidth
     },
     appLang() {
-      return localStorage.getItem('FDB-lang')
+      return this.$store.state.app.lang
     }
   }
 }

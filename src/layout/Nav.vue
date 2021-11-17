@@ -93,13 +93,10 @@
 </template>
 
 <script>
-import i18n from '@/plugins/i18n'
-
 export default {
   name: 'Nav',
   data() {
     return {
-      lang: localStorage.getItem('FDB-lang') || 'TW',
       mobileMenu: {
         show: false
       }
@@ -114,6 +111,9 @@ export default {
     },
     userInfo() {
       return this.$store.state.user.userInfo
+    },
+    lang() {
+      return this.$store.state.app.lang
     }
   },
   watch: {
@@ -139,9 +139,7 @@ export default {
       }
     },
     handleLang(lang) {
-      localStorage.setItem('FDB-lang', lang)
-      i18n.locale = lang
-      this.lang = lang
+      this.$store.commit('app/SET_LANG', lang)
       // location.reload()
     }
   }

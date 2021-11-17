@@ -220,7 +220,7 @@ export default {
             cid: currencyIdMap[key],
             address: this.formData[key].adress,
             address2: this.formData[key].adress2,
-            lang: localStorage.getItem('FDB-lang') || 'TW'
+            lang: this.$store.state.app.lang
           })
         }
         await withdrawalDataUpdate(postData)

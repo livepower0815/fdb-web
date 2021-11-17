@@ -1,4 +1,5 @@
 import { getCoinStoreGroup } from '@/apis/user'
+import i18n from '@/plugins/i18n'
 
 const state = {
   // 裝置寬度
@@ -8,7 +9,8 @@ const state = {
   // 交易所清單 coin store group list
   csgList: [],
   csgMap: {},
-  globalLoading: false
+  globalLoading: false,
+  lang: localStorage.getItem('FDB-lang') || 'TW'
 }
 
 const mutations = {
@@ -27,6 +29,11 @@ const mutations = {
   },
   SET_G_LOADING(state, status) {
     state.globalLoading = status
+  },
+  SET_LANG(state, lang) {
+    state.lang = lang
+    localStorage.setItem('FDB-lang', lang)
+    i18n.locale = lang
   }
 }
 
