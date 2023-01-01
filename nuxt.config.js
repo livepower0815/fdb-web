@@ -85,6 +85,7 @@ module.exports = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    publicPath: '/fdb-web/dist/_nuxt',
     transpile: [/^element-ui/],
     postcss: null
   }
