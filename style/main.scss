@@ -1,0 +1,46 @@
+// variables
+@import "@/style/variables/variables";
+
+// base
+@import "@/style/base/common";
+
+// layout
+@import "@/style/layout/layout";
+
+// component
+@import "@/style/component/navbar";
+@import "@/style/component/footer";
+@import "@/style/component/group-color";
+@import "@/style/component/button";
+@import "@/style/component/btn-tab";
+@import "@/style/component/search";
+@import "@/style/component/banner";
+@import "@/style/component/slide-list";
+@import "@/style/component/card-slide";
+@import "@/style/component/article-card";
+@import "@/style/component/market-pulse";
+@import "@/style/component/recommend";
+@import "@/style/component/exchange-card";
+
+// page
+@import "@/style/page/dashboard";
+@import "@/style/page/disclaimer";
+@import "@/style/page/login";
+@import "@/style/page/new-password";
+@import "@/style/page/privacy-policy";
+@import "@/style/page/register";
+@import "@/style/page/reset-password";
+@import "@/style/page/take-cash";
+
+// new
+@import "@/style/new/news";
+@import "@/style/new/index";
+@import "@/style/new/partner";
+@import "@/style/new/help";
+@import "@/style/new/plugin";
+@import "@/style/new/live";
+
+// animation
+@import "@/style/animation/transition";
+@import "@/style/animation/marquee";
+@import "@/style/animation/twinkling";

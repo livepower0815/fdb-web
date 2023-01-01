@@ -1,0 +1,28 @@
+@keyframes quote-scroll {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes quote-scroll2 {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+.quote-marquee1 {
+  animation: quote-scroll 60s linear infinite;
+  animation-delay: -30s;
+}
+
+.quote-marquee2 {
+  animation: quote-scroll2 60s linear infinite;
+}

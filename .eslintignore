@@ -1,0 +1,3 @@
+node_modules/asn1.js
+public/**/*.js
+dist/**/*.js

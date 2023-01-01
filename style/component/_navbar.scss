@@ -1,0 +1,130 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 3%;
+  background-color: #000000d6;
+
+  @media screen and (max-width: 1370px) {
+    padding: 0 4%;
+  }
+
+  @media screen and (max-width: 960px) {
+    padding: 0 6%;
+  }
+
+  &-logo {
+    display: block;
+    height: 28px;
+
+    img {
+      display: block;
+      width: auto;
+      height: 100%;
+    }
+
+    // @media screen and (min-width: 300px) and (max-width: 499px) {
+    //   flex: 0 1 auto;
+    // }
+  }
+
+  &-menu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    @media screen and (max-width: 1370px) {
+      font-size: 12px;
+    }
+
+    a {
+      margin: 0 3%;
+      color: #ccc;
+
+      @media screen and (max-width: 1040px) {
+        margin: 0 1%;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &-setting {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+
+    .navbar-m-menu {
+      width: 24px;
+      margin-right: 12px;
+    }
+
+    .navbar-m-lang {
+      width: 24px;
+      margin-left: 12px;
+    }
+
+    &.is-mobile {
+      a {
+        margin-right: 8px;
+        color: #ccc;
+      }
+    }
+
+    a {
+      margin-right: 25px;
+      color: #ccc;
+
+      &.register {
+        padding: 0 22px;
+        margin-right: 25px;
+        font-family: 'Noto Sans CJK TC';
+        line-height: 30px;
+        background-color: black;
+        border: 1px solid;
+        border-color: $Primary-light;
+        border-radius: 6px;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+
+  .el-drawer {
+    background-color: unset;
+  }
+  
+  .el-drawer__body {
+    background-color: #050608cc;
+  }
+  
+  .drawer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 20px 0;
+  
+    .menu-link {
+      margin: 2px;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-setting a.register {
+    padding: 0 8px;
+  }
+}

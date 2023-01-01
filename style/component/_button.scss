@@ -1,0 +1,122 @@
+// button
+.fdb-btn-info {
+  display: inline-block;
+  padding: 0 40px;
+  font-family: 'Noto Sans CJK TC';
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background: #1e2433;
+  border: 1px #1e2433 solid;
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &.active,
+  &:hover,
+  &-hover:hover {
+    color: $Primary-light !important;
+    border: 1px $Primary-light solid !important;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    filter: opacity(0.3);
+  }
+  @media screen and (max-width: 749px) {
+    padding: 0 22px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0 6px;
+  }
+}
+
+.fdb-btn-default {
+  display: inline-block;
+  padding: 0 40px;
+  font-family: 'Noto Sans CJK TC';
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid;
+  border-color: $Primary-light;
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &.active,
+  &:hover,
+  &-hover:hover {
+    background: #3ea9cc !important;
+    border-color: #3ea9cc !important;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    filter: opacity(0.3);
+  }
+  @media screen and (max-width: 749px) {
+    padding: 0 22px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0 6px;
+  }
+}
+
+.fdb-btn-primary {
+  display: inline-block;
+  padding: 0 40px;
+  font-family: 'Noto Sans CJK TC';
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(180deg, $Primary-light 9.47%, #3ea9cc 100%);
+  border-radius: 6px;
+  transition: all 0.2s;
+
+  &.active,
+  &:hover,
+  &-hover:hover {
+    background: linear-gradient(180deg, #3ea9cc 9.47%, #3ea9cc 100%) !important;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    filter: opacity(0.3);
+  }
+  @media screen and (max-width: 749px) {
+    padding: 0 22px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 0 6px;
+  }
+}
+
+.click-disabled {
+  pointer-events: none;
+  filter: opacity(0.3);
+}
+
+.back-top-btn{
+  // position: sticky;
+  // top:80%;
+  // left: 100%;
+  width: 84px; 
+  margin:auto;
+  margin-top:8px;
+
+  &__img{
+    display: block;
+    width:100%;
+  }  
+}
+
+@media screen and (max-width: 1370px) {
+  .back-top-btn{
+    width: 60px;
+  }
+}

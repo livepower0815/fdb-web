@@ -1,0 +1,169 @@
+.market-pulse {
+  display: flex;
+  align-items: center;
+  padding: 3% 0;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 18%;
+    padding-right: 4%;
+
+    .title {
+      padding-bottom: 8px;
+
+      &__text {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 1.2;
+        color: #fff;
+
+        &::after {
+          display: none;
+          width: 25px;
+          height: 25px;
+          padding-left: 8px;
+          content: '';
+          background-image: url('@/assets/img/common/arrow-top-right-o.png');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+    }
+
+    .sub-title {
+      padding-bottom: 12px;
+
+      &__text {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #e5e5e5;
+      }
+    }
+
+    .title-icon {
+      width: 36px;
+
+      &__icon {
+        width: 100%;
+      }
+    }
+  }
+
+  &__slide {
+    flex: 1;
+    width: 82%;
+  }
+
+  .slide-list {
+    &__item {
+      display: block;
+      width: 210px;
+      height: 210px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .item-img {
+      height: 100%;
+      overflow: hidden;
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .market-pulse__title {
+    width: 20%;
+  }
+
+  .market-pulse__slide {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .market-pulse {
+    padding: 5% 0;
+
+    .container {
+      padding: 0 0 0 6%;
+    }
+
+    .slide-list__item {
+      width: 193px;
+      height: 193px;
+    }
+  }
+
+  .market-pulse__title {
+    width: 30%;
+
+    .title__text {
+      font-size: 24px;
+    }
+
+    .sub-title__text {
+      font-size: 14px;
+    }
+  }
+
+  .market-pulse__slide {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .market-pulse {
+    padding: 0 0 40px;
+
+    .container {
+      flex-direction: column;
+      padding: 0 0 0 16px;
+    }
+
+    &__title,
+    &__slide {
+      width: 100%;
+    }
+
+    &__title {
+      .title__text {
+        font-size: 20px;
+
+        &::after {
+          display: block;
+        }
+      }
+
+      .sub-title {
+        padding-bottom: 26px;
+
+        &__text {
+          font-size: 14px;
+        }
+      }
+
+      .title-icon {
+        display: none;
+      }
+    }
+
+    .slide-list__item {
+      margin-right: 20px;
+    }
+  }
+}

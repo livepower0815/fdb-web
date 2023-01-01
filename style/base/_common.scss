@@ -1,0 +1,299 @@
+// @font-face {
+//   font-family: 'Noto Sans CJK TC';
+//   src: url('../assets/font/NotoSansCJKtc-Regular.otf') format('opentype');
+// }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  padding-right: 0 !important;
+  margin: 0;
+
+  // font-family: 'Noto Sans CJK TC';
+  font-family: 'Noto Sans CJK TC', Avenir, sans-serif;
+  font-size: 15px;
+  color: #fff;
+  background-color: #050608;
+  -ms-overflow-style: none;
+}
+
+input,
+select,
+a,
+button {
+  color: inherit;
+
+  /* blue colors for links too */
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+// fdb-dialog
+.fbd-dialog.el-dialog {
+  color: #fff;
+  background: #181d28;
+  border-radius: 6px;
+
+  .el-dialog__header {
+    text-align: center;
+
+    .el-dialog__title {
+      color: #fff;
+    }
+  }
+
+  .el-dialog__body {
+    color: #fff;
+  }
+
+  .el-dialog__footer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+// date-picker
+.fdb.el-date-editor {
+  background-color: #1e2433;
+  border-color: #1e2433;
+
+  @media screen and (max-width: 1370px) {
+    width: 260px;
+  }
+
+  .el-input__inner {
+    height: 34px;
+    line-height: 34px;
+    color: #ccc;
+    background-color: #1e2433;
+    border: 1px solid #1e2533;
+  }
+
+  .el-range-input {
+    width: 41%;
+    color: #ccc;
+    background-color: #1e2433;
+  }
+
+  .el-input__prefix {
+    top: -3px;
+    color: #ccc;
+  }
+
+  .el-range-separator {
+    color: #ccc;
+  }
+
+  .el-range__close-icon {
+    width: 0;
+  }
+}
+
+// fdb dropdown-menu
+.fdb-menu.el-dropdown-menu {
+  padding: 2px 0;
+  margin: 0;
+  background-color: #252c3d;
+  border: 1px solid #252c3d;
+
+  .el-dropdown-menu__item {
+    padding: 8px 20px;
+    line-height: unset;
+    color: #fff;
+
+    &.active,
+    &:hover {
+      color: #fff;
+      background-color: #373f53;
+    }
+
+    .color-item {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+
+  .popper__arrow {
+    display: none;
+  }
+}
+
+// avatar
+.el-avatar {
+  background-color: unset;
+}
+
+// text color
+.text {
+  &-green {
+    color: #05d394;
+  }
+
+  &-red {
+    color: #df6475;
+  }
+}
+
+// status 狀態小圓圈
+.status {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+
+  &.yet {
+    background-color: #eb5757;
+  }
+
+  &.progress {
+    background-color: #ffc107;
+  }
+
+  &.already {
+    background-color: #27ae60;
+  }
+}
+
+// 連結文字
+.text-link {
+  color: $Primary-light;
+  cursor: pointer;
+}
+
+// 文章背景
+.info-bg {
+  &-forum {
+    background-color: #F2C94C;
+  }
+
+  &-bulletin {
+    background-color: #F2994A;
+  }
+
+  &-activity {
+    background-color: #4BBABD;
+  }
+}
+
+// element select
+.fdb-select.el-select {
+  .el-input {
+    .el-input__inner {
+      height: 28px;
+      font-size: 13px;
+      line-height: 28px;
+      color: #c4c4c4;
+      background-color: #252c3d;
+      border: 1px solid #252c3d;
+    }
+
+    .el-input__icon {
+      line-height: 28px;
+    }
+  }
+
+  &.select-L {
+    .el-input {
+      .el-input__inner {
+        height: 42px;
+        font-size: 16px;
+        line-height: 42px;
+      }
+
+      .el-input__icon {
+        line-height: 42px;
+      }
+    }
+  }
+
+  &.select-M {
+    .el-input {
+      .el-input__inner {
+        height: 38px;
+        font-size: 13px;
+        line-height: 38px;
+      }
+
+      .el-input__icon {
+        line-height: 38px;
+      }
+    }
+  }
+}
+
+.fdb-select.el-select-dropdown {
+  padding: 2px 0;
+  margin-top: 4px;
+  background-color: #252c3d;
+  border: 1px solid #252c3d;
+
+  .el-select-dropdown__item {
+    padding: 8px 20px;
+    line-height: unset;
+    color: #fff;
+
+    &.selected,
+    &.hover,
+    &.active,
+    &:hover {
+      color: #fff;
+      background-color: #373f53;
+    }
+
+    .color-item {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+
+  .popper__arrow {
+    display: none;
+  }
+}
+
+// 提示訊息
+.el-message {
+  min-width: 300px;
+}
+
+.m-logo {
+  display: none;
+  margin-bottom: 19px;
+
+  .m-logo-img {
+    width: 240px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-c-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cursor-point {
+  cursor: pointer;
+}
+
+// v-loading
+.el-loading-mask {
+  background-color: unset;
+}

@@ -1,38 +1,58 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
-  
+- dev
+
 pool:
-  vmImage: vs2017-win2016
+  vmImage: 'ubuntu-latest'
+
+
+variables:
+  ${{if contains(variables['Build.SourceBranchName'], 'main')}}:
+      Temp_Env: 'prod'
+  ${{if contains(variables['Build.SourceBranchName'], 'dev')}}:
+      Temp_Env: 'dev'
+
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
+
 - task: Npm@1
   displayName: 'npm install'
   inputs:
     verbose: false
-    workingDir: '$(Build.SourcesDirectory)/src'
+    workingDir: '$(Build.SourcesDirectory)'
 
 - task: Npm@1
   displayName: 'npm build'
   inputs:
     command: custom
     verbose: false
-    customCommand: 'run build'
-    workingDir: '$(Build.SourcesDirectory)/src'
+    customCommand: 'run build:$(Temp_Env)'
+    workingDir: '$(Build.SourcesDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      .nuxt/**
+      static/**
+      package.json
+      nuxt.config.js
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: ArchiveFiles@2
   displayName: Archive
   inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)/dist'
+    rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.SourceVersion)_$(Build.BuildId).zip'
 
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: build'
   inputs:
-    ArtifactName: build
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.SourceVersion)_$(Build.BuildId).zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

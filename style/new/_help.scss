@@ -1,0 +1,143 @@
+.help-collapse {
+  padding-right: 40px;
+
+  .el-collapse {
+    border: none;
+  }
+
+  .el-collapse-item__header {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+  }
+
+  .el-collapse-item__wrap {
+    padding-left: 24px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  .el-collapse-item__content {
+    padding-bottom: 0;
+    line-height: 1.4;
+  }
+
+  .collapse-item {
+    position: relative;
+    padding: 8px;
+    font-size: 24px;
+    color: #c4c4c4;
+
+    &:hover {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    &::before {
+      position: absolute;
+      top: 20px;
+      left: -16px;
+      width: 12px;
+      height: 12px;
+      content: "";
+      background-color: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  .el-collapse-item__arrow {
+    margin: 0 12px;
+    font-size: 16px;
+  }
+}
+
+.help-title {
+  padding-bottom: 10px;
+  padding-left: 16px;
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  border-left: 5px solid $Primary-light;
+}
+
+.help-list {
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .help-list {
+    .item-dec,
+    .item-img {
+      width: 100%;
+    }
+  }
+
+  .help-collapse {
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #505050;
+
+    .el-collapse-item__header {
+      font-size: 20px;
+    }
+
+    .collapse-item {
+      font-size: 16px;
+
+      &::before {
+        top: 14px;
+      }
+    }
+  }
+
+  .help-title {
+    padding-bottom: 0;
+    margin-bottom: 36px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .help-collapse {
+    .el-collapse-item__header {
+      font-size: 18px;
+    }
+
+    .collapse-item {
+      font-size: 14px;
+
+      &::before {
+        top: 13px;
+      }
+    }
+
+    .el-collapse-item__wrap {
+      margin-bottom: 8px;
+    }
+  }
+
+  .help-list {
+    &__item {
+      padding-bottom: 40px;
+    }
+
+    .item-title {
+      font-size: 20px;
+    }
+
+    .item-dec {
+      font-size: 14px;
+    }
+  }
+
+  .help-title {
+    margin-bottom: 24px;
+  }
+}

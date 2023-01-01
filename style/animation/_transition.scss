@@ -1,0 +1,58 @@
+.fade-transform-enter-active,
+.fade-transform-leave-active {
+  transition: opacity 0.4s;
+}
+
+.fade-transform-enter,
+.fade-transform-leave-active {
+  opacity: 0;
+}
+
+.hover-primary {
+  transition: color 0.3s;
+
+  &:hover {
+    color: $Primary-light;
+  }
+}
+
+
+@keyframes rebound {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rebound-reverse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hover-image {
+  &:hover {
+    animation: 0.6s rebound cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+}
+
+.hover-image-reverse {
+  &:hover {
+    animation: 0.6s rebound-reverse cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+}

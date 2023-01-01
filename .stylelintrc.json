@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-recess-order"
+  ],
+  "plugins": [
+    "stylelint-prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["*.scss", "**/*.scss"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["*.vue", "**/*.vue"],
+      "customSyntax": "postcss-html"
+    }
+  ],
+  "rules": {
+    "indentation": 2,
+    "no-descending-specificity": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "property-no-vendor-prefix": null,
+    "value-no-vendor-prefix": null,
+    "selector-no-vendor-prefix": null,
+    "declaration-property-value-disallowed-list": null,
+    "selector-no-qualifying-type": null,
+    "selector-max-compound-selectors": null,
+    "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": null,
+    "property-no-unknown": null
+  }
+}

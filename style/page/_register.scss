@@ -1,0 +1,35 @@
+.register-main {
+  .check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .split-input {
+    display: flex;
+    float: left;
+    width: 100%;
+
+    .input {
+      box-sizing: border-box;
+      float: left;
+      height: 42px;
+      padding-left: 10px;
+      font-size: 16px;
+      color: #c4c4c4;
+      background: #252c3d;
+      border: none;
+      border-radius: 8px;
+    }
+  }
+
+  /* Change the white to any color ;) */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    caret-color: #fff;
+    box-shadow: 0 0 0 30px #252c3d inset !important;
+    -webkit-text-fill-color: #c4c4c4 !important;
+  }
+}

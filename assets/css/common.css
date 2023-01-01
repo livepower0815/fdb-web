@@ -1,0 +1,508 @@
+/* 共用 */
+@font-face {
+  font-family: 'Noto Sans CJK TC';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/NotoSansCJKtc-Regular.otf') format('opentype');
+
+  /* unicode-range: U+4E00-9FFF; */
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK TC';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../font/NotoSansTC-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/avenir_ff/AvenirLTStd-Roman.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: bold;
+  src: url('../font/avenir_ff/AvenirLTStd-Heavy.otf') format('opentype');
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+input,
+select,
+a,
+button {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.outline {
+  float: left;
+  width: 100%;
+  height: auto;
+}
+
+.outblock {
+  display: block;
+  width: 1347px;
+  height: auto;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(90 90 90 / 50%);
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(0 0 0 / 20%);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  appearance: textfield;
+}
+
+/* Header */
+
+/* Register */
+.register-bg {
+  float: left;
+  width: 100%;
+  height: 100vh;
+}
+
+.register-kv-block {
+  float: left;
+  width: 60%;
+  height: 100vh;
+  background: url('../img/common/login-bg.png') no-repeat;
+  background-position: center 50px;
+  background-size: contain;
+}
+
+.register-kv-block > a.logo {
+  position: absolute;
+  top: 80px;
+  float: left;
+  width: 240px;
+  height: auto;
+  margin: 0 0 0 95px;
+}
+
+.register-main-block {
+  float: right;
+  width: 40%;
+  height: 100vh;
+}
+
+.register-main-block > div.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.register-main-block > div.main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 19px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.register-main {
+  float: left;
+  width: 100%;
+  height: 66px;
+  margin-bottom: 20px;
+}
+
+.register-main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.register-main > input.input {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #c4c4c4;
+  background: #252c3d;
+  border: none;
+  border-radius: 8px;
+}
+
+.register-main > .check {
+  box-sizing: border-box;
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  margin-right: 9px;
+  cursor: pointer;
+  background: #252c3d;
+  border: none;
+  border-radius: 2px;
+}
+
+.register-main > div.check-title {
+  float: left;
+  width: auto;
+  height: auto;
+  margin-bottom: 32px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 24px;
+}
+
+.register-bg .register-main-btn {
+  float: left;
+  height: 44px;
+  font-family: 'Noto Sans CJK TC';
+  font-size: 20px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-image: linear-gradient(to top, #3ea9cc, #62ffff);
+  border-radius: 500px;
+}
+
+.register-main-tips {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Register */
+
+/* login */
+.login-bg {
+  float: left;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-kv-block {
+  float: left;
+  width: 60%;
+  height: 100vh;
+  background: url('../img/common/login-bg.png') no-repeat;
+  background-position: center 50px;
+  background-size: contain;
+}
+
+.login-kv-block > a.logo {
+  position: absolute;
+  top: 80px;
+  float: left;
+  width: 240px;
+  height: auto;
+  margin: 0 0 0 95px;
+}
+
+.login-main-block {
+  float: right;
+  width: 40%;
+  height: 100vh;
+}
+
+.login-main-block > div.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.login-main-block > div.main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 19px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.login-main {
+  float: left;
+  width: 100%;
+  height: 66px;
+  margin-bottom: 20px;
+}
+
+.login-main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.login-main > input.input {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #c4c4c4;
+  background: #252c3d;
+  border: none;
+  border-radius: 8px;
+}
+
+.login-bg .login-main-btn {
+  float: left;
+  height: 44px;
+  font-family: 'Noto Sans CJK TC';
+  font-size: 20px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-image: linear-gradient(to top, #3ea9cc, #62ffff);
+  border-radius: 500px;
+}
+
+.login-main-tips {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* login */
+
+/* reset */
+.reset-bg {
+  float: left;
+  width: 100%;
+  height: 100vh;
+}
+
+.reset-kv-block {
+  float: left;
+  width: 60%;
+  height: 100vh;
+  background: url('../img/common/login-bg.png') no-repeat;
+  background-position: center 50px;
+  background-size: contain;
+}
+
+.reset-kv-block > a.logo {
+  position: absolute;
+  top: 80px;
+  float: left;
+  width: 240px;
+  height: auto;
+  margin: 0 0 0 95px;
+}
+
+.reset-main-block {
+  float: right;
+  width: 40%;
+  height: 100vh;
+}
+
+.reset-main-block > div.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.reset-main-block > div.main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 19px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.reset-main {
+  float: left;
+  width: 100%;
+  height: 66px;
+  margin-bottom: 12px;
+}
+
+.reset-main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.reset-main > input.input {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #c4c4c4;
+  background: #252c3d;
+  border: none;
+  border-radius: 8px;
+}
+
+.reset-bg .reset-main-btn {
+  float: left;
+  height: 44px;
+  font-size: 18px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-image: linear-gradient(to top, #3ea9cc, #62ffff);
+  border-radius: 500px;
+}
+
+.reset-main-tips {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* reset */
+
+/* newpwd */
+.newpwd-bg {
+  float: left;
+  width: 100%;
+  height: 100vh;
+}
+
+.newpwd-kv-block {
+  float: left;
+  width: 60%;
+  height: 100vh;
+  background: url('../img/common/login-bg.png') no-repeat;
+  background-position: center 50px;
+  background-size: contain;
+}
+
+.newpwd-kv-block > a.logo {
+  position: absolute;
+  top: 80px;
+  float: left;
+  width: 240px;
+  height: auto;
+  margin: 0 0 0 95px;
+}
+
+.newpwd-main-block {
+  float: right;
+  width: 40%;
+  height: 100vh;
+}
+
+.newpwd-main-block > div.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.newpwd-main-block > div.main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 19px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.newpwd-main {
+  float: left;
+  width: 100%;
+  height: 66px;
+  margin-bottom: 12px;
+}
+
+.newpwd-main > div.title {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.newpwd-main > input.input {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  font-size: 13px;
+  color: #c4c4c4;
+  background: #252c3d;
+  border: none;
+  border-radius: 8px;
+}
+
+.newpwd-bg .newpwd-main-btn {
+  float: left;
+  height: 44px;
+  font-size: 20px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-image: linear-gradient(to top, #3ea9cc, #62ffff);
+  border-radius: 500px;
+}
+
+/* newpwd */

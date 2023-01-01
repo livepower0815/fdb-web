@@ -1,0 +1,320 @@
+.exchange-card-group{
+  display:flex;
+  flex-wrap: wrap;
+  width:100%;
+}
+
+.star-score{
+  display: flex;
+  justify-content: space-between;
+  margin:auto 0;
+
+  &__item{
+    flex-shrink: 0;
+    width:16px;
+    height:16px;
+    background-image: url('@/assets/img/common/icon-star.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+
+    &:last-child{
+      margin-right:0;
+    }
+
+    &--active{
+      background-image: url('@/assets/img/common/icon-star-active.png');
+    }
+
+    &--helf{
+      background-image: url('@/assets/img/common/icon-star-half.png');
+    }
+  }
+}
+
+.exchange-card{
+  width:30%;
+  margin-right:5%;
+  margin-bottom:5%;
+  background-color: #151923;
+  border-radius: 16px;
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    padding:16px 20px 8px;
+  }
+
+  .exchange-brand{
+    display: flex;
+    align-items: center;
+
+    &__icon{
+      width:34px;
+      height:34px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &__id{
+      padding-left:4px;
+      margin:0;
+      font-size:20px;
+      color:#fff;
+    }
+  }
+
+  .exchange-since{
+    padding-top:12px;
+
+    &__text{
+      margin:0;
+      font-size:16px;
+      line-height: 22px;
+      color: #e5e5e5;
+    }
+  }
+
+  .exchange-dec{
+    padding-top:4px;
+
+    &__text{
+      margin:0;
+      font-size:16px;
+      line-height: 22px;
+      color:#e5e5e5;
+    }
+  }
+
+  .more-btn{
+    display: block;
+    padding-top:12px;
+
+    &__text{
+      font-size:20px;
+      line-height: 28px;
+      color:$Primary-light;
+    }
+  }
+
+  .exchange-score{
+    display: flex;
+    padding:20px 0;
+    margin-top:auto;
+
+    &__item{
+      display: flex;
+      flex:1;
+      flex-direction: column;
+      min-width:20%;
+      padding:0 12px;
+      border-right:1px solid #F2F2F2;
+
+      .item-title{
+        display: flex;
+        align-items: center;
+        padding-bottom:4px;
+
+        &__text{
+          margin:0;
+          font-size:16px;
+        }
+
+        &__btn{
+          display: block;
+          width: 20px;
+          height:20px;
+          margin-left:6px;
+          background-image: url('@/assets/img/common/ic24-info@2x.png');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size:contain;
+        }
+      }
+
+      .item-result{
+        &__symbol{
+          font-size:16px;
+          color:#C4C4C4;
+        }
+
+        &__rank{
+          font-family: avenir;
+          font-size:30px;
+          font-weight: bold;
+          color:#fff;
+        }
+      }
+
+      &:first-child{
+        padding-left:0;
+      }
+
+      &:last-child{
+        padding-right:0;
+        border-right:none;
+      }
+    }
+  }
+
+  .exchange-btn-group{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .exchange-btn{
+    flex:1;
+    max-width: 45%;
+    margin-right:8px;
+    text-align: center;
+
+    &__btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height:38px;
+      padding:8px;
+      border:1px solid $Primary-light;
+      border-radius: 8px;
+
+      .btn-text{
+        font-size:14px;
+        color:#fff;
+      }
+
+      &.-primary{
+        background-image: linear-gradient(to bottom,$Primary-light 0%,#3ea9cc 100%);
+        border:none;
+      }
+    }
+
+    &__dec{
+      font-size:14px;
+      color:#fff;
+    }
+
+    &:last-child{
+      margin-right:0;
+    }
+  }
+
+  &:nth-child(3n){
+    margin-right:0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .exchange-card{
+    width:32%;
+    margin-right:2%;
+    margin-bottom:2%;
+
+    .exchange-score__item{
+      padding:0 8px;
+
+      .item-title__text{
+        font-size:14px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .star-score__item{
+    margin-right:3px;
+  }
+
+  .exchange-card{
+    width:48%;
+    margin-right:4%;
+    margin-bottom:4%;
+
+    &__content{
+      padding:18px;
+    }
+
+    .exchange-brand__icon{
+      width:30px;
+      height:30px;
+    }
+
+    .exchange-brand__id{
+      font-size:20px;
+    }
+
+    .exchange-since{
+      padding-top:8px;
+    }
+
+    .exchange-since__text,.exchange-dec__text{
+      font-size:12px;
+      line-height: 17px;
+    }
+
+    .more-btn{
+      padding-top:10px;
+
+      &__text{
+        font-size:14px;
+        line-height: 22px;
+      }
+    }
+
+    .exchange-score{
+      padding:16px 0;
+
+      &__item{
+        padding:6px;
+
+        .item-title__text{
+          font-size:12px;
+        }
+
+        .item-title__btn{
+          width:16px;
+          height:16px;
+        }
+
+        .item-result{
+          &__symbol{
+            font-size:14px;
+          }
+
+          &__rank{
+            font-size:28px;
+          }
+        }
+      }
+    }
+
+    .exchange-btn{
+      max-width:48%;
+    }
+
+    &:nth-child(2n){
+      margin-right:0;
+    }
+
+    &:nth-child(3n){
+      margin-right:4%;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .star-score{
+    justify-content:flex-start;
+  }
+
+  .exchange-card{
+    width:100%;
+    margin-right:0;
+    margin-bottom:6%;
+
+    &:nth-child(3n){
+      margin-right:0;
+    }
+
+    &__content{
+      padding:16px;
+    }
+  }
+}

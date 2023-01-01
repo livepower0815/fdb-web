@@ -1,0 +1,30 @@
+@keyframes blink-smooth {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  25% {
+    opacity: 0.8;
+    transform: translateY(-4%);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: translateY(-8%);
+  }
+
+  75% {
+    opacity: 0.8;
+    transform: translateY(-4%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.twinkling {
+  animation: 1.2s blink-smooth linear infinite;
+}

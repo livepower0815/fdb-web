@@ -1,0 +1,23 @@
+.n-search{
+  display: flex;
+  align-items: center;
+  min-width:45%;
+  padding:1%;
+  margin-top:1.5%;
+  background-color:#1E2433;
+  border-radius: 12px;
+
+  &__icon{
+    display: block;
+    flex-shrink: 0;
+    width:22px;
+    height:22px;
+    margin-right:8px;
+  }
+
+  &__input{
+    flex:1;
+    font-size:16px;
+    background-color:transparent;
+  }
+}
