@@ -37,7 +37,7 @@ module.exports = {
         content: 'https://fdb-web-api.azurewebsites.net/Upload/UserImage/202111282001344329/F20211128200134.png'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.png' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/fdb-web/logo.png' }],
     // Google OAuth2 使用
     script: [{ src: 'https://accounts.google.com/gsi/client', async: true, defer: true }]
   },
