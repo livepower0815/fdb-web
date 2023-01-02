@@ -1,4 +1,4 @@
-import adImage from './imgs/ad-image.png'
+import fdbImage from './imgs/fdb-image.png'
 
 export const getCommercial = async () => {
   return [
@@ -7,7 +7,7 @@ export const getCommercial = async () => {
       titlePosition: 1,
       titleColor: '#FFFFFF',
       url: 'https://partner.bybit.com/b/fundobit',
-      img: adImage,
+      img: fdbImage,
       imgAlt: 'bybit-metatrader',
       lang: 'TW',
       store: 'Bybit',
@@ -18,7 +18,7 @@ export const getCommercial = async () => {
       titlePosition: 3,
       titleColor: '#FFFFFF',
       url: 'https://fdb-web-front.azurewebsites.net/TW/partner',
-      img: adImage,
+      img: fdbImage,
       imgAlt: 'Fundobit-partner',
       lang: 'TW',
       store: 'Fundobit',
