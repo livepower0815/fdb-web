@@ -2,7 +2,7 @@ module.exports = {
   target: 'static',
   ssr: false,
   router: {
-    base: '/fdb-web/dist/',
+    base: '/fdb-web/',
     mode: 'hash'
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
