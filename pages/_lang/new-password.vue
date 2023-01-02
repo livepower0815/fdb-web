@@ -63,10 +63,10 @@ export default {
     }
   },
   mounted() {
-    if (!this.$route.query.AuthCore) {
-      this.$message.error(this.$t('useless_pages'))
-      this.$router.push({ name: 'lang-home', params: { lang: this.$route.params.lang } })
-    }
+    // if (!this.$route.query.AuthCore) {
+    //   this.$message.error(this.$t('useless_pages'))
+    //   this.$router.push({ name: 'lang-home', params: { lang: this.$route.params.lang } })
+    // }
   },
   methods: {
     async resetPassword() {

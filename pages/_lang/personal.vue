@@ -107,6 +107,7 @@ export default {
   },
   created() {
     this.activedTag = this.$route.query.tab || 'exchange-control'
+    this.$store.dispatch('app/getCoinStoreGroup')
   },
   methods: {
     switchTag(tagKey) {

@@ -1,13 +1,16 @@
 import { getHomePageInfo, getMarketPulse, getCoinTrend, getHomeRecommendNews } from '../mock/common'
 
-export default axios => ({
+export default () => ({
   // 上傳圖檔轉換 url
-  uploadFile: data =>
-    axios({
-      url: '/api/Common/UploadFile',
-      method: 'POST',
-      data
-    }),
+  uploadFile: async () => {
+    return Promise.reject('error')
+  },
+  // uploadFile: data =>
+  //   axios({
+  //     url: '/api/Common/UploadFile',
+  //     method: 'POST',
+  //     data
+  //   }),
   // 首頁資訊
   getHomePageInfo,
   // getHomePageInfo: () =>
