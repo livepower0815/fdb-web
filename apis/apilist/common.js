@@ -1,3 +1,5 @@
+import { getHomePageInfo, getMarketPulse, getCoinTrend, getHomeRecommendNews } from '../mock/common'
+
 export default axios => ({
   // 上傳圖檔轉換 url
   uploadFile: data =>
@@ -7,28 +9,32 @@ export default axios => ({
       data
     }),
   // 首頁資訊
-  getHomePageInfo: () =>
-    axios({
-      url: '/api/Index/GetIndexPageInfo',
-      method: 'GET'
-    }),
+  getHomePageInfo,
+  // getHomePageInfo: () =>
+  //   axios({
+  //     url: '/api/Index/GetIndexPageInfo',
+  //     method: 'GET'
+  //   }),
   // 市場脈動
-  getMarketPulse: data =>
-    axios({
-      url: '/api/Index/GetMarketPulse',
-      method: 'POST',
-      data
-    }),
+  getMarketPulse,
+  // getMarketPulse: data =>
+  //   axios({
+  //     url: '/api/Index/GetMarketPulse',
+  //     method: 'POST',
+  //     data
+  //   }),
   // 貨幣趨勢
-  getCoinTrend: () =>
-    axios({
-      url: '/api/Index/CoinTrend',
-      method: 'GET'
-    }),
+  getCoinTrend,
+  // getCoinTrend: () =>
+  //   axios({
+  //     url: '/api/Index/CoinTrend',
+  //     method: 'GET'
+  //   }),
   // 推薦文章
-  getHomeRecommendNews: () =>
-    axios({
-      url: '/api/Index/GetRecommendNews',
-      method: 'POST'
-    })
+  getHomeRecommendNews
+  // getHomeRecommendNews: () =>
+  //   axios({
+  //     url: '/api/Index/GetRecommendNews',
+  //     method: 'POST'
+  //   })
 })
