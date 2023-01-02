@@ -1,5 +1,10 @@
 module.exports = {
   target: 'static',
+  ssr: false,
+  router: {
+    base: '/fdb-web/dist/',
+    mode: 'hash'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'FUNDOBIT',
@@ -54,12 +59,12 @@ module.exports = {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/element-ui.js' },
-    { src: '~/plugins/i18n.js' },
-    { src: '~/plugins/date-helper.js' },
-    { src: '~/plugins/axios' },
-    { src: '~/plugins/api-plugin.js' },
-    { src: '~/plugins/enum-map.js' },
+    { src: '~/plugins/element-ui.js', mode: 'client' },
+    { src: '~/plugins/i18n.js', mode: 'client' },
+    { src: '~/plugins/date-helper.js', mode: 'client' },
+    { src: '~/plugins/axios', mode: 'client' },
+    { src: '~/plugins/api-plugin.js', mode: 'client' },
+    { src: '~/plugins/enum-map.js', mode: 'client' },
     { src: '~/plugins/echarts.js', mode: 'client' },
     { src: '~/plugins/vuex-init.js', mode: 'client' },
     { src: '~/plugins/permission.js', mode: 'client' },
